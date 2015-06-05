@@ -9,7 +9,8 @@
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<%- if !@user.nil? && @user.logged_in? -%>
-				<li><%= link_to("edit", edit_user_path(@user)) -%></li>
+				<li><%= link_to("admin", user_path(@user)) -%></li>
+				<li><%= link_to("edit", edit_user_path(@user), :remote => true) -%></li>
 				<li><%= link_to("logout", user_session_path, :method => :delete) -%></li>
 			<%- else -%>
 				<li><%= link_to("login", user_session_path, :method => :delete) -%></li>

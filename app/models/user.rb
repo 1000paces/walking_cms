@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_one :domain
+	has_many :pages
 
 	before_validation :copy_login_to_email
 

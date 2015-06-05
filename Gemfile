@@ -36,6 +36,7 @@ gem 'remotipart', '~> 1.2' #~> 1.0.2' #### gem for multipart form uploads with j
 gem 'authlogic', '= 3.4.5' ####login manager
 gem 'engineyard'
 gem 'ey_config'
+gem 'acts_as_tree'
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'

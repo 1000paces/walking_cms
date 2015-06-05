@@ -4,11 +4,14 @@
 			<%= link_to "#", :class => "navbar-brand" do -%>
 				<%= image_tag "1kp_brand.png", :size => "20x20", :title => "#{@user.friendly_name}" -%>
 			<%- end -%>
+			<%= link_to "#", :class => "navbar-brand" do -%>
+				<%= @user.friendly_name -%> <%= "| #{@user.domain.name}" unless @user.domain.nil? -%>
+			<%- end -%>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<%= link_to "#", :class => "toggle-drawer", :id => "toggle-pages", :data => {:type => "pages"} do -%>
+					<%= link_to pages_path, :class => "toggle-drawer-x", :id => "toggle-pages", :data => {:type => "pages"}, :remote => true do -%>
 						Pages
 					<%- end -%>
 				</li>

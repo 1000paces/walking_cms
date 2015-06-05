@@ -1,0 +1,10 @@
+if($("#drawer-pages").is(':visible')){
+	$("#full-height").css('padding-right', '0');
+	$("#drawer-pages").toggle('slide', {direction: 'left'}, 1000).delay(1000).hide();
+} else {
+	$(".right-column").hide(); /*.toggle('slide', {direction: 'left'}, 1000).delay(1000).hide();*/
+	$("#full-height").css('padding-right', '20%');
+	$("#drawer-pages").toggle('slide', {direction: 'right'}).delay(1000).show();
+	$("#toggle-pages").addClass("active");
+	$("#pages-index").html("<%= j render(:partial => 'pages/index') -%>");
+}

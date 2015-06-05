@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604154913) do
+ActiveRecord::Schema.define(version: 20150605013121) do
 
   create_table "domains", force: :cascade do |t|
     t.integer  "user_id",    limit: 4,   default: 1,     null: false
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 20150604154913) do
   end
 
   add_index "domains", ["name"], name: "index_domains_on_name", using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,   default: 1,     null: false
+    t.string   "label",      limit: 255, default: "",    null: false
+    t.string   "permalink",  limit: 255, default: "",    null: false
+    t.integer  "position",   limit: 4
+    t.integer  "parent_id",  limit: 4
+    t.boolean  "secure",     limit: 1,   default: false
+    t.string   "snippet",    limit: 255, default: "",    null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "login",             limit: 255,             null: false
