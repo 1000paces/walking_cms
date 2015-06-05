@@ -13,15 +13,22 @@ div#full-height {
 	min-height: 100%;
 }
 
+.header-row {
+	background-color: #e8e8e8;
+	padding: 0 0 10px 0 !important;
+	margin-right: 0 !important;
+	margin-bottom: 20px !important;
+}
+
 .side-column {
 	background-color: #eee;
 }
 
 .left-column {
 	position: absolute;
-	top: 0;
+	top: 50px;
 	left: 0;
-	width: 20%;
+	width: 80%;
 }
 
 .right-column {
@@ -30,6 +37,7 @@ div#full-height {
 	right: 0;
 	width: 20%;
 	display: none;
+	z-index: 999;
 }
 
 .center-column {
@@ -37,7 +45,7 @@ div#full-height {
 }
 
 body {
-	background-color: #9d9d9d !important;
+	background-color: #666 !important; /*#9d9d9d ;*/
 	padding: 0 !important;
 }
 
@@ -48,8 +56,30 @@ body {
 	height: 100% !important;
 	position: relative;	
 	background-color: #fff !important;
+	border-right: 1px solid #101010;
+	margin-right: -1px !important;
 }
 
 .white-text {
 	color: #fff;
+}
+
+a.sidebar-link {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+a.sidebar-link:hover {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+a.sidebar-link:visited {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+a.sidebar-link:active {
+	color: #fff !important;
+	text-decoration: none !important;
 }

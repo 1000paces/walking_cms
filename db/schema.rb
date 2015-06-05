@@ -29,15 +29,19 @@ ActiveRecord::Schema.define(version: 20150605013121) do
   add_index "domains", ["name"], name: "index_domains_on_name", using: :btree
 
   create_table "pages", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4,   default: 1,     null: false
-    t.string   "label",      limit: 255, default: "",    null: false
-    t.string   "permalink",  limit: 255, default: "",    null: false
+    t.integer  "user_id",    limit: 4,   default: 1,       null: false
+    t.string   "label",      limit: 255, default: "",      null: false
+    t.string   "title",      limit: 255, default: "",      null: false
+    t.string   "permalink",  limit: 255, default: "",      null: false
     t.integer  "position",   limit: 4
     t.integer  "parent_id",  limit: 4
     t.boolean  "secure",     limit: 1,   default: false
-    t.string   "snippet",    limit: 255, default: "",    null: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.string   "snippet",    limit: 255, default: "",      null: false
+    t.string   "password",   limit: 255
+    t.string   "status",     limit: 255, default: "DRAFT", null: false
+    t.boolean  "fluid",      limit: 1,   default: true,    null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree

@@ -1,1 +1,10 @@
-Hello There
+<ul class="list-unstyled">
+	<li class="text-center">
+		<%= link_to "<i class='fa fa-fw fa-plus'></i> New Page".html_safe, new_page_path, :class => 'sidebar-link', :remote => true -%>
+	</li>
+</ul>
+<ol class="list-unstyled" id="page-list">	
+	<%- @user.pages.each do |page| -%>
+		<li><%= page.label -%></li>
+	<%- end -%>
+</ol>

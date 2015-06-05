@@ -12,4 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require turbolinks
+
+//= require jquery.remotipart
+//= require ckeditor-jquery
+//= require jquery.mjs.nestedSortable
+
 //= require_tree .
+
+

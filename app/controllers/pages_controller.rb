@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def new
+  	@page = Page.new
   end
 
   def create

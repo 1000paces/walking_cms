@@ -11,9 +11,7 @@
 		<div class="navbar-collapse collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<%= link_to pages_path, :class => "toggle-drawer-x", :id => "toggle-pages", :data => {:type => "pages"}, :remote => true do -%>
-						Pages
-					<%- end -%>
+					<%= link_to "Pages", pages_path, :remote => true  -%>
 				</li>
 				<li>
 					<%= link_to "#", :class => "toggle-drawer", :id => "toggle-settings", :data => {:type => "settings"} do -%>

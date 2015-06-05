@@ -63,6 +63,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def set_user
-		@user = @current_user
+		Rails.logger.warn("=> ApplicationController::set_user")
+		@user = current_user
 	end
 end
