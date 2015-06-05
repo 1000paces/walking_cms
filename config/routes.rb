@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resource :user_session, only: [:create, :new, :destroy]  
+  resources :domains
+  resources :users
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

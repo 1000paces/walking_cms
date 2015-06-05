@@ -33,7 +33,7 @@ gem 'mini_magick' #### Image Magik
 gem 'ckeditor_rails'
 gem 'nokogiri'#, '= 1.6.0' #### XML/HTML Parser
 gem 'remotipart', '~> 1.2' #~> 1.0.2' #### gem for multipart form uploads with jquery
-gem 'authlogic'#, '= 3.3.0' ####login manager
+gem 'authlogic', '= 3.4.5' ####login manager
 gem 'engineyard'
 gem 'ey_config'
 

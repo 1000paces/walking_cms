@@ -1,0 +1,61 @@
+<%= render :partial => "toolbar" -%>
+<div class="container-fluid full-height-container">
+	<div class="row">
+		<div class="col-md-12 center-column" id="work-area">
+			<div class="row">
+				<div class="col-md-12" id="header-row"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12" id="body-row"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12" id="footer-row"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<%= render :partial => 'footer' -%>
+
+<div class="right-column" id="drawer-assets">
+	<h1 class="lead text-center white-text"><i class="fa fa-fw fa-archive"></i> Assets</h1>
+</div>
+<div class="right-column" id="drawer-settings">
+	<h1 class="lead text-center white-text"><i class="fa fa-fw fa-cog"></i> Settings</h1>
+</div>
+<div class="right-column" id="drawer-pages">
+	<h1 class="lead text-center white-text"><i class="fa fa-fw fa-file"></i> Pages</h1>
+</div>
+<div class="right-column" id="drawer-help">
+	<h1 class="lead text-center white-text"><i class="fa fa-fw fa-question-circle"></i> Help</h1>
+</div>
+
+
+<script>
+	$('.toggle-drawer').on('click', function(e){
+		val = $(this).attr('data-type');
+		$(".toggle-drawer").removeClass('active');
+		if($("#drawer-" + val).is(':visible')){
+			$("#full-height").css('padding-right', '0');
+			$("#drawer-" + val).toggle('slide', {direction: 'left'}, 1000).delay(1000).hide();	
+		} else {
+			$(".right-column").hide(); /*.toggle('slide', {direction: 'left'}, 1000).delay(1000).hide();*/
+			$("#full-height").css('padding-right', '20%');
+			$("#drawer-" + val).toggle('slide', {direction: 'right'}).delay(1000).show();
+			$("#toggle-" + val).addClass("active");
+		}
+	});
+/***
+	$('#toggle_assets').on('click', function(e){
+		if($('#assets-drawer').is(':visible')){
+			$("#full-height").css('padding-right', '0');
+			$("#assets-drawer").toggle('slide', {direction: 'left'}, 1000).delay(1000).hide();	
+		} else {
+			$("#full-height").css('padding-right', '20%');
+			$("#assets-drawer").toggle('slide', {direction: 'right'}, 1000).delay(1000).show();	
+		}
+	});
+
+***/
+
+
+</script>
