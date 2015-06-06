@@ -63,15 +63,23 @@ body {
 .white-text {
 	color: #fff;
 }
+
+.white-text {
+	color: #fff;
+}
+
 .white-text-label {
 	margin-top: 20px;
 	color: #fff;
-	font-weight: 300;	
+	font-weight: 300;
+	padding: 6px 0;
+	background-color: #7f7f7f !important;
 }
 
 a.sidebar-link {
 	color: #fff !important;
 	text-decoration: none !important;
+	font-weight: 100;
 }
 
 a.sidebar-link:hover {
@@ -92,3 +100,17 @@ a.sidebar-link:active {
 .page-list li {
 	padding: 8px 4px;
 }
+
+ol.page-list {
+	padding-left: 40px !important;
+}
+
+ol.list-unstyled ol {
+	list-style: none;
+	padding-left: 20px;
+}
+
+.placeholder {
+	background-color: #7f7f7f;
+}
+

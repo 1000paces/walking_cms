@@ -1,6 +1,6 @@
 if($("#drawer-pages").is(':visible')){
-	$("#full-height").animate({'padding-right' : 0}, "slow", function() {
-		$("#drawer-pages").hide();
+	$("#drawer-pages").hide("slide", { direction: "right" }, 500);
+	$("#full-height").animate({'padding-right' : 0}, 500, function() {
 		$("#drawer-forms").empty();
 	});	
 	$("#toggle-pages").removeClass("active");
@@ -8,8 +8,8 @@ if($("#drawer-pages").is(':visible')){
 } else {
 	$("#pages-index-div").html("<%= j render(:partial => 'pages/index') -%>");
 	$(".right-column").hide(); 
-	$("#drawer-pages").show();
-	$("#full-height").animate({'padding-right' : '20%'}, "slow", function() {
+	$("#drawer-pages").show("slide", { direction: "right" }, 750);
+	$("#full-height").animate({'padding-right' : '20%'}, 750, function() {
 		$("#toggle-pages").addClass("active");
 	});
 	

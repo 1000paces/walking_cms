@@ -15,11 +15,10 @@ class ApplicationController < ActionController::Base
 
 
 	def require_user
-		Rails.logger.warn("\n\n=> ApplicationController::require_user")
+		
 		if current_user && !current_user.nil?
-			Rails.logger.warn("=> ApplicationController::require_user - #{current_user.id}")
+			
 		else
-			Rails.logger.warn("=> ApplicationController::require_user - NIL")
 			store_location
 			flash[:notice] = "You must be logged in to access this page"
 			redirect_to login_path
@@ -29,7 +28,6 @@ class ApplicationController < ActionController::Base
 
 	def require_no_user
 		if current_user
-			Rails.logger.warn("=> ApplicationController::require_no_user: CURRENT USER IS #{current_user.id}")
 			store_location
 			#reset_session
 			#flash[:notice] = "You must be logged out to access this page"
@@ -63,7 +61,6 @@ class ApplicationController < ActionController::Base
 	end
 
 	def set_user
-		Rails.logger.warn("=> ApplicationController::set_user")
 		@user = current_user
 	end
 end

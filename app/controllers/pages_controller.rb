@@ -31,6 +31,7 @@ class PagesController < ApplicationController
 
   def sort
   	sorted_list = params[:page_li].keys
+  	Rails.logger.warn("KEYS: #{sorted_list}")
 		sorted_list.each_with_index do |p, index|
 			page = Page.find(p)
 			page.position = index
