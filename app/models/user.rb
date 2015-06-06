@@ -8,8 +8,19 @@ class User < ActiveRecord::Base
 		c.crypto_provider = Authlogic::CryptoProviders::BCrypt
 	end
 
+	attr_accessor :linked_page_array
+	attr_accessor :unlinked_page_array
+
 	def friendly_name
 		return "#{self.first_name} #{self.last_name}"
+	end
+	
+	def linked_pages
+		self.linked_page_array ||= self.pages.order("position ASC").select{|x| x.position!=nil}
+	end
+
+	def unlinked_pages
+		self.unlinked_page_array ||= self.pages.select{|x| x.position==nil}
 	end
 
 	private

@@ -63,6 +63,11 @@ body {
 .white-text {
 	color: #fff;
 }
+.white-text-label {
+	margin-top: 20px;
+	color: #fff;
+	font-weight: 300;	
+}
 
 a.sidebar-link {
 	color: #fff !important;
@@ -70,7 +75,7 @@ a.sidebar-link {
 }
 
 a.sidebar-link:hover {
-	color: #fff !important;
+	color: #ddd !important;
 	text-decoration: none !important;
 }
 
@@ -82,4 +87,8 @@ a.sidebar-link:visited {
 a.sidebar-link:active {
 	color: #fff !important;
 	text-decoration: none !important;
+}
+
+.page-list li {
+	padding: 8px 4px;
 }

@@ -1,0 +1,3 @@
+<li class="text-center sorted" id="page_li_<%= page.id %>">
+	<%= link_to "<i class='#{page.icon}'></i> #{page.label} <i class='#{page.status_icon}' title='#{page.status}'></i>".html_safe, edit_page_path(page), :class => "sidebar-link", :remote => true  -%>
+</li>

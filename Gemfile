@@ -38,6 +38,7 @@ gem 'engineyard'
 gem 'ey_config'
 gem 'acts_as_tree'
 
+
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 

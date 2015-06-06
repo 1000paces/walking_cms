@@ -1,7 +1,11 @@
 <%= render :partial => "toolbar" -%>
 <div class="container-fluid full-height-container">
 	<div class="row" id="page-display">
-		<h3 class="text-center">Hello, I'm the location of the page display window</h3>
+		<%- if @user.pages.blank? -%>
+			<h3 class="text-center">Hey, your site is empty! Click <%= link_to "Pages", pages_path, :remote => true  -%> in the upper right to get started.</h3>
+		<%- else -%>
+			<h3 class="text-center">Hello, I'm the location of the page display window</h3>
+		<%- end -%>
 		<div class="col-md-12 center-column" id="work-area">
 			<div class="row">
 				<div class="col-md-12" id="header-row"></div>

@@ -5,13 +5,14 @@ class Pages < ActiveRecord::Migration
     	t.string :label, :null => false, :default => ""
       t.string :title, :null => false, :default => ""
     	t.string :permalink, :null => false, :default => ""
-    	t.integer :position
-    	t.integer :parent_id, :null => true
+      t.string :status, :null => false, :default => "DRAFT"
+      t.boolean :fluid, :null => false, :default => true
     	t.boolean :secure, :default => false
     	t.string :snippet, :null => false, :default => ""
       t.string :password, :null => true
-      t.string :status, :null => false, :default => "DRAFT"
-      t.boolean :fluid, :null => false, :default => true
+      t.integer :position
+      t.integer :parent_id, :null => true, :index => true
+      t.integer :children_count, :null => false, :default => 0
       t.timestamps null: false
     end
 
