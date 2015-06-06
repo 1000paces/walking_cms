@@ -97,20 +97,33 @@ a.sidebar-link:active {
 	text-decoration: none !important;
 }
 
+ol.list-unstyled ol {
+	list-style: none;
+	padding-left: 0 !important;
+}
+
+ol.list-unstyled ol li {
+	list-style: none;
+	padding-left: -20px !important;
+}
+
 .page-list li {
-	padding: 8px 4px;
+	padding: 8px 4px 8px 30px;
+	margin: 2px 0;
 }
 
 ol.page-list {
-	padding-left: 40px !important;
-}
-
-ol.list-unstyled ol {
-	list-style: none;
-	padding-left: 20px;
+	padding-left: 2px !important;
+	min-height: 50px;
 }
 
 .placeholder {
 	background-color: #7f7f7f;
 }
+.ui-nestedSortable-error {
+	background-color: #d9534f;
+}
+
+
+
 

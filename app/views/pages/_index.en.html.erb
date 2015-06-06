@@ -6,23 +6,50 @@
 	</ul>
 
 	<div class="white-text-label  text-center small">Site Navigation</div>
-	<ol class="list-unstyled page-list sort dragdropsort" id="page-list">	
+	<ol class="list-unstyled page-list linked-pages" id="page-list">	
 		<%- @user.linked_pages.each do |page| -%>
 			<%= render :partial => "page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>
 
 	<div class="small white-text-label text-center">Other Pages</div>
-	<ol class="list-unstyled page-list dragdropsort" id="unlinked-page-list">	
+	<ol class="list-unstyled page-list unlinked-pages" id="unlinked-page-list">
 		<%- @user.unlinked_pages.each do |page| -%>
 			<%= render :partial => "page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
+		
 	</ol>
 </div>
 <div id="dragholder" style="display: block;"></div>
 
 <script type="text/javascript">
-	$('ol.sort').nestedSortable({
+	$('ol.unlinked-pages').nestedSortable({
+		handle: 'div',
+		disableNesting: 'no-nest',
+		forcePlaceholderSize: true,
+		helper:	'clone',
+		items: 'li',
+		maxLevels: 1,
+		opacity: .6,
+		placeholder: 'placeholder',
+		revert: 250,
+		tabSize: 25,
+		tolerance: 'pointer',
+		toleranceElement: '> div',
+		connectWith: ".linked-pages",
+		update: function(event,ui){
+			$.ajax({
+				type: 'post',
+				data: $('ol#unlinked-page-list').nestedSortable('serialize') + "&socket=unlinked",
+				dataType: 'script',
+				complete: function(request){
+				},
+				url: '/pages/<%= @user.id -%>/sort'
+			})
+		}
+	}).disableSelection();;
+
+	$('ol.linked-pages').nestedSortable({
 		handle: 'div',
 		disableNesting: 'no-nest',
 		forcePlaceholderSize: true,
@@ -35,15 +62,16 @@
 		tabSize: 25,
 		tolerance: 'pointer',
 		toleranceElement: '> div',
+		connectWith: ".unlinked-pages",
 		update: function(event,ui){
 			$.ajax({
 				type: 'post',
-				data: $('ol#page-list').nestedSortable('serialize'),
+				data: $('ol#page-list').nestedSortable('serialize') + "&socket=linked",
 				dataType: 'script',
 				complete: function(request){
 				},
 				url: '/pages/<%= @user.id -%>/sort'
 			})
 		}
-	});
+	}).disableSelection();
 </script>
