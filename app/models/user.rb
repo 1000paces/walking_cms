@@ -19,8 +19,16 @@ class User < ActiveRecord::Base
 		self.linked_page_array ||= self.pages.order("position ASC").select{|x| x.position!=nil}
 	end
 
+	def top_nav_pages
+		self.linked_page_array ||= self.pages.where("parent_id IS NULL").order("position ASC").select{|x| x.position!=nil}
+	end
+
 	def unlinked_pages
 		self.unlinked_page_array ||= self.pages.select{|x| x.position==nil}
+	end
+
+	def home_page
+		self.top_nav_pages.first
 	end
 
 	private

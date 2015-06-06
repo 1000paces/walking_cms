@@ -20,4 +20,6 @@ class Page < ActiveRecord::Base
 			return Page::DRAFT
 		end
 	end
+
+	
 end

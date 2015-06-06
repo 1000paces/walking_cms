@@ -7,7 +7,7 @@
 
 	<div class="white-text-label  text-center small">Site Navigation</div>
 	<ol class="list-unstyled page-list linked-pages" id="page-list">	
-		<%- @user.linked_pages.each do |page| -%>
+		<%- @user.top_nav_pages.each do |page| -%>
 			<%= render :partial => "page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>

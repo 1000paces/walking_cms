@@ -30,15 +30,34 @@ class PagesController < ApplicationController
   end
 
   def sort
-  	sorted_list = params[:page_li].keys
-  	Rails.logger.warn("KEYS: #{sorted_list}")
-		sorted_list.each_with_index do |p, index|
-			page = Page.find(p)
-			page.position = index
-			page.save
+		sorted_list = params[:item]
+
+		if params[:socket] == 'linked'
+			sorted_list.each_with_index do |member, index|
+				child = Page.find(member[0].to_i)
+				Rails.logger.warn("==> CHILD IS #{child.id}")
+				parent = member[1]=="null" ? nil : Page.find(member[1].to_i)
+				Rails.logger.warn("++> PARENT IS #{parent.nil? ? '--' : parent.id}")
+				if parent.nil?
+					child.position = index
+					child.parent_id = nil
+					child.save
+				else
+					parent.children << child
+					child.position = index
+					child.save
+				end
+			end
+		else
+			sorted_list.each_with_index do |member, index|
+				child = Page.find(member[0].to_i)
+				child.position = nil
+				child.parent_id = nil
+				child.save
+			end
 		end
 
-  	render :nothing => true
+  	#render :nothing => true
   end
 
   private
