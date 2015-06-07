@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 		return "#{self.first_name} #{self.last_name}"
 	end
 	
-	def linked_pages
+	def nav_pages
 		self.linked_page_array ||= self.pages.order("position ASC").select{|x| x.position!=nil}
 	end
 
@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 		self.linked_page_array ||= self.pages.where("parent_id IS NULL").order("position ASC").select{|x| x.position!=nil}
 	end
 
-	def unlinked_pages
+	def non_nav_pages
 		self.unlinked_page_array ||= self.pages.select{|x| x.position==nil}
 	end
 

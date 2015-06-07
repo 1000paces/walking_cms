@@ -1,7 +1,7 @@
 <div class="">
 	<ul class="list-unstyled">
 		<li class="text-center">
-			<%= link_to "<i class='fa fa-fw fa-plus'></i> New Page".html_safe, new_page_path, :class => 'sidebar-link', :remote => true -%>
+			<%= link_to "<i class='fa fa-fw fa-plus'></i> New Page".html_safe, new_page_path, :class => 'btn btn-success', :remote => true -%>
 		</li>
 	</ul>
 
@@ -14,12 +14,19 @@
 
 	<div class="small white-text-label text-center">Other Pages</div>
 	<ol class="list-unstyled page-list unlinked-pages" id="unlinked-page-list">
-		<%- @user.unlinked_pages.each do |page| -%>
+		<%- @user.non_nav_pages.each do |page| -%>
 			<%= render :partial => "page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
-		
 	</ol>
+
+	<ul class="list-unstyled">
+		<li class="text-center">
+			<%= link_to "<i class='fa fa-fw fa-question'></i> Help".html_safe, help_path("pages"), :class => 'sidebar-link', :remote => true -%>
+		</li>
+	</ul>	
 </div>
+
+
 <div id="dragholder" style="display: block;"></div>
 
 <script type="text/javascript">

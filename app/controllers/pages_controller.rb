@@ -35,9 +35,7 @@ class PagesController < ApplicationController
 		if params[:socket] == 'linked'
 			sorted_list.each_with_index do |member, index|
 				child = Page.find(member[0].to_i)
-				Rails.logger.warn("==> CHILD IS #{child.id}")
 				parent = member[1]=="null" ? nil : Page.find(member[1].to_i)
-				Rails.logger.warn("++> PARENT IS #{parent.nil? ? '--' : parent.id}")
 				if parent.nil?
 					child.position = index
 					child.parent_id = nil
@@ -56,8 +54,6 @@ class PagesController < ApplicationController
 				child.save
 			end
 		end
-
-  	#render :nothing => true
   end
 
   private

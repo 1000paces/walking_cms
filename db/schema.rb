@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605013121) do
+ActiveRecord::Schema.define(version: 20150607010232) do
 
   create_table "domains", force: :cascade do |t|
     t.integer  "user_id",    limit: 4,   default: 1,     null: false
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20150605013121) do
   end
 
   add_index "domains", ["name"], name: "index_domains_on_name", using: :btree
+
+  create_table "help_topics", force: :cascade do |t|
+    t.string   "title",      limit: 255,   default: "", null: false
+    t.text     "body",       limit: 65535
+    t.string   "permalink",  limit: 255,   default: "", null: false
+    t.integer  "parent_id",  limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "help_topics", ["parent_id"], name: "index_help_topics_on_parent_id", using: :btree
+  add_index "help_topics", ["permalink"], name: "index_help_topics_on_permalink", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.integer  "user_id",        limit: 4,   default: 1,       null: false
@@ -47,6 +59,26 @@ ActiveRecord::Schema.define(version: 20150605013121) do
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id",        limit: 4
+    t.integer  "taggable_id",   limit: 4
+    t.string   "taggable_type", limit: 255
+    t.integer  "tagger_id",     limit: 4
+    t.string   "tagger_type",   limit: 255
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name",           limit: 255
+    t.integer "taggings_count", limit: 4,   default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "login",             limit: 255,             null: false

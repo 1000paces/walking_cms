@@ -24,9 +24,7 @@
 					<%- end -%>
 				</li>
 				<li>
-					<%= link_to "#", :class => "toggle-drawer", :id => "toggle-help", :data => {:type => "help"} do -%>
-						Help
-					<%- end -%>
+					<%= link_to "Help", help_index_path, :remote => true -%>
 				</li>
 			</ul>
 		</div>

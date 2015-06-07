@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :domains
   resources :users
   resources :pages
+  resources :help, :only => [:index, :show]
+  
   match "pages/:user_id/sort" => "pages#sort", :as => "file_list_sort", :via => [:get, :post]
 
   get 'welcome/index'
