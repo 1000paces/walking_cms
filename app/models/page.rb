@@ -6,6 +6,7 @@ class Page < ActiveRecord::Base
 	ICON = "fa fa-fw fa-file-o"
 	HOME = "fa fa-fw fa-home"
 	DRAFT = "fa fa-fw fa-exclamation-triangle"
+	MENU = "fa fa-fw fa-bars"
 
 	def icon
 		if self.parent_id.nil? && self.position == 0

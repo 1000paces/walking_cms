@@ -1,2 +1,3 @@
 $(".page-icon").removeClass('fa-home').addClass('fa-file-o');
 $("#page-icon-<%= @user.home_page.id %>").removeClass('fa-file-o').addClass('fa-home');
+$("#navigation-row").html("<%= j render(:partial => 'users/page_nav') -%>");

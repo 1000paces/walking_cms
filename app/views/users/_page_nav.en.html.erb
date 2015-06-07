@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-collapse collapse" id="navbar">
+			<ul class="nav navbar-nav">
+				<%- @user.top_nav_pages.each do |p| -%>
+					<%- if p.children.count > 0 -%>
+						<li class="dropdown">
+							<%= link_to p.label, "#", :class => "dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
+							<ul class="dropdown-menu" role="menu">
+								<%- p.children.each do |c| -%>
+									<li><%= link_to c.label, "#" -%></li>
+								<%- end -%>
+							</ul>
+						</li>
+					<%- else -%>
+						<li>
+							<%= link_to p.label, "#" -%>
+						</li>
+					<%- end -%>
+				<%- end -%>
+			</ul>
+		</div>
+	</div>
+</nav>

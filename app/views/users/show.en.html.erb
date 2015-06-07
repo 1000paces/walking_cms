@@ -1,22 +1,7 @@
 <%= render :partial => "toolbar" -%>
 <div class="container-fluid full-height-container">
 	<div class="row" id="page-display">
-		<%- if @user.pages.blank? -%>
-			<h3 class="text-center">Hey, your site is empty! Click <%= link_to "Pages", pages_path, :remote => true  -%> in the upper right to get started.</h3>
-		<%- else -%>
-			<h3 class="text-center">Hello, I'm the location of the page display window</h3>
-		<%- end -%>
-		<div class="col-md-12 center-column" id="work-area">
-			<div class="row">
-				<div class="col-md-12" id="header-row"></div>
-			</div>
-			<div class="row">
-				<div class="col-md-12" id="body-row"></div>
-			</div>
-			<div class="row">
-				<div class="col-md-12" id="footer-row"></div>
-			</div>
-		</div>
+		<%= render :partial => "page_display" -%>
 	</div>
 </div>
 <%= render :partial => 'footer' -%>
@@ -37,10 +22,7 @@
 	<h1 class="lead text-center white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h1>
 	<div id="help-index-div"></div>
 </div>
-
 <div class="left-column" id="drawer-forms" style="display: none;"></div>
-
-
 
 <script>
 	$('.toggle-drawer').on('click', function(e){
@@ -50,7 +32,7 @@
 			$("#full-height").css('padding-right', '0');
 			$("#drawer-" + val).toggle('slide', {direction: 'left'}, 1000).delay(1000).hide();	
 		} else {
-			$(".right-column").hide(); /*.toggle('slide', {direction: 'left'}, 1000).delay(1000).hide();*/
+			$(".right-column").hide();
 			$("#full-height").css('padding-right', '20%');
 			$("#drawer-" + val).toggle('slide', {direction: 'right'}).delay(1000).show();
 			$("#toggle-" + val).addClass("active");

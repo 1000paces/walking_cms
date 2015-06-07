@@ -133,6 +133,11 @@ ol.page-list {
 	background-color: #d9534f;
 }
 
+.header-zone, .navigation-zone, .body-zone, .footer-zone {
+	min-height: 50px !important;
+}
 
-
+.zone:hover {
+	background-color: #eee;
+}
 
