@@ -12,10 +12,58 @@
 			<%= render :partial => "page_nav" -%>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-12 body-zone zone" id="body-row"></div>
-	</div>
+
+	<%- text_str = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.
+Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.
+Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor." -%>
+
+	<%= render :partial => "row", :locals => {:id => 1, :text_str => "This is row 1"} -%>
+	<%= render :partial => "row", :locals => {:id => 2, :text_str => text_str} -%>
+	<%= render :partial => "row", :locals => {:id => 3, :text_str => "This is row 3"} -%>
+
 	<div class="row">
 		<div class="col-md-12 footer-zone zone" id="footer-row"></div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(".wcms-work-row").on('click', function(e){
+		var rowNumber = $(this).attr('data-row');
+		$(".wcms-tools").fadeOut();
+		$(".wcms-work-row").removeClass('wcms-work-row-active');
+		$("#wcms-row-" + rowNumber).addClass('wcms-work-row-active', 500);
+		$(".wcms-tools-" + rowNumber).fadeIn(500);
+	});
+
+	$('.grid-size-btn').on('click', function(e){
+		var changeValue = $(this).attr('data-change');
+		var rowId = $(this).attr('data-row');
+		var row = $("#body-row-" + rowId);
+		var colWidth = row.attr('data-width');
+		var colOffset = row.attr('data-offset');
+		/***
+		var divClass = 'col-md-12';
+		divSize = divClass.replace(/\D/g,'');
+		offsetSize = 0
+		**/
+		newColWidth = colWidth
+
+		if (changeValue == 'add-left') {
+			if (colWidth < 12) {
+				newColWidth = colWidth + 1
+			}
+		} else if (changeValue == 'grow-right') {
+
+		} else if (changeValue == 'shrink-left') {
+			if (divSize > 1) {
+				divSize = divSize - 1
+				offsetSize = 12 - divSize
+			}
+		
+		} else {
+
+		}
+		$("#wcms-body-col-" + rowId).removeClass("col-md-" + colWidth).addClass("col-md-" + newColWidth);
+	});	
+
+</script>

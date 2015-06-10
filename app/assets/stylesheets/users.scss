@@ -133,11 +133,70 @@ ol.page-list {
 	background-color: #d9534f;
 }
 
-.header-zone, .navigation-zone, .body-zone, .footer-zone {
+.header-zone, .navigation-zone, .footer-zone {
 	min-height: 50px !important;
 }
+.body-zone {
+	min-height: 100px !important;
+}
 
+.zone {
+	/*background-color: pink;*/
+}
 .zone:hover {
-	background-color: #eee;
+	/*border: 1px solid #eee;*/
+}
+
+.work-area {
+	padding: 10px;
+	border: 1px solid #fff;
+	border-radius: 4px;	
+}
+
+.work-area:hover {
+	border: 1px solid #eee;
+	border-radius: 4px;
+}
+
+.wcms-work-row {
+	position: relative !important;
+	background-color: #fff;
+	border: 1px solid #fff;
+}
+
+.wcms-work-row-active {
+	border: 1px solid #ccc !important;
+}
+
+.wcms-toolbox {
+	position: relative;
+	margin-top: 20px;
+}
+
+.wcms-page-display {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.wcms-top-tools {
+	height: 20px;
+	position: absolute !important;
+	top: -20px;
+	z-index: 10;
+}
+
+.wcms-left-tools, .wcms-right-tools {
+	width: 20px;
+	position: absolute !important;
+}
+
+.wcms-left-tools {
+	left: -18px;
+	top: 8px;
+}
+
+.wcms-right-tools {
+	right: -18px;
+	top: 8px;
 }
 
