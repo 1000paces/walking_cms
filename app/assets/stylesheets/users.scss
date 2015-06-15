@@ -162,10 +162,42 @@ ol.page-list {
 	position: relative !important;
 	background-color: #fff;
 	border: 1px solid #fff;
+	border-radius: 4px;
+	min-height: 140px;
 }
 
 .wcms-work-row-active {
 	border: 1px solid #ccc !important;
+	border-top: 1px solid #fff !important;
+	border-bottom: 1px solid #fff !important;
+	min-height: 140px;
+}
+
+.wcms-tool-row {
+	background-color: #fff;
+	border: 1px solid #fff;
+	padding: 0 32px;
+	border-radius: 4px;
+	margin: -2px -15px;
+	min-height: 140px;
+}
+
+.wcms-tool-row-active {
+	background-color: #eee;
+	border: 1px solid #ccc;
+	padding: 0 32px;
+	border-radius: 4px;
+	margin: -2px -15px;
+	min-height: 140px;
+}
+
+.wcms-tools a {
+	color: #404040 !important;
+}
+
+.wcms-tools a:hover {
+	color: #000 !important;
+	text-decoration: none !important;
 }
 
 .wcms-toolbox {
@@ -181,8 +213,9 @@ ol.page-list {
 .wcms-top-tools {
 	height: 20px;
 	position: absolute !important;
-	top: -20px;
+	top: -22px;
 	z-index: 10;
+	left: 50px;
 }
 
 .wcms-left-tools, .wcms-right-tools {
@@ -191,12 +224,26 @@ ol.page-list {
 }
 
 .wcms-left-tools {
-	left: -18px;
+	left: -1px; 
 	top: 8px;
 }
 
 .wcms-right-tools {
-	right: -18px;
+	right: -1px; /*18px*/
 	top: 8px;
+}
+
+.wcms-btn-link {
+	border: 1px solid #ccc !important;
+	border-radius: 4px 4px 0px 0px !important;
+	border-bottom: none !important;
+}
+
+.wcms-grid-size-btn {
+	/*border: 1px solid red !important;*/
+	padding: 5px !important;
+}
+.wcms-grid-size-btn:hover {
+	background-color: pink;
 }
 

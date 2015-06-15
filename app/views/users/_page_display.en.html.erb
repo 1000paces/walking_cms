@@ -29,13 +29,19 @@ Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit li
 <script type="text/javascript">
 	$(".wcms-work-row").on('click', function(e){
 		var rowNumber = $(this).attr('data-row');
+
+
 		$(".wcms-tools").fadeOut();
 		$(".wcms-work-row").removeClass('wcms-work-row-active');
+		$(".wcms-tool-row-active").removeClass('wcms-tool-row-active').addClass('wcms-tool-row');
 		$("#wcms-row-" + rowNumber).addClass('wcms-work-row-active', 500);
-		$(".wcms-tools-" + rowNumber).fadeIn(500);
+		$("#wcms-tool-row-" + rowNumber).removeClass('wcms-tool-row').addClass('wcms-tool-row-active');
+		/*$(".wcms-tools-" + rowNumber).fadeIn(500);*/
+		/*$("#drawer-forms").show("slide", { direction: "right" }, 1000);*/
+
 	});
 
-	$('.grid-size-btn').on('click', function(e){
+	$('.wcms-grid-size-btn').on('click', function(e){
 		var changeValue = $(this).attr('data-change');
 		var rowId = $(this).attr('data-row');
 		var row = $("#body-row-" + rowId);
