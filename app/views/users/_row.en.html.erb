@@ -1,19 +1,11 @@
 <div class="wcms-toolbox">
-	<div class="row">
+	<div class="row" id="wcms-row-<%= index %>">
 		<div class="col-md-12">
-			
-
-			
-			<div class="row wcms-row" id="wcms-row-<%= id -%>" data-row="<%= id -%>">
-				<div class="col-md-6 wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= id %>" data-width="12" data-offset="0" data-cell="<%= id -%>">
-					I AM THE TEST ROW. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-					<%= render :partial => "cell_tools_top", :locals => {:side => 'left', :id => id} -%>
-					<%= render :partial => "cell_tools_side", :locals => {:side => 'left', :id => id} -%>
-					<%= render :partial => "cell_tools_side", :locals => {:side => 'right', :id => id} -%>
-				</div>
+			<div class="row wcms-row" id="wcms-row-<%= index -%>" data-row="<%= index -%>">
+				<%- 1.upto(2) do |loop_index| -%>
+					<%= render :partial => "cell", :locals => {:row => index, :id => loop_index, :width => 6, :offset => 0, :text_str => text_str} -%>
+				<%- end -%>
 			</div>
-		
-			
 		</div>
 	</div>
 </div>

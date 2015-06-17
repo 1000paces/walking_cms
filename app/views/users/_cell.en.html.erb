@@ -1,23 +1,6 @@
-
-			
-			<div class="row wcms-row" id="wcms-row-<%= id -%>" data-row="<%= id -%>">
-				<div class="col-md-6 wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= id %>" data-width="12" data-offset="0" data-cell="<%= id -%>">
-					I AM THE TEST ROW. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-					<%= render :partial => "col_tools_side", :locals => {:side => 'left', :id => id} -%>
-					<%= render :partial => "col_tools_side", :locals => {:side => 'right', :id => id} -%>
-				</div>
-
-
-			<div class="wcms-tools wcms-tools-<%= id %> wcms-top-tools" id="wcms-tool-cell-top-<%= id %>" style="display: none;">
-				<div class="btn-toolbar" role="toolbar" aria-label="Row Toolbar">
-					<div class="btn-group" role="group" aria-label="Save Toolbar">	
-						<%= link_to "Save", "#", :class => "save-btn btn btn-link btn-xs btn wcms-btn-link" -%>
-					</div>
-					<div class="btn-group" role="group" aria-label="Edit Toolbar">
-						<%= link_to "Cancel", "#", :class => "cancel-btn btn btn-link btn-xs wcms-btn-link wcms-cancel-btn", :data => {:row => id} -%>
-					</div>
-				</div>
-			</div>
-
-
-			</div>
+<div class="col-md-<%= width %> wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= row %>-<%= id %>" data-width="<%= width %>" data-offset="<%= offset %>" data-cell="<%= row %>-<%= id -%>">
+	I AM THE TEST ROW. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+	<%= render :partial => "cell_tools_top", :locals => {:row => row, :id => id} -%>
+	<%= render :partial => "cell_tools_side", :locals => {:side => 'left', :row => row, :id => id} -%>
+	<%= render :partial => "cell_tools_side", :locals => {:side => 'right', :row => row, :id => id} -%>
+</div>

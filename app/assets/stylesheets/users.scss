@@ -140,7 +140,7 @@ ol.page-list {
 .wcms-cell {
 	min-height: 140px !important;
 	background-color: #fff;
-	z-index: 100;
+	/*z-index: 100;*/
 	border: 1px solid #fff !important;
 }
 
@@ -191,7 +191,7 @@ ol.page-list {
 }
 
 .wcms-tool-row {
-	background-color: pink;
+	background-color: green;
 	border: 1px solid #fff;
 	padding: 0;
 	border-radius: 4px;
@@ -219,7 +219,7 @@ ol.page-list {
 
 .wcms-tools-left {
 	position: absolute;
-	left: -14px; 
+	left: -21px; 
 	top: -1px;
 	z-index: 50;
 	border-radius: 4px 0 0 4px;
@@ -227,14 +227,26 @@ ol.page-list {
 
 .wcms-tools-right {
 	position: absolute;
-	right: -14px; 
+	right: -21px; 
 	top: -1px;
 	z-index: 50;
 	border-radius: 0 4px 4px 0;
 }
 
+.wcms-row {
+	position: relative;
+}
 
+.wcms-row .wcms-cell {
+	background-color: transparent;
+	margin: 0 !important;
+	padding: 0 !important;
+}
 
+.wcms-row:first-child {
+  opacity: .99;
+  z-index: 101;
+}
 
 
 

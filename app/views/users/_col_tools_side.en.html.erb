@@ -1,8 +1,0 @@
-<div class="wcms-tools wcms-tools-vertical wcms-tools-<%= side %>" id="wcms-tool-cell-<%= side %>-<%= id %>" style="display: none;">
-	<div class="btn-group-vertical">
-		<%= link_to "+".html_safe, "#", :data => {:change => 'add-#{}', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Add a column on the left" -%>
-		<%= link_to "-".html_safe, "#", :data => {:change => 'remove-left', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Remove left-most column" -%>
-		<%= link_to "<i class='fa fa-angle-left'></i>".html_safe, "#", :data => {:change => 'remove-left-offset', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Remove left offset" -%>
-		<%= link_to "<i class='fa fa-angle-right'></i>".html_safe, "#", :data => {:change => 'add-offset-left', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Add left offset" -%>
-	</div>
-</div>
