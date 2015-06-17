@@ -17,7 +17,6 @@
 Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.
 Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor." -%>
 
-	<%= render :partial => "row_test", :locals => {:id => 1, :text_str => "This is row 1"} -%>
 	<%= render :partial => "row", :locals => {:id => 2, :text_str => "This is row 1"} -%>
 	<%= render :partial => "row", :locals => {:id => 3, :text_str => text_str} -%>
 	<%= render :partial => "row", :locals => {:id => 4, :text_str => "This is row 3"} -%>
@@ -32,13 +31,16 @@ Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit li
 		var cellNumber = $(this).attr('data-cell');
 		$(".wcms-tools").fadeOut();
 		$(".wcms-work-cell").removeClass('wcms-work-cell-active');
+		$(".wcms-cell").removeClass('wcms-work-cell-active');
 
-		if($("#wcms-tools-cell-left-" + cellNumber).is(":visible")){
+		if($("#wcms-tool-cell-top-" + cellNumber).is(":visible")){
 			/*** DO NOTHING ***/
 		} else {
 			$("#wcms-tool-cell-left-" + cellNumber).show("slide", {direction: "right"});
 			$("#wcms-tool-cell-right-" + cellNumber).show("slide", {direction: "left"});
-
+			$("#wcms-work-cell-" + cellNumber).switchClass('wcms-work-cell','wcms-work-cell-active', 250, 'swing', function(e){
+				$("#wcms-tool-cell-top-" + cellNumber).show("slide", {direction: "down"});
+			});
 		}
 
 	});
@@ -98,7 +100,7 @@ Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit li
 		}
 		$("#wcms-body-col-" + rowId).removeClass("col-md-" + colWidth).addClass("col-md-" + newColWidth);
 		if (changeValue == 'add-left') {
-			$("#wcms-row-" + rowId).prepend("<div class='col-md-12 body-zone zone' id='wcms-body-col-" + rowId + "' data-width='12' data-offset='0'></div>")
+			$("#wcms-row-" + rowId).prepend("<div class='col-md-12 wcms-cell zone' id='wcms-body-col-" + rowId + "' data-width='12' data-offset='0'></div>")
 
 		}
 
