@@ -6,11 +6,18 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @page = @user.home_page
+    @row = @page.rows.build 
+    #if @page.rows.empty?
+    #  @row = @page.rows.create 
+    #  @cell = @row.cells.create(:body => "Type something here")
+    #end
     
   end
 

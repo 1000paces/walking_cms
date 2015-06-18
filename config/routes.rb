@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   resource :user_session, only: [:create, :new, :destroy]  
   resources :domains
   resources :users
-  resources :pages
+  resources :pages 
+  resources :rows
+  resources :cells 
   resources :help, :only => [:index, :show]
+
+  
+
   
   match "pages/:user_id/sort" => "pages#sort", :as => "file_list_sort", :via => [:get, :post]
 

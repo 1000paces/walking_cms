@@ -1,11 +1,17 @@
 class PagesController < ApplicationController
-  before_action :set_user, except: [:show]
-  before_filter :require_user, only: [:show]
+  before_action :set_user#, except: [:show]
+  before_filter :require_user#, only: [:show]
 
   def index
+    @page = @user.home_page
   end
 
   def show
+    @page = Page.find(params[:id])
+    if @page.rows.empty?
+      @row = @page.rows.create
+      #@cell = @row.cells.build(:body => "Type something here")
+    end
   end
 
   def new

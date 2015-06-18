@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
 	belongs_to :user
 
-	has_many :rows
+	has_many :rows, -> { order("position ASC")}
 
 	acts_as_tree :order => "position"
 

@@ -62,7 +62,7 @@ body {
 	padding-top: 50px !important;
 	padding-bottom: 70px !important;
 	min-height: 100% !important;
-	height: 100% !important;
+	/*height: 100% !important;*/
 	position: relative;	
 	background-color: #fff !important;
 	border-right: 1px solid #101010;
@@ -142,6 +142,7 @@ ol.page-list {
 	background-color: #fff;
 	/*z-index: 100;*/
 	border: 1px solid #fff !important;
+	padding: 4px 10px !important;
 }
 
 .wcms-work-cell-active {

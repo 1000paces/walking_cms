@@ -1,0 +1,6 @@
+<div class="col-md-<%= cell.width %> wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= row.id %>-<%= cell.id %>" data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>">
+	<%= cell.body.html_safe unless cell.body.nil? -%>
+	<%= render :partial => "pages/cell_tools_top", :locals => {:row => row, :cell => cell, :index => index} -%>
+	<%= render :partial => "pages/cell_tools_side", :locals => {:side => 'left', :row => row, :cell => cell, :index => index} -%>
+	<%= render :partial => "pages/cell_tools_side", :locals => {:side => 'right', :row => row, :cell => cell, :index => index} -%>
+</div>

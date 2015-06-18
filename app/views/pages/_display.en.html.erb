@@ -1,7 +1,7 @@
 <%- if @user.pages.blank? -%>
 	<h3 class="text-center">Hey, your site is empty! Click <%= link_to "Pages", pages_path, :remote => true  -%> in the upper right to get started.</h3>
 <%- else -%>
-	<h3 class="text-center">Hello, I'm the location of the page display window</h3>
+	<h3 class="text-center"><%= @page.label -%></h3>
 <%- end -%>
 <div class="col-md-12 center-column" id="work-area">
 	<div class="row">
@@ -9,16 +9,21 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12 navigation-zone" id="navigation-row">
-			<%= render :partial => "page_nav" -%>
+			<%= render :partial => "pages/nav" -%>
 		</div>
 	</div>
 
-	<%- text_str = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Donec id elit non mi porta gravida at eget metus.
-Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor." -%>
+	<div class="row" id="wcms-add-row-top">
+		<div class="col-md-2 col-md-offset-5">
+			<%= form_for @row, :remote => true do |f| -%>
+				<%= f.hidden_field :page_id -%>
+				<%= f.submit "+ Add Row".html_safe,  :class => "btn btn-default btn-xs btn-block" -%>
+			<%- end -%>
+		</div>
+	</div>
 
-	<%- 1.upto(@count) do |loop_index| -%>
-		<%= render :partial => "row", :locals => {:index => loop_index, :text_str => text_str} -%>
+	<%- @page.rows.each_with_index do |row, index| -%>
+		<%= render :partial => "pages/row", :locals => {:index => index, :row => row} -%>
 	<%- end -%>
 
 	<div class="row">
@@ -26,25 +31,30 @@ Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit li
 	</div>
 </div>
 
+
 <script type="text/javascript">
-	$(".wcms-work-cell").on('click', function(e){
-		var cellNumber = $(this).attr('data-cell');
+	/*$(".wcms-work-cell").on('click', function(e){*/
+	$("#work-area").on('click', 'div.wcms-cell', function(e){		
+		var rowId = $(this).attr('data-row');
+		var cellId = $(this).attr('data-cell');
 		$(".wcms-tools").fadeOut();
 		$(".wcms-work-cell").removeClass('wcms-work-cell-active');
 		$(".wcms-cell").removeClass('wcms-work-cell-active');
 
-		if($("#wcms-tool-cell-top-" + cellNumber).is(":visible")){
+		if($("#wcms-tool-cell-top-" + rowId + '-' + cellId).is(":visible")){
 			/*** DO NOTHING ***/
 		} else {
-			$("#wcms-tool-cell-left-" + cellNumber).show("slide", {direction: "right"});
-			$("#wcms-tool-cell-right-" + cellNumber).show("slide", {direction: "left"});
-			$("#wcms-work-cell-" + cellNumber).switchClass('wcms-work-cell','wcms-work-cell-active', 250, 'swing', function(e){
-				$("#wcms-tool-cell-top-" + cellNumber).show("slide", {direction: "down"});
+			$("#wcms-tool-cell-left-" + rowId + '-' + cellId).show("slide", {direction: "right"});
+			$("#wcms-tool-cell-right-" + rowId + '-' + cellId).show("slide", {direction: "left"});
+			$("#wcms-work-cell-" + rowId + '-' + cellId).switchClass('wcms-work-cell','wcms-work-cell-active', 250, 'swing', function(e){
+				$("#wcms-tool-cell-top-" + rowId + '-' + cellId).show("slide", {direction: "down"});
 			});
 		}
-
 	});
+</script>
 
+
+<script type="text/javascript">
 	$(".wcms-work-row").on('click', function(e){
 		var rowNumber = $(this).attr('data-row');
 		$(".wcms-tools").fadeOut();
