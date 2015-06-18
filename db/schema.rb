@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607010232) do
+ActiveRecord::Schema.define(version: 20150618003709) do
+
+  create_table "cells", force: :cascade do |t|
+    t.integer  "width",      limit: 4,     default: 12, null: false
+    t.integer  "offset",     limit: 4,     default: 0,  null: false
+    t.integer  "row_id",     limit: 4,                  null: false
+    t.text     "body",       limit: 65535
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "cells", ["row_id"], name: "index_cells_on_row_id", using: :btree
 
   create_table "domains", force: :cascade do |t|
     t.integer  "user_id",    limit: 4,   default: 1,     null: false
@@ -59,6 +70,16 @@ ActiveRecord::Schema.define(version: 20150607010232) do
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
+
+  create_table "rows", force: :cascade do |t|
+    t.integer  "cell_count", limit: 4, default: 1, null: false
+    t.integer  "position",   limit: 4, default: 0, null: false
+    t.integer  "page_id",    limit: 4,             null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "rows", ["page_id"], name: "index_rows_on_page_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
