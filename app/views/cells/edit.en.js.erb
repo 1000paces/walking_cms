@@ -1,0 +1,11 @@
+$(".wcms-tools").fadeOut();
+$(".wcms-work-cell").removeClass('wcms-work-cell-active');
+$(".wcms-cell").removeClass('wcms-work-cell-active');
+if($("#wcms-tool-cell-top-<%= @row.id %>-<%= @cell.id %>").is(":visible")){
+} else {
+	$("#wcms-tool-cell-left-<%= @row.id %>-<%= @cell.id %>").show("slide", {direction: "right"});
+	$("#wcms-tool-cell-right-<%= @row.id %>-<%= @cell.id %>").show("slide", {direction: "left"});
+	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").switchClass('wcms-work-cell','wcms-work-cell-active', 250, 'swing', function(e){
+		$("#wcms-tool-cell-top-<%= @row.id %>-<%= @cell.id %>").show("slide", {direction: "down"});
+	});
+};

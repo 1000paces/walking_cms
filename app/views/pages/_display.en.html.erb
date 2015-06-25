@@ -33,24 +33,17 @@
 
 
 <script type="text/javascript">
-	/*$(".wcms-work-cell").on('click', function(e){*/
-	$("#work-area").on('click', 'div.wcms-cell', function(e){		
-		var rowId = $(this).attr('data-row');
+	$("#work-area").on('click', 'div.wcms-cell', function(e){
 		var cellId = $(this).attr('data-cell');
-		$(".wcms-tools").fadeOut();
-		$(".wcms-work-cell").removeClass('wcms-work-cell-active');
-		$(".wcms-cell").removeClass('wcms-work-cell-active');
-
-		if($("#wcms-tool-cell-top-" + rowId + '-' + cellId).is(":visible")){
-			/*** DO NOTHING ***/
-		} else {
-			$("#wcms-tool-cell-left-" + rowId + '-' + cellId).show("slide", {direction: "right"});
-			$("#wcms-tool-cell-right-" + rowId + '-' + cellId).show("slide", {direction: "left"});
-			$("#wcms-work-cell-" + rowId + '-' + cellId).switchClass('wcms-work-cell','wcms-work-cell-active', 250, 'swing', function(e){
-				$("#wcms-tool-cell-top-" + rowId + '-' + cellId).show("slide", {direction: "down"});
-			});
-		}
+		$.ajax({
+			type: 'get',
+			dataType: 'script',
+			url: '/cells/' + cellId + '/edit'
+		})
 	});
+	$("#work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
+		e.stopPropagation();
+	});	
 </script>
 
 

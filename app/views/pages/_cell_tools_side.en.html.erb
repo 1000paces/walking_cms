@@ -1,7 +1,16 @@
 <div class="wcms-tools wcms-tools-vertical wcms-tools-<%= side %>" id="wcms-tool-cell-<%= side %>-<%= row.id %>-<%= cell.id %>" style="display: none;">
 	<div class="btn-group-vertical">
-		<%= link_to "+".html_safe, "#", :data => {:change => "add-#{side}", :row => row.id, :cell => cell.id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Add a column on the #{side}" -%>
-		<%= link_to "-".html_safe, "#", :data => {:change => "remove-#{side}", :row => row.id, :cell => cell.id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Remove #{side}-most column" -%>
+		<%= form_for Cell.new, :remote => true do |f| -%>
+			<%= hidden_field_tag("adjacent_cell", cell.id) %>
+			<%= hidden_field_tag("add", "#{side}") %>
+			<%= f.submit "+".html_safe, :class => "btn btn-xs btn-link wcms-grid-size-btn" -%>
+		<%- end -%>
+		<%= form_for Cell.new, :remote => true do |f| -%>
+			<%= hidden_field_tag("adjacent_cell", cell.id) %>
+			<%= hidden_field_tag("merge", "#{side}") %>
+			<%= f.submit "-".html_safe, :class => "btn btn-xs btn-link wcms-grid-size-btn" -%>
+		<%- end -%>
+		<%#= link_to "-".html_safe, "#", :data => {:change => "remove-#{side}", :row => row.id, :cell => cell.id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Remove #{side}-most column" -%>
 		<%= link_to "<i class='fa fa-angle-left'></i>".html_safe, "#", :data => {:change => "remove-#{side}-offset", :row => row.id, :cell => cell.id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Remove #{side} offset" -%>
 		<%= link_to "<i class='fa fa-angle-right'></i>".html_safe, "#", :data => {:change => "add-offset-#{side}", :row => row.id, :cell => cell.id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Add #{side} offset" -%>
 	</div>
