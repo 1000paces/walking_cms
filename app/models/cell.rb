@@ -1,7 +1,6 @@
 class Cell < ActiveRecord::Base
 	belongs_to :row
 
-
 	def division
 		case self.width
 		when 12
@@ -27,7 +26,9 @@ class Cell < ActiveRecord::Base
 		when 2
 			return [1,2]
 		when 1
-			return [nil,1]
+			return [1,1]
+		else
+			return [6,6]
 		end
 	end
 end

@@ -3,5 +3,5 @@ $("#wcms-row-<%= @row.id %>").empty();
 	$("#wcms-row-<%= @row.id %>").append("<%= j render(:partial => 'pages/cell', :locals => {:row => @row, :cell => cell, :index => cell_index}) -%>");
 <%- end -%>
 <%- unless @cell.nil? -%>
-	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").effect("highlight");
+	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").delay(500).effect("highlight");
 <%- end -%>

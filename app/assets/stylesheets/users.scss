@@ -141,7 +141,7 @@ ol.page-list {
 	min-height: 140px !important;
 	background-color: #fff;
 	/*z-index: 100;*/
-	border: 1px solid #fff !important;
+	border: 1px solid #eee !important;
 	padding: 4px 10px !important;
 }
 
@@ -249,12 +249,6 @@ ol.page-list {
   z-index: 101;
 }
 
-
-
-
-
-
-
 .wcms-left-tools {
 	left: -15px; 
 	top: 8px;
@@ -275,15 +269,15 @@ ol.page-list {
 	position: absolute !important;
 	top: -22px;
 	z-index: 10;
-	left: 50px;
+	left: auto;
+	right: auto;
+	width: 200px !important;
 }
 
 .wcms-left-tools, .wcms-right-tools {
 	width: 20px;
 	position: absolute !important;
 }
-
-
 
 .wcms-right-tools {
 	right: -1px; /*18px*/
@@ -299,8 +293,19 @@ ol.page-list {
 .wcms-grid-size-btn {
 	/*border: 1px solid red !important;*/
 	padding: 5px !important;
+	color: #777 !important;
 }
 .wcms-grid-size-btn:hover {
-	background-color: pink;
+	/*background-color: #f5f4f4 !important;*/
+	text-decoration: none !important;
+	font-weight: bold;
+	color: #000 !important;
+}
+
+#wcms-cell-toolbar {
+	position: absolute;
+	bottom: -100px;
+	left: 0;
+	display: none;
 }
 
