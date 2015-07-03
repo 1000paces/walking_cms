@@ -256,7 +256,7 @@ ol.page-list {
 
 .wcms-toolbox {
 	position: relative;
-	margin-top: 24px;
+	/*margin-top: 24px;*/
 }
 
 .wcms-page-display {
@@ -302,10 +302,24 @@ ol.page-list {
 	color: #000 !important;
 }
 
+.wcms-toolbar-div {
+	position: relative;
+}
+
 #wcms-cell-toolbar {
 	position: absolute;
-	bottom: -100px;
+	top: -23px;
 	left: 0;
-	display: none;
+	z-index: 500;
+}
+
+#wcms-cell-toolbar-bottom {
+	position: absolute;
+	bottom: -23px;
+	left: 0;
+}
+
+#wcms-add-row-top {
+	margin-bottom: 24px;
 }
 

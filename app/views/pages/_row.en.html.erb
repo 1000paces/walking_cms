@@ -1,5 +1,6 @@
 <div class="wcms-toolbox">
 	<div class="row" id="wcms-row-<%= row.id %>">
+		<div class="wcms-toolbar-div" id="wcms-toolbar-div-<%= row.id %>" style="display:none;"></div>
 		<div class="col-md-12">
 			<div class="row wcms-row" id="wcms-row-<%= row.id -%>" data-row="<%= row.id -%>">
 				<%- row.cells.each_with_index do |cell, cell_index| -%>

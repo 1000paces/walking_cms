@@ -1,0 +1,30 @@
+<div id="wcms-cell-toolbar" data-target="wcms-work-cell-<%= @row.id %>-<%= @cell.id %>">
+	<div class="btn-group" role="group" aria-label="Cell Toolbar">
+		<%= button_tag "<i class='fa fa-fw fa-caret-square-o-left'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Add column to the left", :id => "wcms-add-left", :data => {:side => "left", :action => "add"} -%>
+		<%= button_tag "<i class='fa fa-fw fa-caret-left'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Merge into column on the left", :id => "wcms-merge-left", :data => {:side => "left", :action => "merge"}  -%>
+		<%= link_to "<i class='fa fa-fw fa-align-left'></i>".html_safe, "#", :class => "btn btn-xs btn-default", :title => "Add Text", :id => "wcms-add-text", :remote => true -%>
+		<%= link_to "<i class='fa fa-fw fa-image'></i>".html_safe, "#", :class => "btn btn-xs btn-default", :title => "Add Image", :id => "wcms-add-image", :remote => true  -%>
+		<%= link_to "<i class='fa fa-fw fa-code'></i>".html_safe, "#", :class => "btn btn-xs btn-default", :title => "Add Code", :id => "wcms-add-code", :remote => true -%>
+		<button type="button" class="btn btn-default btn-xs"><i class='fa fa-fw fa-cloud-upload'></i></button>
+		<button type="button" class="btn btn-default btn-xs"><i class='fa fa-fw fa-arrow-circle-o-up'></i></button>
+		<%= button_tag "<i class='fa fa-fw fa-times'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Delete this cell", :id => "wcms-delete", :data => {:action => "delete"} -%>
+		<%= button_tag "<i class='fa fa-fw fa-caret-right'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Merge into column on the right", :id => "wcms-merge-right", :data => {:side => "right", :action => "merge"} -%>
+		<%= button_tag "<i class='fa fa-fw fa-caret-square-o-right'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Add column to the right", :id => "wcms-add-right", :data => {:side => "right", :action => "add"}  -%>
+	</div>
+</div>
+
+<%= form_for Cell.new, {:id => "new_cell", :class => "form-inline", :remote => true} do |f| -%>
+	<%= hidden_field_tag("adjacent_cell", cell.id) %>
+	<%= hidden_field_tag("deed", "add") %>
+	<%= hidden_field_tag("direction", "right") %>
+<%- end -%>
+
+<script type="text/javascript">
+	$(".wcms-cell-toolbar-btn").on('click', function(e){
+		var dataSide = $(this).attr('data-side');
+		var dataAction = $(this).attr('data-action');
+		$("#direction").val(dataSide);
+		$("#deed").val(dataAction);
+		$("#new_cell").submit();
+	});	
+</script>

@@ -13,20 +13,23 @@ class CellsController < ApplicationController
   def create
     
     @adjacent_cell = Cell.find params[:adjacent_cell]
+    deed = params[:deed]
+    direction = params[:direction]
+
     row = @adjacent_cell.row
     cell_list = row.cell_ids
 
-    if !params[:add].blank?
-      add = params[:add]
-      pos = add == "left" ? @adjacent_cell.position-1 : @adjacent_cell.position
+    if deed == 'add'  #!params[:add].blank?
+      #add = params[:add]
+      pos = direction == "left" ? @adjacent_cell.position-1 : @adjacent_cell.position
       x,y = @adjacent_cell.division
       @adjacent_cell.width = y
       @cell = Cell.create(:width => x, :position => pos, :row_id => @adjacent_cell.row_id, :body => "I'm the new cell")
       cell_list.insert(pos, @cell.id)
       @adjacent_cell.save
     else
-      merge = params[:merge]
-      if merge == 'left'
+      #merge = params[:merge]
+      if direction == 'left'
         dcell_index = cell_list.index(@adjacent_cell.id)-1
         dcell = Cell.find cell_list[dcell_index]
         @adjacent_cell.body = "#{dcell.body} #{@adjacent_cell.body}"

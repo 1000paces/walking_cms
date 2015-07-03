@@ -1,11 +1,26 @@
-$(".wcms-tools").fadeOut();
-$(".wcms-work-cell").removeClass('wcms-work-cell-active');
-$(".wcms-cell").removeClass('wcms-work-cell-active');
-if($("#wcms-tool-cell-top-<%= @row.id %>-<%= @cell.id %>").is(":visible")){
+var pos = $("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").position();
+var cellWidth = $("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").width();
+var rowWidth = $("#wcms-row-<%= @row.id %>").width();
+var toolbarWidth = $("#wcms-cell-toolbar").width();
+var newLeft = pos.left
+
+if (toolbarWidth == 0 || toolbarWidth == null) {
+	toolbarWidth = 265
+}
+
+if ((rowWidth - pos.left) < toolbarWidth) {
+	newLeft = rowWidth - toolbarWidth;
 } else {
-	$("#wcms-tool-cell-left-<%= @row.id %>-<%= @cell.id %>").show("slide", {direction: "right"});
-	$("#wcms-tool-cell-right-<%= @row.id %>-<%= @cell.id %>").show("slide", {direction: "left"});
-	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").switchClass('wcms-work-cell','wcms-work-cell-active', 250, 'swing', function(e){
-		$("#wcms-tool-cell-top-<%= @row.id %>-<%= @cell.id %>").show("slide", {direction: "down"});
-	});
-};
+	newLeft = pos.left;
+	newLeft = ((cellWidth-toolbarWidth)/2) + newLeft
+	if (newLeft < 0) {newLeft = 0}
+}
+
+$("#wcms-toolbar-div-<%= @row.id %>").html("<%= j render(:partial => 'cells/toolbar_top', :locals => {:cell => @cell}) -%>");
+if($("#wcms-toolbar-div-<%= @row.id %>").is(':visible')){
+	$("#wcms-toolbar-div-<%= @row.id %>").animate({'left' : newLeft + "px"}, "slow");
+} else {
+	$(".wcms-toolbar-div").fadeOut();
+	$("#wcms-toolbar-div-<%= @row.id %>").fadeIn();
+	$("#wcms-toolbar-div-<%= @row.id %>").css("left", newLeft);
+}

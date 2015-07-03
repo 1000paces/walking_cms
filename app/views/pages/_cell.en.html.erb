@@ -1,12 +1,3 @@
 <div class="col-md-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-md-offset-#{cell.offset}" : '' -%> wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= row.id %>-<%= cell.id %>" data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>">
-	<ul class="list-unstyled">
-	 <li>ID: <%= cell.id -%></li>
-	 <li>Width: <%= cell.width -%></li>
-	 <li>Offset: <%= cell.offset -%></li>
-	 <li>Position: <%= cell.position -%></li>
-	 <li><%= cell.created_at.strftime("%m/%d/%Y %I:%M:%S") -%></li>
-	 </ul>
-	<%= render :partial => "pages/cell_tools_top", :locals => {:row => row, :cell => cell, :index => index} -%>
-	<%= render :partial => "pages/cell_tools_side", :locals => {:side => 'left', :row => row, :cell => cell, :index => index} -%>
-	<%= render :partial => "pages/cell_tools_side", :locals => {:side => 'right', :row => row, :cell => cell, :index => index} -%>
+
 </div>
