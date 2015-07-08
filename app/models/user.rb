@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_one :domain
+	has_one :setting
 	has_many :pages
 
 	before_validation :copy_login_to_email
@@ -29,6 +30,14 @@ class User < ActiveRecord::Base
 
 	def home_page
 		self.top_nav_pages.first
+	end
+
+	def font
+		if self.setting && self.setting.font
+			return self.setting.font
+		else
+			return nil
+		end
 	end
 
 	private

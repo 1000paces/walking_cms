@@ -69,15 +69,7 @@ body {
 	margin-right: -1px !important;
 }
 
-.white-text {
-	color: #fff;
-}
-
-.white-text {
-	color: #fff;
-}
-
-.white-text-label {
+.wcms-white-text-label {
 	margin-top: 20px;
 	color: #fff;
 	font-weight: 300;
@@ -140,9 +132,12 @@ ol.page-list {
 .wcms-cell {
 	min-height: 140px !important;
 	background-color: #fff;
-	/*z-index: 100;*/
-	border: 1px solid #eee !important;
 	padding: 4px 10px !important;
+	border: 1px solid #fff !important;
+}
+
+.wcms-cell-active {
+	border: 1px solid #eee !important;
 }
 
 .wcms-work-cell-active {
@@ -151,10 +146,10 @@ ol.page-list {
 }
 
 .zone {
-	/*background-color: pink;*/
+
 }
 .zone:hover {
-	/*border: 1px solid #eee;*/
+
 }
 
 .work-area {
@@ -308,7 +303,7 @@ ol.page-list {
 
 #wcms-cell-toolbar {
 	position: absolute;
-	top: -23px;
+	/*top: -23px;*/
 	left: 0;
 	z-index: 500;
 }
@@ -321,5 +316,22 @@ ol.page-list {
 
 #wcms-add-row-top {
 	margin-bottom: 24px;
+}
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.wcms-hidden-input {
+	display: none;
+}
+
+.wcms-sidebar-form {
+	margin: 10px;
+}
+
+.wcms-white-text {
+	color: #fff !important;
 }
 

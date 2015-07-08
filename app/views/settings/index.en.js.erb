@@ -1,0 +1,15 @@
+if($("#drawer-settings").is(':visible')){
+	$("#drawer-settings").hide("slide", { direction: "right" }, 500);
+	$("#full-height").animate({'padding-right' : 0}, 500, function() {
+		$("#drawer-forms").empty();
+	});	
+	$("#toggle-settings").removeClass("active");
+	$("#page-display").show();
+} else {
+	$("#settings-index-div").html("<%= j render(:partial => 'settings/index') -%>");
+	$(".right-column").hide(); 
+	$("#full-height").animate({'padding-right' : '20%'}, 150, function() {
+		$("#toggle-settings").addClass("active");
+	});
+	$("#drawer-settings").show("slide", { direction: "right" }, 150);
+}

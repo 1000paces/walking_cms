@@ -22,3 +22,4 @@
 //= require_tree .
 
 
+$(".wcms-cell").removeClass("wcms-cell-active");

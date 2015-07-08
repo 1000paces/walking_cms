@@ -19,9 +19,7 @@
 					<%- end -%>
 				</li>				
 				<li>
-					<%= link_to "#", :class => "toggle-drawer", :id => "toggle-settings", :data => {:type => "settings"} do -%>
-						Settings
-					<%- end -%>
+					<%= link_to "Settings", settings_path, :remote => true  -%>
 				</li>
 				<li>
 					<%= link_to "Help", help_index_path, :remote => true -%>

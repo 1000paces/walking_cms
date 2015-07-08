@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   resources :users
   resources :pages 
   resources :rows
-  resources :cells 
+  resources :cells, :except => [:edit]
+  resources :settings
   resources :help, :only => [:index, :show]
 
-  
+  match "cells/:id/edit(/:type)" => "cells#edit", :as => "edit_cell", :via => [:get]
 
-  
   match "pages/:user_id/sort" => "pages#sort", :as => "file_list_sort", :via => [:get, :post]
 
   get 'welcome/index'

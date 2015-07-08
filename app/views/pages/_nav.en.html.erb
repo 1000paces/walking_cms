@@ -5,16 +5,16 @@
 				<%- @user.top_nav_pages.each do |p| -%>
 					<%- if p.children.count > 0 -%>
 						<li class="dropdown">
-							<%= link_to p.label, "#", :class => "dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
+							<%= link_to p.label, page_path(p), :class => "dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
 							<ul class="dropdown-menu" role="menu">
 								<%- p.children.each do |c| -%>
-									<li><%= link_to c.label, "#" -%></li>
+									<li><%= link_to c.label, page_path(c), :remote => true -%></li>
 								<%- end -%>
 							</ul>
 						</li>
 					<%- else -%>
 						<li>
-							<%= link_to p.label, "#" -%>
+							<%= link_to p.label, page_path(p), :remote => true  -%>
 						</li>
 					<%- end -%>
 				<%- end -%>

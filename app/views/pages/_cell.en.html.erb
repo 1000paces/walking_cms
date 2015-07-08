@@ -1,3 +1,13 @@
-<div class="col-md-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-md-offset-#{cell.offset}" : '' -%> wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= row.id %>-<%= cell.id %>" data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>">
+<%= form_for cell, {:class => "form-inline", :remote => true} do |f| -%>
+	<div class="col-md-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-md-offset-#{cell.offset}" : '' -%> wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= row.id %>-<%= cell.id %>" data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>" contenteditable="true">
+		<%= cell.body.html_safe -%>
+	</div>
+	<%= hidden_field_tag("direction", "right") %>
+	<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{cell.id}" -%>
+<%- end -%>
 
-</div>
+
+<script>
+	// We need to turn off the automatic editor creation first.
+	CKEDITOR.disableAutoInline = true;
+</script>

@@ -6,6 +6,12 @@ class CellsController < ApplicationController
 
   end
 
+  def show
+    @cell = Cell.find params[:id]
+    @row = @cell.row
+    @page = @row.page
+  end
+
   def new
 
   end
@@ -57,16 +63,25 @@ class CellsController < ApplicationController
 
   def edit
     @cell = Cell.find params[:id]
+    @body_type = params[:type]
     @row = @cell.row
     @page = @row.page
   end
 
   def update
-
+    @cell = Cell.find params[:id]
+    @row = @cell.row
+    @cell.update_attributes(cell_parameters)
   end
 
   def destroy
 
+  end
+
+  private
+
+  def cell_parameters
+    params.require(:cell).permit(:width, :offset, :position, :body)
   end
 
 end

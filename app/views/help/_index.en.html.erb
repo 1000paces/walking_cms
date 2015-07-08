@@ -1,4 +1,4 @@
-<div class="small white-text-label text-center">Topic Index</div>
+<div class="small wcms-white-text-label text-center">Topic Index</div>
 <ol class="list-unstyled page-list">
 	<%- HelpTopic.all.each do |ht| -%>
 		<li><%= link_to ht.title,  help_path(ht.permalink), :remote => true, :class => 'sidebar-link' -%></li>

@@ -1,26 +1,16 @@
-var pos = $("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").position();
-var cellWidth = $("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").width();
-var rowWidth = $("#wcms-row-<%= @row.id %>").width();
-var toolbarWidth = $("#wcms-cell-toolbar").width();
-var newLeft = pos.left
-
-if (toolbarWidth == 0 || toolbarWidth == null) {
-	toolbarWidth = 265
-}
-
-if ((rowWidth - pos.left) < toolbarWidth) {
-	newLeft = rowWidth - toolbarWidth;
-} else {
-	newLeft = pos.left;
-	newLeft = ((cellWidth-toolbarWidth)/2) + newLeft
-	if (newLeft < 0) {newLeft = 0}
-}
-
-$("#wcms-toolbar-div-<%= @row.id %>").html("<%= j render(:partial => 'cells/toolbar_top', :locals => {:cell => @cell}) -%>");
-if($("#wcms-toolbar-div-<%= @row.id %>").is(':visible')){
-	$("#wcms-toolbar-div-<%= @row.id %>").animate({'left' : newLeft + "px"}, "slow");
-} else {
-	$(".wcms-toolbar-div").fadeOut();
-	$("#wcms-toolbar-div-<%= @row.id %>").fadeIn();
-	$("#wcms-toolbar-div-<%= @row.id %>").css("left", newLeft);
-}
+<%- case @body_type -%>
+<%- when 'text' -%>
+/*	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").ckeditor({
+			width: '50%',
+			uiColor: '#ffffff',
+			creator: 'inline',
+			extraPlugins: 'divarea',
+			toolbar:[['Bold', 'Italic', '-', 'Link', 'Unlink']],
+			toolbarLocation: 'bottom'
+		});
+*/
+<%- when 'image' -%>
+	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @body_type -%>")
+<%- when 'code' -%>
+	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @body_type -%>")
+<%- end -%>

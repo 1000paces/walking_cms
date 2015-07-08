@@ -1,0 +1,9 @@
+<div class="">
+	<%= form_for @setting, :html => {:class => "wcms-sidebar-form"} do |f| -%>
+		<label class="wcms-white-text" for="setting_font_id">Font</label>
+		<div class="form-group">
+			<%= f.select(:font_id, Font.alpha_collection, {:include_blank => true}, {:class => "form-control input-sm"}) %>
+		</div>
+		<div class="text-center"><button type="submit" class="btn btn-info">Save</button></div>
+	<%- end -%>
+</div>
