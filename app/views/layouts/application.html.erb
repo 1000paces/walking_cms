@@ -14,10 +14,10 @@
 		<%= cdn_css_font_awesome -%>
 
 		<%- if @user && @user.font -%>
-			<%= @user.font.link.html_safe -%>
+			<%= @user.font.link(@user.font_weight).html_safe -%>
 			<style>
-				html, body {
-					font-family: '<%= @user.font.family -%>', sans-serif !important;
+				.full-height-container{
+					font-family: '<%= @user.font.family -%>', <%= @user.font.serif? ? 'serif' : 'sans serif' -%>  !important;
 				}
 			</style>
 		<%- end -%>
@@ -25,12 +25,9 @@
 
 	  <%= csrf_meta_tags -%>
 
-
-
-
 	</head>
 	<body>
-		<div id="full-height">
+		<div id="wcms-wrapper">
 			<%= yield %>
 		</div>
 	</body>

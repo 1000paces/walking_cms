@@ -1,0 +1,12 @@
+$(".navbar-li-btn").removeClass("active");
+if($("#drawer-assets").is(':visible')){
+	$("#drawer-assets").hide("slide", { direction: "right" }, 500);
+	$("#drawer-forms").empty();
+	$("#wcms-wrapper").removeClass("toggled");
+} else {
+	$("#assets-index-div").html("<%= j render(:partial => 'assets/index') -%>");
+	$(".right-column").hide(); 
+	$("#wcms-wrapper").addClass("toggled");
+	$("#toggle-assets-li").addClass("active");
+	$("#drawer-assets").fadeIn(); /*show("slide", { direction: "right" }, 150);*/
+}

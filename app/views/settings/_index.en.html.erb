@@ -4,6 +4,36 @@
 		<div class="form-group">
 			<%= f.select(:font_id, Font.alpha_collection, {:include_blank => true}, {:class => "form-control input-sm"}) %>
 		</div>
+		<label class="wcms-white-text" for="setting_font_id">Font Weight</label>
+		<div class="radio">
+			<label class="wcms-white-text radio-inline">
+				<%= f.radio_button :font_weight, 100 -%> Thin
+			</label>
+			<label class="wcms-white-text radio-inline">
+				<%= f.radio_button :font_weight, 400 -%> Normal
+			</label>
+			<label class="wcms-white-text radio-inline">
+				<%= f.radio_button :font_weight, 700 -%> Heavy
+			</label>
+		</div>
+		<label class="wcms-white-text" for="setting_fluid">Layout</label>
+		<div class="radio">
+			<label class="wcms-white-text radio-inline">
+				<%= f.radio_button :fluid, true -%> Fluid
+			</label>
+			<label class="wcms-white-text radio-inline">
+				<%= f.radio_button :fluid, false -%> Static
+			</label>
+		</div>
+		<label class="wcms-white-text" for="setting_top_nav">Menu Location</label>
+		<div class="radio">
+			<label class="wcms-white-text radio-inline">
+				<%= f.radio_button :top_nav, true -%> <small>Fixed to Top</small>
+			</label>
+			<label class="wcms-white-text radio-inline">
+				<%= f.radio_button :top_nav, false -%> <small>Below Header Image</small>
+			</label>
+		</div>
 		<div class="text-center"><button type="submit" class="btn btn-info">Save</button></div>
 	<%- end -%>
 </div>

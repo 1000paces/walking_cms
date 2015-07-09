@@ -42,7 +42,11 @@ ActiveRecord::Schema.define(version: 20150708162539) do
   add_index "domains", ["name"], name: "index_domains_on_name", using: :btree
 
   create_table "fonts", force: :cascade do |t|
-    t.string "family", limit: 255, null: false
+    t.string  "family",        limit: 255, default: "Helvetica", null: false
+    t.boolean "serif",         limit: 1,   default: false,       null: false
+    t.integer "min_weight",    limit: 4,   default: 100,         null: false
+    t.integer "normal_weight", limit: 4,   default: 400,         null: false
+    t.integer "max_weight",    limit: 4,   default: 700,         null: false
   end
 
   create_table "help_topics", force: :cascade do |t|
@@ -88,10 +92,13 @@ ActiveRecord::Schema.define(version: 20150708162539) do
   add_index "rows", ["page_id"], name: "index_rows_on_page_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4, default: 1, null: false
-    t.integer  "font_id",    limit: 4, default: 0, null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "user_id",     limit: 4, default: 1,     null: false
+    t.integer  "font_id",     limit: 4, default: 0,     null: false
+    t.integer  "font_weight", limit: 4, default: 400,   null: false
+    t.boolean  "fluid",       limit: 1, default: true,  null: false
+    t.boolean  "top_nav",     limit: 1, default: false, null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "taggings", force: :cascade do |t|

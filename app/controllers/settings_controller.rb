@@ -18,7 +18,7 @@ class SettingsController < ApplicationController
 	private
 
 	def setting_parameters
-		params.require(:setting).permit(:font_id)
+		params.require(:setting).permit(:font_id, :font_weight, :fluid, :top_nav)
 	end
 
 end

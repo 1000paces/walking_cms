@@ -40,6 +40,21 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def font_weight
+		if self.setting && self.setting.font_weight
+			case self.setting.font_weight
+			when 100
+				return self.font.min_weight
+			when 700
+				return self.font.max_weight
+			else
+				return self.font.normal_weight
+			end
+		else
+			return ''
+		end
+	end
+
 	private
 
 	def copy_login_to_email

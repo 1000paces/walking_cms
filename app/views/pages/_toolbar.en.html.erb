@@ -10,18 +10,16 @@
 		</div>
 		<div class="navbar-collapse collapse" id="navbar">
 			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<%= link_to "Pages", pages_path, :remote => true  -%>
+				<li id="toggle-pages-li" class="navbar-li-btn">
+					<%= link_to "Pages", pages_path, :id => "toggle-pages", :remote => true -%>
 				</li>
-				<li>
-					<%= link_to "#", :class => "toggle-drawer", :id => "toggle-assets", :data => {:type => "assets"} do -%>
-						Assets
-					<%- end -%>
+				<li id="toggle-settings-li" class="navbar-li-btn">
+					<%= link_to "Settings", settings_path, :id => "toggle-settings", :remote => true -%>
 				</li>				
-				<li>
-					<%= link_to "Settings", settings_path, :remote => true  -%>
-				</li>
-				<li>
+				<li id="toggle-assets-li" class="navbar-li-btn">
+					<%= link_to "Assets", assets_path, :id => "toggle-assets", :remote => true -%>
+				</li>				
+				<li id="toggle-help-li" class="navbar-li-btn">
 					<%= link_to "Help", help_index_path, :remote => true -%>
 				</li>
 			</ul>

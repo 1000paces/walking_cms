@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :rows
   resources :cells, :except => [:edit]
   resources :settings
+  resources :assets
   resources :help, :only => [:index, :show]
 
   match "cells/:id/edit(/:type)" => "cells#edit", :as => "edit_cell", :via => [:get]

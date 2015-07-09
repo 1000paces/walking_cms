@@ -1,24 +1,31 @@
-<%= render :partial => 'pages/show' -%>
 
-<div class="right-column" id="drawer-assets">
-	<h1 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-archive"></i> Assets</h1>
-	<div id="assets-index-div"></div>
+
+<div id="wcms-content-wrapper">
+	<%= render :partial => 'pages/show' -%>
 </div>
-<div class="right-column" id="drawer-settings">
-	<h1 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-cog"></i> Settings</h1>
-	<div id="settings-index-div"></div>
+
+<div id="wcms-sidebar-wrapper">
+	<div class="right-column" id="drawer-assets">
+		<h1 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-archive"></i> Assets</h1>
+		<div id="assets-index-div"></div>
+	</div>
+	<div class="right-column" id="drawer-settings">
+		<h1 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-cog"></i> Settings</h1>
+		<div id="settings-index-div"></div>
+	</div>
+	<div class="right-column" id="drawer-pages">
+		<h1 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-file"></i> Pages</h1>
+		<div id="pages-index-div"></div>
+	</div>
+	<div class="right-column" id="drawer-help">
+		<h1 class="lead text-center wcms-white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h1>
+		<div id="help-index-div"></div>
+	</div>
 </div>
-<div class="right-column" id="drawer-pages">
-	<h1 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-file"></i> Pages</h1>
-	<div id="pages-index-div"></div>
-</div>
-<div class="right-column" id="drawer-help">
-	<h1 class="lead text-center wcms-white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h1>
-	<div id="help-index-div"></div>
-</div>
-<div class="left-column" id="drawer-forms" style="display: none;"></div>
+<div class="wcms-left-column" id="wcms-drawer-forms" style="display: none;"></div>
 
 <script>
+/**
 	$('.toggle-drawer').on('click', function(e){
 		val = $(this).attr('data-type');
 		$(".toggle-drawer").removeClass('active');
@@ -32,4 +39,5 @@
 			$("#toggle-" + val).addClass("active");
 		}
 	});
+**/
 </script>
