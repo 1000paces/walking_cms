@@ -225,7 +225,7 @@ ol.page-list {
 }
 
 .wcms-cell {
-	min-height: 140px !important;
+	/*min-height: 10px !important;*/
 	background-color: #fff;
 	padding: 4px 10px !important;
 	border: 1px solid #fff !important;
@@ -233,6 +233,7 @@ ol.page-list {
 
 .wcms-cell-active {
 	border: 1px solid #eee !important;
+	min-height: 140px;
 }
 
 .wcms-work-cell-active {
@@ -326,6 +327,7 @@ ol.page-list {
 
 .wcms-row {
 	position: relative;
+	min-height: 44px;
 }
 
 .wcms-row .wcms-cell {

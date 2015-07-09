@@ -1,1 +1,3 @@
 $("#wcms-page-display").html("<%= j render(:partial => 'pages/display') -%>");
+$(".wcms-menu-link").removeClass("active");
+$("#wcms-page-<%= @page.id %>").addClass("active");

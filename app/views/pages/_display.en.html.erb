@@ -23,6 +23,7 @@
 	</div>
 
 	<%- @page.rows.each_with_index do |row, index| -%>
+		<%- Rails.logger.warn("\n\nWORKING ON ROW #{row.id} / #{index}\n\n") -%>
 		<%= render :partial => "pages/row", :locals => {:index => index, :row => row} -%>
 	<%- end -%>
 
