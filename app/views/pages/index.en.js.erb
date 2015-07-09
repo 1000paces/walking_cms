@@ -4,7 +4,7 @@ if($("#drawer-pages").is(':visible')){
 	$("#drawer-forms").empty();
 	$("#wcms-wrapper").removeClass("toggled");
 } else {
-	$(".right-column").hide(); 
+	$(".wcms-right-column").hide(); 
 	$("#pages-index-div").html("<%= j render(:partial => 'pages/index') -%>");
 	$("#toggle-pages-li").addClass("active");
 	$("#drawer-pages").fadeIn(); /*.show("slide", { direction: "right" }, 150);*/

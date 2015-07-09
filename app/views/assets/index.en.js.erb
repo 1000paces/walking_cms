@@ -5,7 +5,7 @@ if($("#drawer-assets").is(':visible')){
 	$("#wcms-wrapper").removeClass("toggled");
 } else {
 	$("#assets-index-div").html("<%= j render(:partial => 'assets/index') -%>");
-	$(".right-column").hide(); 
+	$(".wcms-right-column").hide(); 
 	$("#wcms-wrapper").addClass("toggled");
 	$("#toggle-assets-li").addClass("active");
 	$("#drawer-assets").fadeIn(); /*show("slide", { direction: "right" }, 150);*/

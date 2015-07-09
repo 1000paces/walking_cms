@@ -1,43 +1,24 @@
-
-
 <div id="wcms-content-wrapper">
 	<%= render :partial => 'pages/show' -%>
+	<div class="wcms-left-column" id="wcms-drawer-forms" style="display: none;"></div>
 </div>
 
 <div id="wcms-sidebar-wrapper">
-	<div class="right-column" id="drawer-assets">
+	<div class="wcms-right-column" id="drawer-assets">
 		<h1 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-archive"></i> Assets</h1>
 		<div id="assets-index-div"></div>
 	</div>
-	<div class="right-column" id="drawer-settings">
+	<div class="wcms-right-column" id="drawer-settings">
 		<h1 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-cog"></i> Settings</h1>
 		<div id="settings-index-div"></div>
 	</div>
-	<div class="right-column" id="drawer-pages">
+	<div class="wcms-right-column" id="drawer-pages">
 		<h1 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-file"></i> Pages</h1>
 		<div id="pages-index-div"></div>
 	</div>
-	<div class="right-column" id="drawer-help">
+	<div class="wcms-right-column" id="drawer-help">
 		<h1 class="lead text-center wcms-white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h1>
 		<div id="help-index-div"></div>
 	</div>
 </div>
-<div class="wcms-left-column" id="wcms-drawer-forms" style="display: none;"></div>
 
-<script>
-/**
-	$('.toggle-drawer').on('click', function(e){
-		val = $(this).attr('data-type');
-		$(".toggle-drawer").removeClass('active');
-		if($("#drawer-" + val).is(':visible')){
-			$("#full-height").css('padding-right', '0');
-			$("#drawer-" + val).toggle('slide', {direction: 'left'}, 1000).delay(1000).hide();	
-		} else {
-			$(".right-column").hide();
-			$("#full-height").css('padding-right', '20%');
-			$("#drawer-" + val).toggle('slide', {direction: 'right'}).delay(1000).show();
-			$("#toggle-" + val).addClass("active");
-		}
-	});
-**/
-</script>

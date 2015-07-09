@@ -3,4 +3,4 @@ $("#drawer-forms").hide("slide", { direction: "right" }, 1000, function(){
 });
 $("#page-display").show("slide", { direction: "left" }, 1000);
 $("#page-list").append("<%= j render(:partial => 'page_list_li', :locals => {:page => @page}) -%>");
-$("#navigation-row").html("<%= j render(:partial => 'users/page_nav') -%>");
+$("#navigation-row").html("<%= j render(:partial => 'pages/nav') -%>");

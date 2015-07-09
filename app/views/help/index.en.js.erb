@@ -5,7 +5,7 @@ if($("#drawer-help").is(':visible')){
 	$("#wcms-wrapper").removeClass("toggled");
 } else {
 	$("#help-index-div").html("<%= j render(:partial => 'help/index') -%>");
-	$(".right-column").hide(); 
+	$(".wcms-right-column").hide(); 
 	$("#wcms-wrapper").addClass("toggled");
 	$("#toggle-help-li").addClass("active");
 	$("#drawer-help").fadeIn(); /*show("slide", { direction: "right" }, 150);*/
