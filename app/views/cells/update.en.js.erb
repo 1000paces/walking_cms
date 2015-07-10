@@ -1,1 +1,4 @@
-$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").removeClass("wcms-cell-active");
+$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").removeClass("wcms-cell-active").delay(300).effect("highlight");
+var editor = CKEDITOR.instances["wcms-work-cell-<%= @row.id %>-<%= @cell.id %>"]
+editor.destroy();
+editor = null;

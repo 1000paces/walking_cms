@@ -14,17 +14,21 @@
 	</div>
 
 	<div class="row" id="wcms-add-row-top">
-		<div class="col-md-2 col-md-offset-5">
+		<div class="col-md-2 col-md-offset-4">
 			<%= form_for @row, :remote => true do |f| -%>
 				<%= f.hidden_field :page_id -%>
-				<%= f.submit "+ Add Row".html_safe,  :class => "btn btn-default btn-xs btn-block" -%>
+				<%= button_tag "<i class='fa fa-fw fa-plus'></i> Add Row".html_safe, :class => "btn btn-default btn-xs btn-block" -%>
 			<%- end -%>
+		</div>
+		<div class="col-md-2">
+			<%= button_tag "<i class='fa fa-fw fa-arrows'></i> Organize".html_safe, :class => "btn btn-xs btn-default btn-block", :title => "Organize", :id => "wcms-organize" -%>
 		</div>
 	</div>
 
 	<%- @page.rows.each_with_index do |row, index| -%>
-		<%- Rails.logger.warn("\n\nWORKING ON ROW #{row.id} / #{index}\n\n") -%>
-		<%= render :partial => "pages/row", :locals => {:index => index, :row => row} -%>
+		<%- unless row.new_record? -%>
+			<%= render :partial => "pages/row", :locals => {:index => index, :row => row} -%>
+		<%- end -%>
 	<%- end -%>
 
 	<div class="row">

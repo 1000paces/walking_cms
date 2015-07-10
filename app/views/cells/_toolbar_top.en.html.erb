@@ -2,12 +2,14 @@
 	<div class="btn-group" role="group" aria-label="Cell Toolbar">
 		<%= button_tag "<i class='fa fa-fw fa-caret-square-o-left'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Add column to the left", :id => "wcms-add-left", :data => {:side => "left", :action => "add"} -%>
 		<%= button_tag "<i class='fa fa-fw fa-caret-left'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Merge into column on the left", :id => "wcms-merge-left", :data => {:side => "left", :action => "merge"} -%>
+		
 		<%= link_to "<i class='fa fa-fw fa-align-left'></i>".html_safe, edit_cell_path(@cell, "text"), :class => "btn btn-xs btn-default wcms-cell-editor-btn", :title => "Add Text", :id => "wcms-add-text", :remote => true, :data => {:row => @row.id, :cell => @cell.id} -%>
 		<%= link_to "<i class='fa fa-fw fa-image'></i>".html_safe, edit_cell_path(@cell, "image"), :class => "btn btn-xs btn-default", :title => "Add Image", :id => "wcms-add-image", :remote => true, :data => {:row => @row.id, :cell => @cell.id} -%>
 		<%= link_to "<i class='fa fa-fw fa-code'></i>".html_safe, edit_cell_path(@cell, "code"), :class => "btn btn-xs btn-default", :title => "Add Code", :id => "wcms-add-code", :remote => true , :data => {:row => @row.id, :cell => @cell.id} -%>
 		<%= button_tag "<i class='fa fa-fw fa-cloud-upload'></i>".html_safe, :class => "btn btn-xs btn-default", :title => "Save Changes", :id => "wcms-save", :data => {:action => "save", :row => @row.id, :cell => @cell.id} -%>
-		<button type="button" class="btn btn-default btn-xs"><i class='fa fa-fw fa-arrow-circle-o-up'></i></button>
-		<%= button_tag "<i class='fa fa-fw fa-times'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Delete this cell", :id => "wcms-delete", :data => {:action => "delete"} -%>
+		<%- if 1==2 -%><button type="button" class="btn btn-default btn-xs"><i class='fa fa-fw fa-arrow-circle-o-up'></i></button><%- end -%>
+		<%= button_tag "<i class='fa fa-fw fa-times'></i>".html_safe, :class => "btn btn-xs btn-default", :title => "Cancel", :id => "wcms-cancel", :data => {:action => "cancel", :row => @row.id, :cell => @cell.id} -%>
+		
 		<%= button_tag "<i class='fa fa-fw fa-caret-right'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Merge into column on the right", :id => "wcms-merge-right", :data => {:side => "right", :action => "merge"} -%>
 		<%= button_tag "<i class='fa fa-fw fa-caret-square-o-right'></i>".html_safe, :class => "btn btn-xs btn-default wcms-cell-toolbar-btn", :title => "Add column to the right", :id => "wcms-add-right", :data => {:side => "right", :action => "add"}  -%>
 	</div>
@@ -29,7 +31,6 @@
 		$("#new_cell").submit();
 	});	
 
-
 	// Sample: Inline Editing Enabled by Code
 	$(".wcms-cell-editor-btn").on('click', function (e) {
 		/*alert(CKEDITOR.version);*/
@@ -45,7 +46,6 @@
 				} );
 	});
 
-
 	$("#wcms-save").on('click', function (e) {
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
@@ -54,6 +54,16 @@
 		$("#edit_cell_" + dataCell).submit();
 	});
 
+	$("#wcms-cancel").on('click', function(e) {
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		$("#wcms-toolbar-div-" + dataRow).fadeOut();
+		$("#wcms-work-cell-" + dataRow + "-" + dataCell).removeClass("wcms-cell-active");
+		var editor = CKEDITOR.instances["wcms-work-cell-" + dataRow + "-" + dataCell]
+		editor.destroy();
+		editor = null;
+		
+	});
 
 </script>
 

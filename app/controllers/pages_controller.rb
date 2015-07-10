@@ -8,11 +8,8 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
-    if @page.rows.blank?
-      @row = @page.rows.build 
-    else
-      @row = @page.rows.first
-    end
+
+    @row = @page.rows.build 
     #if @page.rows.empty?
     #  @row = @page.rows.create
       #@cell = @row.cells.build(:body => "Type something here")
