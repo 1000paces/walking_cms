@@ -17,7 +17,6 @@ class CellsController < ApplicationController
   end
 
   def create
-    
     @adjacent_cell = Cell.find params[:adjacent_cell]
     deed = params[:deed]
     direction = params[:direction]
@@ -38,11 +37,11 @@ class CellsController < ApplicationController
       if direction == 'left'
         dcell_index = cell_list.index(@adjacent_cell.id)-1
         dcell = Cell.find cell_list[dcell_index]
-        @adjacent_cell.body = "#{dcell.body} #{@adjacent_cell.body}"
+        @adjacent_cell.body = "#{dcell.body} <!--MERGE POINT--> #{@adjacent_cell.body}"
       else
         dcell_index = cell_list.index(@adjacent_cell.id)+1
         dcell = Cell.find cell_list[dcell_index]
-        @adjacent_cell.body = "#{@adjacent_cell.body} #{dcell.body}"
+        @adjacent_cell.body = "#{@adjacent_cell.body} <!--MERGE POINT--> #{dcell.body}"
       end
       @adjacent_cell.width = dcell.width + @adjacent_cell.width
       @adjacent_cell.save
@@ -76,6 +75,25 @@ class CellsController < ApplicationController
 
   def destroy
 
+  end
+
+  def sort
+    @row = Row.find params[:row_id]
+    @page = @row.page
+    #Rails.logger.warn("\n\nPARAMS: #{params}\n\n")
+    cells = params["wcms-work-cell"]
+
+    case request.method
+    when 'GET'
+    when 'POST'
+      cells.each_with_index do |cell_id, index|
+        c = Cell.find cell_id
+        c.position = index
+        c.row_id = @row.id
+        c.save
+      end
+      render :nothing => true
+    end
   end
 
   private

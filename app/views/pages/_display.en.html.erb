@@ -3,7 +3,7 @@
 <%- else -%>
 	<h1 class="text-center"><%= @page.label -%></h1>
 <%- end -%>
-<div class="col-md-12 center-column" id="work-area">
+<div class="col-md-12 center-column" id="wcms-work-area">
 	<div class="row">
 		<div class="col-md-12 header-zone zone" id="header-row"></div>
 	</div>
@@ -21,7 +21,7 @@
 			<%- end -%>
 		</div>
 		<div class="col-md-2">
-			<%= button_tag "<i class='fa fa-fw fa-arrows'></i> Organize".html_safe, :class => "btn btn-xs btn-default btn-block", :title => "Organize", :id => "wcms-organize" -%>
+			<%= link_to "<i class='fa fa-fw fa-arrows'></i> Organize".html_safe, rows_sort_path(@page), :class => "btn btn-xs btn-default btn-block", :title => "Organize", :id => "wcms-organize", :remote => true -%>
 		</div>
 	</div>
 
@@ -37,7 +37,7 @@
 </div>
 
 <script type="text/javascript">
-	$("#work-area").on('click', 'div.wcms-cell', function(e){
+	$("#wcms-work-area").on('click', 'div.wcms-cell', function(e){
 		var cellId = $(this).attr('data-cell');
 		$.ajax({
 			type: 'get',
@@ -45,9 +45,11 @@
 			url: '/cells/' + cellId 
 		})
 	});
-	$("#work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
+	$("#wcms-work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
 		e.stopPropagation();
 	});	
 </script>
+
+
 
 

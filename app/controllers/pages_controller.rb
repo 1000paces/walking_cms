@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
-
+    session[:current_page] = @page.id
     @row = @page.rows.build 
     #if @page.rows.empty?
     #  @row = @page.rows.create
@@ -39,6 +39,8 @@ class PagesController < ApplicationController
 
   def sort
 		sorted_list = params[:item]
+
+    @page = session[:current_page].blank? ? @user.home_page : Page.find(session[:current_page])
 
 		if params[:socket] == 'linked'
 			sorted_list.each_with_index do |member, index|

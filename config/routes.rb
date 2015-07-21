@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   match "cells/:id/edit(/:type)" => "cells#edit", :as => "edit_cell", :via => [:get]
 
   match "pages/:user_id/sort" => "pages#sort", :as => "file_list_sort", :via => [:get, :post]
+  match "rows/:page_id/sort" => "rows#sort", :as => "rows_sort", :via => [:get, :post]
+  match "cells/:row_id/sort" => "cells#sort", :as => "cells_sort", :via => [:get, :post]
 
   get 'welcome/index'
 
