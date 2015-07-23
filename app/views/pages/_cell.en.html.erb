@@ -1,22 +1,26 @@
 <div class="col-md-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-md-offset-#{cell.offset}" : '' -%> wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= row.id %>-<%= cell.id %>" 
 	data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>" data-toggle="popover" contenteditable="true">
 	<%= cell.body.html_safe -%>
+	<%#= button_tag "<i class='fa fa-fw fa-pencil-square-o'></i>".html_safe, :class => "btn btn-xs btn-default", :title => "Edit Cell", :id => "wcms-add-left-#{row.id}-#{cell.id}" -%>
 </div>
 <%= form_for cell, {:class => "form-inline", :remote => true} do |f| -%>	
-	<%#= hidden_field_tag("direction", "right", {:id => "cell_direction_#{cell.id}"}) %>
 	<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{cell.id}" -%>
 <%- end -%>
 
+<%= render(:partial => 'cells/toolbar_bottom', :locals => {:row => row, :cell => cell}) -%>
 
 <script>
 	// We need to turn off the automatic editor creation first.
 	CKEDITOR.disableAutoInline = true;
 
 	$("#wcms-work-cell-<%= row.id %>-<%= cell.id %>").toolbar({
-		content: '#toolbar-options',
-		style: 'primary',
+		content: '#toolbar-options-<%= row.id %>-<%= cell.id %>',
 		position: 'bottom',
 		event: 'click',
-		hideOnClick: true
+		hideOnClick: true,
+		style: 'dark',
+		animation: 'standard',
+		uniqifier: '<%= row.id %>-<%= cell.id %>'
 	});
+
 </script>

@@ -1,5 +1,11 @@
-<div id="toolbar-options">
-<a href="#"><i class="fa fa-plane"></i></a>
-<a href="#"><i class="fa fa-car"></i></a>
-<a href="#"><i class="fa fa-bicycle"></i></a>
+<div id="toolbar-options-<%= row.id %>-<%= cell.id %>" class="tool-items hidden wcms-toolbar-box">
+	<%= link_to "<i class='fa fa-chevron-left'></i>".html_safe, "#", :class => "tool-item wcms-cell-toolbar-btn", :title => "Add column to the left", :id => "wcms-add-left", :data => {:side => "left", :action => "add", :row => row.id, :cell => cell.id} -%>
+	<%= link_to "<i class='fa fa-caret-left'></i>".html_safe, "#", :class => "tool-item wcms-cell-toolbar-btn", :title => "Merge into column on the left", :id => "wcms-merge-left", :data => {:side => "left", :action => "merge", :row => row.id, :cell => cell.id} -%>
+	<%= link_to "<i class='fa fa-align-left'></i>".html_safe, edit_cell_path(cell, "text"), :class => "tool-item wcms-cell-editor-btn", :title => "Add Text", :id => "wcms-add-text", :remote => true, :data => {:row => row.id, :cell => cell.id}  -%>
+	<%= link_to "<i class='fa fa-image'></i>".html_safe, edit_cell_path(cell, "image"), :class => "tool-item", :title => "Add Image", :id => "wcms-add-image", :remote => true -%>
+	<%= link_to "<i class='fa fa-code'></i>".html_safe, edit_cell_path(cell, "code"), :class => "tool-item", :title => "Add Code", :id => "wcms-add-code", :remote => true  -%>
+	<%= link_to "<i class='fa fa-cloud-upload'></i>".html_safe, "#", :class => "tool-item wcms-save", :title => "Save Changes", :data => {:action => "save", :row => row.id, :cell => cell.id} -%>
+	<%= link_to "<i class='fa fa-times'></i>".html_safe, "#", :class => "tool-item wcms-cancel", :title => "Cancel", :data => {:action => "cancel", :row => row.id, :cell => cell.id} -%>
+	<%= link_to "<i class='fa fa-caret-right'></i>".html_safe, "#", :class => "tool-item wcms-cell-toolbar-btn", :title => "Merge into column on the right", :id => "wcms-merge-right", :data => {:side => "right", :action => "merge", :row => row.id, :cell => cell.id} -%>
+	<%= link_to "<i class='fa fa-chevron-right'></i>".html_safe, "#", :class => "tool-item wcms-cell-toolbar-btn", :title => "Add column to the right", :id => "wcms-add-right", :data => {:side => "right", :action => "add", :row => row.id, :cell => cell.id}  -%>
 </div>

@@ -1,0 +1,5 @@
+<%= form_for Cell.new, {:id => "new_cell", :class => "form-inline", :remote => true} do |f| -%>
+	<%= hidden_field_tag("adjacent_cell", 0, {:id => "wcms-adjacent-cell"}) %>
+	<%= hidden_field_tag("deed", "add", {:id => "wcms-deed"}) %>
+	<%= hidden_field_tag("direction", "right", {:id => "wcms-direction"}) %>
+<%- end -%>

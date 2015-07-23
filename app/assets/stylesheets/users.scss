@@ -229,7 +229,7 @@ ol.page-list {
 	border: 1px solid #fff !important;
 }
 
-.wcms-cell-active {
+.pressed {
 	border: 1px solid #eee !important;
 	border-color: rgb(229, 229, 229);
 	min-height: 140px;
@@ -446,3 +446,36 @@ ol.page-list {
 	margin-right: -13px !important;
 }
 
+div.tool-items {
+
+}
+
+div.tool-items a.tool-item {
+
+}
+
+div.tool-items a.tool-item i {
+
+}
+
+.tool-items *,
+.tool-items *:before,
+.tool-items *:after {
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+}
+
+.toolbar-dark {
+	background-color: #222 !important;
+}
+.arrow {
+	border-bottom-color: #222 !important;	
+}
+.toolbar-dark a {
+	color: #9d9d9d !important;
+}
+.toolbar-dark a:hover {
+	color: #fff !important;
+	background-color: #080808 !important;
+}

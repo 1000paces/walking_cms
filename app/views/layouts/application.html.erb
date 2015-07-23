@@ -27,7 +27,9 @@
 
 	</head>
 	<body>
-		<%= render(:partial => 'cells/toolbar_bottom') -%>
+		<%- unless @page.nil? -%>
+
+		<%- end -%>
 		<div id="wcms-wrapper">
 			<%= yield %>
 		</div>

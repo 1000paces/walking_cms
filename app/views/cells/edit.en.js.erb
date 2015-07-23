@@ -1,14 +1,6 @@
 <%- case @body_type -%>
 <%- when 'text' -%>
-/*	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").ckeditor({
-			width: '50%',
-			uiColor: '#ffffff',
-			creator: 'inline',
-			extraPlugins: 'divarea',
-			toolbar:[['Bold', 'Italic', '-', 'Link', 'Unlink']],
-			toolbarLocation: 'bottom'
-		});
-*/
+ /*** Do nothing, handled inline ***/
 <%- when 'image' -%>
 	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @body_type -%>")
 <%- when 'code' -%>

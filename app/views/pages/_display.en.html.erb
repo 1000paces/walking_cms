@@ -34,6 +34,8 @@
 	<div class="row">
 		<div class="col-md-12 footer-zone zone" id="footer-row"></div>
 	</div>
+
+	<%= render :partial => 'cells/new' -%>
 </div>
 
 <script type="text/javascript">
@@ -47,7 +49,80 @@
 	});
 	$("#wcms-work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
 		e.stopPropagation();
-	});	
+	});
+	$("#wcms-cell").on('click', function(e){
+		e.stopPropagation();
+	});		
+
+	/*** Submit the new cell form to create a new cell or merge existing cells ***/
+	$(".wcms-cell-toolbar-btn").on('click', function(e){
+		var dataSide = $(this).attr('data-side');
+		var dataAction = $(this).attr('data-action');
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		
+		$("#wcms-direction").val(dataSide);
+		$("#wcms-deed").val(dataAction);
+		$("#wcms-adjacent-cell").val(dataCell);
+		$("#new_cell").submit();
+	});
+
+	/*** Activate the CKEDITOR instance for the given cell ***/
+	$(".wcms-cell-editor-btn").on('click', function (e) {
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
+
+		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
+					startupFocus: true,
+					uiColor: '#ffffff',
+					toolbar: 'main',
+					width: '50%'
+				} );
+	});
+
+	/*** Save the change from CKEDITOR for this cell ***/
+	$(".wcms-save").on('click', function (e) {
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		var bodyValue = $("#wcms-work-cell-" + dataRow + "-" + dataCell).html();
+		$("#cell_body_" + dataCell).val(bodyValue);
+		$("#edit_cell_" + dataCell).submit();
+	});
+
+	/*** Cancel the CKEDITOR instance ***/
+	$(".wcms-cancel").on('click', function(e) {
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		$("#wcms-toolbar-div-" + dataRow).fadeOut();
+		$("#wcms-work-cell-" + dataRow + "-" + dataCell).removeClass("wcms-cell-active");
+		var editor = CKEDITOR.instances["wcms-work-cell-" + dataRow + "-" + dataCell]
+		editor.destroy();
+		editor = null;
+	});
+
+	/*** Hide all Cell Toolbars ***/
+	$(".wcms-work-cell").on('click', function(e) {
+		/*$(".tool-container").fadeOut();*/
+	});
+
+/**
+	$(".wcms-work-cell").on('click', function(e) {
+		var rowId = $(this).attr('data-row');
+		var cellId = $(this).attr('data-cell');
+
+		$("#wcms-work-cell-" + rowId + "-" + cellId).toolbar({
+			content: '#toolbar-options-' + rowId + "-" + cellId,
+			position: 'bottom',
+			event: 'click',
+			hideOnClick: true,
+			style: 'dark',
+			animation: 'standard'
+		});
+
+	})
+**/
+
 </script>
 
 
