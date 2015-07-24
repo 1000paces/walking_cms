@@ -38,11 +38,10 @@
 		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
 
 		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
-					startupFocus: true,
-					uiColor: '#ffffff',
-					toolbar: 'main',
-					width: '50%'
-				} );
+			startupFocus: true,
+			toolbar: 'main',
+			width: '50%'
+		} );
 	});
 
 	$("#wcms-save").on('click', function (e) {

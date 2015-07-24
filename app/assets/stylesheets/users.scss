@@ -224,7 +224,6 @@ ol.page-list {
 }
 
 .wcms-cell {
-	
 	padding: 4px 10px !important;
 	border: 1px solid #fff !important;
 }
@@ -233,7 +232,7 @@ ol.page-list {
 	border: 1px solid #eee !important;
 	border-color: rgb(229, 229, 229);
 	min-height: 140px;
-	box-shadow: 0 0 3px rgba(0,0,0,.15);
+	/*box-shadow: 0 0 3px rgba(0,0,0,.15);*/
 }
 
 .wcms-work-cell-active {
@@ -478,4 +477,9 @@ div.tool-items a.tool-item i {
 .toolbar-dark a:hover {
 	color: #fff !important;
 	background-color: #080808 !important;
+}
+
+.cke_chrome {
+	border: 1px solid #eee !important;
+	border-radius: 6px !important
 }

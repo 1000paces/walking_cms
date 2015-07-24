@@ -50,9 +50,12 @@
 	$("#wcms-work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
 		e.stopPropagation();
 	});
+
+	/*
 	$("#wcms-cell").on('click', function(e){
 		e.stopPropagation();
-	});		
+	});
+	*/		
 
 	/*** Submit the new cell form to create a new cell or merge existing cells ***/
 	$(".wcms-cell-toolbar-btn").on('click', function(e){
@@ -74,11 +77,12 @@
 		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
 
 		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
-					startupFocus: true,
-					uiColor: '#ffffff',
-					toolbar: 'main',
-					width: '50%'
-				} );
+			startupFocus: true,
+			uiColor: '#ffffff',
+			skin: 'flat',
+			toolbar: 'main',
+			width: '50%'
+		});
 	});
 
 	/*** Save the change from CKEDITOR for this cell ***/
