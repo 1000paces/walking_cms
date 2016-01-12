@@ -15,6 +15,11 @@
  *= require_self
  */
 
+@font-face {
+	font-family: -apple-system, "Helvetica Neue", "Lucida Grande" !important;
+}
+
+
 footer li a {
 	font-variant: small-caps;
 }
