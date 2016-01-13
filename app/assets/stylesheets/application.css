@@ -19,6 +19,9 @@
 	font-family: -apple-system, "Helvetica Neue", "Lucida Grande" !important;
 }
 
+body {
+	padding-top: 5rem;
+}
 
 footer li a {
 	font-variant: small-caps;

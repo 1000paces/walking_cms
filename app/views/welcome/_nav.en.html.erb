@@ -22,21 +22,15 @@
 
 <%- end -%>
 <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-  
   	<%= link_to "#", :class => "navbar-brand" do -%>
-			Walking CMS
+			<%= image_tag "1kp_brand.png", :class => 'pull-xs-left' -%> Walking CMS
   	<%- end -%>
-		<div class="nav navbar-nav pull-xs-right">
-			<%= link_to "Create Account", new_user_path, :class => "nav-item nav-link" -%>
-		</div>
-		<div class="nav navbar-nav pull-xs-right">
-			<%= form_for @user, url: user_session_path, method: :post, html: { class: 'form-inline', role: 'form' } do |f| %>  
-				<%= f.text_field(:login, :class => "form-control", :placeholder => "Email") -%>
-				<%= f.password_field(:password, :class => "form-control", :placeholder => "Password") -%>
-				<%= f.submit ' Sign In ', class: 'btn' %>
-			<%- end -%>
-		</div>
-
-
-  
+		<ul class="nav navbar-nav pull-xs-right">
+			<li class="nav-item"><%= link_to " Create Account ", new_user_path, :class => "nav-link" -%></li>
+		</ul>
+		<%= form_for @user, url: user_session_path, method: :post, html: { class: 'form-inline pull-xs-right', role: 'form' } do |f| %>
+			<div class="form-group"><%= f.text_field(:login, :class => "form-control", :placeholder => "Email") -%></div>
+			<div class="form-group"><%= f.password_field(:password, :class => "form-control", :placeholder => "Password") -%></div>
+			<div class="form-group"><%= f.submit ' Sign In ', class: 'btn btn-success' %></div>
+		<%- end -%>
 </nav>
