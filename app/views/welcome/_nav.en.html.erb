@@ -1,21 +1,42 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<%= link_to "Walking CMS", "#", :class => "navbar-brand" -%>
+<%- if 1==2 -%>
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+	<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    &#9776;
+  </button>
+	<div class="collapse navbar-toggleable-xs" id="navbar">
+		<%= link_to "Walking CMS", "#", :class => "navbar-brand" -%>
+		<ul class="nav navbar-nav navbar-right">
+			<li><%= link_to "Create Account", new_user_path -%></li>
+		</ul>
+		<%= form_for @user, url: user_session_path, method: :post, html: { class: 'navbar-form navbar-right', role: 'form' } do |f| %>  
+			<div class="form-group">
+				<%= f.text_field(:login, :class => "form-control", :placeholder => "Email") -%>
+			</div>
+			<div class="form-group">
+				<%= f.password_field(:password, :class => "form-control", :placeholder => "Password") -%>
+			</div>
+			<%= f.submit 'Sign In', class: 'btn btn-success' %>
+		<%- end -%>
+	</div>
+</nav>
+
+<%- end -%>
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  
+  	<%= link_to "#", :class => "navbar-brand" do -%>
+			Walking CMS
+  	<%- end -%>
+		<div class="nav navbar-nav pull-xs-right">
+			<%= link_to "Create Account", new_user_path, :class => "nav-item nav-link" -%>
 		</div>
-		<div class="navbar-collapse collapse" id="navbar">
-			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to "Create Account", new_user_path -%></li>
-			</ul>
-			<%= form_for @user, url: user_session_path, method: :post, html: { class: 'navbar-form navbar-right', role: 'form' } do |f| %>  
-				<div class="form-group">
-					<%= f.text_field(:login, :class => "form-control", :placeholder => "Email") -%>
-				</div>
-				<div class="form-group">
-					<%= f.password_field(:password, :class => "form-control", :placeholder => "Password") -%>
-				</div>
-				<%= f.submit 'Sign In', class: 'btn btn-success' %>
+		<div class="nav navbar-nav pull-xs-right">
+			<%= form_for @user, url: user_session_path, method: :post, html: { class: 'form-inline', role: 'form' } do |f| %>  
+				<%= f.text_field(:login, :class => "form-control", :placeholder => "Email") -%>
+				<%= f.password_field(:password, :class => "form-control", :placeholder => "Password") -%>
+				<%= f.submit ' Sign In ', class: 'btn' %>
 			<%- end -%>
 		</div>
-	</div>
+
+
+  
 </nav>

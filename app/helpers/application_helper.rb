@@ -1,11 +1,11 @@
 module ApplicationHelper
 
 	def cdn_js_bootstrap
-		"<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>".html_safe
+		"<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js'></script>".html_safe
 	end
 
 	def cdn_css_bootstrap
-		"<link href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' rel='stylesheet'>".html_safe
+		"<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css'>".html_safe
 	end
 
 	def cdn_css_font_awesome
@@ -13,3 +13,5 @@ module ApplicationHelper
 	end
 
 end
+
+

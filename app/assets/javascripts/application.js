@@ -18,7 +18,7 @@
 //= require jquery.remotipart
 //= require ckeditor-jquery
 //= require jquery.mjs.nestedSortable
-
+//= require tether/tether
 //= require_tree .
 
 
