@@ -1,29 +1,24 @@
 <div class="">
-	<ul class="list-unstyled">
-		<li class="text-center">
-			<%= link_to "<i class='fa fa-fw fa-plus'></i> New Page".html_safe, new_page_path, :class => 'btn btn-success', :remote => true -%>
-		</li>
-	</ul>
-
-	<div class="wcms-white-text-label text-center small">Site Navigation</div>
+	<div class="text-xs-center">
+		<%= link_to "<i class='fa fa-fw fa-plus'></i> New Page".html_safe, new_page_path, :class => 'btn btn-success btn-sm', :remote => true -%>
+	</div>
+	<div class="wcms-white-text-label text-xs-center small">Site Navigation</div>
 	<ol class="list-unstyled page-list linked-pages" id="page-list">	
 		<%- @user.top_nav_pages.each do |page| -%>
 			<%= render :partial => "page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>
 
-	<div class="small wcms-white-text-label text-center">Other Pages</div>
+	<div class="small wcms-white-text-label text-xs-center">Other Pages</div>
 	<ol class="list-unstyled page-list unlinked-pages" id="unlinked-page-list">
 		<%- @user.non_nav_pages.each do |page| -%>
 			<%= render :partial => "page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>
 
-	<ul class="list-unstyled">
-		<li class="text-center">
-			<%= link_to "<i class='fa fa-fw fa-question'></i> Help".html_safe, help_path("pages"), :class => 'btn btn-warning', :remote => true -%>
-		</li>
-	</ul>	
+	<div class="text-xs-center">
+		<%= link_to "<i class='fa fa-fw fa-question'></i> Help".html_safe, help_path("pages"), :class => 'btn btn-warning btn-sm', :remote => true -%>
+	</div>
 </div>
 
 <div id="dragholder" style="display: block;"></div>

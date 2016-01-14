@@ -1,39 +1,47 @@
 <div class="">
 	<%= form_for @setting, :html => {:class => "wcms-sidebar-form"} do |f| -%>
-		<label class="wcms-white-text" for="setting_font_id">Font</label>
-		<div class="form-group">
-			<%= f.select(:font_id, Font.alpha_collection, {:include_blank => true}, {:class => "form-control input-sm"}) %>
-		</div>
-		<label class="wcms-white-text" for="setting_font_id">Font Weight</label>
-		<div class="radio">
-			<label class="wcms-white-text radio-inline">
-				<%= f.radio_button :font_weight, 100 -%> Thin
-			</label>
-			<label class="wcms-white-text radio-inline">
-				<%= f.radio_button :font_weight, 400 -%> Normal
-			</label>
-			<label class="wcms-white-text radio-inline">
-				<%= f.radio_button :font_weight, 700 -%> Heavy
-			</label>
-		</div>
-		<label class="wcms-white-text" for="setting_fluid">Layout</label>
-		<div class="radio">
-			<label class="wcms-white-text radio-inline">
-				<%= f.radio_button :fluid, true -%> Fluid
-			</label>
-			<label class="wcms-white-text radio-inline">
-				<%= f.radio_button :fluid, false -%> Static
-			</label>
-		</div>
-		<label class="wcms-white-text" for="setting_top_nav">Menu Location</label>
-		<div class="radio">
-			<label class="wcms-white-text radio-inline">
-				<%= f.radio_button :top_nav, true -%> <small>Fixed to Top</small>
-			</label>
-			<label class="wcms-white-text radio-inline">
-				<%= f.radio_button :top_nav, false -%> <small>Below Header Image</small>
-			</label>
-		</div>
-		<div class="text-center"><button type="submit" class="btn btn-info">Save</button></div>
+		<fieldset class="form-group">
+			<label class="wcms-white-text" for="setting_font_id">Font</label>
+			<%= f.select(:font_id, Font.alpha_collection, {:include_blank => true}, {:class => "form-control form-control-sm"}) %>
+		</fieldset>
+		<fieldset class="form-group">
+			<label class="wcms-white-text" for="setting_font_id">Font Weight</label>
+			<div class="radio">
+				<label class="wcms-white-text radio-inline">
+					<small><%= f.radio_button :font_weight, 100 -%> Thin</small>
+				</label>
+				<label class="wcms-white-text radio-inline">
+					<small><%= f.radio_button :font_weight, 400 -%> Normal</small>
+				</label>
+				<label class="wcms-white-text radio-inline">
+					<small><%= f.radio_button :font_weight, 700 -%> Heavy</small>
+				</label>
+			</div>
+		</fieldset>
+		<fieldset class="form-group">
+			<label class="wcms-white-text" for="setting_fluid">Layout</label>
+			<div class="radio">
+				<label class="wcms-white-text radio-inline">
+					<small><%= f.radio_button :fluid, true -%> Fluid</small>
+				</label>
+				<label class="wcms-white-text radio-inline">
+					<small><%= f.radio_button :fluid, false -%> Static</small>
+				</label>
+			</div>
+		</fieldset>
+		<fieldset class="form-group">
+			<label class="wcms-white-text" for="setting_top_nav">Menu Location</label>
+			<div class="radio">
+				<label class="wcms-white-text">
+					<small><%= f.radio_button :top_nav, true -%> Fixed to Top</small>
+				</label>
+			</div>
+			<div class="radio">			
+				<label class="wcms-white-text">
+					<small><%= f.radio_button :top_nav, false -%> Below Header Image</small>
+				</label>
+			</div>
+		</fieldset>
+		<div class="text-xs-center"><button type="submit" class="btn btn-info btn-sm">Save</button></div>
 	<%- end -%>
 </div>
