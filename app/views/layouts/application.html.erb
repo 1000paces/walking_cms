@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Walking CMS</title>
+		<title><%= cms_name -%></title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
 		<%- if @user && @user.font -%>
 			<%= @user.font.link(@user.font_weight).html_safe -%>
 			<style>
-				.full-height-container{
+				.full-height-container .wcms-cell {
 					font-family: '<%= @user.font.family -%>', <%= @user.font.serif? ? 'serif' : 'sans serif' -%>  !important;
 				}
 			</style>

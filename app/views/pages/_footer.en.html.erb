@@ -1,19 +1,14 @@
-<footer id="footer" class="navbar navbar-default navbar-fixed-bottom">
-	<div class="container">
-		<ul class="nav navbar-nav navbar-left" id="footer_nav_ul">
-			<li>
-				<%= link_to("http://www.1000paces.com", :target => "_blank") do %>
-					<%= image_tag("powered_by_1kp_60.png", :height => "22", :title => "powered by 1000 Paces") -%>
-				<%- end -%>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
+<footer id="footer" class="navbar navbar-light bg-faded navbar-fixed-bottom">
+		<%= link_to("http://www.1000paces.com", :target => "_blank") do %>
+			<%= image_tag("powered_by_1kp_60.png", :height => "22", :title => "powered by 1000 Paces") -%>
+		<%- end -%>
+		<ul class="nav navbar-nav pull-xs-right">
 			<%- if !@user.nil? && @user.logged_in? -%>
-				<li><%= link_to("admin", user_path(@user)) -%></li>
-				<li><%= link_to("edit", edit_user_path(@user), :remote => true) -%></li>
-				<li><%= link_to("logout", user_session_path, :method => :delete) -%></li>
+				<li class="nav-item"><%= link_to("admin", user_path(@user)) -%></li>
+				<li class="nav-item"><%= link_to("edit", edit_user_path(@user), :remote => true) -%></li>
+				<li class="nav-item"><%= link_to("logout", user_session_path, :method => :delete) -%></li>
 			<%- else -%>
-				<li><%= link_to("login", user_session_path, :method => :delete) -%></li>
+				<li class="nav-item"><%= link_to("login", user_session_path, :method => :delete) -%></li>
 			<%- end -%>
 		</ul>
 	</div>

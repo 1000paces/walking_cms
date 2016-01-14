@@ -1,28 +1,19 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<%= link_to user_path(@user), :class => "navbar-brand" do -%>
-				<%= image_tag "1kp_brand.png", :size => "20x20", :title => "#{@user.friendly_name}" -%>
-			<%- end -%>
-			<%= link_to user_path(@user), :class => "navbar-brand" do -%>
-				<%= @user.friendly_name -%> <%= "| #{@user.domain.name}" unless @user.domain.nil? -%>
-			<%- end -%>
-		</div>
-		<div class="navbar-collapse collapse" id="navbar">
-			<ul class="nav navbar-nav navbar-right">
-				<li id="toggle-pages-li" class="navbar-li-btn">
-					<%= link_to "Pages", pages_path, :id => "toggle-pages", :remote => true -%>
-				</li>
-				<li id="toggle-settings-li" class="navbar-li-btn">
-					<%= link_to "Settings", settings_path, :id => "toggle-settings", :remote => true -%>
-				</li>				
-				<li id="toggle-assets-li" class="navbar-li-btn">
-					<%= link_to "Assets", assets_path, :id => "toggle-assets", :remote => true -%>
-				</li>				
-				<li id="toggle-help-li" class="navbar-li-btn">
-					<%= link_to "Help", help_index_path, :remote => true -%>
-				</li>
-			</ul>
-		</div>
-	</div>
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+	<%= link_to user_path(@user), :class => "navbar-brand" do -%>
+		<%= cms_icon -%> <%= @user.friendly_name -%> <%= "| #{@user.domain.name}" unless @user.domain.nil? -%>
+	<%- end -%>
+	<ul class="nav navbar-nav pull-xs-right">
+		<li id="toggle-pages-li" class="nav-item navbar-li-btn">
+			<%= link_to "Pages", pages_path, :id => "toggle-pages", :class => "nav-link", :remote => true -%>
+		</li>
+		<li id="toggle-settings-li" class="nav-item navbar-li-btn">
+			<%= link_to "Settings", settings_path, :id => "toggle-settings", :class => "nav-link", :remote => true -%>
+		</li>
+		<li id="toggle-assets-li" class="nav-item navbar-li-btn">
+			<%= link_to "Assets", assets_path, :id => "toggle-assets", :class => "nav-link", :remote => true -%>
+		</li>
+		<li id="toggle-help-li" class="nav-item navbar-li-btn">
+			<%= link_to "Help", help_index_path, :class => "nav-link", :remote => true -%>
+		</li>
+	</ul>
 </nav>

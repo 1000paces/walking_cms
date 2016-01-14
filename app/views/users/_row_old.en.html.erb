@@ -5,26 +5,26 @@
 			<div class="wcms-tools wcms-tools-<%= id %> wcms-top-tools" id="wcms-tools-<%= id %>" style="display: none;">
 				<div class="btn-toolbar" role="toolbar" aria-label="Row Toolbar">
 					<div class="btn-group" role="group" aria-label="Save Toolbar">	
-						<%= link_to "Save", "#", :class => "save-btn btn btn-link btn-xs btn wcms-btn-link" -%>
+						<%= link_to "Save", "#", :class => "save-btn btn btn-link btn-sm btn wcms-btn-link" -%>
 					</div>
 					<div class="btn-group" role="group" aria-label="Edit Toolbar">
-						<%= link_to "Cancel", "#", :class => "cancel-btn btn btn-link btn-xs wcms-btn-link wcms-cancel-btn", :data => {:row => id} -%>
+						<%= link_to "Cancel", "#", :class => "cancel-btn btn btn-link btn-sm wcms-btn-link wcms-cancel-btn", :data => {:row => id} -%>
 					</div>
 				</div>
 			</div>
 
 			<div class="wcms-tools wcms-tools-<%= id %>	wcms-left-tools btn-group-vertical" id="wcms-left-tools-<%= id -%>" style="display: none;">
-				<%= link_to "+".html_safe, "#", :data => {:change => 'add-left', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Add a column on the left" -%>
-				<%= link_to "-".html_safe, "#", :data => {:change => 'remove-left', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Remove left-most column" -%>
-				<%= link_to "<i class='fa fa-angle-left'></i>".html_safe, "#", :data => {:change => 'remove-left-offset', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Remove left offset" -%>
-				<%= link_to "<i class='fa fa-angle-right'></i>".html_safe, "#", :data => {:change => 'add-offset-left', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Add left offset" -%>
+				<%= link_to "+".html_safe, "#", :data => {:change => 'add-left', :row => id}, :class => "btn btn-sm btn-link wcms-grid-size-btn", :title => "Add a column on the left" -%>
+				<%= link_to "-".html_safe, "#", :data => {:change => 'remove-left', :row => id}, :class => "btn btn-sm btn-link wcms-grid-size-btn", :title => "Remove left-most column" -%>
+				<%= link_to "<i class='fa fa-angle-left'></i>".html_safe, "#", :data => {:change => 'remove-left-offset', :row => id}, :class => "btn btn-sm btn-link wcms-grid-size-btn", :title => "Remove left offset" -%>
+				<%= link_to "<i class='fa fa-angle-right'></i>".html_safe, "#", :data => {:change => 'add-offset-left', :row => id}, :class => "btn btn-sm btn-link wcms-grid-size-btn", :title => "Add left offset" -%>
 			</div>
 			
 			<div class="wcms-tools wcms-tools-<%= id %> wcms-right-tools btn-group-vertical" id="wcms-right-tools-<%= id -%>" style="display: none;">
-				<%= link_to "+".html_safe, "#", :data => {:change => 'add-right', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Add a column on the right" -%>
-				<%= link_to "-".html_safe, "#", :data => {:change => 'remove-right', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Remove right-most column" -%>
-				<%= link_to "<i class='fa fa-angle-right'></i>".html_safe, "#", :data => {:change => 'remove-right-offset', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn",  :title => "Remove right offset" -%>
-				<%= link_to "<i class='fa fa-angle-left'></i>".html_safe, "#", :data => {:change => 'add-right-offset', :row => id}, :class => "btn btn-xs btn-link wcms-grid-size-btn", :title => "Add right offset" -%>
+				<%= link_to "+".html_safe, "#", :data => {:change => 'add-right', :row => id}, :class => "btn btn-sm btn-link wcms-grid-size-btn", :title => "Add a column on the right" -%>
+				<%= link_to "-".html_safe, "#", :data => {:change => 'remove-right', :row => id}, :class => "btn btn-sm btn-link wcms-grid-size-btn", :title => "Remove right-most column" -%>
+				<%= link_to "<i class='fa fa-angle-right'></i>".html_safe, "#", :data => {:change => 'remove-right-offset', :row => id}, :class => "btn btn-sm btn-link wcms-grid-size-btn",  :title => "Remove right offset" -%>
+				<%= link_to "<i class='fa fa-angle-left'></i>".html_safe, "#", :data => {:change => 'add-right-offset', :row => id}, :class => "btn btn-sm btn-link wcms-grid-size-btn", :title => "Add right offset" -%>
 			</div>
 			
 			<div class="wcms-tool-row" id="wcms-tool-row-<%= id %>">

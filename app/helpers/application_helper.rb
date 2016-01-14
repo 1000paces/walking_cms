@@ -12,6 +12,14 @@ module ApplicationHelper
 		"<link href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'>".html_safe
 	end
 
+	def cms_name
+		"path.studio"
+	end
+
+	def cms_icon
+		"<i class='fa fa-road fa-fw'></i>".html_safe
+	end
+
 end
 
 

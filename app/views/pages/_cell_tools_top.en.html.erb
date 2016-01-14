@@ -1,13 +1,13 @@
 <div class="wcms-tools wcms-tools-<%= row.id %> wcms-top-tools" id="wcms-tool-cell-top-<%= row.id %>-<%= cell.id %>" style="display: none;">
 	<div class="btn-toolbar" role="toolbar" aria-label="Row Toolbar">
 		<div class="btn-group" role="group" aria-label="Save Toolbar">	
-			<%= link_to "Save", "#", :class => "save-btn btn btn-link btn-xs btn wcms-btn-link" -%>
+			<%= link_to "Save", "#", :class => "save-btn btn btn-link btn-sm btn wcms-btn-link" -%>
 		</div>
 		<div class="btn-group" role="group" aria-label="Edit Toolbar">
-			<%= link_to "Cancel", "#", :class => "cancel-btn btn btn-link btn-xs wcms-btn-link wcms-cancel-btn", :data => {:row => row.id, :cell => cell.id, :index => index} -%>
+			<%= link_to "Cancel", "#", :class => "cancel-btn btn btn-link btn-sm wcms-btn-link wcms-cancel-btn", :data => {:row => row.id, :cell => cell.id, :index => index} -%>
 		</div>
 		<div class="btn-group" role="group" aria-label="Delete Toolbar">
-			<%= link_to "<i class='fa fa-fw fa-close'></i>".html_safe, "#", :class => "delete-btn btn btn-link btn-xs wcms-btn-link wcms-delete-btn", :data => {:row => row.id, :cell => cell.id, :index => index} -%>
+			<%= link_to "<i class='fa fa-fw fa-close'></i>".html_safe, "#", :class => "delete-btn btn btn-link btn-sm wcms-btn-link wcms-delete-btn", :data => {:row => row.id, :cell => cell.id, :index => index} -%>
 		</div>		
 	</div>
 </div>

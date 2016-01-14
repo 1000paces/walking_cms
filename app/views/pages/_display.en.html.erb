@@ -17,11 +17,11 @@
 		<div class="col-md-2 col-md-offset-4">
 			<%= form_for @row, :remote => true do |f| -%>
 				<%= f.hidden_field :page_id -%>
-				<%= button_tag "<i class='fa fa-fw fa-plus'></i> Add Row".html_safe, :class => "btn btn-default btn-xs btn-block" -%>
+				<%= button_tag "<i class='fa fa-fw fa-plus'></i> Add Row".html_safe, :class => "btn btn-primary-outline btn-sm btn-block" -%>
 			<%- end -%>
 		</div>
 		<div class="col-md-2">
-			<%= link_to "<i class='fa fa-fw fa-arrows'></i> Organize".html_safe, rows_sort_path(@page), :class => "btn btn-xs btn-default btn-block", :title => "Organize", :id => "wcms-organize", :remote => true -%>
+			<%= link_to "<i class='fa fa-fw fa-arrows'></i> Organize".html_safe, rows_sort_path(@page), :class => "btn btn-sm btn-primary-outline btn-block", :title => "Organize", :id => "wcms-organize", :remote => true -%>
 		</div>
 	</div>
 
