@@ -1,19 +1,16 @@
+<div class="collapse" id="exCollapsingNavbar">
+  <div class="bg-inverse p-a-1">
+    <h4>Collapsed content</h4>
+    <span class="text-muted">Toggleable via the navbar brand.</span>
+  </div>
+</div>
 <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
 	<%= link_to user_path(@user), :class => "navbar-brand" do -%>
 		<%= cms_icon -%> <%= @user.friendly_name -%> <%= "| #{@user.domain.name}" unless @user.domain.nil? -%>
 	<%- end -%>
-	<ul class="nav navbar-nav pull-xs-left">
-		<li class="nav-item">
-			<%= link_to "<i class='fa fa-fw fa-plus'></i> Add Row".html_safe, "#", :class => "nav-link", :title => "Add Row", :id => "wcms-add-row" -%>
-		</li>
-		<li class="nav-item">
-			<%= link_to "<i class='fa fa-fw fa-arrows'></i> Organize".html_safe, rows_sort_path(@page), :class => "nav-link", :title => "Organize", :id => "wcms-organize", :remote => true -%>
-		</li>
-		<li class="nav-item hidden">
-			<%= link_to "<i class='fa fa-fw fa-thumbs-o-up'></i> Finished".html_safe, page_path(@page), :class => "nav-link", :title => "Finished", :id => "wcms-organize-finished", :remote => true -%>
-		</li>
-	</ul>
-
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+    &#9776;
+  </button>	
 	<ul class="nav navbar-nav pull-xs-right">
 		<li id="toggle-pages-li" class="nav-item navbar-li-btn">
 			<%= link_to "Pages", pages_path, :id => "toggle-pages", :class => "nav-link", :remote => true -%>

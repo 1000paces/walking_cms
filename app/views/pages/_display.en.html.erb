@@ -1,18 +1,19 @@
 <%- if @user.pages.blank? -%>
 	<h3 class="text-xs-center">Hey, your site is empty! Click <%= link_to "Pages", pages_path, :remote => true  -%> in the upper right to get started.</h3>
 <%- else -%>
-	<h1 class="text-xs-center"><%= @page.label -%></h1>
+	<h1 class="text-xs-center" id="wcms-page-label"><%= @page.label -%></h1>
 <%- end -%>
 <div class="col-md-12 center-column" id="wcms-work-area">
 	<div class="row">
 		<div class="col-md-12 header-zone zone" id="header-row"></div>
 	</div>
-	<div class="row">
-		<div class="col-md-12 navigation-zone" id="navigation-row">
-			<%= render :partial => "pages/nav" -%>
+	<%#- unless @user.setting.top_nav? -%> 
+		<div class="row">
+			<div class="col-md-12 navigation-zone" id="navigation-row">
+				<%= render :partial => "pages/nav" -%>
+			</div>
 		</div>
-	</div>
-
+	<%#- end -%>
 	<%- @page.rows.each_with_index do |row, index| -%>
 		<%- unless row.new_record? -%>
 			<%= render :partial => "pages/row", :locals => {:index => index, :row => row} -%>
