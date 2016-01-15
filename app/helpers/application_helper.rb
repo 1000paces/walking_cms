@@ -13,11 +13,12 @@ module ApplicationHelper
 	end
 
 	def cms_name
-		"path.studio"
+		"blueprint.studio"
 	end
 
 	def cms_icon
-		"<i class='fa fa-road fa-fw'></i>".html_safe
+		#"<i class='fa fa-pencil fa-fw'></i>".html_safe
+		""
 	end
 
 end

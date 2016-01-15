@@ -11,8 +11,11 @@
 
 <script>
 	// We need to turn off the automatic editor creation first.
-	CKEDITOR.disableAutoInline = true;
 
+
+	/*if(!$("#wcms-toolbar-<%= row.id %>-<%= cell.id %>").length) {*/
+
+	CKEDITOR.disableAutoInline = true;
 	$("#wcms-work-cell-<%= row.id %>-<%= cell.id %>").toolbar({
 		content: '#toolbar-options-<%= row.id %>-<%= cell.id %>',
 		position: 'bottom',
@@ -22,5 +25,5 @@
 		animation: 'standard',
 		uniqifier: '<%= row.id %>-<%= cell.id %>'
 	});
-
+	
 </script>

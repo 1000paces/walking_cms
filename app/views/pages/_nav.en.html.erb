@@ -1,24 +1,26 @@
-<nav class="navbar navbar-default">
-	<div class="container">
-		<div class="navbar-collapse collapse" id="navbar">
+<nav class="navbar navbar-light bg-faded">
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    &#9776;
+  </button>
+	<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
 			<ul class="nav navbar-nav">
 				<%- @user.top_nav_pages.each do |p| -%>
 					<%- if p.children.count > 0 -%>
-						<li id="wcms-page-<%= p.id %>" class="dropdown wcms-menu-link">
-							<%= link_to p.label, page_path(p), :class => "dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
-							<ul class="dropdown-menu" role="menu">
+						<li id="wcms-page-<%= p.id %>" class="nav-item dropdown wcms-menu-link">
+							<%= link_to p.label, page_path(p), :class => "nav-link dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
+							<div class="dropdown-menu" role="menu">
 								<%- p.children.each do |c| -%>
-									<li id="wcms-page-<%= c.id %>" class="wcms-menu-link <%= 'active' if c.id == @page.id -%>"><%= link_to c.label, page_path(c), :remote => true -%></li>
+									<%= link_to c.label, page_path(c), :class => "dropdown-item #{'active' if c.id == @page.id}", :id => "wcms-page-#{c.id}", :remote => true -%>
 								<%- end -%>
-							</ul>
+							</div>
 						</li>
 					<%- else -%>
-						<li class="wcms-menu-link <%= 'active' if p.id == @page.id -%>" id="wcms-page-<%= p.id %>">
-							<%= link_to p.label, page_path(p), :remote => true  -%>
+						<li class="nav-item wcms-menu-link <%= 'active' if p.id == @page.id -%>" id="wcms-page-<%= p.id %>">
+							<%= link_to p.label, page_path(p), :class => "nav-link", :remote => true  -%>
 						</li>
 					<%- end -%>
 				<%- end -%>
 			</ul>
-		</div>
+		
 	</div>
 </nav>

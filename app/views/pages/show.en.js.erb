@@ -1,3 +1,8 @@
+$(".tool-container").remove();
 $("#wcms-page-display").html("<%= j render(:partial => 'pages/display') -%>");
 $(".wcms-menu-link").removeClass("active");
 $("#wcms-page-<%= @page.id %>").addClass("active");
+$("#wcms-drawer-forms").hide("slide", { direction: "right" }, 750);
+$("#wcms-page-display").show();
+$("#wcms-organize").parent().removeClass("hidden");
+$("#wcms-organize-finished").parent().addClass("hidden");

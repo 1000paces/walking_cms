@@ -29,11 +29,9 @@
 		<%- unless @page.nil? -%>
 
 		<%- end -%>
-		<%= render :partial => "pages/toolbar" -%>
-		<div id="wcms-wrapper">
+
 			<%= yield %>
-		</div>
-		<%= render :partial => 'pages/footer' -%>
+
 
 	</body>
 </html>

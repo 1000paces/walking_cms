@@ -24,6 +24,10 @@ body {
 	padding-bottom: 5rem;
 }
 
+.form-control-label-right {
+	text-align: right;
+}
+
 .wcms-navbar-brand-icon {
 	float: left;
 	padding-top: .5rem;
@@ -31,6 +35,30 @@ body {
 	margin-right: 1rem;
 }
 
-footer li a {
+#footer li a {
 	font-variant: small-caps;
 }
+
+#footer img {
+	padding-top: 7px;
+}
+
+/*
+.btn-primary-outline {
+	color: #32537c !important;
+	border-color: #32537c !important;
+}
+
+.btn-primary {
+	background-color: #32537c !important;
+	border-color: #32537c !important;
+}
+.btn-primary-outline:active, .btn-primary-outline:focus, .btn-primary-outline:hover {
+	background-color: #32537c !important;
+	color: #fff !important;
+}
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+	background-color: #4571a9 !important;
+	border-color: #4571a9 !important;
+}
+*/

@@ -1,1 +1,9 @@
-$("#wcms-work-area").html("<%= j render(:partial => 'edit') -%>")
+$(".navbar-li-btn").removeClass("active");
+if($(".wcms-right-column").is(':visible')){
+	$(".wcms-right-column").hide("slide", { direction: "right" }, 500);
+	$("#wcms-wrapper").removeClass("toggled");
+}
+$("#wcms-drawer-forms").html("<%= j render(:partial => 'edit') -%>");
+$("#wcms-page-display").hide("slide", { direction: "right" }, 750);
+$("#wcms-drawer-forms").show("slide", { direction: "left" }, 750);
+$("#footer-edit-li").addClass("active");

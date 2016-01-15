@@ -1,7 +1,19 @@
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+<nav class="navbar navbar-fixed-top navbar-dark bg-primary">
 	<%= link_to user_path(@user), :class => "navbar-brand" do -%>
 		<%= cms_icon -%> <%= @user.friendly_name -%> <%= "| #{@user.domain.name}" unless @user.domain.nil? -%>
 	<%- end -%>
+	<ul class="nav navbar-nav pull-xs-left">
+		<li class="nav-item">
+			<%= link_to "<i class='fa fa-fw fa-plus'></i> Add Row".html_safe, "#", :class => "nav-link", :title => "Add Row", :id => "wcms-add-row" -%>
+		</li>
+		<li class="nav-item">
+			<%= link_to "<i class='fa fa-fw fa-arrows'></i> Organize".html_safe, rows_sort_path(@page), :class => "nav-link", :title => "Organize", :id => "wcms-organize", :remote => true -%>
+		</li>
+		<li class="nav-item hidden">
+			<%= link_to "<i class='fa fa-fw fa-thumbs-o-up'></i> Finished".html_safe, page_path(@page), :class => "nav-link", :title => "Finished", :id => "wcms-organize-finished", :remote => true -%>
+		</li>
+	</ul>
+
 	<ul class="nav navbar-nav pull-xs-right">
 		<li id="toggle-pages-li" class="nav-item navbar-li-btn">
 			<%= link_to "Pages", pages_path, :id => "toggle-pages", :class => "nav-link", :remote => true -%>
@@ -17,3 +29,15 @@
 		</li>
 	</ul>
 </nav>
+<div style="display: none;">
+	<%= form_for @row, :remote => true, :class => "hidden" do |f| -%>
+		<%= f.hidden_field :page_id -%>
+		<%= button_tag "<i class='fa fa-fw fa-plus'></i> Add Row".html_safe, :class => "nav-link" -%>
+	<%- end -%>
+
+	<script class="text/javascript">
+		$("#wcms-add-row").on('click', function(e){
+			$("#new_row").submit();
+		});
+	</script>
+</div>

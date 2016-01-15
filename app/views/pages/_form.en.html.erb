@@ -1,72 +1,73 @@
-<div class="row header-row">
-  <div class="col-sm-12">
-    <h3 class="text-xs-center"> <i class="<%= Page::ICON -%>"></i>
-      <%- if @page.new_record? -%>
-        New Page
-      <%- else -%>
-        Edit <%= @page.label -%>
-      <%- end -%>
-    </h3>
-  </div>
-</div>
 <div class="row">
   <div class="col-sm-10 col-sm-offset-1">
-    <%= form_for(@page, html: {class: 'form-horizontal', role: 'form' }, :remote => true) do |f| %>
-      <%- if @page.errors.any? -%>
-        <div id="error_explanation" class="alert alert-danger">
-          <strong><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</strong>
-          <ul>
-          <%- @page.errors.full_messages.each do |message| -%>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <%- end -%>
-      <div class="form-group">
-        <label for="page_label" class="col-sm-3 control-label">Label</label>
-        <div class="col-sm-6">
-          <%= f.text_field :label, :class => "form-control" -%>
-          <span class="help-block text-muted"><small>The text that will appear in your website's navigation.</small></span>
-        </div>
+    <div class="card">
+      <h4 class="card-header"> 
+        <i class="<%= Page::ICON -%>"></i>
+        <%- if @page.new_record? -%>
+          New Page
+        <%- else -%>
+          Edit <em><%= @page.label -%></em>
+        <%- end -%>
+      </h4>
+      <div class="card-block">
+        <%= form_for(@page, html: {class: 'form-horizontal', role: 'form' }, :remote => true) do |f| %>
+          <%- if @page.errors.any? -%>
+            <div id="error_explanation" class="alert alert-danger">
+              <strong><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</strong>
+              <ul>
+              <%- @page.errors.full_messages.each do |message| -%>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <%- end -%>
+          <div class="form-group row">
+            <label for="page_label" class="col-sm-3 form-control-label form-control-label-right">Label</label>
+            <div class="col-sm-6">
+              <%= f.text_field :label, :class => "form-control" -%>
+              <span class="help-block text-muted"><small>The text that will appear in your website's navigation.</small></span>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="page_label" class="col-sm-3 form-control-label form-control-label-right">Title</label>
+            <div class="col-sm-7">
+              <%= f.text_field :title, :class => "form-control" -%>
+              <span aria-hidden="true" id="page_title_spinner" class="form-control-feedback hidden"><i class="fa fa-cog fa-spin text-muted"></i></span>
+              <span class="help-block text-muted"><small>The text that will appear in the browser tab or the top of the browser window.</small></span>
+            </div>
+          </div>      
+          <div class="form-group row">
+            <label for="page_permalink" class="col-sm-3 form-control-label form-control-label-right">Link</label>
+            <div class="col-sm-6">
+              <%= f.text_field :permalink, :class => "form-control" -%>
+              <span class="help-block text-muted"><small>The friendly name of this page as it will appear in your page's web address.  Must be unique.</small></span>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="page_layout" class="col-sm-3 form-control-label form-control-label-right">Layout</label>
+            <div class="col-sm-9">
+              <label class="radio-inline"><%= f.radio_button(:fluid, true) %> Fluid</label> 
+              <label class="radio-inline"><%= f.radio_button(:fluid, false) %> Static</label><br>
+              <span class="help-block text-muted"><small>Choose "Fluid" if you want columns to grow and shrink when the browser is resized, otherwise choose 'Static.'</small></span>
+            </div>
+          </div>           
+          <div class="form-group row">
+            <label for="page_status" class="col-sm-3 form-control-label form-control-label-right">Status</label>
+            <div class="col-sm-9">
+              <label class="radio-inline"><%= f.radio_button(:status, "PUBLIC") %> Publish</label> 
+              <label class="radio-inline"><%= f.radio_button(:status, "DRAFT") %> Draft</label><br>
+              <span class="help-block text-muted"><small>Select "Publish" when your page is ready to view.</small></span>
+            </div>
+          </div>      
+          <div class="form-group row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <%= f.submit 'Save', class: 'btn btn-primary' %>
+              <%= link_to 'Cancel', "#", :class => "btn btn-danger-outline pull-xs-right", :id => "cancel-button" %>
+            </div>
+          </div>
+        <%- end -%>
       </div>
-      <div class="form-group">
-        <label for="page_label" class="col-sm-3 control-label">Title</label>
-        <div class="col-sm-6">
-          <%= f.text_field :title, :class => "form-control" -%>
-          <span aria-hidden="true" id="page_title_spinner" class="form-control-feedback hidden"><i class="fa fa-cog fa-spin text-muted"></i></span>
-          <span class="help-block text-muted"><small>The text that will appear in the browser tab or the top of the browser window.</small></span>
-        </div>
-      </div>      
-      <div class="form-group">
-        <label for="page_permalink" class="col-sm-3 control-label">Link</label>
-        <div class="col-sm-4">
-          <%= f.text_field :permalink, :class => "form-control" -%>
-          <span class="help-block text-muted"><small>The friendly name of this page as it will appear in your page's web address.  Must be unique.</small></span>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="page_layout" class="col-sm-3 control-label">Layout</label>
-        <div class="col-sm-9">
-          <label class="radio-inline"><%= f.radio_button(:fluid, true) %> Fluid</label> 
-          <label class="radio-inline"><%= f.radio_button(:fluid, false) %> Static</label>
-          <span class="help-block text-muted"><small>Choose "Fluid" if you want columns to grow and shrink when the browser is resized, otherwise choose 'Static.'</small></span>
-        </div>
-      </div>           
-      <div class="form-group">
-        <label for="page_status" class="col-sm-3 control-label">Status</label>
-        <div class="col-sm-9">
-          <label class="radio-inline"><%= f.radio_button(:status, "PUBLIC") %> Publish</label> 
-          <label class="radio-inline"><%= f.radio_button(:status, "DRAFT") %> Draft</label>
-          <span class="help-block text-muted"><small>Select "Publish" when your page is ready to view.</small></span>
-        </div>
-      </div>      
-      <div class="form-group">
-        <div class="col-sm-6 col-sm-offset-3">
-          <%= f.submit 'Save', class: 'btn btn-primary' %>
-          <%= link_to 'Cancel', "#", :class => "btn btn-danger pull-right", :id => "cancel-button" %>
-        </div>
-      </div>
-    <%- end -%>
+    </div>
   </div>
 </div>
 
