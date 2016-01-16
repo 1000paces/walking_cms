@@ -5,20 +5,23 @@
 	<div class="wcms-white-text-label text-xs-center">Site Navigation</div>
 	<ol class="list-unstyled page-list linked-pages" id="page-list">	
 		<%- @user.top_nav_pages.each do |page| -%>
-			<%= render :partial => "page_list_li", :locals => {:page => page} -%>
+			<%= render :partial => "pages/page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>
 
 	<div class="wcms-white-text-label text-xs-center">Other Pages</div>
 	<ol class="list-unstyled page-list unlinked-pages" id="unlinked-page-list">
 		<%- @user.non_nav_pages.each do |page| -%>
-			<%= render :partial => "page_list_li", :locals => {:page => page} -%>
+			<%= render :partial => "pages/page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>
 
+	<%- if 1==2 -%>
 	<div class="text-xs-center">
 		<%= link_to "<i class='fa fa-fw fa-question'></i> Help".html_safe, help_path("pages"), :class => 'btn btn-secondary-outline btn-sm', :remote => true -%>
 	</div>
+	<%- end -%>
+
 </div>
 
 <div id="dragholder" style="display: block;"></div>

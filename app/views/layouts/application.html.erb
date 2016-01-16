@@ -26,12 +26,7 @@
 
 	</head>
 	<body>
-		<%- unless @page.nil? -%>
-
-		<%- end -%>
-
-			<%= yield %>
-
-
+		<%- unless @page.nil? -%><%- end -%>
+		<%= yield %>
 	</body>
 </html>

@@ -11,6 +11,7 @@ div#wcms-wrapper {
 	padding-right: 0; /* 0 0 0;*/
 	height: 100%;
 	min-height: 100%;
+	float: right;
 }
 
 #wcms-wrapper.toggled {
@@ -18,12 +19,40 @@ div#wcms-wrapper {
 }
 
 div#wcms-content-wrapper {
-	width: 100%;
+/*	width: 100%;
 	position: absolute;
-	padding: 15px;
+	padding: 70px;
 	padding: 0 0 0 0;
 	height: 100%;
 	min-height: 100%;  
+	left: 36px;
+	*/
+}
+
+.wcms-master-toolbar {
+	height: 100%;
+	width: 36px;
+	float: left;
+	z-index: 106;
+
+}
+.wcms-master-toolbar-link {
+	margin: 6px 2px;
+}
+
+#wcms-master-toolbar {
+	/*background: rgba(255,255,255,0.2) !important;
+	position: absolute;
+	top: 0;
+	right: 0;*/
+	padding-top: 80px !important;
+	background: url(blueprint.png) repeat;
+	border-right: 1px solid #7f7f7f;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	z-index: 10000;
 }
 
 #wcms-drawer-forms {
@@ -39,7 +68,7 @@ div#wcms-content-wrapper {
 
 
 div#wcms-sidebar-wrapper {
-	z-index: 101;
+	z-index: 103;
 	position: fixed;
 	right: 0; /* 250px; */
 	width: 0;
@@ -73,16 +102,23 @@ div#wcms-toolbar-wrapper {
 div#wcms-content-wrapper {
 	z-index: 102;
 	position: fixed;
-	left: 0; /* 250px; */
+	left: 36px; /* 250px; */
 	width: 100%;
 	height: 100%;
-	/*margin-right: -250px;*/
 	overflow-y: auto;
-	/*background: #fff;*/
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
+/*
+	width: 100%;
+	position: absolute;
+	padding: 70px;
+	padding: 0 0 0 0;
+	height: 100%;
+	min-height: 100%;  
+	left: 36px;
+	*/	
 }
 
 #wcms-wrapper.toggled #wcms-sidebar-wrapper {
@@ -115,8 +151,8 @@ div#wcms-content-wrapper {
 	}
 
 	#wcms-content-wrapper {
-	  padding: 20px;
-	  position: relative;
+	  /*padding: 20px;
+	  position: relative;*/
 	}
 
 	#wcms-wrapper.toggled #wcms-content-wrapper {
@@ -176,7 +212,7 @@ body {
 }
 
 .full-height-container {
-	padding-top: 70px !important;
+	/*padding-top: 70px !important;*/
 	padding-bottom: 70px !important;
 	min-height: 100% !important;
 	/*height: 100% !important;*/

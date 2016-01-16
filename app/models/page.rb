@@ -5,7 +5,9 @@ class Page < ActiveRecord::Base
 
 	acts_as_tree :order => "position"
 
-	ICON = "fa fa-fw fa-file-o"
+	ICON_SHORT = "fa-file-text-o"
+	HOME_SHORT = "fa-home"
+	ICON = "fa fa-fw fa-file-text-o"
 	HOME = "fa fa-fw fa-home"
 	DRAFT = "fa fa-fw fa-exclamation-triangle"
 	MENU = "fa fa-fw fa-bars"

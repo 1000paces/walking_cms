@@ -1,0 +1,8 @@
+<div id="wcms-master-toolbar" class="wcms-master-toolbar bg-primary p-t-4">
+	<ul class="nav">
+		<li class="nav-item"><h4><%= link_to "<i class='#{Page::ICON}'></i>".html_safe, pages_path, :title => "Pages", :id => "toggle-pages", :class => "nav-link sidebar-link wcms-master-toolbar-link", :remote => true -%></h4></li>
+		<li class="nav-item"><h4><%= link_to "<i class='fa fa-fw fa-gear'></i>".html_safe, settings_path, :title => "Settings", :id => "toggle-settings", :class => "nav-link sidebar-link wcms-master-toolbar-link", :remote => true -%></h4></li>
+		<li class="nav-item"><h4><%= link_to "<i class='fa fa-fw fa-archive'></i>".html_safe, assets_path, :title => "Assets", :id => "toggle-assets", :class => "nav-link sidebar-link wcms-master-toolbar-link", :remote => true -%></h4></li>
+		<li class="nav-item"><h4><%= link_to "<i class='#{HelpTopic::ICON}'></i>".html_safe, help_index_path, :title => "Help", :class => "nav-link sidebar-link wcms-master-toolbar-link", :remote => true -%></h4></li>
+	</ul>
+</div>

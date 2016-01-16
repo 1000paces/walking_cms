@@ -6,7 +6,7 @@
 	<%- if page.children.count > 0 -%>
 		<ol>
 			<%- page.children.each do |subpage| -%>
-				<%= render :partial => "page_list_li", :locals => {:page => subpage} -%>
+				<%= render :partial => "pages/page_list_li", :locals => {:page => subpage} -%>
 			<%- end -%>
 		</ol>
 	<%- end -%>	

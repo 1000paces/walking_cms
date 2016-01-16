@@ -1,16 +1,9 @@
-<div class="collapse" id="exCollapsingNavbar">
-  <div class="bg-inverse p-a-1">
-    <h4>Collapsed content</h4>
-    <span class="text-muted">Toggleable via the navbar brand.</span>
-  </div>
-</div>
 <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
 	<%= link_to user_path(@user), :class => "navbar-brand" do -%>
 		<%= cms_icon -%> <%= @user.friendly_name -%> <%= "| #{@user.domain.name}" unless @user.domain.nil? -%>
 	<%- end -%>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-    &#9776;
-  </button>	
+
+	<%- if 1==2 -%>
 	<ul class="nav navbar-nav pull-xs-right">
 		<li id="toggle-pages-li" class="nav-item navbar-li-btn">
 			<%= link_to "Pages", pages_path, :id => "toggle-pages", :class => "nav-link", :remote => true -%>
@@ -25,6 +18,10 @@
 			<%= link_to "Help", help_index_path, :class => "nav-link", :remote => true -%>
 		</li>
 	</ul>
+	<%- end -%>
+
+  <%= link_to "&#9776;".html_safe, pages_path, :id => "toggle-pages", :class => "nav-item nav-link navbar-toggler pull-xs-right", :data => {:toggle => "collapse"}, :remote => true -%>
+
 </nav>
 <div style="display: none;">
 	<%= form_for @row, :remote => true, :class => "hidden" do |f| -%>
