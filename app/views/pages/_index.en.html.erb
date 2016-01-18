@@ -1,4 +1,4 @@
-<div class="">
+<div class="wcms-page-list">
 	<div class="text-xs-center">
 		<%= link_to "<i class='fa fa-fw fa-plus'></i> New Page".html_safe, new_page_path, :class => 'btn btn-secondary-outline', :remote => true -%>
 	</div>
@@ -21,9 +21,8 @@
 		<%= link_to "<i class='fa fa-fw fa-question'></i> Help".html_safe, help_path("pages"), :class => 'btn btn-secondary-outline btn-sm', :remote => true -%>
 	</div>
 	<%- end -%>
-
 </div>
-
+<div class="wcms-form-box" id="wcms-drawer-forms" style="display: none;"></div>
 <div id="dragholder" style="display: block;"></div>
 
 <script type="text/javascript">

@@ -1,4 +1,4 @@
-$(".navbar-li-btn").removeClass("active");
+$(".wcms-master-toolbar-link").removeClass("active");
 if($("#drawer-assets").is(':visible')){
 	$("#drawer-assets").hide("slide", { direction: "right" }, 500);
 	$("#drawer-forms").empty();
@@ -7,6 +7,6 @@ if($("#drawer-assets").is(':visible')){
 	$("#assets-index-div").html("<%= j render(:partial => 'assets/index') -%>");
 	$(".wcms-right-column").hide(); 
 	$("#wcms-wrapper").addClass("toggled");
-	$("#toggle-assets-li").addClass("active");
+	$("#wcms-toggle-assets").addClass("active");
 	$("#drawer-assets").fadeIn(); /*show("slide", { direction: "right" }, 150);*/
 }

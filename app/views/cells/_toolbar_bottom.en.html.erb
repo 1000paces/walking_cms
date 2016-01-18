@@ -9,3 +9,11 @@
 	<%= link_to "<i class='fa fa-caret-right'></i>".html_safe, "#", :class => "tool-item wcms-cell-toolbar-btn", :title => "Merge into column on the right", :id => "wcms-merge-right", :data => {:side => "right", :action => "merge", :row => row.id, :cell => cell.id} -%>
 	<%= link_to "<i class='fa fa-chevron-right'></i>".html_safe, "#", :class => "tool-item wcms-cell-toolbar-btn", :title => "Add column to the right", :id => "wcms-add-right", :data => {:side => "right", :action => "add", :row => row.id, :cell => cell.id}  -%>
 </div>
+
+<script type="text/javascript">
+	$(".wcms-cell-toolbar-btn").on("click", function(e) {
+		var adjacent_cell = $(this).attr('data-cell');
+		$("#wcms-adjacent-cell").val(adjacent_cell);
+	});	
+
+</script>

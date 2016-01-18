@@ -1,83 +1,63 @@
-<div class="row">
-  <div class="col-sm-10 col-sm-offset-1">
-    <div class="card">
-      <h4 class="card-header"> 
-        <i class="<%= Page::ICON -%>"></i>
-        <%- if @page.new_record? -%>
-          New Page
-        <%- else -%>
-          Edit <em><%= @page.label -%></em>
-        <%- end -%>
-      </h4>
-      <div class="card-block">
-        <%= form_for(@page, html: {class: 'form-horizontal', role: 'form' }, :remote => true) do |f| %>
-          <%- if @page.errors.any? -%>
-            <div id="error_explanation" class="alert alert-danger">
-              <strong><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</strong>
-              <ul>
-              <%- @page.errors.full_messages.each do |message| -%>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
-          <%- end -%>
-          <div class="form-group row">
-            <label for="page_label" class="col-sm-3 form-control-label form-control-label-right">Label</label>
-            <div class="col-sm-6">
-              <%= f.text_field :label, :class => "form-control" -%>
-              <span class="help-block text-muted"><small>The text that will appear in your website's navigation.</small></span>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="page_label" class="col-sm-3 form-control-label form-control-label-right">Title</label>
-            <div class="col-sm-7">
-              <%= f.text_field :title, :class => "form-control" -%>
-              <span aria-hidden="true" id="page_title_spinner" class="form-control-feedback hidden"><i class="fa fa-cog fa-spin text-muted"></i></span>
-              <span class="help-block text-muted"><small>The text that will appear in the browser tab or the top of the browser window.</small></span>
-            </div>
-          </div>      
-          <div class="form-group row">
-            <label for="page_permalink" class="col-sm-3 form-control-label form-control-label-right">Link</label>
-            <div class="col-sm-6">
-              <%= f.text_field :permalink, :class => "form-control" -%>
-              <span class="help-block text-muted"><small>The friendly name of this page as it will appear in your page's web address.  Must be unique.</small></span>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="page_layout" class="col-sm-3 form-control-label form-control-label-right">Layout</label>
-            <div class="col-sm-9">
-              <label class="radio-inline"><%= f.radio_button(:fluid, true) %> Fluid</label> 
-              <label class="radio-inline"><%= f.radio_button(:fluid, false) %> Static</label><br>
-              <span class="help-block text-muted"><small>Choose "Fluid" if you want columns to grow and shrink when the browser is resized, otherwise choose 'Static.'</small></span>
-            </div>
-          </div>           
-          <div class="form-group row">
-            <label for="page_status" class="col-sm-3 form-control-label form-control-label-right">Status</label>
-            <div class="col-sm-9">
-              <label class="radio-inline"><%= f.radio_button(:status, "PUBLIC") %> Publish</label> 
-              <label class="radio-inline"><%= f.radio_button(:status, "DRAFT") %> Draft</label><br>
-              <span class="help-block text-muted"><small>Select "Publish" when your page is ready to view.</small></span>
-            </div>
-          </div>      
-          <div class="form-group row">
-            <div class="col-sm-6 col-sm-offset-3">
-              <%= f.submit 'Save', class: 'btn btn-primary' %>
-              <%= link_to 'Cancel', "#", :class => "btn btn-danger-outline pull-xs-right", :id => "cancel-button" %>
-            </div>
-          </div>
-        <%- end -%>
-      </div>
+
+<h4 class="lead text-xs-center wcms-white-text"> 
+  <i class="<%= Page::ICON -%>"></i>
+  <%- if @page.new_record? -%>
+    New Page
+  <%- else -%>
+    <em><%= @page.label -%></em>
+  <%- end -%>
+</h4>
+      
+<%= form_for(@page, html: {class: "wcms-sidebar-form", role: 'form' }, :remote => true) do |f| %>
+  <%- if @page.errors.any? -%>
+    <div id="error_explanation" class="alert alert-danger">
+      <strong><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</strong>
+      <ul>
+      <%- @page.errors.full_messages.each do |message| -%>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
-  </div>
-</div>
+  <%- end -%>
+  <fieldset class="form-group">
+    <label for="page_label" class="wcms-white-text">Label</label>
+    <%= f.text_field :label, :class => "form-control form-control-sm" -%>
+    <small class="wcms-form-help">The text that will appear in your website's navigation.</small>
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="page_label" class="wcms-white-text">Title</label>
+    <%= f.text_field :title, :class => "form-control form-control-sm" -%>
+    <span aria-hidden="true" id="page_title_spinner" class="form-control-feedback hidden"><i class="fa fa-cog fa-spin text-muted"></i></span>
+    <small class="wcms-form-help">The text that will appear in the browser tab or the top of the browser window.</small>
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="page_permalink" class="wcms-white-text">Link</label>
+    <%= f.text_field :permalink, :class => "form-control form-control-sm" -%>
+    <small class="wcms-form-help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</small>
+  </fieldset>
+  <div class="radio">
+    <label class="radio wcms-white-text"><%= f.radio_button(:fluid, true) %> Fluid Layout</label> 
+    <label class="radio wcms-white-text"><%= f.radio_button(:fluid, false) %> Static Layout</label>
+    <small class="wcms-form-help">Choose "Fluid" if you want columns to grow and shrink when the browser is resized, otherwise choose 'Static.'</small>
+  </div>           
+  <div class="radio">
+    <label class="radio-inline wcms-white-text"><%= f.radio_button(:status, "PUBLIC") %> Published</label> 
+    <label class="radio-inline wcms-white-text"><%= f.radio_button(:status, "DRAFT") %> Draft</label>
+    <small class="wcms-form-help">Select "Published" when your page is ready to view.</small>
+  </div>      
+  <fieldset class="form-group">  
+    <%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
+    <%= link_to 'Cancel', "#", :class => "btn btn-warning-outline btn-sm pull-xs-right", :id => "cancel-button" %>
+  </fieldset>
+<%- end -%>
 
 <script type="text/javascript">
   $('#cancel-button').on('click', function(e){
     e.preventDefault();
-    $("#wcms-drawer-forms").hide("slide", { direction: "right" }, 750, function(){
+    $("#wcms-form-box").hide("slide", { direction: "right" }, 750, function(){
       $(this).empty();
     });
-    $("#wcms-page-display").show("slide", { direction: "left" }, 750);
+    $("#wcms-drawer-pages").show("slide", { direction: "left" }, 750);
   });
 
   $("#page_label").focusout(function(){

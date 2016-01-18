@@ -1,24 +1,24 @@
 <%- if 1==2 -%><div class="text-xs-center m-t-1">
 	<div class="btn-group btn-group-sm" role="group">
-		<%= link_to "<i class='fa fa-fw fa-file-o'></i>".html_safe, pages_path, :title => "Pages", :id => "toggle-pages", :class => "btn btn-secondary-outline", :remote => true -%>
-		<%= link_to "<i class='fa fa-fw fa-gear'></i>".html_safe, settings_path, :title => "Settings", :id => "toggle-settings", :class => "btn btn-secondary-outline", :remote => true -%>
-		<%= link_to "<i class='fa fa-fw fa-archive'></i>".html_safe, assets_path, :title => "Assets", :id => "toggle-assets", :class => "btn btn-secondary-outline", :remote => true -%>
+		<%= link_to "<i class='fa fa-fw fa-file-o'></i>".html_safe, pages_path, :title => "Pages", :id => "wcms-toggle-pages", :class => "btn btn-secondary-outline", :remote => true -%>
+		<%= link_to "<i class='fa fa-fw fa-gear'></i>".html_safe, settings_path, :title => "Settings", :id => "wcms-toggle-settings", :class => "btn btn-secondary-outline", :remote => true -%>
+		<%= link_to "<i class='fa fa-fw fa-archive'></i>".html_safe, assets_path, :title => "Assets", :id => "wcms-toggle-assets", :class => "btn btn-secondary-outline", :remote => true -%>
 		<%= link_to "<i class='fa fa-fw fa-question-circle'></i>".html_safe, help_index_path, :title => "Help", :class => "btn btn-secondary-outline", :remote => true -%>
 		<%= link_to "<i class='fa fa-fw fa-navicon'></i>".html_safe, "#", :title => "Close", :class => "btn btn-secondary-outline", :id => "wcms-drawer-toggle-2" -%>
 	</div>
 </div>
 <%- end -%>
 <nav id="wcms-master-toolbar" class="nav nav-inline pull-xs-right navbar-light">
-	<%= link_to "<i class='fa fa-fw fa-file-o'></i>".html_safe, pages_path, :title => "Pages", :id => "toggle-pages", :class => "nav-link sidebar-link master-sidebar-link", :remote => true -%>
-	<%= link_to "<i class='fa fa-fw fa-gear'></i>".html_safe, settings_path, :title => "Settings", :id => "toggle-settings", :class => "nav-link sidebar-link master-sidebar-link", :remote => true -%>
-	<%= link_to "<i class='fa fa-fw fa-archive'></i>".html_safe, assets_path, :title => "Assets", :id => "toggle-assets", :class => "nav-link sidebar-link master-sidebar-link", :remote => true -%>
+	<%= link_to "<i class='fa fa-fw fa-file-o'></i>".html_safe, pages_path, :title => "Pages", :id => "wcms-toggle-pages", :class => "nav-link sidebar-link master-sidebar-link", :remote => true -%>
+	<%= link_to "<i class='fa fa-fw fa-gear'></i>".html_safe, settings_path, :title => "Settings", :id => "wcms-toggle-settings", :class => "nav-link sidebar-link master-sidebar-link", :remote => true -%>
+	<%= link_to "<i class='fa fa-fw fa-archive'></i>".html_safe, assets_path, :title => "Assets", :id => "wcms-toggle-assets", :class => "nav-link sidebar-link master-sidebar-link", :remote => true -%>
 	<%= link_to "<i class='fa fa-fw fa-question-circle'></i>".html_safe, help_index_path, :title => "Help", :class => "nav-link sidebar-link master-sidebar-link", :remote => true -%>
 	<%= link_to "<i class='fa fa-fw fa-navicon'></i>".html_safe, "#", :title => "Close", :class => "nav-link sidebar-link", :id => "wcms-drawer-toggle" -%>
 </nav>
 
 <script class="text/javascript">
 	$("#wcms-drawer-toggle").on('click', function(e){
-		$("#drawer-pages").fadeToggle();
+		$("#wcms-drawer-pages").fadeToggle();
 		$("#wcms-wrapper").toggleClass("toggled");
 		$(".master-sidebar-link").hide();
 	});

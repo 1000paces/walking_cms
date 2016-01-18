@@ -1,0 +1,29 @@
+<div class="wcms-drawer wcms-drawer-right">
+	<div id="wcms-sidebar-wrapper">
+		<div class="wcms-right-column" id="drawer-assets">
+			<h4 class="lead text-xs-center wcms-white-text"><i class="fa fa-fw fa-archive"></i> Assets</h4>
+			<div id="assets-index-div"></div>
+		</div>
+		<div class="wcms-right-column" id="drawer-settings">
+			<h4 class="lead text-xs-center wcms-white-text"><i class="fa fa-fw fa-cog"></i> Settings</h4>
+			<div id="settings-index-div"></div>
+		</div>
+		<div class="wcms-right-column" id="wcms-drawer-pages">
+			<h4 class="lead text-xs-center wcms-white-text"><i class="<%= Page::ICON -%>"></i> Pages</h4>
+			<div id="pages-index-div">
+				<%= render(:partial => 'pages/index') -%>
+			</div>
+		</div>
+		<div class="wcms-right-column" id="drawer-help">
+			<h4 class="lead text-xs-center wcms-white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h4>
+			<div id="help-index-div"></div>
+		</div>
+		<div class="wcms-form-box" id="wcms-form-box" style="display: none;">
+
+		</div>		
+	</div>
+
+	<div id="wcms-toolbar-wrapper">
+
+	</div>
+</div>

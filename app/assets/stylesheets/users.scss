@@ -11,14 +11,17 @@ div#wcms-wrapper {
 	padding-right: 0; /* 0 0 0;*/
 	height: 100%;
 	min-height: 100%;
-	float: right;
+	/*float: right;*/
 }
 
 #wcms-wrapper.toggled {
-   padding-right: 20%; /* 250px; */
+  /* padding-right: 20%; *//* 250px; */
 }
 
 div#wcms-content-wrapper {
+	box-shadow: -3px 0 10px rgba(0,0,0,0.25);
+	height: 100%;
+	min-height: 100%;
 /*	width: 100%;
 	position: absolute;
 	padding: 70px;
@@ -29,31 +32,89 @@ div#wcms-content-wrapper {
 	*/
 }
 
+.wcms-drawer-left {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 50%;
+	background: url(blueprint.png) repeat;
+	transition: width ease .5s;
+}
+.wcms-drawer-right {
+}
+
 .wcms-master-toolbar {
 	height: 100%;
-	width: 36px;
-	float: left;
+	/*width: 36px;*/
 	z-index: 106;
-
+	background: transparent;
 }
+
+.wcms-master-toolbar a {	
+	font-size: 1.0rem;
+	display: block;
+}
+
+.wcms-master-toolbar i {	
+	font-size: 1.25rem;
+	display: inline-block;
+	margin-right: 16px;
+}
+
+
+
+.wcms-master-toolbar .active {
+	background-color: rgba(255,255,255,0.2) !important;
+}
+
 .wcms-master-toolbar-link {
-	margin: 6px 2px;
+	margin: 0px;
+	padding: 4px;
 }
 
 #wcms-master-toolbar {
-	/*background: rgba(255,255,255,0.2) !important;
-	position: absolute;
-	top: 0;
-	right: 0;*/
-	padding-top: 80px !important;
-	background: url(blueprint.png) repeat;
+	padding-top: 70px !important;
+/*	background: url(blueprint.png) repeat;
 	border-right: 1px solid #7f7f7f;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
 	z-index: 10000;
+*/	
 }
+
+div#wcms-content-wrapper {
+	position: relative;
+	margin-left: 36px;
+	transition: margin-left ease .5s;
+/*
+	z-index: 102;
+	position: fixed;
+	left: 36px; 
+	right: 36px;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+
+*/	
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+/*
+	width: 100%;
+	position: absolute;
+	padding: 70px;
+	padding: 0 0 0 0;
+	height: 100%;
+	min-height: 100%;  
+	left: 36px;
+	*/	
+}
+
+
 
 #wcms-drawer-forms {
 	background: transparent; /*#fff;*/
@@ -75,8 +136,8 @@ div#wcms-sidebar-wrapper {
 	height: 100%;
 	overflow-y: auto;
 	background: url(blueprint.png) repeat;
-	/*background: #666;*/
 	border-left: 1px solid #7f7f7f;
+	box-shadow: inset 3px 0 10px rgba(0,0,0,0.25);
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
@@ -99,30 +160,10 @@ div#wcms-toolbar-wrapper {
 	transition: all 0.5s ease;
 }
 
-div#wcms-content-wrapper {
-	z-index: 102;
-	position: fixed;
-	left: 36px; /* 250px; */
-	width: 100%;
-	height: 100%;
-	overflow-y: auto;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
-/*
-	width: 100%;
-	position: absolute;
-	padding: 70px;
-	padding: 0 0 0 0;
-	height: 100%;
-	min-height: 100%;  
-	left: 36px;
-	*/	
-}
+
 
 #wcms-wrapper.toggled #wcms-sidebar-wrapper {
-   width: 20%; /* 250px; */
+   width:  250px; 
 }
 
 #wcms-wrapper.toggled #wcms-toolbar-wrapper {
@@ -130,7 +171,7 @@ div#wcms-content-wrapper {
 }
 
 #wcms-wrapper.toggled #wcms-content-wrapper {
-   width: 80%; /* 250px; */
+   /*width: 80%;*/ /* 250px; */
 }
 
 @media(min-width:768px) {
@@ -143,7 +184,7 @@ div#wcms-content-wrapper {
 	}
 
 	#wcms-sidebar-wrapper, #wcms-toolbar-wrapper {
-	  width: 20%; /* 250px; */
+	  /*width: 20%;*/ /* 250px; */
 	}
 
 	#wcms-wrapper.toggled #wcms-sidebar-wrapper {
@@ -229,9 +270,15 @@ body {
 	/*background-color: #7f7f7f !important;*/
 	/*background: rgba(37,59,88,0.5) !important;*/
 	background: rgba(255,255,255,0.2) !important;
- 
 }
 
+small.wcms-form-help {
+	background: rgba(255,255,255,0.2) !important;
+	color: #fff;
+	display: inline-block;
+	font-size: 0.65rem;
+	padding: 1px;
+}
 a.sidebar-link {
 	color: #fff !important;
 	text-decoration: none !important;
@@ -491,6 +538,9 @@ ol.page-list {
 
 .wcms-white-text {
 	color: #fff !important;
+}
+h4.wcms-white-text {
+	margin-bottom: 2rem;
 }
 
 .wcms-row-sort-border {

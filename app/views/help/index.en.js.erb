@@ -1,4 +1,4 @@
-$(".navbar-li-btn").removeClass("active");
+$(".wcms-master-toolbar-link").removeClass("active");
 if($("#drawer-help").is(':visible')){
 	$("#drawer-help").hide("slide", { direction: "right" }, 500);
 	$("#drawer-forms").empty();
@@ -7,6 +7,6 @@ if($("#drawer-help").is(':visible')){
 	$("#help-index-div").html("<%= j render(:partial => 'help/index') -%>");
 	$(".wcms-right-column").hide(); 
 	$("#wcms-wrapper").addClass("toggled");
-	$("#toggle-help-li").addClass("active");
+	$("#wcms-toggle-help").addClass("active");
 	$("#drawer-help").fadeIn(); /*show("slide", { direction: "right" }, 150);*/
 }

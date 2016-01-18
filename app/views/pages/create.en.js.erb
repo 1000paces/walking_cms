@@ -1,6 +1,15 @@
+$("#pages-index-div").html("<%= j render(:partial => 'pages/index') -%>");
+$("#wcms-form-box").hide("slide", { direction: "right" }, 750);
+$("#wcms-drawer-pages").show("slide", { direction: "left" }, 750);
+$("#wcms-page-display").fadeOut(function(){
+	$("#wcms-page-display").html("<%= j render(:partial => 'pages/display') -%>").fadeIn();
+});
+
+<%- if 1==2 -%>
 $("#drawer-forms").hide("slide", { direction: "right" }, 1000, function(){
 	$(this).empty();
 });
 $("#page-display").show("slide", { direction: "left" }, 1000);
 $("#page-list").append("<%= j render(:partial => 'page_list_li', :locals => {:page => @page}) -%>");
 $("#navigation-row").html("<%= j render(:partial => 'pages/nav') -%>");
+<%- end -%>

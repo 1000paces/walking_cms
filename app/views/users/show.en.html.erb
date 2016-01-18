@@ -1,43 +1,19 @@
-<%#= render :partial => "pages/toolbar" -%>
-<%= render :partial => "pages/toolbar_vertical" -%>
-
-<%- if 1==2 -%><button id="wcms-drawer-toggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-  &#9776;
-</button>
-
-<%= render "pages/tools" -%>
-<%- end -%>
 <div id="wcms-wrapper">
+	<%= render :partial => "pages/off_canvas_left" -%>
+	<%= render :partial => "pages/off_canvas_right" -%>	
 	<div id="wcms-content-wrapper">
 		<%= render :partial => 'pages/show' -%>
 	</div>
-
-	<div id="wcms-sidebar-wrapper">
-		<div class="wcms-right-column" id="drawer-assets">
-			<h1 class="lead text-xs-center wcms-white-text"><i class="fa fa-fw fa-archive"></i> Assets</h1>
-			<div id="assets-index-div"></div>
-		</div>
-		<div class="wcms-right-column" id="drawer-settings">
-			<h1 class="lead text-xs-center wcms-white-text"><i class="fa fa-fw fa-cog"></i> Settings</h1>
-			<div id="settings-index-div"></div>
-		</div>
-		<div class="wcms-right-column" id="drawer-pages">
-			<h1 class="lead text-xs-center wcms-white-text"><i class="<%= Page::ICON -%>"></i> Pages</h1>
-			<div id="pages-index-div">
-				<%= render(:partial => 'pages/index') -%>
-			</div>
-		</div>
-		<div class="wcms-right-column" id="drawer-help">
-			<h1 class="lead text-xs-center wcms-white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h1>
-			<div id="help-index-div"></div>
-		</div>
-	</div>
-
-	<div id="wcms-toolbar-wrapper">
-		<div class="wcms-left-column" id="drawer-toolbar">
-
-		</div>
-	</div>
 </div>
-<%= render :partial => 'pages/footer' -%>
+<%#= render :partial => 'pages/footer' -%>
 
+<script class="text/javascript">
+	$(function() {
+	  $('#wcms-master-toolbar-vertical').hover(function() {
+	    $('#wcms-content-wrapper').css('margin-left', '140px');
+	  }, function() {
+	    // on mouseout, reset the background colour
+	    $('#wcms-content-wrapper').css('margin-left', '36px');
+	  });
+	});
+</script>

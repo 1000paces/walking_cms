@@ -98,25 +98,66 @@
 	$(".wcms-work-cell").on('click', function(e) {
 		/*$(".tool-container").fadeOut();*/
 	});
-
-/**
-	$(".wcms-work-cell").on('click', function(e) {
-		var rowId = $(this).attr('data-row');
-		var cellId = $(this).attr('data-cell');
-
-		$("#wcms-work-cell-" + rowId + "-" + cellId).toolbar({
-			content: '#toolbar-options-' + rowId + "-" + cellId,
-			position: 'bottom',
-			event: 'click',
-			hideOnClick: true,
-			style: 'dark',
-			animation: 'standard'
-		});
-
-	})
-**/
-
 </script>
+
+<div style="display: none;">
+		<%= form_for @row, :remote => true, :class => "hidden" do |f| -%>
+			<%= f.hidden_field :page_id -%>
+			<%= button_tag "<i class='fa fa-fw fa-plus'></i> Add Row".html_safe, :class => "nav-link" -%>
+		<%- end -%>
+
+		<%= form_for Cell.new, {:id => "new_cell", :class => "form-inline", :remote => true} do |f| -%>
+			<%= hidden_field_tag("adjacent_cell", 0, {:id => "wcms-adjacent-cell"}) %>
+			<%= hidden_field_tag("deed", "add", {:id => "wcms-deed"}) %>
+			<%= hidden_field_tag("direction", "right", {:id => "wcms-direction"}) %>
+		<%- end -%>		
+</div>
+		<script class="text/javascript">
+			$("#wcms-add-row").on('click', function(e){
+				$("#new_row").submit();
+			});
+
+			$(".wcms-cell-toolbar-btn").on('click', function(e){
+				var dataSide = $(this).attr('data-side');
+				var dataAction = $(this).attr('data-action');
+				
+				$("#wcms-direction").val(dataSide);
+				$("#wcms-deed").val(dataAction);
+				$("#new_cell").submit();
+			});	
+
+			// Sample: Inline Editing Enabled by Code
+			$(".wcms-cell-editor-btn").on('click', function (e) {
+				/*alert(CKEDITOR.version);*/
+				var dataRow = $(this).attr('data-row');
+				var dataCell = $(this).attr('data-cell');
+				cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
+
+				CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
+					startupFocus: true,
+					toolbar: 'main',
+					width: '50%'
+				} );
+			});
+
+			$("#wcms-save").on('click', function (e) {
+				var dataRow = $(this).attr('data-row');
+				var dataCell = $(this).attr('data-cell');
+				var bodyValue = $("#wcms-work-cell-" + dataRow + "-" + dataCell).html();
+				$("#cell_body_" + dataCell).val(bodyValue);
+				$("#edit_cell_" + dataCell).submit();
+			});
+
+			$("#wcms-cancel").on('click', function(e) {
+				var dataRow = $(this).attr('data-row');
+				var dataCell = $(this).attr('data-cell');
+				$("#wcms-toolbar-div-" + dataRow).fadeOut();
+				$("#wcms-work-cell-" + dataRow + "-" + dataCell).removeClass("wcms-cell-active");
+				var editor = CKEDITOR.instances["wcms-work-cell-" + dataRow + "-" + dataCell]
+				editor.destroy();
+				editor = null;
+			});			
+		</script>
 
 
 

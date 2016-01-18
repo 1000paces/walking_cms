@@ -1,6 +1,7 @@
 $("#wcms-row-<%= @row.id %>").empty();
 $("#wcms-row-<%= @row.id %>").append("<div class='wcms-toolbar-div' id='wcms-toolbar-div-<%= @row.id %>' style='display:none;'></div>");
 <%- @row.cells.each_with_index do |cell, cell_index| -%>
+	$("#wcms-toolbar-<%= @row.id %>-<%= cell.id %>").remove();
 	$("#wcms-row-<%= @row.id %>").append("<%= j render(:partial => 'pages/cell', :locals => {:row => @row, :cell => cell, :index => cell_index}) -%>");
 <%- end -%>
 <%- unless @cell.nil? -%>
