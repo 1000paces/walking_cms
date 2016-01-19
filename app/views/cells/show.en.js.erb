@@ -2,3 +2,5 @@ $(".wcms-cell").removeClass("wcms-cell-active");
 $("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").addClass("wcms-cell-active");
 $(".wcms-work-cell").not(document.getElementById("wcms-work-cell-<%= @row.id %>-<%= @cell.id %>")).removeClass("pressed");
 $(".tool-container").not(document.getElementById("wcms-toolbar-<%= @row.id %>-<%= @cell.id %>")).fadeOut();
+
+$("#wcms-toolbar-<%= @row.id %>-<%= @cell.id %>").show();

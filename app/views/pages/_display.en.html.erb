@@ -101,7 +101,7 @@
 </script>
 
 <div style="display: none;">
-		<%= form_for @row, :remote => true, :class => "hidden" do |f| -%>
+		<%= form_for Row.new, :remote => true, :class => "hidden" do |f| -%>
 			<%= f.hidden_field :page_id -%>
 			<%= button_tag "<i class='fa fa-fw fa-plus'></i> Add Row".html_safe, :class => "nav-link" -%>
 		<%- end -%>

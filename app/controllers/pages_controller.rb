@@ -26,11 +26,13 @@ class PagesController < ApplicationController
 
   def edit
   	@page = Page.find(params[:id])
+    @row = @page.rows.first
   end
 
   def update
   	@page = Page.find(params[:id])
   	@page.update_attributes(page_parameters)
+    @row = @page.rows.first
   	Rails.logger.warn("Page Label is #{@page.label}")
   end
 

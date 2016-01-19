@@ -2,5 +2,14 @@
 	<div class="row wcms-page-display" id="wcms-page-display">
 		<%= render :partial => "pages/display" -%>
 	</div>
-	
+	<script type="text/javascript">
+		$(document).on('click', function (e) {
+		    if ($(e.target).closest(".tool-container").length === 0) {
+		        var dataCell = $(e.target).closest(".wcms-work-cell").attr('data-cell');
+		        if(dataCell === undefined) {
+							$(".tool-container").hide();
+		        }
+		    }
+		});
+	</script>
 </div>
