@@ -32,7 +32,7 @@ if ( typeof Object.create !== 'function' ) {
             self.options = $.extend( {}, $.fn.toolbar.options, options );
             self.metadata = self.$elem.data();
             self.overrideOptions();
-            self.toolbar = $('<div class="tool-container" />')
+            self.toolbar = $('<div class="wcms-tool-container" />')
                 .addClass('tool-'+self.options.position)
                 .addClass('toolbar-'+self.options.style)
                 .attr('id', 'wcms-toolbar-'+self.options.uniqifier)
@@ -92,7 +92,7 @@ if ( typeof Object.create !== 'function' ) {
                     mouseleave: function(event){ decideTimeout(); }
                 });
 
-                $('.tool-container').on({
+                $('.wcms-tool-container').on({
                     mouseenter: function(event){ clearTimeout(moveTime); },
                     mouseleave: function(event){ decideTimeout(); }
                 });
@@ -147,7 +147,7 @@ if ( typeof Object.create !== 'function' ) {
                     mouseleave: function(event){ decideTimeout(); }
                 });
 
-                $('.tool-container').on({
+                $('.wcms-tool-container').on({
                     mouseenter: function(event){ clearTimeout(moveTime); },
                     mouseleave: function(event){ decideTimeout(); }
                 });

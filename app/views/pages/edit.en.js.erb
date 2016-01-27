@@ -1,4 +1,4 @@
-$(".tool-container").remove();
+$(".wcms-tool-container").remove();
 $("#wcms-form-box").html("<%= j render(:partial => 'form') -%>");
 $(".wcms-right-column").hide("slide", { direction: "left" }, 750, function() {
 	$("#wcms-form-box").show("slide", { direction: "right" }, 750);

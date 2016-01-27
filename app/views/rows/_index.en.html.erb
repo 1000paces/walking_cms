@@ -7,14 +7,6 @@
 	</div>
 </div>
 
-<%- if 1==2 -%>
-<div class="row" id="wcms-add-row-top">
-	<div class="col-md-2 col-md-offset-5">
-		<%= link_to "<i class='fa fa-fw fa-thumbs-o-up'></i> Finished".html_safe, page_path(@page), :class => "btn btn-sm btn-primary btn-block", :title => "Finished", :id => "wcms-organize-finished", :remote => true -%>
-	</div>
-</div>
-<%- end -%>
-
 <div id="wcms-row-sort-container">
 	<%- @page.rows.each_with_index do |row, index| -%>
 		<%- unless row.new_record? -%>

@@ -2,5 +2,5 @@ $("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").removeClass("wcms-cell-activ
 var editor = CKEDITOR.instances["wcms-work-cell-<%= @row.id %>-<%= @cell.id %>"]
 editor.destroy();
 editor = null;
-$(".tool-container").fadeOut();
+$(".wcms-tool-container").fadeOut();
 $(".wcms-work-cell").removeClass("pressed");

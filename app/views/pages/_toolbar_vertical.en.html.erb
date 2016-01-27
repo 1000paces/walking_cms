@@ -15,3 +15,10 @@
 		<li class="nav-item"><%= link_to("<i class='fa fa-fw fa-sign-out'></i> Logout".html_safe, user_session_path, :method => :delete, :class => "nav-link sidebar-link wcms-master-toolbar-link") -%></li>
 	</ul>
 </div>
+
+<script type="text/javascript">
+	$(".wcms-master-toolbar-link").on("click", function(e) {
+		$(".wcms-tool-container").hide();
+		$(".wcms-work-cell").removeClass("pressed");		
+	});	
+</script>
