@@ -43,8 +43,20 @@
 		e.stopPropagation();
 	});	
 
-	/*** Submit the new cell form to create a new cell or merge existing cells ***/
+	/*** Submit the new cell form to create a new cell or merge existing cells 
 	$(".wcms-cell-toolbar-btn").on('click', function(e){
+		var dataSide = $(this).attr('data-side');
+		var dataAction = $(this).attr('data-action');
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		
+		$("#wcms-direction").val(dataSide);
+		$("#wcms-deed").val(dataAction);
+		$("#wcms-adjacent-cell").val(dataCell);
+		$("#wcms-new-cell").submit();
+	});
+***/
+	$(document).on("click", ".wcms-cell-toolbar-btn", function(e){
 		var dataSide = $(this).attr('data-side');
 		var dataAction = $(this).attr('data-action');
 		var dataRow = $(this).attr('data-row');
@@ -96,7 +108,7 @@
 		$("#wcms-new-row").submit();
 	});
 
-	$(".wcms-cell-toolbar-btn").on('click', function(e){
+	/*$(".wcms-cell-toolbar-btn").on('click', function(e){
 		var dataSide = $(this).attr('data-side');
 		var dataAction = $(this).attr('data-action');
 		
@@ -104,7 +116,7 @@
 		$("#wcms-deed").val(dataAction);
 		$("#wcms-new-cell").submit();
 	});	
-
+*/
 	// Sample: Inline Editing Enabled by Code
 	$(".wcms-cell-editor-btn").on('click', function (e) {
 		/*alert(CKEDITOR.version);*/
