@@ -23,15 +23,3 @@
   <%= link_to "&#9776;".html_safe, pages_path, :id => "wcms-toggle-pages", :class => "nav-item nav-link navbar-toggler pull-xs-right", :data => {:toggle => "collapse"}, :remote => true -%>
 
 </nav>
-<div style="display: none;">
-	<%= form_for @row, :remote => true, :class => "hidden" do |f| -%>
-		<%= f.hidden_field :page_id -%>
-		<%= button_tag "<i class='fa fa-fw fa-plus'></i> Add Row".html_safe, :class => "nav-link" -%>
-	<%- end -%>
-
-	<script class="text/javascript">
-		$("#wcms-add-row").on('click', function(e){
-			$("#new_row").submit();
-		});
-	</script>
-</div>

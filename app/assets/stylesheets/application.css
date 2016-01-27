@@ -28,6 +28,9 @@ body {
 	text-align: right;
 }
 
+.wcms-white-text {
+	color: #fff !important;
+}
 .wcms-navbar-brand-icon {
 	float: left;
 	padding-top: .5rem;

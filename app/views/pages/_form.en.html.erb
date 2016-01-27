@@ -36,28 +36,31 @@
     <small class="wcms-form-help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</small>
   </fieldset>
   <div class="radio">
-    <label class="radio wcms-white-text"><%= f.radio_button(:fluid, true) %> Fluid Layout</label> 
-    <label class="radio wcms-white-text"><%= f.radio_button(:fluid, false) %> Static Layout</label>
+    <label class="small radio wcms-white-text"><%= f.radio_button(:fluid, true) %> Fluid Layout</label> 
+    <label class="small radio wcms-white-text"><%= f.radio_button(:fluid, false) %> Static Layout</label>
     <small class="wcms-form-help">Choose "Fluid" if you want columns to grow and shrink when the browser is resized, otherwise choose 'Static.'</small>
   </div>           
   <div class="radio">
-    <label class="radio-inline wcms-white-text"><%= f.radio_button(:status, "PUBLIC") %> Published</label> 
-    <label class="radio-inline wcms-white-text"><%= f.radio_button(:status, "DRAFT") %> Draft</label>
+    <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "PUBLIC") %> Published</label> 
+    <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "DRAFT") %> Draft</label>
     <small class="wcms-form-help">Select "Published" when your page is ready to view.</small>
   </div>      
   <fieldset class="form-group">  
     <%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
-    <%= link_to 'Cancel', "#", :class => "btn btn-warning-outline btn-sm pull-xs-right", :id => "cancel-button" %>
+    <%#= link_to 'Cancel', "#", :class => "btn btn-warning-outline btn-sm pull-xs-right", :id => "cancel-button" %>
+    <%= link_to "Cancel", pages_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning-outline btn-sm pull-xs-right", :remote => true -%>
   </fieldset>
 <%- end -%>
 
 <script type="text/javascript">
   $('#cancel-button').on('click', function(e){
+    /*
     e.preventDefault();
     $("#wcms-form-box").hide("slide", { direction: "right" }, 750, function(){
       $(this).empty();
     });
     $("#wcms-drawer-pages").show("slide", { direction: "left" }, 750);
+    */
   });
 
   $("#page_label").focusout(function(){

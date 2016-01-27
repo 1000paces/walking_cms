@@ -6,13 +6,139 @@
 	</div>
 </div>
 
+<div id="wcms-hidden-forms" style="display: none;">
+	<%= form_for Row.new, :html => {:id => "wcms-new-row"}, :remote => true do |f| -%>
+		<%= f.hidden_field :page_id -%>
+	<%- end -%>
+
+	<%= form_for Cell.new, :html => {:id => "wcms-new-cell", :class => "form-inline"}, :remote => true do |f| -%>
+		<%= hidden_field_tag("adjacent_cell", 0, {:id => "wcms-adjacent-cell"}) %>
+		<%= hidden_field_tag("deed", "add", {:id => "wcms-deed"}) %>
+		<%= hidden_field_tag("direction", "right", {:id => "wcms-direction"}) %>
+	<%- end -%>
+</div>
+
 <script class="text/javascript">
 	$(function() {
 	  $('#wcms-master-toolbar').hover(function() {
-	    $('#wcms-content-wrapper').css('margin-left', '140px');
+	    $('#wcms-content-wrapper').delay(500).queue(function(next) {
+	    	$(this).css('margin-left', '140px');
+	    	next();
+	    });
 	  }, function() {
 	    // on mouseout, reset the background colour
 	    $('#wcms-content-wrapper').css('margin-left', '36px');
 	  });
 	});
+
+	$("#wcms-work-area").on('click', 'div.wcms-cell', function(e){
+		var cellId = $(this).attr('data-cell');
+		$.ajax({
+			type: 'get',
+			dataType: 'script',
+			url: '/cells/' + cellId 
+		})
+	});
+	$("#wcms-work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
+		e.stopPropagation();
+	});	
+
+	/*** Submit the new cell form to create a new cell or merge existing cells ***/
+	$(".wcms-cell-toolbar-btn").on('click', function(e){
+		var dataSide = $(this).attr('data-side');
+		var dataAction = $(this).attr('data-action');
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		
+		$("#wcms-direction").val(dataSide);
+		$("#wcms-deed").val(dataAction);
+		$("#wcms-adjacent-cell").val(dataCell);
+		$("#wcms-new-cell").submit();
+	});
+
+	/*** Activate the CKEDITOR instance for the given cell ***/
+	$(".wcms-cell-editor-btn").on('click', function (e) {
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
+
+		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
+			startupFocus: true,
+			uiColor: '#ffffff',
+			skin: 'flat',
+			toolbar: 'main',
+			width: '50%'
+		});
+	});
+
+	/*** Save the change from CKEDITOR for this cell ***/
+	$(".wcms-save").on('click', function (e) {
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		var bodyValue = $("#wcms-work-cell-" + dataRow + "-" + dataCell).html();
+		$("#cell_body_" + dataCell).val(bodyValue);
+		$("#edit_cell_" + dataCell).submit();
+	});
+
+	/*** Cancel the CKEDITOR instance ***/
+	$(".wcms-cancel").on('click', function(e) {
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		$("#wcms-toolbar-div-" + dataRow).fadeOut();
+		$("#wcms-work-cell-" + dataRow + "-" + dataCell).removeClass("wcms-cell-active");
+		var editor = CKEDITOR.instances["wcms-work-cell-" + dataRow + "-" + dataCell]
+		editor.destroy();
+		editor = null;
+	});
+
+	/*** Hide all Cell Toolbars ***/
+	$(".wcms-work-cell").on('click', function(e) {
+		/*$(".tool-container").fadeOut();*/
+	});
+
+	$("#wcms-add-row").on('click', function(e){
+		e.preventDefault();
+		$("#wcms-new-row").submit();
+	});
+
+	$(".wcms-cell-toolbar-btn").on('click', function(e){
+		var dataSide = $(this).attr('data-side');
+		var dataAction = $(this).attr('data-action');
+		
+		$("#wcms-direction").val(dataSide);
+		$("#wcms-deed").val(dataAction);
+		$("#wcms-new-cell").submit();
+	});	
+
+	// Sample: Inline Editing Enabled by Code
+	$(".wcms-cell-editor-btn").on('click', function (e) {
+		/*alert(CKEDITOR.version);*/
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
+
+		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
+			startupFocus: true,
+			toolbar: 'main',
+			width: '50%'
+		} );
+	});
+
+	$("#wcms-save").on('click', function (e) {
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		var bodyValue = $("#wcms-work-cell-" + dataRow + "-" + dataCell).html();
+		$("#cell_body_" + dataCell).val(bodyValue);
+		$("#edit_cell_" + dataCell).submit();
+	});
+
+	$("#wcms-cancel").on('click', function(e) {
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		$("#wcms-toolbar-div-" + dataRow).fadeOut();
+		$("#wcms-work-cell-" + dataRow + "-" + dataCell).removeClass("wcms-cell-active");
+		var editor = CKEDITOR.instances["wcms-work-cell-" + dataRow + "-" + dataCell]
+		editor.destroy();
+		editor = null;
+	});			
 </script>

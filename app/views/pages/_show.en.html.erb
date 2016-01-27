@@ -8,8 +8,18 @@
 		        var dataCell = $(e.target).closest(".wcms-work-cell").attr('data-cell');
 		        if(dataCell === undefined) {
 							$(".tool-container").hide();
+							$(".wcms-work-cell").removeClass("pressed");							
+		        }
+		    }
+
+		    if ($(e.target).closest(".wcms-master-toolbar-link").length === 0) {
+		        if ($(e.target).closest("#wcms-sidebar-wrapper").length === 0) {
+		        	/*alert("TEST: " + $(e.target).closest("#wcms-sidebar-wrapper").length );*/
+							$(".wcms-right-column").hide("slide", { direction: "right" }, 750);
+							$("#wcms-wrapper").removeClass("toggled");
 		        }
 		    }
 		});
 	</script>
 </div>
+
