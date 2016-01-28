@@ -6,8 +6,8 @@
 	<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{cell.id}" -%>
 <%- end -%>
 
-<%= render(:partial => 'cells/toolbar_bottom', :locals => {:row => row, :cell => cell}) -%>
-
+<%#= render(:partial => 'cells/toolbar_bottom', :locals => {:row => row, :cell => cell}) -%>
+<%#= render(:partial => 'cells/toolbar_vertical', :locals => {:row => row, :cell => cell}) -%>
 <script>
 	// We need to turn off the automatic editor creation first.
 
@@ -15,7 +15,7 @@
 	/*if(!$("#wcms-toolbar-<%= row.id %>-<%= cell.id %>").length) {*/
 
 	CKEDITOR.disableAutoInline = true;
-	$("#wcms-work-cell-<%= row.id %>-<%= cell.id %>").toolbar({
+	/*$("#wcms-work-cell-<%= row.id %>-<%= cell.id %>").toolbar({
 		content: '#toolbar-options-<%= row.id %>-<%= cell.id %>',
 		position: 'bottom',
 		event: 'click',
@@ -23,6 +23,6 @@
 		style: 'dark',
 		animation: 'standard',
 		uniqifier: '<%= row.id %>-<%= cell.id %>'
-	});
+	});*/
 	
 </script>

@@ -31,7 +31,7 @@
 	  });
 	});
 ***/
-	$("#wcms-work-area").on('click', 'div.wcms-cell', function(e){
+	$(document).on('click', '#wcms-work-area div.wcms-cell', function(e){
 		var cellId = $(this).attr('data-cell');
 		$.ajax({
 			type: 'get',
@@ -39,11 +39,12 @@
 			url: '/cells/' + cellId 
 		})
 	});
+
 	$("#wcms-work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
 		e.stopPropagation();
 	});	
 
-	$(document).on("click", ".wcms-cell-toolbar-btn", function(e){
+	$(document).on("click", ".wcms-cell-toolbar-cells", function(e){
 		var dataSide = $(this).attr('data-side');
 		var dataAction = $(this).attr('data-action');
 		var dataRow = $(this).attr('data-row');
@@ -56,7 +57,7 @@
 	});
 
 	/*** Activate the CKEDITOR instance for the given cell ***/
-	$(document).on("click", ".wcms-cell-editor-btn", function(e){
+	$(document).on("click", ".wcms-cell-editor", function(e){
 		/*alert(CKEDITOR.version);*/
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
@@ -72,7 +73,7 @@
 	});
 
 	/*** Save the change from CKEDITOR for this cell ***/
-	$(".wcms-save").on('click', function (e) {
+	$(document).on('click', ".wcms-save", function (e) {
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
 		var bodyValue = $("#wcms-work-cell-" + dataRow + "-" + dataCell).html();
@@ -81,7 +82,12 @@
 	});
 
 	/*** Cancel the CKEDITOR instance ***/
-	$(".wcms-cancel").on('click', function(e) {
+	$(document).on('click', ".wcms-cancel", function(e) {
+		e.preventDefault();
+		$(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
+		$("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);
+		$(".wcms-cell").removeClass("wcms-cell-active");
+		
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
 		$("#wcms-toolbar-div-" + dataRow).fadeOut();
@@ -119,21 +125,17 @@
 		} );
 	});
 */
-	$("#wcms-save").on('click', function (e) {
-		var dataRow = $(this).attr('data-row');
-		var dataCell = $(this).attr('data-cell');
-		var bodyValue = $("#wcms-work-cell-" + dataRow + "-" + dataCell).html();
-		$("#cell_body_" + dataCell).val(bodyValue);
-		$("#edit_cell_" + dataCell).submit();
+
+
+	$(document).on("click", ".wcms-cell-toolbar-link", function(e){
+		var adjacent_cell = $(this).attr('data-cell');
+		$("#wcms-adjacent-cell").val(adjacent_cell);
 	});
 
-	$("#wcms-cancel").on('click', function(e) {
-		var dataRow = $(this).attr('data-row');
-		var dataCell = $(this).attr('data-cell');
-		$("#wcms-toolbar-div-" + dataRow).fadeOut();
-		$("#wcms-work-cell-" + dataRow + "-" + dataCell).removeClass("wcms-cell-active");
-		var editor = CKEDITOR.instances["wcms-work-cell-" + dataRow + "-" + dataCell]
-		editor.destroy();
-		editor = null;
-	});			
+	$(document).on("click", ".wcms-cancel-x", function(e) {
+		e.preventDefault();
+		$(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
+		$("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);
+		$(".wcms-cell").removeClass("wcms-cell-active");
+	});
 </script>

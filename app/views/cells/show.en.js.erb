@@ -1,5 +1,15 @@
 $(".wcms-cell").removeClass("wcms-cell-active");
 $("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").addClass("wcms-cell-active");
+
+if(!$("#wcms-cell-toolbar-vertical-<%= @row.id %>-<%= @cell.id %>").is(':visible')) {
+	$(".wcms-cell-toolbar-vertical").hide();
+	$("#wcms-master-toolbar").hide("slide", { direction: "left" }, 500);
+	$("#wcms-cell-toolbar-vertical-<%= @row.id %>-<%= @cell.id %>").show("slide", { direction: "right" }, 500);
+}
+
+<%- if 1==2 -%>
 $(".wcms-work-cell").not(document.getElementById("wcms-work-cell-<%= @row.id %>-<%= @cell.id %>")).removeClass("pressed");
 $(".wcms-tool-container").not(document.getElementById("wcms-toolbar-<%= @row.id %>-<%= @cell.id %>")).fadeOut();
 $("#wcms-toolbar-<%= @row.id %>-<%= @cell.id %>").show();
+<%- end -%>
+$("#wcms-adjacent-cell").val(<%= @cell.id -%>);
