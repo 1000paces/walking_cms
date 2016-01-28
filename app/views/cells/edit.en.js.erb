@@ -4,5 +4,5 @@
 <%- when 'image' -%>
 	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @body_type -%>")
 <%- when 'code' -%>
-	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @body_type -%>")
+	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @cell.body -%>")
 <%- end -%>

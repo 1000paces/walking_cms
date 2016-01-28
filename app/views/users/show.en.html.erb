@@ -19,7 +19,7 @@
 </div>
 
 <script class="text/javascript">
-	$(function() {
+/***	$(function() {
 	  $('#wcms-master-toolbar').hover(function() {
 	    $('#wcms-content-wrapper').delay(500).queue(function(next) {
 	    	$(this).css('margin-left', '140px');
@@ -30,7 +30,7 @@
 	    $('#wcms-content-wrapper').css('margin-left', '36px');
 	  });
 	});
-
+***/
 	$("#wcms-work-area").on('click', 'div.wcms-cell', function(e){
 		var cellId = $(this).attr('data-cell');
 		$.ajax({
@@ -43,19 +43,6 @@
 		e.stopPropagation();
 	});	
 
-	/*** Submit the new cell form to create a new cell or merge existing cells 
-	$(".wcms-cell-toolbar-btn").on('click', function(e){
-		var dataSide = $(this).attr('data-side');
-		var dataAction = $(this).attr('data-action');
-		var dataRow = $(this).attr('data-row');
-		var dataCell = $(this).attr('data-cell');
-		
-		$("#wcms-direction").val(dataSide);
-		$("#wcms-deed").val(dataAction);
-		$("#wcms-adjacent-cell").val(dataCell);
-		$("#wcms-new-cell").submit();
-	});
-***/
 	$(document).on("click", ".wcms-cell-toolbar-btn", function(e){
 		var dataSide = $(this).attr('data-side');
 		var dataAction = $(this).attr('data-action');
@@ -69,7 +56,8 @@
 	});
 
 	/*** Activate the CKEDITOR instance for the given cell ***/
-	$(".wcms-cell-editor-btn").on('click', function (e) {
+	$(document).on("click", ".wcms-cell-editor-btn", function(e){
+		/*alert(CKEDITOR.version);*/
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
 		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
@@ -118,8 +106,8 @@
 	});	
 */
 	// Sample: Inline Editing Enabled by Code
-	$(".wcms-cell-editor-btn").on('click', function (e) {
-		/*alert(CKEDITOR.version);*/
+/*	$(".wcms-cell-editor-btn").on('click', function (e) {
+		alert("The other one");
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
 		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
@@ -130,7 +118,7 @@
 			width: '50%'
 		} );
 	});
-
+*/
 	$("#wcms-save").on('click', function (e) {
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
