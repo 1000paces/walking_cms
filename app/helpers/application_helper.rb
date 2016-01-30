@@ -18,7 +18,7 @@ module ApplicationHelper
 
 	def cms_icon(s=24)
 		#"<i class='fa fa-pencil fa-fw'></i>".html_safe
-		image_tag('b_icon_sm.png', :size => "#{s}", :style => "display: inline-block;")
+		image_tag('b_distort_sm.png', :size => "#{s}", :style => "display: inline-block;")
 	end
 
 end
