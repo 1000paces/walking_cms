@@ -5,7 +5,7 @@
 		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-archive'></i>".html_safe, assets_path, :title => "Assets", :id => "wcms-toggle-assets", :class => "nav-link sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
 		<li class="nav-item"><%= link_to "<i class='#{HelpTopic::ICON}'></i>".html_safe, help_index_path, :title => "Help", :class => "nav-link sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
 		<li class="nav-item">&nbsp;</li>
-		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-plus'></i>".html_safe, "#", :class => "nav-link sidebar-link wcms-master-toolbar-link wcms-secondary-link", :title => "Add Row", :id => "wcms-add-row" -%></li>
+		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-table'></i>".html_safe, "#", :class => "nav-link sidebar-link wcms-master-toolbar-link wcms-secondary-link", :title => "Add Row", :id => "wcms-add-row" -%></li>
 		<%= render :partial => 'pages/toolbar_vertical_sort', :locals => {:p => @page} -%>
 		<%= render :partial => 'pages/toolbar_vertical_finished', :locals => {:p => @page} -%>
 		<%= render :partial => 'pages/toolbar_vertical_duplicate', :locals => {:p => @page} -%>
@@ -20,5 +20,7 @@
 	$(".wcms-master-toolbar-link").on("click", function(e) {
 		$(".wcms-tool-container").hide();
 		$(".wcms-work-cell").removeClass("pressed");		
-	});	
+	});
 </script>
+
+

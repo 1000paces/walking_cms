@@ -460,12 +460,17 @@ ol.page-list {
 	position: relative;
 	min-height: 44px;
 	padding: 0 !important;
+	display: flex;
 }
 
 .wcms-row .wcms-cell {
 	background-color: transparent;
 	margin: 0 !important;
+	
+}
 
+
+.wcms-row .wcms-cell p {
 }
 
 .wcms-row:first-child {
