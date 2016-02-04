@@ -1,4 +1,4 @@
-<div class="col-md-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-md-offset-#{cell.offset}" : '' -%> sort" id="wcms-work-cell-<%= cell.id %>" data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>">
+<div class="col-md-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-md-offset-#{cell.offset}" : '' -%> sort wcms-sort" id="wcms-work-cell-<%= cell.id %>" data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>">
 	<div class="wcms-cell-sort-border" title="row <%= row.id -%> | cell <%= cell.id -%>">
 		<%= cell.body.html_safe -%>
 	</div>

@@ -469,8 +469,8 @@ ol.page-list {
 	
 }
 
+.wcms-sort {
 
-.wcms-row .wcms-cell p {
 }
 
 .wcms-row:first-child {
@@ -578,6 +578,13 @@ h4.wcms-white-text {
 	padding: 2px !important;
 	
 	background: url(blueprint_t.png) repeat;
+	display: flex;
+	justify-content: space-around;
+
+}
+.wcms-sort {
+	display: flex;
+  justify-content: space-around;
 }
 
 .wcms-cell-sort-border {
