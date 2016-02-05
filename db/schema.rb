@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708162539) do
+ActiveRecord::Schema.define(version: 20160204234300) do
 
   create_table "cells", force: :cascade do |t|
-    t.integer  "width",      limit: 4,     default: 12, null: false
-    t.integer  "offset",     limit: 4,     default: 0,  null: false
-    t.integer  "row_id",     limit: 4,                  null: false
-    t.integer  "position",   limit: 4,     default: 0,  null: false
+    t.integer  "width",      limit: 4,     default: 12,        null: false
+    t.integer  "offset",     limit: 4,     default: 0,         null: false
+    t.integer  "row_id",     limit: 4,                         null: false
+    t.integer  "position",   limit: 4,     default: 0,         null: false
     t.text     "body",       limit: 65535
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.string   "image",      limit: 255
+    t.string   "shape",      limit: 255,   default: "rounded"
   end
 
   add_index "cells", ["position"], name: "index_cells_on_position", using: :btree
@@ -33,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150708162539) do
     t.string   "regex",      limit: 255, default: "",    null: false
     t.integer  "position",   limit: 4
     t.integer  "image_id",   limit: 4
-    t.boolean  "secure",     limit: 1,   default: false
+    t.boolean  "secure",                 default: false
     t.string   "snippet",    limit: 255, default: "",    null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
@@ -43,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150708162539) do
 
   create_table "fonts", force: :cascade do |t|
     t.string  "family",        limit: 255, default: "Helvetica", null: false
-    t.boolean "serif",         limit: 1,   default: false,       null: false
+    t.boolean "serif",                     default: false,       null: false
     t.integer "min_weight",    limit: 4,   default: 100,         null: false
     t.integer "normal_weight", limit: 4,   default: 400,         null: false
     t.integer "max_weight",    limit: 4,   default: 700,         null: false
@@ -67,8 +69,8 @@ ActiveRecord::Schema.define(version: 20150708162539) do
     t.string   "title",          limit: 255, default: "",      null: false
     t.string   "permalink",      limit: 255, default: "",      null: false
     t.string   "status",         limit: 255, default: "DRAFT", null: false
-    t.boolean  "fluid",          limit: 1,   default: true,    null: false
-    t.boolean  "secure",         limit: 1,   default: false
+    t.boolean  "fluid",                      default: true,    null: false
+    t.boolean  "secure",                     default: false
     t.string   "snippet",        limit: 255, default: "",      null: false
     t.string   "password",       limit: 255
     t.integer  "position",       limit: 4
@@ -95,8 +97,8 @@ ActiveRecord::Schema.define(version: 20150708162539) do
     t.integer  "user_id",     limit: 4, default: 1,     null: false
     t.integer  "font_id",     limit: 4, default: 0,     null: false
     t.integer  "font_weight", limit: 4, default: 400,   null: false
-    t.boolean  "fluid",       limit: 1, default: true,  null: false
-    t.boolean  "top_nav",     limit: 1, default: false, null: false
+    t.boolean  "fluid",                 default: true,  null: false
+    t.boolean  "top_nav",               default: false, null: false
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
   end

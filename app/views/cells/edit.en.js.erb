@@ -2,7 +2,13 @@
 <%- when 'text' -%>
  /*** Do nothing, handled inline ***/
 <%- when 'image' -%>
-	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @body_type -%>")
+	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").hide();
+	$("#wcms-image-form-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'images/new') -%>").fadeIn();
+	
+	var editor = CKEDITOR.instances["wcms-work-cell-<%= @row.id %>-<%= @cell.id %>"]
+	editor.destroy();
+	editor = null;
+	
 <%- when 'code' -%>
 	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @cell.body -%>")
 <%- end -%>

@@ -38,6 +38,7 @@ gem 'engineyard'
 gem 'ey_config'
 gem 'acts_as_tree'
 gem 'acts-as-taggable-on', '~> 3.4.2'
+gem 'carrierwave'
 
 
 # Use ActiveModel has_secure_password

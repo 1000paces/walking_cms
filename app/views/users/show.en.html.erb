@@ -19,18 +19,6 @@
 </div>
 
 <script class="text/javascript">
-/***	$(function() {
-	  $('#wcms-master-toolbar').hover(function() {
-	    $('#wcms-content-wrapper').delay(500).queue(function(next) {
-	    	$(this).css('margin-left', '140px');
-	    	next();
-	    });
-	  }, function() {
-	    // on mouseout, reset the background colour
-	    $('#wcms-content-wrapper').css('margin-left', '36px');
-	  });
-	});
-***/
 	$(document).on('click', '#wcms-work-area div.wcms-cell', function(e){
 		var cellId = $(this).attr('data-cell');
 		$.ajax({
@@ -62,7 +50,7 @@
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
 		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
-
+		
 		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
 			startupFocus: true,
 			uiColor: '#ffffff',
@@ -70,6 +58,8 @@
 			toolbar: 'main',
 			width: '50%'
 		});
+
+
 	});
 
 	/*** Save the change from CKEDITOR for this cell ***/

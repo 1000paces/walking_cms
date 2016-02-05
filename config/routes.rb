@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :settings
   resources :assets
   resources :help, :only => [:index, :show]
+  resources :images, only: [:index, :new, :create, :destroy]
 
   match "cells/:id/edit(/:type)" => "cells#edit", :as => "edit_cell", :via => [:get]
 

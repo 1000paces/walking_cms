@@ -65,12 +65,20 @@ class CellsController < ApplicationController
     @body_type = params[:type]
     @row = @cell.row
     @page = @row.page
+
+    #if @body_type == 'image'
+      
+
+    #elsif @body_type == 'code'
+
+    #end
   end
 
   def update
     @cell = Cell.find params[:id]
     @row = @cell.row
     @cell.update_attributes(cell_parameters)
+    @page = @row.page
   end
 
   def destroy
@@ -99,7 +107,7 @@ class CellsController < ApplicationController
   private
 
   def cell_parameters
-    params.require(:cell).permit(:width, :offset, :position, :body)
+    params.require(:cell).permit(:width, :offset, :position, :body, :image, :shape)
   end
 
 end

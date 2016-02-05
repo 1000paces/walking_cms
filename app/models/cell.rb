@@ -1,6 +1,8 @@
 class Cell < ActiveRecord::Base
+	#attr_accessible :image, :remote_image_url
 	belongs_to :row
-
+	mount_uploader :image, ImageUploader
+	
 	def division
 		case self.width
 		when 12
