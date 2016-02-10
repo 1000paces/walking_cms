@@ -1,15 +1,23 @@
 <div class="col-md-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-md-offset-#{cell.offset}" : '' -%> wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= row.id %>-<%= cell.id %>" 
-	data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>" data-toggle="popover" contenteditable="true" title="r<%= row.id -%>c<%= cell.id -%>w<%= cell.width %>o<%= cell.offset %>">
-	<%- if cell.image.blank? -%>
-		<%= cell.body.html_safe -%>
-	<%- else -%>
-		<%= image_tag cell.image_url.to_s, :class => "img-fluid img-#{cell.shape}" -%>
-	<%- end -%>
+	data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>" data-toggle="popover" contenteditable="false" title="r<%= row.id -%>c<%= cell.id -%>w<%= cell.width %>o<%= cell.offset %>">
+	<div class="wcms-flip" id="wcms-flip-<%= row.id %>-<%= cell.id %>">
+		<div class="wcms-card" id="wcms-flip-card-<%= row.id %>-<%= cell.id %>">
+			<div class="wcms-face wcms-front">
+				<%- if cell.image.blank? -%>
+					<%= cell.body.html_safe -%>
+				<%- else -%>
+					<%= image_tag cell.image_url.to_s, :class => "img-fluid img-#{cell.shape}" -%>
+				<%- end -%>
+			</div>
+			<div class="wcms-face wcms-back">
+				<div class="wcms-form-cell" id="wcms-image-form-cell-<%= row.id %>-<%= cell.id %>"></div>
+				<%= form_for cell, {:class => "form-inline", :remote => true} do |f| -%>	
+					<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{cell.id}" -%>
+				<%- end -%>
+				<script>
+					CKEDITOR.disableAutoInline = true;
+				</script>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="wcms-image-form-cell wcms-cell wcms-cell-active" id="wcms-image-form-cell-<%= row.id %>-<%= cell.id %>" style="display: none;">HELLO</div>
-<%= form_for cell, {:class => "form-inline", :remote => true} do |f| -%>	
-	<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{cell.id}" -%>
-<%- end -%>
-<script>
-	CKEDITOR.disableAutoInline = true;
-</script>

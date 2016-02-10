@@ -1,7 +1,7 @@
 <div id="wcms-wrapper">
 	<%= render :partial => "pages/off_canvas_left" -%>
 	<%= render :partial => "pages/off_canvas_right" -%>	
-	<div id="wcms-content-wrapper">
+	<div id="wcms-content-wrapper" class="toolbar-visible">
 		<%= render :partial => 'pages/show' -%>
 	</div>
 </div>
@@ -19,6 +19,10 @@
 </div>
 
 <script class="text/javascript">
+	$(document).ready(function() {
+		/*$(".quickflip-wrapper").quickFlip();*/
+	});
+
 	$(document).on('click', '#wcms-work-area div.wcms-cell', function(e){
 		var cellId = $(this).attr('data-cell');
 		$.ajax({
@@ -51,14 +55,14 @@
 		var dataCell = $(this).attr('data-cell');
 		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
 		
-		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
+/*		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
 			startupFocus: true,
 			uiColor: '#ffffff',
 			skin: 'flat',
 			toolbar: 'main',
 			width: '50%'
 		});
-
+*/
 
 	});
 
@@ -74,47 +78,31 @@
 	/*** Cancel the CKEDITOR instance ***/
 	$(document).on('click', ".wcms-cancel", function(e) {
 		e.preventDefault();
-		$(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
-		$("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);
-		$(".wcms-cell").removeClass("wcms-cell-active");
 		
+		/*$(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
+		$("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);*/
+		
+		$("#wcms-content-wrapper").removeClass('toolbar-visible').delay(250).queue(function(next) {
+			$("#wcms-master-toolbar").show();
+			$(".wcms-cell-toolbar-vertical").hide();
+			$(this).addClass("toolbar-visible");
+			next();
+		})
+
+		$(".wcms-cell").removeClass("wcms-cell-active");
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
 		$("#wcms-toolbar-div-" + dataRow).fadeOut();
 		$("#wcms-work-cell-" + dataRow + "-" + dataCell).removeClass("wcms-cell-active");
-		var editor = CKEDITOR.instances["wcms-work-cell-" + dataRow + "-" + dataCell]
+		/*var editor = CKEDITOR.instances["wcms-work-cell-" + dataRow + "-" + dataCell]
 		editor.destroy();
-		editor = null;
+		editor = null;*/
 	});
 
 	$("#wcms-add-row").on('click', function(e){
 		e.preventDefault();
 		$("#wcms-new-row").submit();
 	});
-
-	/*$(".wcms-cell-toolbar-btn").on('click', function(e){
-		var dataSide = $(this).attr('data-side');
-		var dataAction = $(this).attr('data-action');
-		
-		$("#wcms-direction").val(dataSide);
-		$("#wcms-deed").val(dataAction);
-		$("#wcms-new-cell").submit();
-	});	
-*/
-	// Sample: Inline Editing Enabled by Code
-/*	$(".wcms-cell-editor-btn").on('click', function (e) {
-		alert("The other one");
-		var dataRow = $(this).attr('data-row');
-		var dataCell = $(this).attr('data-cell');
-		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
-
-		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
-			startupFocus: true,
-			toolbar: 'main',
-			width: '50%'
-		} );
-	});
-*/
 
 
 	$(document).on("click", ".wcms-cell-toolbar-link", function(e){

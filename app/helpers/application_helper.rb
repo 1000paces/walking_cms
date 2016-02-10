@@ -12,13 +12,17 @@ module ApplicationHelper
 		"<link href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'>".html_safe
 	end
 
+	def cdn_jquery_flip
+		"<script src='https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js'></script>".html_safe
+	end
+
 	def cms_name
-		"blueprint.studio"
+		"1000paces.studio"
 	end
 
 	def cms_icon(s=24)
 		#"<i class='fa fa-pencil fa-fw'></i>".html_safe
-		image_tag('b_distort_sm.png', :size => "#{s}", :style => "display: inline-block;")
+		image_tag('feet_walking_white.png', :size => "#{s}", :style => "display: inline-block;")
 	end
 
 end

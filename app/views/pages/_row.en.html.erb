@@ -1,15 +1,9 @@
 <!--- THIS IS WHERE THE ROW <%= row.id -%> PARTIAL BEGINS -->
 <%- unless row.cells.blank? -%>
-	<div class="wcms-toolbox" id="wcms-toolbox-<%= row.id %>">
-		<div class="row" id="wcms-row-<%= row.id %>">
-			<div class="col-md-12">
-				<div class="row wcms-row" id="wcms-row-<%= row.id -%>" data-row="<%= row.id -%>">
-					<%- row.cells.each_with_index do |cell, cell_index| -%>
-						<%= render :partial => "pages/cell", :locals => {:row => row, :cell => cell, :index => cell_index} -%>
-					<%- end -%>
-				</div>
-			</div>
+		<div class="row wcms-row" id="wcms-row-<%= row.id -%>" data-row="<%= row.id -%>">
+			<%- row.cells.each_with_index do |cell, cell_index| -%>
+				<%= render :partial => "pages/cell", :locals => {:row => row, :cell => cell, :index => cell_index} -%>
+			<%- end -%>
 		</div>
-	</div>
 <%- end -%>
 <!--- THIS IS WHERE THE ROW <%= row.id -%> PARTIAL ENDS -->

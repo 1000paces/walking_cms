@@ -1,14 +1,25 @@
+
 <%- case @body_type -%>
 <%- when 'text' -%>
  /*** Do nothing, handled inline ***/
 <%- when 'image' -%>
-	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").hide();
-	$("#wcms-image-form-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'images/new') -%>").fadeIn();
 	
-	var editor = CKEDITOR.instances["wcms-work-cell-<%= @row.id %>-<%= @cell.id %>"]
+	/*$("#wcms-flip-card-<%= @row.id %>-<%= @cell.id %>").quickFlipper();*/ /*.toggleClass("flipped");*/
+
+	$(".wcms-form-cell").empty();
+	$("#wcms-image-form-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'images/new') -%>");
+	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").toggleClass('flipped');
+
+/*
+	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").delay(500).fadeOut(1, function() {
+	    $(this).toggleClass('flipped').show();//.animate({ left: 1600 + "px" , top : 2370 + "px"}, 5000, 'linear');
+	});
+*/
+/*	var editor = CKEDITOR.instances["wcms-work-cell-<%= @row.id %>-<%= @cell.id %>"]
 	editor.destroy();
 	editor = null;
-	
+
+	*/
 <%- when 'code' -%>
 	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @cell.body -%>")
 <%- end -%>
