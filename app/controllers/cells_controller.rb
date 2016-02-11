@@ -78,6 +78,7 @@ class CellsController < ApplicationController
     @cell = Cell.find params[:id]
     @row = @cell.row
     @cell.update_attributes(cell_parameters)
+    Rails.logger.warn("\n\nWIDTH IS NOW #{@cell.width}\n\n")
     @page = @row.page
   end
 
@@ -107,7 +108,7 @@ class CellsController < ApplicationController
   private
 
   def cell_parameters
-    params.require(:cell).permit(:width, :offset, :position, :body, :image, :shape)
+    params.require(:cell).permit(:width, :offset, :position, :body, :image, :shape, :breakpoint, :border, :headline, :embed_code, :show_headline)
   end
 
 end

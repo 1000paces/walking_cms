@@ -1,14 +1,18 @@
-
+$(".wcms-form-cell").empty();
+if($("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %> .wcms-back").is(":visible")) {
+	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").toggleClass('flipped');
+} 
 <%- case @body_type -%>
 <%- when 'text' -%>
  /*** Do nothing, handled inline ***/
+ 	/*$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_block') -%>");*/
 <%- when 'image' -%>
 	
 	/*$("#wcms-flip-card-<%= @row.id %>-<%= @cell.id %>").quickFlipper();*/ /*.toggleClass("flipped");*/
 
-	$(".wcms-form-cell").empty();
-	$("#wcms-image-form-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'images/new') -%>");
-	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").toggleClass('flipped');
+
+	$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_image') -%>");
+
 
 /*
 	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").delay(500).fadeOut(1, function() {
@@ -21,5 +25,10 @@
 
 	*/
 <%- when 'code' -%>
-	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").html("<%= @cell.body -%>")
+	$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_code') -%>");
+<%- when 'settings' -%>
+	$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_settings') -%>");
+
 <%- end -%>
+
+$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").toggleClass('flipped');

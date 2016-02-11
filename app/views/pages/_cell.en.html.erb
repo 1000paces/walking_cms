@@ -1,4 +1,4 @@
-<div class="col-md-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-md-offset-#{cell.offset}" : '' -%> wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= row.id %>-<%= cell.id %>" 
+<div class="col-<%= cell.breakpoint %>-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-md-offset-#{cell.offset}" : '' -%> wcms-work-cell wcms-cell zone <%= 'card' if cell.border? -%>" id="wcms-work-cell-<%= row.id %>-<%= cell.id %>" 
 	data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>" data-toggle="popover" contenteditable="false" title="r<%= row.id -%>c<%= cell.id -%>w<%= cell.width %>o<%= cell.offset %>">
 	<div class="wcms-flip" id="wcms-flip-<%= row.id %>-<%= cell.id %>">
 		<div class="wcms-card" id="wcms-flip-card-<%= row.id %>-<%= cell.id %>">
@@ -10,7 +10,7 @@
 				<%- end -%>
 			</div>
 			<div class="wcms-face wcms-back">
-				<div class="wcms-form-cell" id="wcms-image-form-cell-<%= row.id %>-<%= cell.id %>"></div>
+				<div class="wcms-form-cell" id="wcms-cell-form-<%= row.id %>-<%= cell.id %>"></div>
 				<%= form_for cell, {:class => "form-inline", :remote => true} do |f| -%>	
 					<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{cell.id}" -%>
 				<%- end -%>

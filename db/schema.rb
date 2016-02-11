@@ -11,18 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204234300) do
+ActiveRecord::Schema.define(version: 20160211172410) do
 
   create_table "cells", force: :cascade do |t|
-    t.integer  "width",      limit: 4,     default: 12,        null: false
-    t.integer  "offset",     limit: 4,     default: 0,         null: false
-    t.integer  "row_id",     limit: 4,                         null: false
-    t.integer  "position",   limit: 4,     default: 0,         null: false
-    t.text     "body",       limit: 65535
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
-    t.string   "image",      limit: 255
-    t.string   "shape",      limit: 255,   default: "rounded"
+    t.integer  "width",         limit: 4,     default: 12,        null: false
+    t.integer  "offset",        limit: 4,     default: 0,         null: false
+    t.integer  "row_id",        limit: 4,                         null: false
+    t.integer  "position",      limit: 4,     default: 0,         null: false
+    t.text     "body",          limit: 65535
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "image",         limit: 255
+    t.string   "shape",         limit: 255,   default: "rounded"
+    t.string   "breakpoint",    limit: 255,   default: "md"
+    t.boolean  "border",                      default: false
+    t.string   "headline",      limit: 255,   default: ""
+    t.boolean  "show_headline",               default: false
+    t.text     "embed_code",    limit: 65535
   end
 
   add_index "cells", ["position"], name: "index_cells_on_position", using: :btree

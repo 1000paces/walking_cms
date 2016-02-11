@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header"><i class="fa fa-fw fa-code"></i> Embedded Code</div>
+  <div class="card-block">
+    <%= form_for @cell, html: { class: "wcms-card-form" }, :remote => true do |f| %>
+    	<div class="form-group">
+      	<label for="cell_headline" class="sr-only">Headline</label>
+      	<%= f.text_field :headline, :class => "form-control form-control-sm", :placeholder => "Headline" %>
+      </div>
+    	<div class="form-group">
+      	<label for="cell_embed_code" class="sr-only">Embed Code</label>
+      	<%= f.text_area :embed_code, :class => "form-control form-control-sm", :placeholder => "Paste embed code here" %>
+				<div class="col-sm-12 small text-muted">Paste embed code from third party sites here.</div>
+      </div>
+      <div class="form-group">
+    		<%= f.submit "Save", class: "btn btn-primary btn-sm" %>
+    		<%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
+      </div>
+    <% end %>
+  </div>
+</div>

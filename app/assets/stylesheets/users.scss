@@ -327,9 +327,9 @@ ol.page-list {
 	margin-bottom: 10px;
 }
 
-.wcms-cell {
+.wcms-cell:not(.card) {
 	padding: 4px 10px !important;
-	border: 1px solid #fff;
+	 border: 1px solid #fff;
 }
 
 .wcms-cell-active {
@@ -346,13 +346,6 @@ ol.page-list {
 	background-color: #fff !important;	*/
 }
 
-
-.wcms-cell-active .wcms-front {
-
-}
-
-.wcms-cell-active .wcms-card.flipped .wcms-back {
-}
 
 .pressed {
 	border: 1px solid #eee !important;
@@ -667,6 +660,7 @@ div.tool-items a.tool-item i {
 .wcms-flip .wcms-card .wcms-front {
 	transition: flex-grow 0.5s ease-in 0.5s;
 	z-index: 1;
+	border: 1px solid #fff;
 }
 
 .wcms-face {
@@ -701,9 +695,9 @@ div.tool-items a.tool-item i {
 .wcms-cell-active .wcms-front {
 	margin: -4px -10px;
 	padding: 4px 10px;
-	border: 1px solid #e5e5e5; /*#e5e5e5 !important;*/
+	border: 1px solid #e5e5e5 !important;
+	/*background-color: red !important;	*/
 	border-radius: 0.25rem;
-	background-color: #f5f5f5 !important;	
 }
 
 
@@ -714,4 +708,8 @@ div.tool-items a.tool-item i {
 .wcms-form-cell .card {
 	height: 100%;
 	margin: 0;
+}
+
+.wcms-card-form .form-group {
+	margin-bottom: 0.5rem !important;
 }

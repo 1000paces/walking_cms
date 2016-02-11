@@ -24,12 +24,18 @@
 	});
 
 	$(document).on('click', '#wcms-work-area div.wcms-cell', function(e){
+		
+		var rowId = $(this).attr('data-row');
 		var cellId = $(this).attr('data-cell');
-		$.ajax({
-			type: 'get',
-			dataType: 'script',
-			url: '/cells/' + cellId 
-		})
+		
+		if ($(e.target).closest(".wcms-back").length === 0) {
+			$.ajax({
+				type: 'get',
+				dataType: 'script',
+				url: '/cells/' + cellId 
+			})
+		}
+		
 	});
 
 	$("#wcms-work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
@@ -65,6 +71,13 @@
 */
 
 	});
+
+	$(document).on('click', ".wcms-cell-cancel-btn", function(e) {
+		e.preventDefault();
+		var dataRow = $(this).attr('data-row');
+		var dataCell = $(this).attr('data-cell');
+		$("#wcms-work-cell-" + dataRow + "-" + dataCell).toggleClass('flipped');
+	});	
 
 	/*** Save the change from CKEDITOR for this cell ***/
 	$(document).on('click', ".wcms-save", function (e) {

@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-header"><i class="fa fa-fw fa-gears"></i> Card Settings</div>
+  <div class="card-block">
+    <%= form_for @cell, html: { class: "wcms-card-form" }, :remote => true do |f| %>
+    	<div class="form-group">
+      	<label for="cell_width" class="sr-only">Width</label>
+      	<%= f.select :width, options_for_select(Cell::WIDTH, selected: @cell.width), {}, {:class => "form-control form-control-sm"} %>
+	      <small class="text-muted">Width of this card; 12 is full width</small>
+      </div>
+    	<div class="form-group">
+      	<label for="cell_offset" class="sr-only">Offset</label>
+      	<%= f.select :offset, options_for_select(Cell::OFFSET, selected: @cell.offset), {}, {:class => "form-control form-control-sm"} %>
+				<small class="text-muted">Offsets are added to the left</small>
+      </div>
+    	<div class="form-group">
+      	<label for="cell_breakpoint" class="sr-only">Breakpoint</label>
+      	<%= f.select :breakpoint, options_for_select(Cell::BREAKPOINTS, selected: @cell.breakpoint), {}, {:class => "form-control form-control-sm"} %>
+      	<small class="text-muted">Forces cards to stack vertically on small devices</small>
+      </div>
+      <%- if @cell.image.blank? -%>
+  			<div class="form-group">
+  				<label for="setting_border" class="sr-only">Border</label>
+					<label class="checkbox-inline">
+            <%= f.check_box(:border, {}, 1, 0) %> Include Border
+					</label>
+  			</div>
+      <%- end -%>
+      <div class="form-group">
+        <label for="setting_show_headline" class="sr-only"><%= @cell.image.blank? ? 'Headline' : 'Caption' -%>?</label>
+        <label class="checkbox-inline">
+          <%= f.check_box(:show_headline, {}, 1, 0) %> Show <%= @cell.image.blank? ? 'Headline' : 'Caption' -%>
+        </label>
+      </div>
+      <div class="form-group">      	
+    		<%= f.submit "Save", class: "btn btn-primary btn-sm" %>
+    		<%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
+      </div>
+    <% end %>
+  </div>
+</div>
