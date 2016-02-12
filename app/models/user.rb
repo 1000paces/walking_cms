@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	has_many :pages
 
 	before_validation :copy_login_to_email
+	after_find :bootstrap
 
 	acts_as_authentic do |c|
 		c.crypto_provider = Authlogic::CryptoProviders::BCrypt
@@ -31,7 +32,12 @@ class User < ActiveRecord::Base
 	end
 
 	def home_page
-		self.top_nav_pages.first
+		if self.top_nav_pages.blank?
+			self.linked_page_array = nil
+			return self.pages.create(label: "My New Page", position: 0)
+		else
+			return self.top_nav_pages.first
+		end
 	end
 
 	def font
@@ -61,5 +67,9 @@ class User < ActiveRecord::Base
 
 	def copy_login_to_email
 		self.email = self.login
+	end
+
+	def bootstrap
+		s = self.create_setting if self.setting.nil?
 	end
 end

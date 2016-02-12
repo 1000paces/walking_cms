@@ -8,7 +8,7 @@
 
 <div id="wcms-hidden-forms" style="display: none;">
 	<%= form_for Row.new, :html => {:id => "wcms-new-row"}, :remote => true do |f| -%>
-		<%= f.hidden_field :page_id -%>
+		<%= f.hidden_field :page_id, :value => @page.id -%>
 	<%- end -%>
 
 	<%= form_for Cell.new, :html => {:id => "wcms-new-cell", :class => "form-inline"}, :remote => true do |f| -%>
