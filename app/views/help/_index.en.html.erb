@@ -1,6 +1,6 @@
 <div class="wcms-white-text-label text-xs-center">Topic Index</div>
 <ol class="list-unstyled page-list">
 	<%- HelpTopic.all.each do |ht| -%>
-		<li><%= link_to "<i class='#{Page::ICON}'></i> #{ht.title}".html_safe, help_path(ht.permalink), :remote => true, :class => 'sidebar-link' -%></li>
+		<li><%= link_to "<i class='#{Page::ICON}'></i> #{ht.title}".html_safe, help_path(ht.permalink), :remote => true, :class => 'wcms-sidebar-link' -%></li>
 	<%- end -%>
 </ol>

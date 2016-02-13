@@ -1,7 +1,7 @@
-<div id="wcms-wrapper">
+<div id="wcms-wrapper" class="toolbar-visible">
 	<%= render :partial => "pages/off_canvas_left" -%>
 	<%= render :partial => "pages/off_canvas_right" -%>	
-	<div id="wcms-content-wrapper" class="toolbar-visible">
+	<div id="wcms-content-wrapper">
 		<%= render :partial => 'pages/show' -%>
 	</div>
 </div>
@@ -55,7 +55,7 @@
 	});
 
 	/*** Activate the CKEDITOR instance for the given cell ***/
-	$(document).on("click", ".wcms-cell-editor", function(e){
+	$(document).on("click", ".wcms-cell-text", function(e){
 		/*alert(CKEDITOR.version);*/
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
@@ -77,6 +77,7 @@
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
 		$("#wcms-work-cell-" + dataRow + "-" + dataCell).toggleClass('flipped');
+		$(".wcms-cell-toolbar-link").removeClass('active');
 	});	
 
 	/*** Save the change from CKEDITOR for this cell ***/
@@ -94,8 +95,9 @@
 		
 		/*$(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
 		$("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);*/
-		
-		$("#wcms-content-wrapper").removeClass('toolbar-visible').delay(250).queue(function(next) {
+		$(".wcms-cell-toolbar-link").removeClass('active');
+		$(".wcms-work-cell").removeClass('flipped');
+		$("#wcms-wrapper").removeClass('toolbar-visible').delay(500).queue(function(next) {
 			$("#wcms-master-toolbar").show();
 			$(".wcms-cell-toolbar-vertical").hide();
 			$(this).addClass("toolbar-visible");

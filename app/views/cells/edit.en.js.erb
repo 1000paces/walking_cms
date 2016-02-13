@@ -2,12 +2,13 @@ $(".wcms-form-cell").empty();
 if($("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %> .wcms-back").is(":visible")) {
 	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").toggleClass('flipped');
 } 
+$(".wcms-cell-toolbar-link").removeClass('active');
 <%- case @body_type -%>
 <%- when 'text' -%>
  /*** Do nothing, handled inline ***/
  	/*$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_block') -%>");*/
 <%- when 'image' -%>
-	
+
 	/*$("#wcms-flip-card-<%= @row.id %>-<%= @cell.id %>").quickFlipper();*/ /*.toggleClass("flipped");*/
 
 
@@ -30,5 +31,5 @@ if($("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %> .wcms-back").is(":visible")
 	$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_settings') -%>");
 
 <%- end -%>
-
+$(".wcms-cell-<%= @body_type %>").addClass('active');
 $("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").toggleClass('flipped');
