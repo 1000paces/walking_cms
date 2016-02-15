@@ -18,9 +18,13 @@
 		<%- if @user && @user.font -%>
 			<%= @user.font.link(@user.font_weight).html_safe -%>
 			<style>
-				.full-height-container .wcms-cell {
+				.full-height-container .wcms-cell, .wcms-editor {
 					font-family: '<%= @user.font.family -%>', <%= @user.font.serif? ? 'serif' : 'sans serif' -%>  !important;
 				}
+				.wcms-back .wcms-form-cell {
+					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+				}
+
 			</style>
 		<%- end -%>
 

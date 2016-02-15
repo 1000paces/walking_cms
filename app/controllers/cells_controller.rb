@@ -29,7 +29,7 @@ class CellsController < ApplicationController
       pos = direction == "left" ? @adjacent_cell.position-1 : @adjacent_cell.position
       x,y = @adjacent_cell.division
       @adjacent_cell.width = y
-      @cell = Cell.create(:width => x, :position => pos, :row_id => @adjacent_cell.row_id, :body => "I'm the new cell")
+      @cell = Cell.create(:width => x, :position => pos, :row_id => @adjacent_cell.row_id)
       cell_list.insert(pos, @cell.id)
       @adjacent_cell.save
     else

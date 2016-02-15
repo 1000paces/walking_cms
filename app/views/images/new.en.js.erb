@@ -1,2 +1,2 @@
-$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").fadeOut();
-$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'new') -%>").fadeIn();
+$("#wcms-work-cell-<%= @cell.id %>").fadeOut();
+$("#wcms-cell-form-<%= @cell.id %>").html("<%= j render(:partial => 'new') -%>").fadeIn();

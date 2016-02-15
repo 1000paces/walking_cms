@@ -1,35 +1,20 @@
-$(".wcms-form-cell").empty();
-if($("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %> .wcms-back").is(":visible")) {
-	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").toggleClass('flipped');
+if($("#wcms-work-cell-<%= @cell.id %> .wcms-back").is(":visible")) {
+	$("#wcms-work-cell-<%= @cell.id %>").toggleClass('flipped');
 } 
 $(".wcms-cell-toolbar-link").removeClass('active');
-<%- case @body_type -%>
-<%- when 'text' -%>
- /*** Do nothing, handled inline ***/
- 	/*$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_block') -%>");*/
-<%- when 'image' -%>
+$("#wcms-cell-form-<%= @cell.id %>-x").html('<%= j render(:partial => "cells/form_#{@body_type}") -%>');
+<%- if @body_type == 'text' -%>
 
-	/*$("#wcms-flip-card-<%= @row.id %>-<%= @cell.id %>").quickFlipper();*/ /*.toggleClass("flipped");*/
+	CKEDITOR.inline( "wcms-editor-<%= @cell.id %>", {
+			startupFocus: true,
+			skin: 'flat',
+			toolbar: 'main'
+		});
+	
 
-
-	$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_image') -%>");
-
-
-/*
-	$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").delay(500).fadeOut(1, function() {
-	    $(this).toggleClass('flipped').show();//.animate({ left: 1600 + "px" , top : 2370 + "px"}, 5000, 'linear');
-	});
-*/
-/*	var editor = CKEDITOR.instances["wcms-work-cell-<%= @row.id %>-<%= @cell.id %>"]
-	editor.destroy();
-	editor = null;
-
-	*/
-<%- when 'code' -%>
-	$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_code') -%>");
-<%- when 'settings' -%>
-	$("#wcms-cell-form-<%= @row.id %>-<%= @cell.id %>").html("<%= j render(:partial => 'cells/form_settings') -%>");
+<%- else -%>
 
 <%- end -%>
+$("#wcms-work-cell-<%= @cell.id %>").toggleClass('flipped');
 $(".wcms-cell-<%= @body_type %>").addClass('active');
-$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").toggleClass('flipped');
+

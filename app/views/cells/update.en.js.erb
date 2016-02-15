@@ -1,10 +1,2 @@
-$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").replaceWith("<%= j render(:partial => 'pages/cell', :locals => {:row => @row, :cell => @cell, :index => @cell.position}) -%>");
-
-$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").delay(500).addClass('wcms-cell-active').effect("highlight");
-
-
-<%- if 1==2 -%>
-var editor = CKEDITOR.instances["wcms-work-cell-<%= @row.id %>-<%= @cell.id %>"]
-editor.destroy();
-editor = null;
-<%- end -%>
+$("#wcms-work-cell-<%= @cell.id %>").replaceWith("<%= j render(:partial => 'pages/cell', :locals => {:row => @row, :cell => @cell, :index => @cell.position}) -%>");
+$("#wcms-work-cell-<%= @cell.id %>").delay(500).addClass('wcms-cell-active').effect("highlight");

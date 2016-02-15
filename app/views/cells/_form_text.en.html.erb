@@ -1,0 +1,9 @@
+<div class="card">
+	<div class="wcms-editor" id="wcms-editor-<%= @cell.id %>" contenteditable="true">
+		<%= @cell.body.html_safe -%>
+	</div>
+	<div class="card-block">
+		<%= link_to "Save", "#", class: "btn btn-primary btn-sm wcms-save", id: "wcms-save-#{@cell.id}", data: {row: @row.id, cell: @cell.id} %>
+    <%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
+	</div>
+</div>

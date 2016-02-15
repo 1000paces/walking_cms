@@ -74,6 +74,14 @@ class Cell < ActiveRecord::Base
 		end
 	end
 
+	def empty?
+		if self.body.blank? && self.image.blank? && self.embed_code.blank? && self.headline.blank?
+			return true
+		else
+			return false
+		end
+	end
+
 	private
 
 	def fix_the_width

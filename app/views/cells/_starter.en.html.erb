@@ -1,0 +1,8 @@
+<div class="text-xs-center">
+	<%= link_to "<i class='fa fa-fw fa-align-left fa-4x'></i>".html_safe, edit_cell_path(cell, "text"), :class => "btn btn-link wcms-cell-text wcms-starter-link", :title => "Add Text", :remote => true, :data => {:row => row.id, :cell => cell.id}  -%>
+	<%= link_to "<i class='fa fa-fw fa-image fa-4x'></i>".html_safe, edit_cell_path(cell, "image"), :class => "btn btn-link wcms-cell-image wcms-starter-link", :title => "Add Image", :remote => true -%>
+</div>
+<div class="text-xs-center">
+	<%= link_to "<i class='fa fa-fw fa-code fa-4x'></i>".html_safe, edit_cell_path(cell, "code"), :class => "btn btn-link wcms-cell-code wcms-starter-link", :title => "Add Code", :remote => true  -%>
+	<%= link_to "<i class='fa fa-fw fa-cogs fa-4x'></i>".html_safe, edit_cell_path(cell, "settings"), :class => "btn btn-link wcms-cell-settings wcms-starter-link", :title => "Card Settings", :remote => true  -%>
+</div>

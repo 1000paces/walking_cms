@@ -59,7 +59,7 @@
 		/*alert(CKEDITOR.version);*/
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
-		cell = $('#wcms-work-cell-' + dataRow + '-' + dataCell);
+		cell = $('#wcms-work-cell-' + dataCell);
 		
 /*		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
 			startupFocus: true,
@@ -76,7 +76,7 @@
 		e.preventDefault();
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
-		$("#wcms-work-cell-" + dataRow + "-" + dataCell).toggleClass('flipped');
+		$("#wcms-work-cell-" + dataCell).toggleClass('flipped');
 		$(".wcms-cell-toolbar-link").removeClass('active');
 	});	
 
@@ -84,7 +84,7 @@
 	$(document).on('click', ".wcms-save", function (e) {
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
-		var bodyValue = $("#wcms-work-cell-" + dataRow + "-" + dataCell).html();
+		var bodyValue = $("#wcms-editor-" + dataCell).html();
 		$("#cell_body_" + dataCell).val(bodyValue);
 		$("#edit_cell_" + dataCell).submit();
 	});
@@ -108,7 +108,7 @@
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
 		$("#wcms-toolbar-div-" + dataRow).fadeOut();
-		$("#wcms-work-cell-" + dataRow + "-" + dataCell).removeClass("wcms-cell-active");
+		$("#wcms-work-cell-" + dataCell).removeClass("wcms-cell-active");
 		/*var editor = CKEDITOR.instances["wcms-work-cell-" + dataRow + "-" + dataCell]
 		editor.destroy();
 		editor = null;*/

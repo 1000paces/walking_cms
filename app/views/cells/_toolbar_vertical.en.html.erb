@@ -1,4 +1,4 @@
-<div id="wcms-cell-toolbar-vertical-<%= row.id %>-<%= cell.id %>" class="wcms-cell-toolbar-vertical" style="display: none;">
+<div id="wcms-cell-toolbar-vertical-<%= cell.id %>" class="wcms-cell-toolbar-vertical" style="display: none;">
 	<ul class="nav">
 		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-eject fa-rotate-270'></i>".html_safe, "#", :class => "nav-link wcms-sidebar-link wcms-cell-toolbar-link wcms-cell-toolbar-cells", :title => "Add new card to the left", :data => {:side => "left", :action => "add", :row => row.id, :cell => cell.id} -%></li>
 		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-eject fa-rotate-90'></i>".html_safe, "#", :class => "nav-link wcms-sidebar-link wcms-cell-toolbar-link wcms-cell-toolbar-cells", :title => "Add new card to the right", :data => {:side => "right", :action => "add", :row => row.id, :cell => cell.id}  -%></li>

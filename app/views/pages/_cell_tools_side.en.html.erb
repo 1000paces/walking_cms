@@ -1,4 +1,4 @@
-<div class="wcms-tools wcms-tools-vertical wcms-tools-<%= side %>" id="wcms-tool-cell-<%= side %>-<%= row.id %>-<%= cell.id %>" style="display: none;">
+<div class="wcms-tools wcms-tools-vertical wcms-tools-<%= side %>" id="wcms-tool-cell-<%= side %>-<%= cell.id %>" style="display: none;">
 	<div class="btn-group-vertical">
 		<%= form_for Cell.new, :remote => true do |f| -%>
 			<%= hidden_field_tag("adjacent_cell", cell.id) %>

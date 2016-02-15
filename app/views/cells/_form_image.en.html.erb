@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header"><i class="fa fa-fw fa-image"></i> Image</div>
   <div class="card-block">
-    <%= form_for @cell, html: { multipart: true, class: "wcms-card-form" } do |f| %>
+    <%= form_for @cell, html: { multipart: true, class: "wcms-card-form" }, :remote => true do |f| %>
       <div class="form-group">
         <label class="file">
           <%= f.file_field :image, :class => "form-control" %>
@@ -11,10 +11,11 @@
       <div class="form-group">
         <label for="cell_headline" class="sr-only">Caption</label>
         <%= f.text_field :headline, :class => "form-control form-control-sm", :placeholder => "Caption" %>
-      </div>          
+      </div> 
     	<div class="form-group">
         <label for="cell_headline" class="sr-only">Shape</label>
         <div class="radio">
+          <label class="small radio"><%= f.radio_button(:shape, "default") %> Default</label> 
           <label class="small radio"><%= f.radio_button(:shape, "rounded") %> Rounded Corners</label> 
           <label class="small radio"><%= f.radio_button(:shape, "thumbnail") %> White Border</label> 
           <label class="small radio"><%= f.radio_button(:shape, "circle") %> Circle</label> 

@@ -1,19 +1,15 @@
 $(".wcms-cell").removeClass("wcms-cell-active");
-$("#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>").addClass("wcms-cell-active");
+$("#wcms-work-cell-<%= @cell.id %>").addClass("wcms-cell-active");
 $("#wcms-adjacent-cell").val(<%= @cell.id -%>);
-$(".wcms-work-cell:not(#wcms-work-cell-<%= @row.id %>-<%= @cell.id %>)").removeClass("flipped");
+$(".wcms-work-cell:not(#wcms-work-cell-<%= @cell.id %>)").removeClass("flipped");
 $(".wcms-cell-toolbar-link").removeClass('active');
-if(!$("#wcms-cell-toolbar-vertical-<%= @row.id %>-<%= @cell.id %>").is(':visible')) {
-	$("#wcms-cell-toolbar-vertical-<%= @row.id %>-<%= @cell.id %>").hide();
+if(!$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").is(':visible')) {
+	$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").hide();
 	$("#wcms-wrapper").toggleClass('toolbar-visible').delay(500).queue(function(next) {
 		$(".wcms-cell-toolbar-vertical").hide();
 		$("#wcms-master-toolbar").hide();
-		$("#wcms-cell-toolbar-vertical-<%= @row.id %>-<%= @cell.id %>").show();
+		$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").show();
 		$(this).addClass("toolbar-visible");
 		next();
 	})
-	/*$(".wcms-cell-toolbar-vertical").hide();*/
-	/*$("#wcms-master-toolbar").hide("slide", { direction: "left" }, 500);*/
-	/*$("#wcms-cell-toolbar-vertical-<%= @row.id %>-<%= @cell.id %>").fadeIn(); */
 }
-
