@@ -1,6 +1,6 @@
 <div id="wcms-wrapper" class="toolbar-visible">
-	<%= render :partial => "pages/off_canvas_left" -%>
-	<%= render :partial => "pages/off_canvas_right" -%>	
+	<%= render :partial => "pages/drawer_left" -%>
+	<%= render :partial => "pages/drawer_right" -%>	
 	<div id="wcms-content-wrapper">
 		<%= render :partial => 'pages/show' -%>
 	</div>
@@ -19,6 +19,14 @@
 </div>
 
 <script class="text/javascript">
+
+	$(document).on('click', ".wcms-master-toolbar-link", function(e) {
+		$(".wcms-cell-toolbar-link").removeClass('active');
+		$(".wcms-tool-container").hide();
+		$(".wcms-work-cell").removeClass("pressed");
+	});
+
+
 	$(document).ready(function() {
 		/*$(".quickflip-wrapper").quickFlip();*/
 	});
@@ -92,11 +100,9 @@
 	/*** Cancel the CKEDITOR instance ***/
 	$(document).on('click', ".wcms-cancel", function(e) {
 		e.preventDefault();
-		
-		/*$(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
-		$("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);*/
 		$(".wcms-cell-toolbar-link").removeClass('active');
 		$(".wcms-work-cell").removeClass('flipped');
+		$(".wcms-toolbar").hide();
 		$("#wcms-wrapper").removeClass('toolbar-visible').delay(500).queue(function(next) {
 			$("#wcms-master-toolbar").show();
 			$(".wcms-cell-toolbar-vertical").hide();
@@ -125,10 +131,4 @@
 		$("#wcms-adjacent-cell").val(adjacent_cell);
 	});
 
-	$(document).on("click", ".wcms-cancel-x", function(e) {
-		e.preventDefault();
-		$(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
-		$("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);
-		$(".wcms-cell").removeClass("wcms-cell-active");
-	});
 </script>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211172410) do
+ActiveRecord::Schema.define(version: 20160215183953) do
 
   create_table "cells", force: :cascade do |t|
     t.integer  "width",         limit: 4,     default: 12,        null: false
@@ -99,13 +99,14 @@ ActiveRecord::Schema.define(version: 20160211172410) do
   add_index "rows", ["page_id"], name: "index_rows_on_page_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4, default: 1,     null: false
-    t.integer  "font_id",     limit: 4, default: 0,     null: false
-    t.integer  "font_weight", limit: 4, default: 400,   null: false
-    t.boolean  "fluid",                 default: true,  null: false
-    t.boolean  "top_nav",               default: false, null: false
+    t.integer  "user_id",      limit: 4, default: 1,    null: false
+    t.integer  "font_id",      limit: 4, default: 0,    null: false
+    t.integer  "font_weight",  limit: 4, default: 400,  null: false
+    t.boolean  "fluid",                  default: true, null: false
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.integer  "nav_location", limit: 4, default: 0
+    t.integer  "nav_color",    limit: 4, default: 0
   end
 
   create_table "taggings", force: :cascade do |t|

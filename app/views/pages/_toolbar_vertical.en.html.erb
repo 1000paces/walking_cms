@@ -1,4 +1,4 @@
-<div id="wcms-master-toolbar" class="wcms-master-toolbar p-t-4">
+<div id="wcms-master-toolbar" class="wcms-toolbar wcms-master-toolbar wcms-toolbar-vertical p-t-4">
 	<ul class="nav" id="wcms-master-toolbar-vertical">
 		<li class="nav-item"><%= link_to "<i class='#{Page::ICON}'></i>".html_safe, pages_path, :title => "Pages", :id => "wcms-toggle-pages", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
 		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-gear'></i>".html_safe, settings_path, :title => "Settings", :id => "wcms-toggle-settings", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
@@ -16,13 +16,3 @@
 		<li class="nav-item"><%= link_to("<i class='fa fa-fw fa-sign-out'></i>".html_safe, user_session_path, :method => :delete, :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link") -%></li>
 	</ul>
 </div>
-
-<script type="text/javascript">
-	$(".wcms-master-toolbar-link").on("click", function(e) {
-		$(".wcms-cell-toolbar-link").removeClass('active');
-		$(".wcms-tool-container").hide();
-		$(".wcms-work-cell").removeClass("pressed");
-	});
-</script>
-
-

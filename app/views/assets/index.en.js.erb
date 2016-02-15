@@ -3,11 +3,11 @@ $("#wcms-form-box").hide();
 if($("#drawer-assets").is(':visible')){
 	$("#drawer-assets").hide("slide", { direction: "right" }, 500);
 	$("#drawer-forms").empty();
-	$("#wcms-wrapper").removeClass("toggled");
+	$("#wcms-wrapper").removeClass("drawer-visible");
 } else {
 	$("#assets-index-div").html("<%= j render(:partial => 'assets/index') -%>");
 	$(".wcms-right-column").hide(); 
-	$("#wcms-wrapper").addClass("toggled");
+	$("#wcms-wrapper").addClass("drawer-visible");
 	$("#wcms-toggle-assets").addClass("active");
 	$("#drawer-assets").fadeIn(); /*show("slide", { direction: "right" }, 150);*/
 }

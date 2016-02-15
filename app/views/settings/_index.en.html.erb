@@ -30,18 +30,13 @@
 			</div>
 		</fieldset>
 		<fieldset class="form-group">
-			<label class="wcms-white-text" for="setting_top_nav">Menu Location</label>
-			<div class="radio">
-				<label class="wcms-white-text">
-					<small><%= f.radio_button :top_nav, true -%> Fixed to Top</small>
-				</label>
-			</div>
-			<div class="radio">			
-				<label class="wcms-white-text">
-					<small><%= f.radio_button :top_nav, false -%> Below Header Image</small>
-				</label>
-			</div>
+			<label class="wcms-white-text" for="setting_font_id">Navigation Location</label>
+			<%= f.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
 		</fieldset>
+		<fieldset class="form-group">
+			<label class="wcms-white-text" for="setting_font_id">Navigation Color</label>
+			<%= f.select(:nav_color, Setting::NAV_COLOR, {}, {:class => "form-control form-control-sm"}) %>
+		</fieldset>		
 		<div class="text-xs-center"><button type="submit" class="btn btn-secondary-outline btn-sm">Save</button></div>
 	<%- end -%>
 </div>

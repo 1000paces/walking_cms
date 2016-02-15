@@ -18,7 +18,7 @@
 		<%- if @user && @user.font -%>
 			<%= @user.font.link(@user.font_weight).html_safe -%>
 			<style>
-				.full-height-container .wcms-cell, .wcms-editor {
+				.wcms-full-height-container .wcms-cell, .wcms-editor {
 					font-family: '<%= @user.font.family -%>', <%= @user.font.serif? ? 'serif' : 'sans serif' -%>  !important;
 				}
 				.wcms-back .wcms-form-cell {
@@ -31,7 +31,7 @@
 	  <%= csrf_meta_tags -%>
 
 	</head>
-	<body>
+	<body class="wcms-flex <%= background_class(@user.setting) -%> <%= nav_class(@user.setting) -%>">
 		<%- unless @page.nil? -%><%- end -%>
 		<%= yield %>
 	</body>

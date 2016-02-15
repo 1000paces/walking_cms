@@ -1,0 +1,20 @@
+<div class="col-md-2">
+	<ul class="nav nav-pills nav-stacked <%= nav_color_vertical(@user.setting) -%> ">
+		<%- @user.top_nav_pages.each do |p| -%>
+			<%- if p.children.count > 0 -%>
+				<li id="wcms-page-<%= p.id %>" class="nav-item dropdown wcms-menu-link">
+					<%= link_to p.label, page_path(p), :class => "nav-link dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
+					<div class="dropdown-menu" role="menu">
+						<%- p.children.each do |c| -%>
+							<%= link_to c.label, page_path(c), :class => "dropdown-item #{'active' if c.id == @page.id}", :id => "wcms-page-#{c.id}", :remote => true -%>
+						<%- end -%>
+					</div>
+				</li>
+			<%- else -%>
+				<li class="nav-item wcms-menu-link" id="wcms-page-<%= p.id %>">
+					<%= link_to p.label, page_path(p), :class => "nav-link #{'active' if p.id == @page.id}", :remote => true  -%>
+				</li>
+			<%- end -%>
+		<%- end -%>
+	</ul>
+</div>

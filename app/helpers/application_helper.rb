@@ -25,6 +25,50 @@ module ApplicationHelper
 		image_tag('feet_walking_white.png', :size => "#{s}", :style => "display: inline-block;")
 	end
 
+	def nav_class(setting)
+		case setting.nav_location
+		when 1 ##### below header image rounded
+			return ""
+		when 2 #### below header image square
+			return "navbar-full"
+		when 3 #### fixed to bottom
+			return "navbar-fixed-bottom"
+		when 4
+			return ""
+		when 5 #### left or right nav
+			return ""
+		else #### fixed to top
+			return "navbar-fixed-top"
+		end
+	end
+
+	def nav_color_horizontal(setting)
+		case setting.nav_color
+		when 0
+			return "navbar-light bg-faded"
+		when 1
+			return "navbar-dark bg-inverse"
+		when 2
+			return "navbar-dark bg-primary"
+		when 3
+			return "navbar-light bg-secondary"
+		end
+	end
+
+	def nav_color_vertical(setting)
+		case setting.nav_color
+		when 0
+			return "nav-pills-light bg-faded"
+		when 1
+			return "nav-pills-dark bg-inverse"
+		when 2
+			return "nav-pills-dark bg-primary"
+		when 3
+			return "nav-pills-light bg-secondary"
+		end
+	end
+
+
 end
 
 

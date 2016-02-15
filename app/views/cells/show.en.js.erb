@@ -3,11 +3,13 @@ $("#wcms-work-cell-<%= @cell.id %>").addClass("wcms-cell-active");
 $("#wcms-adjacent-cell").val(<%= @cell.id -%>);
 $(".wcms-work-cell:not(#wcms-work-cell-<%= @cell.id %>)").removeClass("flipped");
 $(".wcms-cell-toolbar-link").removeClass('active');
+$(".wcms-toolbar").hide();
 if(!$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").is(':visible')) {
+	$("#wcms-cell-toolbar").hide();
 	$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").hide();
 	$("#wcms-wrapper").toggleClass('toolbar-visible').delay(500).queue(function(next) {
 		$(".wcms-cell-toolbar-vertical").hide();
-		$("#wcms-master-toolbar").hide();
+		$("#wcms-cell-toolbar").show();
 		$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").show();
 		$(this).addClass("toolbar-visible");
 		next();
