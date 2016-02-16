@@ -1,0 +1,29 @@
+.nav-pills.bg-inverse.nav-dark, .nav-pills.bg-faded.nav-light {
+	background-color: #fff; /* needed to counter the normal bg-inverse dark color */
+}
+.nav-pills.bg-inverse.nav-dark .nav-link:not(.active) {
+  color: rgba(0, 0, 0, .5);
+  background-color: #fff !important;
+}
+.nav-pills.bg-inverse.nav-dark .nav-link.active {
+  /*color: rgba(255, 255, 255, .9);*/
+  color: #fff;
+}
+
+.nav-pills.bg-faded.nav-light .nav-link:not(.active) {
+  color: rgba(0, 0, 0, .5);
+  background-color: #fff !important;
+}
+.nav-pills.bg-faded.nav-light .nav-link.active {
+  /*color: rgba(255, 255, 255, .9);*/
+  color: #000;
+}
+
+.nav-pills .nav-link.active, .nav-pills .nav-link.active:focus,
+.nav-pills .nav-item.open .nav-link,
+.nav-pills .nav-item.open .nav-link:focus {
+  /*color: #fff;
+  cursor: default;
+  background-color: red;
+  */
+}

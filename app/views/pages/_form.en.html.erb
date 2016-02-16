@@ -52,7 +52,7 @@
       <%= b.select(:font_id, Font.alpha_collection, {:include_blank => true}, {:class => "form-control form-control-sm"}) %>
     </fieldset>
     <fieldset class="form-group">
-      <label class="small wcms-white-text" for="setting_font_id">Font Weight</label>
+      <label class="small wcms-white-text" for="setting_font_weight">Font Weight</label>
       <div class="radio">
         <label class="wcms-white-text radio-inline">
           <small><%= b.radio_button :font_weight, 100 -%> Thin</small>
@@ -65,18 +65,18 @@
         </label>
       </div>  
     <fieldset class="form-group">
-      <label class="small wcms-white-text" for="setting_font_id">Navigation Location</label>
+      <label class="small wcms-white-text" for="setting_nav_location">Navigation Location</label>
       <%= b.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
     </fieldset>
     <fieldset class="form-group">
-      <label for="page_label" class="small wcms-white-text">Navigation Color</label>
+      <label for="page_label" class="small wcms-white-text" for="setting_nav_color">Navigation Color</label>
       <%= b.text_field :nav_color, :class => "form-control form-control-xs", :readonly => true -%>
       <script>
         $("#page_setting_attributes_nav_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
       </script>
     </fieldset>    
     <fieldset class="form-group">
-      <label class="small wcms-white-text" for="setting_font_id">Navigation Contrast</label>
+      <label class="small wcms-white-text" for="setting_nav_weight">Navigation Contrast</label>
       <%= b.select(:nav_weight, Setting::NAV_WEIGHT, {}, {:class => "form-control form-control-sm form-control-color"}) %>
     </fieldset>    
   <%- end -%>

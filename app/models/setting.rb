@@ -44,7 +44,7 @@ class Setting < ActiveRecord::Base
 		if self.nav_color.nil?
 			return ""
 		else
-			return "style='background-color: #{self.nav_color_converted};'".html_safe
+			return "background-color: #{self.nav_color_converted};".html_safe
 		end
 	end
 

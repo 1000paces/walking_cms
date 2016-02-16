@@ -15,7 +15,7 @@ class SettingsController < ApplicationController
 		if params[:sync]
 			@user.pages.each do |p|
 				if p.setting.nil?
-    			p.create_setting(@setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color"))
+    			p.create_setting(@setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color", "nav_weight"))
     		else
     			p.setting.update_attributes(setting_parameters)
     		end
@@ -27,7 +27,7 @@ class SettingsController < ApplicationController
 	private
 
 	def setting_parameters
-		params.require(:setting).permit(:font_id, :font_weight, :fluid, :nav_location, :nav_color)
+		params.require(:setting).permit(:font_id, :font_weight, :fluid, :nav_location, :nav_color, :nav_weight)
 	end
 
 end
