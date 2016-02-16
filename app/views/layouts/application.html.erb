@@ -24,14 +24,16 @@
 				.wcms-back .wcms-form-cell {
 					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 				}
-
 			</style>
 		<%- end -%>
 
 	  <%= csrf_meta_tags -%>
-
 	</head>
-	<body class="wcms-flex <%= background_class(@user.setting) -%> <%= nav_class(@user.setting) -%>">
+	<%- if @page.nil? -%>
+		<body class="wcms-flex <%= @user.setting.background_color -%> <%= @user.setting.nav_class -%>">
+	<%- else -%>
+		<body class="wcms-flex <%= @page.setting.background_class -%> <%= @page.setting.nav_class -%>">
+	<%- end -%>
 		<%- unless @page.nil? -%><%- end -%>
 		<%= yield %>
 	</body>

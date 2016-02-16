@@ -35,34 +35,56 @@
     <%= f.text_field :permalink, :class => "form-control form-control-sm" -%>
     <small class="wcms-form-help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</small>
   </fieldset>
-  <div class="radio">
-    <label class="small radio wcms-white-text"><%= f.radio_button(:fluid, true) %> Fluid Layout</label> 
-    <label class="small radio wcms-white-text"><%= f.radio_button(:fluid, false) %> Static Layout</label>
-    <small class="wcms-form-help">Choose "Fluid" if you want columns to grow and shrink when the browser is resized, otherwise choose 'Static.'</small>
-  </div>           
+  <%= f.fields_for :setting, @page.setting do |b| -%>
+    <fieldset class="form-group">
+      <label class="small wcms-white-text" for="setting_font_id">Font</label>
+      <%= b.select(:font_id, Font.alpha_collection, {:include_blank => true}, {:class => "form-control form-control-sm"}) %>
+    </fieldset>
+    <fieldset class="form-group">
+      <label class="small wcms-white-text" for="setting_font_id">Font Weight</label>
+      <div class="radio">
+        <label class="wcms-white-text radio-inline">
+          <small><%= b.radio_button :font_weight, 100 -%> Thin</small>
+        </label>
+        <label class="wcms-white-text radio-inline">
+          <small><%= b.radio_button :font_weight, 400 -%> Normal</small>
+        </label>
+        <label class="wcms-white-text radio-inline">
+          <small><%= b.radio_button :font_weight, 700 -%> Heavy</small>
+        </label>
+      </div>  
+    <fieldset class="form-group">
+      <label class="small wcms-white-text" for="setting_fluid">Layout</label>
+      <div class="radio">
+        <label class="wcms-white-text radio-inline">
+          <small><%= b.radio_button :fluid, true -%> Fluid Layout</small>
+        </label>
+        <label class="wcms-white-text radio-inline">
+          <small><%= b.radio_button :fluid, false -%> Static Layout</small>
+        </label>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+      <label class="small wcms-white-text" for="setting_font_id">Navigation Location</label>
+      <%= b.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
+    </fieldset>
+    <fieldset class="form-group">
+      <label class="small wcms-white-text" for="setting_font_id">Navigation Color</label>
+      <%= b.select(:nav_color, Setting::NAV_COLOR, {}, {:class => "form-control form-control-sm"}) %>
+    </fieldset>    
+  <%- end -%>
   <div class="radio">
     <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "PUBLIC") %> Published</label> 
     <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "DRAFT") %> Draft</label>
     <small class="wcms-form-help">Select "Published" when your page is ready to view.</small>
-  </div>      
+  </div>
   <fieldset class="form-group">  
     <%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
-    <%#= link_to 'Cancel', "#", :class => "btn btn-warning-outline btn-sm pull-xs-right", :id => "cancel-button" %>
     <%= link_to "Cancel", pages_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning-outline btn-sm pull-xs-right", :remote => true -%>
   </fieldset>
 <%- end -%>
 
 <script type="text/javascript">
-  $('#cancel-button').on('click', function(e){
-    /*
-    e.preventDefault();
-    $("#wcms-form-box").hide("slide", { direction: "right" }, 750, function(){
-      $(this).empty();
-    });
-    $("#wcms-drawer-pages").show("slide", { direction: "left" }, 750);
-    */
-  });
-
   $("#page_label").focusout(function(){
     if($("#page_title").val().length == 0 ){
       $("#page_title_spinner").toggleClass("hidden show");

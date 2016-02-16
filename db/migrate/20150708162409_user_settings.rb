@@ -1,7 +1,7 @@
 class UserSettings < ActiveRecord::Migration
   def up
 		create_table :settings do |t|
-			t.integer :user_id, :null => false, :default => 1
+			t.integer :user_id, :null => false, :default => nil
 			t.integer :font_id, :null => false, :default => 0
 			t.integer :font_weight, :null => false, :default => 400
 			t.boolean :fluid, :null => false, :default => true

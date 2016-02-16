@@ -1,9 +1,12 @@
 class Page < ActiveRecord::Base
 	belongs_to :user
+	has_one :setting
+	accepts_nested_attributes_for :setting#, :reject_if => lambda{|r| r[:value].blank?}
 
 	has_many :rows, -> { order("position ASC")}
 
 	acts_as_tree :order => "position"
+	after_initialize :init
 
 	ICON_SHORT = "fa-file-text-o"
 	HOME_SHORT = "fa-home"
@@ -26,5 +29,12 @@ class Page < ActiveRecord::Base
 		end
 	end
 
+	private
+
+	def init
+		if self.setting.nil?
+			self.create_setting(self.user.setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color")) 
+		end
+	end
 	
 end

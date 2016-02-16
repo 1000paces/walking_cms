@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215183953) do
+ActiveRecord::Schema.define(version: 20160215235926) do
 
   create_table "cells", force: :cascade do |t|
     t.integer  "width",         limit: 4,     default: 12,        null: false
@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 20160215183953) do
     t.string   "title",          limit: 255, default: "",      null: false
     t.string   "permalink",      limit: 255, default: "",      null: false
     t.string   "status",         limit: 255, default: "DRAFT", null: false
-    t.boolean  "fluid",                      default: true,    null: false
     t.boolean  "secure",                     default: false
     t.string   "snippet",        limit: 255, default: "",      null: false
     t.string   "password",       limit: 255
@@ -107,6 +106,7 @@ ActiveRecord::Schema.define(version: 20160215183953) do
     t.datetime "updated_at",                            null: false
     t.integer  "nav_location", limit: 4, default: 0
     t.integer  "nav_color",    limit: 4, default: 0
+    t.integer  "page_id",      limit: 4
   end
 
   create_table "taggings", force: :cascade do |t|

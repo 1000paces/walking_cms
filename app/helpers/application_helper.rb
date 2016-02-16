@@ -26,6 +26,7 @@ module ApplicationHelper
 	end
 
 	def nav_class(setting)
+		return "navbar-fixed-top" if setting.nil?
 		case setting.nav_location
 		when 1 ##### below header image rounded
 			return ""
@@ -43,6 +44,7 @@ module ApplicationHelper
 	end
 
 	def nav_color_horizontal(setting)
+		return "navbar-light bg-faded" if setting.nil?
 		case setting.nav_color
 		when 0
 			return "navbar-light bg-faded"
@@ -56,6 +58,7 @@ module ApplicationHelper
 	end
 
 	def nav_color_vertical(setting)
+		return "nav-pills-light bg-faded" if setting.nil?
 		case setting.nav_color
 		when 0
 			return "nav-pills-light bg-faded"

@@ -12,6 +12,15 @@ class SettingsController < ApplicationController
 	def update
 		@setting = Setting.find(params[:id])
 		@setting.update_attributes(setting_parameters)
+		if params[:sync]
+			@user.pages.each do |p|
+				if p.setting.nil?
+    			p.create_setting(@setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color"))
+    		else
+    			p.setting.update_attributes(setting_parameters)
+    		end
+			end
+		end
 		redirect_to user_path(@user)
 	end
 

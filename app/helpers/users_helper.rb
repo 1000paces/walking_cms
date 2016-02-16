@@ -1,7 +1,7 @@
 module UsersHelper
 
 	def background_class(setting)
-		if setting.fluid?
+		if setting.nil? || setting.fluid?
 			return "wcms-white-background"
 		else
 			return "wcms-grey-background"

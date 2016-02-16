@@ -1,5 +1,5 @@
 <div class="col-md-2">
-	<ul class="nav nav-pills nav-stacked <%= nav_color_vertical(@user.setting) -%> ">
+	<ul class="nav nav-pills nav-stacked <%= @page.setting.nav_color_vertical -%> ">
 		<%- @user.top_nav_pages.each do |p| -%>
 			<%- if p.children.count > 0 -%>
 				<li id="wcms-page-<%= p.id %>" class="nav-item dropdown wcms-menu-link">

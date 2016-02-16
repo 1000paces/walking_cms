@@ -5,3 +5,6 @@ $("#wcms-drawer-pages").show("slide", { direction: "left" }, 750);
 $("#wcms-page-display").fadeOut(function(){
 	$("#wcms-page-display").html("<%= j render(:partial => 'pages/display') -%>").fadeIn();
 });
+
+$("body").removeClass("wcms-white-background wcms-grey-backgroun navbar-full navbar-fixed-bottom navbar-fixed-top").addClass("<%= @page.setting.nav_class -%> <%= @page.setting.background_class -%>");
+$(".wcms-full-height-container").removeClass("container container-fluid").addClass("<%= @page.setting.container_type -%>");

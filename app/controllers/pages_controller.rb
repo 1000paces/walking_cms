@@ -26,6 +26,8 @@ class PagesController < ApplicationController
 
   def edit
   	@page = Page.find(params[:id])
+    #@page.build_setting(@user.setting.attributes.slice(:user_id, :font_id, :font_weight, :fluid, :nav_location, :nav_color)) 
+    #@page.build_setting(@user.setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color")) if @page.setting.nil?
     @row = @page.rows.first
   end
 
@@ -33,7 +35,6 @@ class PagesController < ApplicationController
   	@page = Page.find(params[:id])
   	@page.update_attributes(page_parameters)
     @row = @page.rows.first
-  	Rails.logger.warn("Page Label is #{@page.label}")
   end
 
   def destroy
@@ -71,6 +72,6 @@ class PagesController < ApplicationController
   private
 
   def page_parameters
-  	params.require(:page).permit(:label, :title, :permalink, :status, :fluid).merge(user_id: current_user.id)#, position: current_user.pages.count)
+  	params.require(:page).permit(:label, :title, :permalink, :status, setting_attributes: [:id, :font_id, :font_weight, :fluid, :nav_location, :nav_color]).merge(user_id: current_user.id)#, position: current_user.pages.count)
   end
 end

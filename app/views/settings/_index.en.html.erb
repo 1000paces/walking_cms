@@ -36,7 +36,15 @@
 		<fieldset class="form-group">
 			<label class="wcms-white-text" for="setting_font_id">Navigation Color</label>
 			<%= f.select(:nav_color, Setting::NAV_COLOR, {}, {:class => "form-control form-control-sm"}) %>
-		</fieldset>		
-		<div class="text-xs-center"><button type="submit" class="btn btn-secondary-outline btn-sm">Save</button></div>
+		</fieldset>
+			<div class="checkbox">
+				<label class="wcms-white-text checkbox-inline">
+					<small><%= check_box_tag :sync, 1 -%> Synchronize all pages to these settings</small>
+				</label>
+			</div>
+		<div class="form-group">
+			<%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
+	    <%= link_to "Cancel", settings_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning-outline btn-sm pull-xs-right", :remote => true -%>
+		</div>
 	<%- end -%>
 </div>
