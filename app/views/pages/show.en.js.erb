@@ -17,3 +17,5 @@ $(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
 $("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);
 $(".wcms-cell").removeClass("wcms-cell-active");
 
+$("body").removeClass("wcms-white-background wcms-grey-backgroun navbar-full navbar-fixed-bottom navbar-fixed-top").addClass("<%= @page.setting.nav_class -%> <%= @page.setting.background_class -%>");
+$(".wcms-full-height-container").removeClass("container container-fluid").addClass("<%= @page.setting.container_type -%>");

@@ -5,14 +5,14 @@
 	<h1 class="text-xs-center" id="wcms-page-label"><%= @page.label -%></h1>
 <%- end -%>
 </div>
-<%= render :partial => "pages/nav_vertical" if @user.setting.nav_location == 4 -%>
-<div class="col-md-<%= @user.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
+<%= render :partial => "pages/nav_vertical" if @page.setting.nav_location == 4 -%>
+<div class="col-md-<%= @page.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
 	<div class="row">
 		<div class="col-md-12 header-zone zone" id="header-row"></div>
 	</div>
 	<div class="row" id="wcms-navigation-row">
 		<div class="col-md-12 navigation-zone" id="wcms-navigation-row-inner">
-			<%= render :partial => "pages/nav_horizontal" if @user.setting.nav_location < 4 -%>
+			<%= render :partial => "pages/nav_horizontal" if @page.setting.nav_location < 4 -%>
 		</div>
 	</div>
 	<%- @page.rows.each_with_index do |row, index| -%>
@@ -24,4 +24,4 @@
 		<div class="col-md-12 footer-zone zone" id="footer-row"></div>
 	</div>
 </div>
-<%= render :partial => "pages/nav_vertical" if @user.setting.nav_location == 5 -%>
+<%= render :partial => "pages/nav_vertical" if @page.setting.nav_location == 5 -%>
