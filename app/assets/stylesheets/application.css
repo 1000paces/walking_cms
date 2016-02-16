@@ -28,6 +28,12 @@ body {
 	text-align: right;
 }
 
+.form-control-xs {
+  padding: .175rem .5rem;
+  font-size: .750rem;
+  border-radius: .2rem;
+}
+
 .wcms-white-text {
 	color: #fff !important;
 }

@@ -21,17 +21,19 @@ body.wcms-grey-background {
 
 body.navbar-full {
 	padding-top: 0 !important;
-padding-bottom: 0;
+	padding-bottom: 0;
 }
 
 body.navbar-fixed-top {
 	padding-top: 54px !important;	
 	padding-bottom: 0;
+	position: static !important;
 }
 
 body.navbar-fixed-bottom {
 	padding-bottom: 54px !important;	
 	padding-top: 0;
+	position: static !important;
 }
 
 body.wcms-flex {
@@ -158,6 +160,7 @@ div#wcms-content-wrapper {
 	
 	width: 36px;
 	background-color: transparent;
+	position: fixed;
 /*	background: url(blueprint.png) repeat;
 	border-right: 1px solid #7f7f7f;
 	-webkit-transition: all 0.5s ease;
@@ -171,6 +174,7 @@ div#wcms-content-wrapper {
 #wcms-cell-toolbar {
 	width: 36px;
 	background-color: transparent;
+	position: fixed;
 }
 .wcms-cell-toolbar-vertical {
 
@@ -341,7 +345,7 @@ div#wcms-toolbar-wrapper {
 }
 
 small.wcms-form-help {
-	background: rgba(255,255,255,0.2) !important;
+	/*background: rgba(255,255,255,0.2) !important;*/
 	color: #fff;
 	display: inline-block;
 	font-size: 0.65rem;
@@ -621,6 +625,14 @@ ol.page-list {
 
 .wcms-sidebar-form {
 	margin: 10px;
+}
+
+.wcms-sidebar-form fieldset {
+	margin-bottom: 8px;
+}
+
+.wcms-sidebar-form fieldset label {
+	margin-bottom: 4px;
 }
 
 .wcms-white-text {

@@ -98,16 +98,21 @@ ActiveRecord::Schema.define(version: 20160215235926) do
   add_index "rows", ["page_id"], name: "index_rows_on_page_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4, default: 1,    null: false
+    t.integer  "user_id",      limit: 4
     t.integer  "font_id",      limit: 4, default: 0,    null: false
     t.integer  "font_weight",  limit: 4, default: 400,  null: false
     t.boolean  "fluid",                  default: true, null: false
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "nav_location", limit: 4, default: 0
-    t.integer  "nav_color",    limit: 4, default: 0
+    t.integer  "nav_color",    limit: 8
+    t.integer  "nav_weight",   limit: 4, default: 0
     t.integer  "page_id",      limit: 4
   end
+
+  add_index "settings", ["page_id"], name: "index_settings_on_page_id", unique: true, using: :btree
+  add_index "settings", ["user_id", "page_id"], name: "index_settings_on_user_id_and_page_id", unique: true, using: :btree
+  add_index "settings", ["user_id"], name: "index_settings_on_user_id", unique: true, using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4

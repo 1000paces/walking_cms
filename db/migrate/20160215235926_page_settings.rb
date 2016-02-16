@@ -1,6 +1,7 @@
 class PageSettings < ActiveRecord::Migration
   def change
-  	remove_column :pages, :fluid, :boolean
-  	add_column :settings, :page_id, :integer, :default => nil
+		add_index :settings, [:user_id, :page_id], :unique => true
+		add_index :settings, :user_id, :unique => true
+		add_index :settings, :page_id, :unique => true
   end
 end

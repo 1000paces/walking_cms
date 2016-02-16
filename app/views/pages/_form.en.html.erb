@@ -21,21 +21,32 @@
   <%- end -%>
   <fieldset class="form-group">
     <label for="page_label" class="wcms-white-text">Label</label>
-    <%= f.text_field :label, :class => "form-control form-control-sm" -%>
+    <%= f.text_field :label, :class => "form-control form-control-xs" -%>
     <small class="wcms-form-help">The text that will appear in your website's navigation.</small>
   </fieldset>
   <fieldset class="form-group">
     <label for="page_label" class="wcms-white-text">Title</label>
-    <%= f.text_field :title, :class => "form-control form-control-sm" -%>
+    <%= f.text_field :title, :class => "form-control form-control-xs" -%>
     <span aria-hidden="true" id="page_title_spinner" class="form-control-feedback hidden"><i class="fa fa-cog fa-spin text-muted"></i></span>
     <small class="wcms-form-help">The text that will appear in the browser tab or the top of the browser window.</small>
   </fieldset>
   <fieldset class="form-group">
     <label for="page_permalink" class="wcms-white-text">Link</label>
-    <%= f.text_field :permalink, :class => "form-control form-control-sm" -%>
+    <%= f.text_field :permalink, :class => "form-control form-control-xs" -%>
     <small class="wcms-form-help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</small>
   </fieldset>
   <%= f.fields_for :setting, @page.setting do |b| -%>
+    <fieldset class="form-group">
+      <label class="small wcms-white-text" for="setting_fluid">Layout</label>
+      <div class="radio">
+        <label class="wcms-white-text radio-inline">
+          <small><%= b.radio_button :fluid, true -%> Fluid</small>
+        </label>
+        <label class="wcms-white-text radio-inline">
+          <small><%= b.radio_button :fluid, false -%> Static</small>
+        </label>
+      </div>
+    </fieldset>  
     <fieldset class="form-group">
       <label class="small wcms-white-text" for="setting_font_id">Font</label>
       <%= b.select(:font_id, Font.alpha_collection, {:include_blank => true}, {:class => "form-control form-control-sm"}) %>
@@ -54,23 +65,16 @@
         </label>
       </div>  
     <fieldset class="form-group">
-      <label class="small wcms-white-text" for="setting_fluid">Layout</label>
-      <div class="radio">
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :fluid, true -%> Fluid Layout</small>
-        </label>
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :fluid, false -%> Static Layout</small>
-        </label>
-      </div>
-    </fieldset>
-    <fieldset class="form-group">
       <label class="small wcms-white-text" for="setting_font_id">Navigation Location</label>
       <%= b.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
     </fieldset>
     <fieldset class="form-group">
-      <label class="small wcms-white-text" for="setting_font_id">Navigation Color</label>
-      <%= b.select(:nav_color, Setting::NAV_COLOR, {}, {:class => "form-control form-control-sm"}) %>
+      <label for="page_label" class="wcms-white-text">Navigation Color</label>
+      <%= b.text_field :nav_color, :class => "form-control form-control-xs" -%>
+    </fieldset>    
+    <fieldset class="form-group">
+      <label class="small wcms-white-text" for="setting_font_id">Navigation Contrast</label>
+      <%= b.select(:nav_weight, Setting::NAV_WEIGHT, {}, {:class => "form-control form-control-sm"}) %>
     </fieldset>    
   <%- end -%>
   <div class="radio">

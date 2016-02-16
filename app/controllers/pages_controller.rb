@@ -72,6 +72,6 @@ class PagesController < ApplicationController
   private
 
   def page_parameters
-  	params.require(:page).permit(:label, :title, :permalink, :status, setting_attributes: [:id, :font_id, :font_weight, :fluid, :nav_location, :nav_color]).merge(user_id: current_user.id)#, position: current_user.pages.count)
+  	params.require(:page).permit(:label, :title, :permalink, :status, setting_attributes: [:id, :font_id, :font_weight, :fluid, :nav_location, :nav_color, :nav_weight]).merge(user_id: current_user.id)#, position: current_user.pages.count)
   end
 end

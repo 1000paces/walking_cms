@@ -33,7 +33,7 @@ class Page < ActiveRecord::Base
 
 	def init
 		if self.setting.nil?
-			self.create_setting(self.user.setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color")) 
+			self.create_setting(self.user.setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color", "nav_weight")) 
 		end
 	end
 	

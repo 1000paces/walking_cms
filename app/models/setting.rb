@@ -14,12 +14,34 @@ class Setting < ActiveRecord::Base
 		"Right Column" => 5
 	}
 
-	NAV_COLOR = {
+	NAV_WEIGHT = {
 		"Light" => 0,
-		"Dark" => 1,
-		"Primary" => 2,
-		"Secondary" => 3
+		"Dark" => 1
 	}
+
+	def nav_color_converted
+		if self.nav_color.nil?
+			return ""
+		end
+		hex_color = self.nav_color.to_s(16)
+		if hex_color.length == 6
+			return "##{hex_color}"
+		elsif hex_color.length == 8
+			op = (hex_color[0,2].hex/255.0).round(2)
+			rd = hex_color[2,2].hex
+			gr = hex_color[4,2].hex
+			bl = hex_color[6,2].hex
+			return "rgba(#{rd},#{gr},#{bl},#{op})"
+		end
+	end
+
+	def nav_color_style
+		if self.nav_color.nil?
+			return ""
+		else
+			return "style='background-color: #{self.nav_color_converted};'".html_safe
+		end
+	end
 
 	def background_class
 		if self.fluid?
@@ -35,6 +57,15 @@ class Setting < ActiveRecord::Base
 		else
 			return "container"
 		end			
+	end
+
+	def nav_weight_class
+		nav_style = [4,5].include?(self.nav_location) ? 'nav' : 'navbar'
+		if self.nav_weight == 0 #### light
+			return "#{nav_style}-light bg-faded"
+		else #### dark
+			return "#{nav_style}-dark bg-inverse"
+		end
 	end
 
 	def nav_class
