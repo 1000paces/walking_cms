@@ -4,6 +4,7 @@ class Setting < ActiveRecord::Base
 	belongs_to :font
 
 	attr_accessor :sync
+	attr_accessor :color_str
 
 	NAV_LOCATION = {
 		"Fixed to Top" => 0,
@@ -20,9 +21,12 @@ class Setting < ActiveRecord::Base
 	}
 
 	def nav_color_converted
+		return nav_color
+=begin		
 		if self.nav_color.nil?
 			return ""
 		end
+
 		hex_color = self.nav_color.to_s(16)
 		if hex_color.length == 6
 			return "##{hex_color}"
@@ -33,6 +37,7 @@ class Setting < ActiveRecord::Base
 			bl = hex_color[6,2].hex
 			return "rgba(#{rd},#{gr},#{bl},#{op})"
 		end
+=end		
 	end
 
 	def nav_color_style

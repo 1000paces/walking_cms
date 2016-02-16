@@ -69,12 +69,15 @@
       <%= b.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
     </fieldset>
     <fieldset class="form-group">
-      <label for="page_label" class="wcms-white-text">Navigation Color</label>
-      <%= b.text_field :nav_color, :class => "form-control form-control-xs" -%>
+      <label for="page_label" class="small wcms-white-text">Navigation Color</label>
+      <%= b.text_field :nav_color, :class => "form-control form-control-xs", :readonly => true -%>
+      <script>
+        $("#page_setting_attributes_nav_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
+      </script>
     </fieldset>    
     <fieldset class="form-group">
       <label class="small wcms-white-text" for="setting_font_id">Navigation Contrast</label>
-      <%= b.select(:nav_weight, Setting::NAV_WEIGHT, {}, {:class => "form-control form-control-sm"}) %>
+      <%= b.select(:nav_weight, Setting::NAV_WEIGHT, {}, {:class => "form-control form-control-sm form-control-color"}) %>
     </fieldset>    
   <%- end -%>
   <div class="radio">
