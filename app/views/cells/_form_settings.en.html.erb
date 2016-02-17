@@ -32,8 +32,9 @@
         </label>
       </div>
       <div class="form-group">      	
-    		<%= f.submit "Save", class: "btn btn-primary btn-sm" %>
-    		<%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
+    		<%= f.submit "Save", class: "btn btn-primary btn-sm wcms-form-btn" %>
+    		<%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn wcms-form-btn", data: {row: @row.id, cell: @cell.id} -%>
+        <%= link_to "Delete", cell_path(@cell.id), class: "btn btn-danger btn-sm wcms-cell-delete-btn wcms-form-btn", method: :delete, data: {row: @row.id, cell: @cell.id, confirm: "Please confirm that you which to delete this card."}, :remote => true -%>
       </div>
     <% end %>
   </div>

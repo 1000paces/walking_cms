@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 	attr_accessor :unlinked_page_array
 
 	ICON = "fa fa-fw fa-user"
+	NEW_ICON = "fa fa-fw fa-user-plus"
 
 	def friendly_name
 		return "#{self.first_name} #{self.last_name}"

@@ -1,9 +1,11 @@
+<%= render :partial => "pages/nav_vertical" if @page.setting.nav_location == 4 -%>
 <div class="row">
 	<div class="col-md-12 header-zone zone" id="header-row"></div>
 </div>
 <div class="row" id="wcms-navigation-row">
 	<div class="col-md-12 navigation-zone" id="wcms-navigation-row-inner">
-		<%= render :partial => "pages/nav" -%>
+		<%#= render :partial => "pages/nav" -%>
+		<%= render :partial => "pages/nav_horizontal" if @page.setting.nav_location < 4 -%>
 	</div>
 </div>
 
@@ -18,6 +20,7 @@
 <div class="row">
 	<div class="col-md-12 footer-zone zone" id="footer-row"></div>
 </div>
+<%= render :partial => "pages/nav_vertical" if @page.setting.nav_location == 5 -%>
 
 <script type="text/javascript">
 
