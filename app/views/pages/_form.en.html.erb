@@ -74,11 +74,7 @@
       <script>
         $("#page_setting_attributes_nav_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
       </script>
-    </fieldset>    
-    <fieldset class="form-group">
-      <label class="small wcms-white-text" for="setting_nav_weight">Navigation Contrast</label>
-      <%= b.select(:nav_weight, Setting::NAV_WEIGHT, {}, {:class => "form-control form-control-sm form-control-color"}) %>
-    </fieldset>    
+    </fieldset>  
   <%- end -%>
   <div class="radio">
     <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "PUBLIC") %> Published</label> 

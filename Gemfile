@@ -29,7 +29,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'jquery-minicolors-rails'
 
-
 gem 'dalli'  #### Memcached 
 gem 'mini_magick' #### Image Magik
 gem 'ckeditor_rails'

@@ -66,7 +66,8 @@ class Setting < ActiveRecord::Base
 
 	def nav_weight_class
 		nav_style = [4,5].include?(self.nav_location) ? 'nav' : 'navbar'
-		if self.nav_weight == 0 #### light
+		#if self.nav_weight == 0 #### light
+		if self.contrast == "light"
 			return "#{nav_style}-light bg-faded"
 		else #### dark
 			return "#{nav_style}-dark bg-inverse"
@@ -90,29 +91,39 @@ class Setting < ActiveRecord::Base
 		end
 	end
 
-	def nav_color_horizontal
-		case self.nav_color
-		when 0
-			return "navbar-light bg-faded"
-		when 1
-			return "navbar-dark bg-inverse"
-		when 2
-			return "navbar-dark bg-primary"
-		when 3
-			return "navbar-light bg-secondary"
-		end
+	def contrast
+		color = self.hex_version
+	  # Break hex into 3-item array, convert hex to decimal
+	  rgb_ary = color.gsub(/\#/, "").scan(/../).collect(&:hex)
+
+	  # Average rgb values
+	  rgb_avg = rgb_ary.reduce(:+).div(rgb_ary.size)
+
+	  # Determine contrast color by cutoff
+	  contrasting_color = rgb_avg > 127  ? "light" : "dark"
+
+	  return contrasting_color
 	end
 
-	def nav_color_vertical
-		case self.nav_color
-		when 0
-			return "nav-pills-light bg-faded"
-		when 1
-			return "nav-pills-dark bg-inverse"
-		when 2
-			return "nav-pills-dark bg-primary"
-		when 3
-			return "nav-pills-light bg-secondary"
-		end
+	def hex_version
+		return rgb_to_hex(self.nav_color)
 	end
+
+	private
+
+	def rgb_to_hex(value, drop_opacity=true)
+	  c = %Q{
+	    #{
+	      value.match(/[\d,\s]+/)[0].split(',').map(&:strip).map { |value|
+	        value.to_i.to_s(16).rjust(2, '0')
+	      }.join('')
+	    }
+	  }.strip
+	  if drop_opacity == true
+	  	return c[0,6]
+	  else
+	  	return c
+	  end
+	end
+
 end

@@ -6,8 +6,13 @@
   background-color: #fff !important;
 }
 .nav-pills.bg-inverse.nav-dark .nav-link.active {
-  /*color: rgba(255, 255, 255, .9);*/
   color: #fff;
+}
+.nav-pills.bg-inverse.nav-dark .nav-link.active:hover {
+  color: rgba(255, 255, 255, .5);
+}
+.nav-pills.bg-inverse.nav-dark .nav-link:not(.active):hover {
+  color: rgba(0, 0, 0, .9);
 }
 
 .nav-pills.bg-faded.nav-light .nav-link:not(.active) {
@@ -15,15 +20,39 @@
   background-color: #fff !important;
 }
 .nav-pills.bg-faded.nav-light .nav-link.active {
-  /*color: rgba(255, 255, 255, .9);*/
   color: #000;
 }
-
-.nav-pills .nav-link.active, .nav-pills .nav-link.active:focus,
-.nav-pills .nav-item.open .nav-link,
-.nav-pills .nav-item.open .nav-link:focus {
-  /*color: #fff;
-  cursor: default;
-  background-color: red;
-  */
+.nav-pills.bg-faded.nav-light .nav-link.active:hover {
+	color: rgba(0, 0, 0, .5);
 }
+.nav-pills.bg-faded.nav-light .nav-link:not(.active):hover {
+  color: rgba(0, 0, 0, .9);
+}
+
+
+/* DROPDOWNS ON NAVBAR */
+.navbar-light.bg-faded .dropdown-menu {
+}
+.navbar-light.bg-faded .dropdown-item {
+	color: rgba(0,0,0,.3);
+}
+.navbar-light.bg-faded .dropdown-item:hover {
+	color: rgba(0,0,0,.6);
+}
+.navbar-light.bg-faded .dropdown-item.active {
+	color: #000;
+}
+
+.navbar-dark.bg-inverse .dropdown-menu {
+}
+.navbar-dark.bg-inverse .dropdown-item {
+	color: rgba(0,0,0,.3);
+}
+.navbar-dark.bg-inverse .dropdown-item:hover {
+	color: rgba(0,0,0,.6);
+}
+.navbar-dark.bg-inverse .dropdown-item.active {
+	color: #fff;
+}
+
+

@@ -10,7 +10,7 @@
 							<%= link_to p.label, page_path(p), :class => "nav-link dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
 							<div class="dropdown-menu" role="menu">
 								<%- p.children.each do |c| -%>
-									<%= link_to c.label, page_path(c), :class => "dropdown-item #{'active' if c.id == @page.id}", :id => "wcms-page-#{c.id}", :remote => true -%>
+									<%= link_to c.label, page_path(c), :class => "dropdown-item #{'active' if c.id == @page.id}", :id => "wcms-page-#{c.id}", :style => "#{@page.setting.nav_color_style if c.id == @page.id}", :remote => true -%>
 								<%- end -%>
 							</div>
 						</li>

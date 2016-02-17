@@ -40,10 +40,6 @@
         $("#setting_nav_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
       </script>
     </fieldset>		
-		<fieldset class="form-group">
-			<label class="small wcms-white-text" for="setting_nav_weight">Navigation Contrast</label>
-			<%= f.select(:nav_weight, Setting::NAV_WEIGHT, {}, {:class => "form-control form-control-sm"}) %>
-		</fieldset>
 			<div class="checkbox">
 				<label class="wcms-white-text checkbox-inline">
 					<small><%= check_box_tag :sync, 1 -%> Synchronize all pages to these settings</small>
