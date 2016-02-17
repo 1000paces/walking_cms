@@ -1,8 +1,15 @@
 
 a.wcms-starter-link, a.wcms-starter-link:visited {
-	color: #666;
+	color: #a9a9a9;
 }
 
 a.wcms-starter-link:hover {
-	color: #ccc;
+	color: #808080;
+}
+
+div.wcms-starter-box {
+	background-color: #d3d3d3;
+	border-radius: .25rem;
+	border: 1px solid #c0c0c0;
+	padding: 10px;
 }

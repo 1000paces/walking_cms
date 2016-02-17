@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     #@row = @page.rows.create unless @page.nil?
     if @page.rows.empty?
       @row = @page.rows.create 
-      @cell = @row.cells.create(:body => "Type something here")
+      @cell = @row.cells.create(:body => "")
     end
   end
 

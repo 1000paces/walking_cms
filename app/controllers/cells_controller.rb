@@ -62,28 +62,31 @@ class CellsController < ApplicationController
 
   def edit
     @cell = Cell.find params[:id]
+    @cell.body = "" if @cell.body.nil?
     @body_type = params[:type]
     @row = @cell.row
     @page = @row.page
-
-    #if @body_type == 'image'
-      
-
-    #elsif @body_type == 'code'
-
-    #end
   end
 
   def update
     @cell = Cell.find params[:id]
     @row = @cell.row
     @cell.update_attributes(cell_parameters)
-    Rails.logger.warn("\n\nWIDTH IS NOW #{@cell.width}\n\n")
     @page = @row.page
   end
 
   def destroy
-
+    @cell = Cell.find params[:id]
+    @row = @cell.row
+    @page = @row.page
+    @cell.destroy
+    @dead_rows = []
+    @page.rows.each do |row|
+      if row.cells.empty?
+        row.destroy
+        @dead_rows << row.id
+      end
+    end
   end
 
   def sort

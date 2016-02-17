@@ -3,8 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, body {
-	/*height: 100%;
-	min-height: 100%;*/
 }
 
 body {
@@ -43,11 +41,8 @@ body.wcms-flex {
 }
 
 div#wcms-wrapper {
-	/*padding-right: 0;*/
-	/*height: 100%;*/
-	/*min-height: 100%;*/
 	display: flex;
-	flex: 1;	
+	flex: 1;
 }
 
 div#wcms-content-wrapper {
@@ -220,7 +215,6 @@ div#wcms-wrapper:not(.toolbar-visible) div#wcms-drawer-left {
 	z-index: 100;
 }
 
-
 div#wcms-sidebar-wrapper {
 	z-index: 103;
 	position: fixed;
@@ -228,11 +222,8 @@ div#wcms-sidebar-wrapper {
 	width: 0;
 	height: 100%;
 	overflow-y: auto;
-	/*background: url(blueprint.png) repeat;*/
-	/*background-color: #666;*/
 	background-color: rgba(51, 51, 51, 0.85);
 	border-left: 1px solid #7f7f7f;
-	/*box-shadow: inset 3px 0 10px rgba(0,0,0,0.25);*/
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
@@ -240,19 +231,18 @@ div#wcms-sidebar-wrapper {
 }
 
 div#wcms-toolbar-wrapper {
-	z-index: 101;
+	/*z-index: 101;
 	position: fixed;
-	left: 0; /* 250px; */
+	left: 0;
 	width: 0;
 	height: 100%;
 	overflow-y: auto;
-	/*background: url(blueprint.png) repeat;*/
-	/*background: #666;*/
 	border-right: 1px solid #7f7f7f;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
+*/
 }
 
 #wcms-wrapper.toolbar-visible #wcms-master-toolbar {
@@ -263,35 +253,15 @@ div#wcms-toolbar-wrapper {
    width: 250px;
 }
 
-#wcms-wrapper.drawer-visible #wcms-toolbar-wrapper {
-	/*width: 12%;*/
-}
+/*#wcms-wrapper.drawer-visible #wcms-toolbar-wrapper {}
+*/
 
 #wcms-wrapper.drawer-visible #wcms-content-wrapper {
    /*width: 80%;*/ /* 250px; */
 }
 
 @media(min-width:768px) {
-	#wcms-wrapper {
-	  /*padding-right: 20%;*/ /* 250px; */
-	}
 
-	#wcms-wrapper.drawer-visible {
-	  /*padding-right: 0;*/
-	}
-
-	#wcms-sidebar-wrapper, #wcms-toolbar-wrapper {
-	  /*width: 20%;*/ /* 250px; */
-	}
-
-	#wcms-wrapper.drawer-visible #wcms-sidebar-wrapper {
-	  /*width: 0;*/
-	}
-
-	#wcms-wrapper.drawer-visible #wcms-content-wrapper {
-	  /*position: relative;*/
-	  /*margin-right: 0;*/
-	}
 }
 
 .header-row {
@@ -594,6 +564,12 @@ ol.page-list {
 
 .wcms-form-btn {
 	margin-bottom: 4px;
+}
+
+.wcms-cell-delete {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
 }
 
 .wcms-grid-size-btn {

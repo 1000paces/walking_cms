@@ -1,0 +1,11 @@
+$("#wcms-work-cell-<%= @cell.id %>").fadeOut();
+$("#wcms-wrapper").removeClass('toolbar-visible').delay(500).queue(function(next) {
+	$("#wcms-master-toolbar").show();
+	$(".wcms-cell-toolbar-vertical").hide();
+	$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").remove();
+	<%- @dead_rows.each do |dr| -%>
+		$("#wcms-row-<%= dr %>").remove();
+	<%- end -%>
+	$(this).addClass("toolbar-visible");
+	next();
+})

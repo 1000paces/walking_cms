@@ -10,10 +10,6 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     session[:current_page] = @page.id
     @row = @page.rows.build 
-    #if @page.rows.empty?
-    #  @row = @page.rows.create
-      #@cell = @row.cells.build(:body => "Type something here")
-    #end
   end
 
   def new
