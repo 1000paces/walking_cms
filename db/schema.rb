@@ -99,14 +99,13 @@ ActiveRecord::Schema.define(version: 20160215235926) do
 
   create_table "settings", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
-    t.integer  "font_id",      limit: 4,   default: 0,         null: false
-    t.integer  "font_weight",  limit: 4,   default: 400,       null: false
-    t.boolean  "fluid",                    default: true,      null: false
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.integer  "font_id",      limit: 4,   default: 0,                     null: false
+    t.integer  "font_weight",  limit: 4,   default: 400,                   null: false
+    t.boolean  "fluid",                    default: true,                  null: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
     t.integer  "nav_location", limit: 4,   default: 0
-    t.string   "nav_color",    limit: 255, default: "#666666"
-    t.integer  "nav_weight",   limit: 4,   default: 0
+    t.string   "nav_color",    limit: 255, default: "rgba(169,169,169,1)"
     t.integer  "page_id",      limit: 4
   end
 
