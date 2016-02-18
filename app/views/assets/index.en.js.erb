@@ -1,7 +1,7 @@
 $(".wcms-master-toolbar-link").removeClass("active");
 $("#wcms-form-box").hide();
-if($("#drawer-assets").is(':visible')){
-	$("#drawer-assets").hide("slide", { direction: "right" }, 500);
+if($("#wcms-drawer-assets").is(':visible')){
+	$("#wcms-drawer-assets").hide("slide", { direction: "right" }, 500);
 	$("#drawer-forms").empty();
 	$("#wcms-wrapper").removeClass("drawer-visible");
 } else {
@@ -9,5 +9,5 @@ if($("#drawer-assets").is(':visible')){
 	$(".wcms-right-column").hide(); 
 	$("#wcms-wrapper").addClass("drawer-visible");
 	$("#wcms-toggle-assets").addClass("active");
-	$("#drawer-assets").fadeIn(); /*show("slide", { direction: "right" }, 150);*/
+	$("#wcms-drawer-assets").fadeIn(); /*show("slide", { direction: "right" }, 150);*/
 }

@@ -19,6 +19,10 @@
 </div>
 
 <script class="text/javascript">
+	$(document).on('click', ".wcms-full-screen", function(e) {
+		$("#wcms-wrapper").toggleClass("toolbar-visible");
+		$(".wcms-drawer-left").toggle();
+	});
 
 	$(document).on('click', ".wcms-master-toolbar-link", function(e) {
 		$(".wcms-cell-toolbar-link").removeClass('active');

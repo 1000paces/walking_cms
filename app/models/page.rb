@@ -10,8 +10,12 @@ class Page < ActiveRecord::Base
 
 	ICON_SHORT = "fa-file-text-o"
 	HOME_SHORT = "fa-home"
+	ICON_EMPTY_SHORT = "fa-file-o"
+
 	ICON = "fa fa-fw fa-file-text-o"
+	ICON_EMPTY = "fa fa-fw fa-file-o"
 	HOME = "fa fa-fw fa-home"
+	
 	DRAFT = "fa fa-fw fa-exclamation-triangle"
 	MENU = "fa fa-fw fa-bars"
 

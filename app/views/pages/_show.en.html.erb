@@ -14,9 +14,8 @@
 
 		    if ($(e.target).closest(".wcms-master-toolbar-link").length === 0) {
 		        if ($(e.target).closest("#wcms-sidebar-wrapper").length === 0) {
-		        	/*alert("TEST: " + $(e.target).closest("#wcms-sidebar-wrapper").length );*/
 							$(".wcms-right-column").hide("slide", { direction: "right" }, 750);
-							$("#wcms-wrapper").removeClass("toggled");
+							$("#wcms-wrapper").removeClass("drawer-visible");
 		        }
 		    }
 		});

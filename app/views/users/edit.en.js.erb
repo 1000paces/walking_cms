@@ -1,7 +1,7 @@
 $(".wcms-master-toolbar-link").removeClass("active");
 if($(".wcms-right-column").is(':visible')){
 	$(".wcms-right-column").hide("slide", { direction: "right" }, 500);
-	$("#wcms-wrapper").removeClass("toggled");
+	$("#wcms-wrapper").removeClass("drawer-visible");
 }
 $("#wcms-drawer-forms").html("<%= j render(:partial => 'edit') -%>");
 $("#wcms-page-display").hide("slide", { direction: "right" }, 750);

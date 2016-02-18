@@ -38,5 +38,10 @@
 	<%- end -%>
 		<%- unless @page.nil? -%><%- end -%>
 		<%= yield %>
+		<div id="wcms-full-screen">
+			<%= link_to("#", {:class => "wcms-full-screen wcms-sidebar-link"}) do -%>
+				<i class="fa fa-exchange fa-fw"></i>
+			<%- end -%>
+		</div>
 	</body>
 </html>

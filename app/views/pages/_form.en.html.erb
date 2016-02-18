@@ -1,10 +1,9 @@
-
-<h4 class="lead text-xs-center wcms-white-text"> 
-  <i class="<%= Page::ICON -%>"></i>
+<%= link_to "<i class='fa fa-fw fa-arrow-left'></i>".html_safe, pages_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link left", :remote => true -%>
+<h4 class="lead text-xs-center wcms-white-text">
   <%- if @page.new_record? -%>
-    New Page
+    <i class="<%= Page::ICON_EMPTY -%>"></i> New Page
   <%- else -%>
-    <em><%= @page.label -%></em>
+    <i class="<%= Page::ICON -%>"></i> <%= @page.label -%>
   <%- end -%>
 </h4>
       

@@ -1,11 +1,11 @@
 <div class="wcms-drawer wcms-drawer-right">
 	<div id="wcms-sidebar-wrapper">
-		<div class="wcms-right-column" id="drawer-assets">
+		<div class="wcms-right-column" id="wcms-drawer-assets">
 			<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, assets_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>		
 			<h4 class="lead text-xs-center wcms-white-text"><i class="fa fa-fw fa-archive"></i> Assets</h4>
 			<div id="assets-index-div"></div>
 		</div>
-		<div class="wcms-right-column" id="drawer-settings">
+		<div class="wcms-right-column" id="wcms-drawer-settings">
 			<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, settings_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
 			<h4 class="lead text-xs-center wcms-white-text"><i class="fa fa-fw fa-cog"></i> Settings</h4>
 			<div id="settings-index-div"></div>
@@ -17,7 +17,7 @@
 				<%= render(:partial => 'pages/index') -%>
 			</div>
 		</div>
-		<div class="wcms-right-column" id="drawer-help">
+		<div class="wcms-right-column" id="wcms-drawer-help">
 			<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, help_index_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
 			<h4 class="lead text-xs-center wcms-white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h4>
 			<div id="help-index-div"></div>
