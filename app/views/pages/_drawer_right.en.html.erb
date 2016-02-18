@@ -22,6 +22,11 @@
 			<h4 class="lead text-xs-center wcms-white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h4>
 			<div id="help-index-div"></div>
 		</div>
+		<div class="wcms-right-column" id="wcms-drawer-account">
+			<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, edit_user_path(@user), :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
+			<h4 class="lead text-xs-center wcms-white-text"><i class="<%= User::ICON -%>"></i> Account</h4>
+			<div id="account-index-div"></div>
+		</div>		
 		<div class="wcms-form-box" id="wcms-form-box" style="display: none;"></div>		
 	</div>
 </div>

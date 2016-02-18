@@ -4,10 +4,4 @@ if($("#wcms-drawer-account").is(':visible')){
 	$("#wcms-drawer-account").hide("slide", { direction: "right" }, 500);
 	$("#drawer-forms").empty();
 	$("#wcms-wrapper").removeClass("drawer-visible");
-} else {
-	$("#account-index-div").html("<%= j render(:partial => 'edit') -%>");
-	$(".wcms-right-column").hide(); 
-	$("#wcms-wrapper").addClass("drawer-visible");
-	$("#wcms-toggle-account").addClass("active");
-	$("#wcms-drawer-account").fadeIn();
 }
