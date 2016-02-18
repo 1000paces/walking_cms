@@ -1,17 +1,17 @@
 <div id="wcms-master-toolbar" class="wcms-toolbar wcms-master-toolbar wcms-toolbar-vertical p-t-4">
 	<ul class="nav" id="wcms-master-toolbar-vertical">
 		<li class="nav-item"><%= link_to "<i class='#{Page::ICON}'></i>".html_safe, pages_path, :title => "Pages", :id => "wcms-toggle-pages", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
-		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-gear'></i>".html_safe, settings_path, :title => "Settings", :id => "wcms-toggle-settings", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
+		<li class="nav-item"><%= link_to "<i class='#{User::SETTINGS}'></i>".html_safe, settings_path, :title => "Settings", :id => "wcms-toggle-settings", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
 		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-archive'></i>".html_safe, assets_path, :title => "Assets", :id => "wcms-toggle-assets", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
 		<li class="nav-item"><%= link_to "<i class='#{HelpTopic::ICON}'></i>".html_safe, help_index_path, :title => "Help", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
 		<li class="nav-item">&nbsp;</li>
-		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-table'></i>".html_safe, "#", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link wcms-secondary-link", :title => "Add Row", :id => "wcms-add-row" -%></li>
+		<li class="nav-item"><%= link_to "<i class='#{Row::ICON}'></i>".html_safe, "#", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link wcms-secondary-link", :title => "Add Row", :id => "wcms-add-row" -%></li>
 		<%= render :partial => 'pages/toolbar_vertical_sort', :locals => {:p => @page} -%>
 		<%= render :partial => 'pages/toolbar_vertical_finished', :locals => {:p => @page} -%>
 		<%= render :partial => 'pages/toolbar_vertical_duplicate', :locals => {:p => @page} -%>
 		<li class="nav-item">&nbsp;</li>
-		<li class="nav-item"><%= link_to("<i class='fa fa-fw fa-home'></i>".html_safe, user_path(@user), :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link") -%></li>
-		<li class="nav-item"><%= link_to("<i class='fa fa-fw fa-user'></i>".html_safe, edit_user_path(@user), :remote => true, :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link") -%></li>
+		<li class="nav-item"><%= link_to("<i class='#{Page::HOME}'></i>".html_safe, user_path(@user), :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link") -%></li>
+		<li class="nav-item"><%= link_to("<i class='#{User::ICON}'></i>".html_safe, edit_user_path(@user), :remote => true, :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link") -%></li>
 		<li class="nav-item">&nbsp;</li>
 		<li class="nav-item"><%= link_to("<i class='fa fa-fw fa-sign-out'></i>".html_safe, user_session_path, :method => :delete, :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link") -%></li>
 	</ul>

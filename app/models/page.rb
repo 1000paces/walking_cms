@@ -11,13 +11,16 @@ class Page < ActiveRecord::Base
 	ICON_SHORT = "fa-file-text-o"
 	HOME_SHORT = "fa-home"
 	ICON_EMPTY_SHORT = "fa-file-o"
+	CLONE_SHORT = 'fa-files-o'
 
-	ICON = "fa fa-fw fa-file-text-o"
-	ICON_EMPTY = "fa fa-fw fa-file-o"
-	HOME = "fa fa-fw fa-home"
+	ICON = "fa fa-fw #{ICON_SHORT}"
+	ICON_EMPTY = "fa fa-fw #{ICON_EMPTY_SHORT}"
+	HOME = "fa fa-fw #{HOME_SHORT}"
 	
 	DRAFT = "fa fa-fw fa-exclamation-triangle"
 	MENU = "fa fa-fw fa-bars"
+	SORT = "fa fa-fw fa-arrows"
+	CLONE = "fa fa-fw #{CLONE_SHORT}"
 
 	def icon
 		if self.parent_id.nil? && self.position == 0

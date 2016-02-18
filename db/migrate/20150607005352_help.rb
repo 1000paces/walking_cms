@@ -8,6 +8,6 @@ class Help < ActiveRecord::Migration
 			t.timestamps null: false
 		end
 
-		add_index :help_topics, :permalink  	
+		add_index :help_topics, :permalink
   end
 end

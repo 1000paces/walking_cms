@@ -4,6 +4,22 @@ class Cell < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
 
 	after_find :fix_the_width
+
+	ICON_SHORT = "fa-th-large"
+	TEXT_ICON_SHORT = "fa-align-left"
+	IMAGE_ICON_SHORT = "fa-image"
+	CODE_ICON_SHORT = "fa-code"
+	SETTINGS_ICON_SHORT = "fa-cogs"
+	SAVE_ICON_SHORT = "fa-save"
+	CANCEL_ICON_SHORT = "fa-times"
+
+	ICON = "fa fa-fw #{ICON_SHORT}"
+	TEXT_ICON = "fa fa-fw #{TEXT_ICON_SHORT}"
+	IMAGE_ICON = "fa fa-fw #{IMAGE_ICON_SHORT}"
+	CODE_ICON = "fa fa-fw #{CODE_ICON_SHORT}"
+	SETTINGS_ICON = "fa fa-fw #{SETTINGS_ICON_SHORT}"
+	SAVE_ICON = "fa fa-fw #{SAVE_ICON_SHORT}"
+	CANCEL_ICON = "fa fa-fw #{CANCEL_ICON_SHORT}"
 	
 	BREAKPOINTS = {
 		"Extra Small Devices (<544px)" => "xs",

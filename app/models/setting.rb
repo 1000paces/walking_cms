@@ -6,6 +6,9 @@ class Setting < ActiveRecord::Base
 	attr_accessor :sync
 	attr_accessor :color_str
 
+	ICON_SHORT = "fa-gears"
+	ICON = "fa fa-fw #{ICON_SHORT}"
+
 	NAV_LOCATION = {
 		"Fixed to Top" => 0,
 		"Below Header Image - Rounded" => 1,
