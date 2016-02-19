@@ -228,11 +228,12 @@ div#wcms-wrapper:not(.toolbar-visible) div#wcms-drawer-left {
 
 div#wcms-sidebar-wrapper {
 	z-index: 103;
-	position: fixed;
+	position: absolute;
 	right: 0; /* 250px; */
 	width: 0;
 	height: 100%;
 	overflow-y: scroll;
+
 	background-color: rgba(51, 51, 51, 0.85);
 	border-left: 1px solid #7f7f7f;
 	-webkit-transition: all 0.5s ease;
@@ -241,31 +242,27 @@ div#wcms-sidebar-wrapper {
 	transition: all 0.5s ease;
 }
 
-div#wcms-toolbar-wrapper {
-	/*z-index: 101;
-	position: fixed;
-	left: 0;
-	width: 0;
-	height: 100%;
-	overflow-y: auto;
-	border-right: 1px solid #7f7f7f;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
-*/
-}
-
 #wcms-wrapper.toolbar-visible #wcms-master-toolbar {
 	width: 36px;
 }
 
 #wcms-wrapper.drawer-visible #wcms-sidebar-wrapper {
-   width: 250px;
+  width: 250px;
 }
 
-/*#wcms-wrapper.drawer-visible #wcms-toolbar-wrapper {}
-*/
+.wcms-right-column {
+	padding-top: 36px;
+	min-width: 250px;
+	display: none;
+}
+
+
+.wcms-form-box {
+	position: absolute;
+	top: 0px;
+	padding-top: 36px;
+	left: 0;
+}
 
 #wcms-wrapper.drawer-visible #wcms-content-wrapper {
    /*width: 80%;*/ /* 250px; */
@@ -295,30 +292,9 @@ div#wcms-toolbar-wrapper {
 	background-color: #eee;
 }
 
-.wcms-form-box {
-	position: absolute;
-	top: 0px;
-	/*padding-top: 20px !important;*/
-	padding-top: 36px;
-	left: 0;
-	overflow-y: scroll;
-	/*width: 80%;*/
-}
-
 .wcms-help-text {
 	margin: 10px;
 	color: #d6d6d6;
-}
-
-.wcms-right-column {
-	/*position: absolute;
-	top: 50px;*/
-	padding-top: 36px;
-	min-width: 250px;
-	/*width: 250px;*/
-	/*right: 0;*/
-	/*width: 20%;*/
-	display: none;
 }
 
 .wcms-white-text-label {
