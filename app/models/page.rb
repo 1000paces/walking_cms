@@ -8,6 +8,8 @@ class Page < ActiveRecord::Base
 	acts_as_tree :order => "position"
 	after_initialize :init
 
+	validates_presence_of :label, :title
+
 	ICON_SHORT = "fa-file-text-o"
 	HOME_SHORT = "fa-home"
 	ICON_EMPTY_SHORT = "fa-file-o"

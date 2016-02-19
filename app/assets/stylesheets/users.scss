@@ -232,7 +232,7 @@ div#wcms-sidebar-wrapper {
 	right: 0; /* 250px; */
 	width: 0;
 	height: 100%;
-	overflow-y: auto;
+	overflow-y: scroll;
 	background-color: rgba(51, 51, 51, 0.85);
 	border-left: 1px solid #7f7f7f;
 	-webkit-transition: all 0.5s ease;
@@ -301,6 +301,7 @@ div#wcms-toolbar-wrapper {
 	/*padding-top: 20px !important;*/
 	padding-top: 36px;
 	left: 0;
+	overflow-y: scroll;
 	/*width: 80%;*/
 }
 
@@ -330,6 +331,10 @@ div#wcms-toolbar-wrapper {
 	background: rgba(255,255,255,0.2) !important;
 }
 
+.wcms-form-label {
+	padding: 0;
+}
+
 small.wcms-form-help {
 	/*background: rgba(255,255,255,0.2) !important;*/
 	color: #d6d6d6;
@@ -337,6 +342,7 @@ small.wcms-form-help {
 	font-size: 0.65rem;
 	padding: 1px;
 }
+
 a.wcms-sidebar-link {
 	color: #d6d6d6 !important;
 	text-decoration: none !important;
@@ -663,7 +669,7 @@ ol.help-list {
 }
 
 .wcms-white-text {
-	color: #d6d6d6 !important;
+	color: #d6d6d6;
 }
 h4.wcms-white-text {
 	margin-bottom: 2rem;

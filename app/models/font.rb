@@ -16,6 +16,6 @@ class Font < ActiveRecord::Base
 	end
 
 	def self.alpha_collection
-		Font.alpha.collect {|p| [ p.family, p.id ] }
+		Font.alpha.collect { |p| [ p.family, p.id ] }.prepend(['Helvetica',0])
 	end
 end

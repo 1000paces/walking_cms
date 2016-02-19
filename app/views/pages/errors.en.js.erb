@@ -1,0 +1,7 @@
+$(".form-group").removeClass("has-danger has-warning");
+$(".err-msg").remove();
+<%- @page.errors.each do |err| -%>
+	$("#page_<%= err %>").parent().addClass("has-warning");
+	$("#page_<%= err %>").parent().append("<small class='text-help err-msg'><%= @page.errors.full_messages_for(err).to_sentence %></small>");
+<%- end -%>
+

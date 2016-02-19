@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160218030348) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "image",         limit: 255
-    t.string   "shape",         limit: 255,   default: "rounded"
+    t.string   "shape",         limit: 255,   default: "default"
     t.string   "breakpoint",    limit: 255,   default: "md"
     t.boolean  "border",                      default: false
     t.string   "headline",      limit: 255,   default: ""

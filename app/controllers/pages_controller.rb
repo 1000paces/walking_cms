@@ -22,15 +22,16 @@ class PagesController < ApplicationController
 
   def edit
   	@page = Page.find(params[:id])
-    #@page.build_setting(@user.setting.attributes.slice(:user_id, :font_id, :font_weight, :fluid, :nav_location, :nav_color)) 
-    #@page.build_setting(@user.setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color")) if @page.setting.nil?
     @row = @page.rows.first
   end
 
   def update
   	@page = Page.find(params[:id])
-  	@page.update_attributes(page_parameters)
     @row = @page.rows.first
+    @page.update_attributes(page_parameters)
+    if @page.errors.any?
+      render(:action => :errors, :layout => false)
+    end
   end
 
   def destroy
