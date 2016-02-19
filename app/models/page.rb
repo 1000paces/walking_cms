@@ -38,6 +38,29 @@ class Page < ActiveRecord::Base
 		end
 	end
 
+	def font
+		if self.setting && self.setting.font
+			return self.setting.font
+		else
+			return nil
+		end
+	end
+
+	def font_weight
+		if self.setting && self.setting.font_weight
+			case self.setting.font_weight
+			when 100
+				return self.font.min_weight
+			when 700
+				return self.font.max_weight
+			else
+				return self.font.normal_weight
+			end
+		else
+			return ''
+		end
+	end	
+
 	private
 
 	def init

@@ -30,7 +30,7 @@ class PagesController < ApplicationController
     @row = @page.rows.first
     @page.update_attributes(page_parameters)
     if @page.errors.any?
-      render(:action => :errors, :layout => false)
+      render(:template => "/shared/errors", :layout => false)
     end
   end
 

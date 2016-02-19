@@ -19,20 +19,17 @@
 </div>
 
 <script class="text/javascript">
+	/* Hide/Show the left toolbar and right drawer so the site is fullscreen */
 	$(document).on('click', ".wcms-full-screen", function(e) {
 		$("#wcms-wrapper").toggleClass("toolbar-visible");
 		$(".wcms-drawer-left").toggle();
+		$(".wcms-master-toolbar-link").removeClass("active");
 	});
 
 	$(document).on('click', ".wcms-master-toolbar-link", function(e) {
 		$(".wcms-cell-toolbar-link").removeClass('active');
 		$(".wcms-tool-container").hide();
 		$(".wcms-work-cell").removeClass("pressed");
-	});
-
-
-	$(document).ready(function() {
-		/*$(".quickflip-wrapper").quickFlip();*/
 	});
 
 	$(document).on('click', '#wcms-work-area div.wcms-cell', function(e){
@@ -66,22 +63,10 @@
 		$("#wcms-new-cell").submit();
 	});
 
-	/*** Activate the CKEDITOR instance for the given cell ***/
 	$(document).on("click", ".wcms-cell-text", function(e){
-		/*alert(CKEDITOR.version);*/
 		var dataRow = $(this).attr('data-row');
 		var dataCell = $(this).attr('data-cell');
 		cell = $('#wcms-work-cell-' + dataCell);
-		
-/*		CKEDITOR.inline( 'wcms-work-cell-' + dataRow + '-' + dataCell, {
-			startupFocus: true,
-			uiColor: '#ffffff',
-			skin: 'flat',
-			toolbar: 'main',
-			width: '50%'
-		});
-*/
-
 	});
 
 	$(document).on('click', ".wcms-cell-cancel-btn", function(e) {

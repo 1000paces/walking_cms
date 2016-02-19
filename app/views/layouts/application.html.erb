@@ -15,17 +15,11 @@
 		<%#= cdn_css_bootstrap -%>
 		<%= cdn_css_font_awesome -%>
 
-		<%- if @user && @user.font -%>
-			<%= @user.font.link(@user.font_weight).html_safe -%>
-			<style>
-				.wcms-full-height-container .wcms-cell, .wcms-editor {
-					font-family: '<%= @user.font.family -%>', <%= @user.font.serif? ? 'serif' : 'sans serif' -%>  !important;
-				}
-				.wcms-back .wcms-form-cell {
-					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-				}
-			</style>
-		<%- end -%>
+		<style>
+			.wcms-back .wcms-form-cell {
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+			}
+		</style>
 
 	  <%= csrf_meta_tags -%>
 	</head>
@@ -42,6 +36,9 @@
 			<%= link_to("#", {:class => "wcms-full-screen wcms-sidebar-link"}) do -%>
 				<i class="fa fa-exchange fa-fw"></i>
 			<%- end -%>
+		</div>
+		<div id="wcms-custom-font" style="display: none;">
+			<%= render(:partial => "pages/font") -%>
 		</div>
 	</body>
 </html>

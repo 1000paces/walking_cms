@@ -14,7 +14,9 @@
 
 		    if ($(e.target).closest(".wcms-master-toolbar-link").length === 0) {
 		        if ($(e.target).closest("#wcms-sidebar-wrapper").length === 0) {
-							$(".wcms-right-column").hide("slide", { direction: "right" }, 750);
+							$(".wcms-right-column").hide("slide", { direction: "right" }, 500);
+							$(".wcms-form-box").hide();
+							$(".wcms-master-toolbar-link").removeClass("active");
 							$("#wcms-wrapper").removeClass("drawer-visible");
 		        }
 		    }

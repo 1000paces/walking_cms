@@ -4,6 +4,7 @@ $("#wcms-form-box").hide("slide", { direction: "right" }, 750);
 $("#wcms-drawer-pages").show("slide", { direction: "left" }, 750);
 $("#wcms-page-display").fadeOut(function(){
 	$("#wcms-page-display").html("<%= j render(:partial => 'pages/display') -%>").fadeIn();
+	$("#wcms-custom-font").html("<%= j render(:partial => 'pages/font') -%>");
 });
 
 $("body").removeClass("wcms-white-background wcms-grey-backgroun navbar-full navbar-fixed-bottom navbar-fixed-top").addClass("<%= @page.setting.nav_class -%> <%= @page.setting.background_class -%>");

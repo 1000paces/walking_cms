@@ -13,7 +13,7 @@
 		</fieldset>	
 		<fieldset class="form-group">
 			<label class="small wcms-white-text" for="setting_font_id">Font</label>
-			<%= f.select(:font_id, Font.alpha_collection, {:include_blank => true}, {:class => "form-control form-control-sm"}) %>
+			<%= f.select(:font_id, Font.alpha_collection, {}, {:class => "form-control form-control-sm"}) %>
 		</fieldset>
 		<fieldset class="form-group">
 			<label class="small wcms-white-text" for="setting_font_id">Font Weight</label>
