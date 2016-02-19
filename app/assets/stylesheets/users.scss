@@ -8,11 +8,11 @@ html, body {
 }
 
 body {
-
+	position: relative;
 }
 
 body.wcms-white-background {
-	background-color: pink !important;
+	background-color: #fff !important;
 }
 
 body.wcms-grey-background {
@@ -27,7 +27,7 @@ body.wcms-navbar-full {
 body.wcms-navbar-fixed-top {
 	padding-top: 53px !important;	
 	padding-bottom: 0;
-	position: static !important;
+	/*position: static !important;*/
 }
 
 body.wcms-navbar-fixed-bottom {
@@ -43,8 +43,15 @@ body.wcms-flex {
   align-items: stretch;	
 }
 
+div#wcms-wrapper {
+	display: flex;
+	flex: 1;
+	height: 100%;
+	position: static;
+}
+
 div#wcms-full-screen {
-	position: absolute;
+	position: fixed;
 	left: 5px;
 	bottom: 5px;
 	z-index: 5000;
@@ -52,11 +59,6 @@ div#wcms-full-screen {
 
 body.navbar-fixed-bottom div#wcms-full-screen {
 	bottom: 62px;
-}
-
-div#wcms-wrapper {
-	display: flex;
-	flex: 1;
 }
 
 div#wcms-content-wrapper {
@@ -94,6 +96,7 @@ div#wcms-content-wrapper {
 }
 
 .wcms-drawer-right {
+	/*width: 1px;*/
 	/*
 	z-index: 1001;
 	flex: 0 0 0;
@@ -129,12 +132,13 @@ div#wcms-content-wrapper {
 }
 
 .wcms-drawer {
-	background-color: steelblue;
+	position: relative;
+	/*background-color: steelblue;*/
 }
 
 .wcms-toolbar {
 	width: 36px;
-	background-color: tomato;
+	/*background-color: tomato;*/
 }
 
 .wcms-master-toolbar {
@@ -205,6 +209,10 @@ div#wcms-wrapper.toolbar-visible div#wcms-content-wrapper {
 	flex: 1;
 	background-color: transparent;
 }
+div#wcms-wrapper.toolbar-visible .wcms-drawer-right {
+	/*width: 36px;*/
+}
+
 div#wcms-wrapper.toolbar-visible .wcms-drawer-left {
 	width: 36px;
 }
@@ -824,3 +832,4 @@ div.tool-items a.tool-item i {
 	border-radius: 0.25rem;
 
 }
+
