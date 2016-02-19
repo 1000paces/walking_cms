@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def new
-  	@page = Page.new(:label => "New Page")
+  	@page = @user.pages.build(:label => "New Page")
   end
 
   def create

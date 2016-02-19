@@ -15,7 +15,7 @@
 			</div>
 			<div class="wcms-face wcms-back">
 				<div class="wcms-form-cell" id="wcms-cell-form-<%= cell.id %>-x"></div>
-				<%= form_for cell, {:class => "form-inline", :remote => true} do |f| -%>	
+				<%= form_for cell, {:class => "form-inline", :remote => true} do |f| -%>
 					<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{cell.id}" -%>
 				<%- end -%>
 				<script>

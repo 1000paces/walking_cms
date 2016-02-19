@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :domains
   resources :users
   resources :pages 
-  resources :rows
+  resources :rows, only: [:create, :sort]
   resources :cells, :except => [:edit]
   resources :settings
   resources :assets

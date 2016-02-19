@@ -107,7 +107,7 @@ CKEDITOR.editorConfig = function( config )
 
   config.toolbar_main = [
     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'TextColor', 'BGColor', 'RemoveFormat' ] },
-    { name: 'styles', items: [ 'Format', 'FontSize' ] },
+    { name: 'styles', items: [ 'Format', 'FontSize', 'Source' ] },
     '/',
     { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align' ], items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', 'NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote' ] },
     { name: 'clipboard', groups: [ 'clipboard', 'undo', 'selection', 'spellchecker' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', '-', 'SelectAll', '-', "Scayt" ] }

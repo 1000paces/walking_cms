@@ -2,41 +2,19 @@ class RowsController < ApplicationController
   before_action :set_user
   before_filter :require_user
 
-  def index
-    
-  end
-
   def create
-    Rails.logger.warn("\n\nRowsController::create\n\n")
   	@page = Page.find(params[:row][:page_id])
-
   	@page.rows.each_with_index do |row, index| 
-      Rails.logger.warn("\n\nresetting position for row #{row.id}")
   		row.position = index+1
   		row.save
   	end
-    Rails.logger.warn("\n\nCREATE THE ROW")
-  	#@row = @page.rows.create(:position => 0)
     @row = Row.create(:page_id => @page.id)
-    Rails.logger.warn("\n\nCREATE A CELL FOR THE ROW")
-  	@cell = @row.cells.create(:body => "I'm the new row: #{@row.id}")
-    Rails.logger.warn("DONE\n\n")
-  end
-
-
-
-  def edit
-
-  end
-
-  def update
-
+  	@cell = @row.cells.create(:body => "")
   end
 
   def sort
     @page = Page.find params[:page_id]
     rows = params["wcms-toolbox"]
-
     case request.method
     when 'GET'
     when 'POST'
@@ -47,8 +25,5 @@ class RowsController < ApplicationController
       end
       render :nothing => true
     end
-
   end
-
-
 end

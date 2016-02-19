@@ -3,32 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, body {
-}
-
-body {
+	margin: 0 !important;
 	padding: 0 !important;
 }
 
+body {
+
+}
+
 body.wcms-white-background {
-	background-color: #fff !important;
+	background-color: pink !important;
 }
 
 body.wcms-grey-background {
 	background-color: #ccc !important;
 }
 
-body.navbar-full {
+body.wcms-navbar-full {
 	padding-top: 0 !important;
 	padding-bottom: 0;
 }
 
-body.navbar-fixed-top {
+body.wcms-navbar-fixed-top {
 	padding-top: 53px !important;	
 	padding-bottom: 0;
 	position: static !important;
 }
 
-body.navbar-fixed-bottom {
+body.wcms-navbar-fixed-bottom {
 	padding-bottom: 53px !important;	
 	padding-top: 0;
 	position: static !important;
@@ -37,7 +39,8 @@ body.navbar-fixed-bottom {
 body.wcms-flex {
 	display: flex;
   min-height: 100vh;
-  flex-direction: column;	
+  flex-direction: column;
+  align-items: stretch;	
 }
 
 div#wcms-full-screen {
@@ -89,15 +92,14 @@ div#wcms-content-wrapper {
 	/*background: url(blueprint.png) repeat;*/
 	/*background-color: #666;*/
 }
-.wcms-drawer-left .wmcs-toolbar-vertical {
-	background-color: rgba(51, 51, 51, 0.8);
-}
 
 .wcms-drawer-right {
+	/*
 	z-index: 1001;
 	flex: 0 0 0;
 	order: 2;
 	background: blue;
+	*/
 }
 
 .wcms-full-height-container {
@@ -126,7 +128,8 @@ div#wcms-content-wrapper {
 
 }
 
-.wcms-drawer-right {
+.wcms-drawer {
+	background-color: steelblue;
 }
 
 .wcms-toolbar {
