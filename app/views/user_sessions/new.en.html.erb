@@ -4,7 +4,7 @@
 	  	<div class="p-a-3 blueprint-background card">
 			  <%#= image_tag("blueprint_full.jpg", :class => "card-img-top") -%>
 			  	
-			    <h4 class="wcms-white-text"><%= cms_icon(20) -%> <%= cms_name -%></h4>
+			    <h4 class="wcms-white-text"><%= cms_logo -%></h4>
 
 					<%= form_for @user, url: user_session_path, method: :post, html: { class: 'form-horizontal', role: 'form' } do |f| %>  
 					  <fieldset class='form-group'>
@@ -16,7 +16,7 @@
 					    <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
 					  </fieldset>
 					  <fieldset class='form-group text-xs-right'>
-						  <%= f.submit 'Login', class: 'btn btn-secondary-outline' %>
+						  <%= f.submit 'Login', class: 'btn btn-secondary' %>
 						 </fieldset>
 					<% end %>
 			</div>

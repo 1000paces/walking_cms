@@ -17,14 +17,21 @@ module ApplicationHelper
 	end
 
 	def cms_name
-		"1000paces.studio"
+		"stonewall.press"
 	end
 
 	def cms_icon(s=24)
 		#"<i class='fa fa-pencil fa-fw'></i>".html_safe
-		image_tag('feet_walking_white.png', :size => "#{s}", :style => "display: inline-block;")
+		image_tag('stonewall_press.png', :size => "#{s}", :style => "display: inline-block;")
 	end
 
+	def cms_logo
+		image_tag('stonewall_press.png', :class => "img-fluid", :style => "display: inline-block;")
+	end
+
+	def cms_brand
+		image_tag('stonewall_press_brand.png', :size => "145x30", :style => "display: inline-block;")
+	end
 end
 
 

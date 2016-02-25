@@ -1,6 +1,6 @@
 <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
 	<%= link_to user_path(@user), :class => "navbar-brand" do -%>
-		<%= cms_icon -%> <%= @user.friendly_name -%> <%= "| #{@user.domain.name}" unless @user.domain.nil? -%>
+		<%= cms_brand -%> <%= @user.friendly_name -%> <%= "| #{@user.domain.name}" unless @user.domain.nil? -%>
 	<%- end -%>
 
 	<%- if 1==2 -%>

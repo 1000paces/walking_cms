@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
 	SETTINGS_SHORT = "fa-gear"
 	SETTINGS = "fa fa-fw #{SETTINGS_SHORT}"
 
+	PAYMENT_ICON_SHORT = "fa-usd"
+	PAYMENT_ICON = "fa fa-fw #{PAYMENT_ICON_SHORT}"
+
 	def friendly_name
 		return "#{self.first_name} #{self.last_name}"
 	end

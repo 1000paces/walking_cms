@@ -58,7 +58,7 @@
                 <%= link_to 'Cancel', welcome_index_path, :class => "btn btn-warning pull-xs-right" %>
               <%- else -%>
                 <%= f.submit 'Update Account', class: 'btn btn-primary' %>
-                <%= link_to 'Cancel', "#", :class => "btn btn-warning-outline pull-xs-right", :id => "cancel-button" %>
+                <%= link_to 'Cancel', "#", :class => "btn btn-warning pull-xs-right", :id => "cancel-button" %>
                 <script type="text/javascript">
                   $('#cancel-button').on('click', function(e){
                     e.preventDefault();
