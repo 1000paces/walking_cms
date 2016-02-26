@@ -26,10 +26,6 @@
 			<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, edit_user_path(@user), :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
 			<h4 class="lead text-xs-center wcms-white-text wcms-account" id="wcms-account-header" data-info="account"><i class="<%= User::ICON -%>"></i> Account</h4>
 			<div id="account-index-div" class="wcms-account-div"></div>
-			<h4 class="lead text-xs-center wcms-white-text wcms-account" id="wcms-domain-header" data-info="domain"><i class="<%= Domain::ICON -%>"></i> Domain</h4>
-			<div id="domain-index-div" class="wcms-account-div" style="display: none;">Domain</div>
-			<h4 class="lead text-xs-center wcms-white-text wcms-account" id="wcms-payment-header" data-info="payment"><i class="<%= User::PAYMENT_ICON -%>"></i> Payment</h4>
-			<div id="payment-index-div" class="wcms-account-div" style="display: none;">Payment</div>
 		</div>		
 		<div class="wcms-form-box" id="wcms-form-box" style="display: none;"></div>		
 	</div>

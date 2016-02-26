@@ -386,12 +386,12 @@ ol.page-list {
 	min-height: 50px;
 }
 
-.help-list li {
+.help-list li, .wcms-user-settings-list li {
 	padding: 8px 4px 8px 20px;
 	margin: 2px 0;
 }
 
-ol.help-list {
+ol.help-list, ol.wcms-user-settings-list {
 	padding-left: 2px !important;
 	min-height: 50px;
 }
