@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resource :user_session, only: [:create, :new, :destroy]  
   resources :domains
   resources :users
+  
+  resources :sites, only: [:show]
+  resource :site, only: [:show]
   resources :pages 
   resources :rows, only: [:create, :sort]
   resources :cells, :except => [:edit]

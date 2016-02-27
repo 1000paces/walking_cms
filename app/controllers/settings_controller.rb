@@ -3,6 +3,13 @@ class SettingsController < ApplicationController
   before_filter :require_user#, only: [:show]
 
 	def index
+		#@setting = @user.setting
+		#if @setting.nil?
+	#		@setting = @user.create_setting
+	#	end
+	end
+
+	def edit
 		@setting = @user.setting
 		if @setting.nil?
 			@setting = @user.create_setting

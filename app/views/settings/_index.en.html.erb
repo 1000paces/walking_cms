@@ -1,53 +1,8 @@
 <div class="">
-	<%= form_for @setting, :html => {:class => "wcms-sidebar-form", role: 'form'} do |f| -%>
-		<fieldset class="form-group">
-			<label class="small wcms-white-text" for="setting_fluid">Layout</label>
-			<div class="radio">
-				<label class="wcms-white-text radio-inline">
-					<small><%= f.radio_button :fluid, true -%> Fluid</small>
-				</label>
-				<label class="wcms-white-text radio-inline">
-					<small><%= f.radio_button :fluid, false -%> Static</small>
-				</label>
-			</div>
-		</fieldset>	
-		<fieldset class="form-group">
-			<label class="small wcms-white-text" for="setting_font_id">Font</label>
-			<%= f.select(:font_id, Font.alpha_collection, {}, {:class => "form-control form-control-sm"}) %>
-		</fieldset>
-		<fieldset class="form-group">
-			<label class="small wcms-white-text" for="setting_font_id">Font Weight</label>
-			<div class="radio">
-				<label class="wcms-white-text radio-inline">
-					<small><%= f.radio_button :font_weight, 100 -%> Thin</small>
-				</label>
-				<label class="wcms-white-text radio-inline">
-					<small><%= f.radio_button :font_weight, 400 -%> Normal</small>
-				</label>
-				<label class="wcms-white-text radio-inline">
-					<small><%= f.radio_button :font_weight, 700 -%> Heavy</small>
-				</label>
-			</div>
-		</fieldset>
-		<fieldset class="form-group">
-			<label class="small wcms-white-text" for="setting_nav_location">Navigation Location</label>
-			<%= f.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
-		</fieldset>
-    <fieldset class="form-group">
-      <label for="page_label" class="small wcms-white-text" for="setting_nav_color">Navigation Color</label>
-      <%= f.text_field :nav_color, :class => "form-control form-control-xs", :readonly => true -%>
-      <script>
-        $("#setting_nav_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
-      </script>
-    </fieldset>		
-			<div class="checkbox">
-				<label class="wcms-white-text checkbox-inline">
-					<small><%= check_box_tag :sync, 1 -%> Synchronize all pages to these settings</small>
-				</label>
-			</div>
-		<div class="form-group">
-			<%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
-	    <%= link_to "Cancel", settings_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning btn-sm pull-xs-right", :remote => true -%>
-		</div>
-	<%- end -%>
+	<ol class="list-unstyled wcms-user-settings-list" id="wcms-user-settings-list">
+		<li><%= link_to "<i class='#{Setting::DEFAULTS_ICON}'></i> Design".html_safe, edit_setting_path(@user), remote: true, class: 'wcms-sidebar-link' %></li>
+		<li><%= link_to "<i class='#{Domain::ICON}'></i> Website Domain".html_safe, edit_domain_path(@user), remote: true, class: 'wcms-sidebar-link' %></li>
+		<li><%= link_to "<i class='#{User::ICON}'></i> User Account".html_safe, edit_user_path(@user), remote: true, class: 'wcms-sidebar-link' %></li>
+		<li><%= link_to "<i class='#{User::PAYMENT_ICON}'></i> Payment Info".html_safe, "#", class: 'wcms-sidebar-link' %></li>
+	</ol>
 </div>

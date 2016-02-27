@@ -1,8 +1,31 @@
-<div class="">
-	<ol class="list-unstyled wcms-user-settings-list" id="wcms-user-settings-list">
-		<li><%= link_to "<i class='#{User::ICON}'></i> User".html_safe, edit_user_path(@user), remote: true, class: 'wcms-sidebar-link' %></li>
-		<li><%= link_to "<i class='#{Domain::ICON}'></i> Domain".html_safe, "#", class: 'wcms-sidebar-link' %></li>
-		<li><%= link_to "<i class='#{User::PAYMENT_ICON}'></i> Payment".html_safe, "#", class: 'wcms-sidebar-link' %></li>
-	</ol>
-</div>
+<%= link_to "<i class='fa fa-fw fa-arrow-left'></i>".html_safe, settings_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link left", :remote => true -%>
+<h4 class="lead text-xs-center wcms-white-text">
+  <i class="<%= User::ICON -%>"></i> User Info
+</h4>
+	<%= form_for @user, :html => {class: 'wcms-sidebar-form', role: 'form'}, :remote => true do |f| %>
+	  <fieldset class="form-group">
+	    <label for="user_first_name" class="small wcms-white-text">First Name</label>
+	    <%= f.text_field :first_name, :class => "form-control form-control-xs" -%>
+	  </fieldset>  
+	  <fieldset class="form-group">
+	    <label for="user_last_name" class="small wcms-white-text">Last Name</label>
+	    <%= f.text_field :last_name, :class => "form-control form-control-xs" -%>
+	  </fieldset>
+	  <fieldset class="form-group">
+	    <label for="user_login" class="small wcms-white-text">Email Address</label>
+	     <%= f.text_field :login, :class => "form-control form-control-xs" -%>
+	  </fieldset>
+	  <fieldset class="form-group">
+	    <label for="user_password" class="small wcms-white-text">Password</label>
+	    <%= f.password_field :password, :class => "form-control form-control-xs" -%>
+	  </fieldset>
+	  <fieldset class="form-group">
+	    <label for="user_password_confirmation" class="small wcms-white-text">Confirm Password</label>
+	    <%= f.password_field :password_confirmation, :class => "form-control form-control-xs" -%>
+	  </fieldset>
+	  <fieldset class="form-group">
+			<%= f.submit 'Save', class: 'btn btn-secondary btn-sm' %>
+			<%= link_to 'Cancel', settings_path, :title => "Cancel", :class => "btn btn-warning btn-sm pull-xs-right", :id => "cancel-button", :remote => true %>
+	  </fieldset>
+	<% end %>
 

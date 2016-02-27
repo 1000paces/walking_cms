@@ -9,6 +9,9 @@ class Setting < ActiveRecord::Base
 	ICON_SHORT = "fa-gears"
 	ICON = "fa fa-fw #{ICON_SHORT}"
 
+	DEFAULTS_ICON_SHORT = "fa-check-circle-o"
+	DEFAULTS_ICON = "fa fa-fw #{DEFAULTS_ICON_SHORT}"	
+
 	NAV_LOCATION = {
 		"Fixed to Top" => 0,
 		"Below Header Image - Rounded" => 1,
