@@ -14,6 +14,7 @@ class SitesController < ApplicationController
       @row = @page.rows.create 
       @cell = @row.cells.create(:body => "")
     end
+    session[:current_page] = @page.id
   end
 
   private

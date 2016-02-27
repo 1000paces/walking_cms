@@ -41,7 +41,8 @@ class PagesController < ApplicationController
 		sorted_list = params[:item]
 
     @page = session[:current_page].blank? ? @user.home_page : Page.find(session[:current_page])
-
+    Rails.logger.warn("\n\nPAGE IS #{@page.id}")
+    
 		if params[:socket] == 'linked'
 			sorted_list.each_with_index do |member, index|
 				child = Page.find(member[0].to_i)

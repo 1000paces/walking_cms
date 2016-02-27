@@ -1,10 +1,12 @@
 <div class="col-<%= cell.breakpoint %>-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-#{cell.breakpoint}#-offset-#{cell.offset}" : '' -%> sort wcms-sort" id="wcms-work-cell-<%= cell.id %>" data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>">
 	<div class="wcms-cell-sort-border" title="row <%= row.id -%> | cell <%= cell.id -%>">
-		<%#= cell.body.html_safe -%>
 		<%- if cell.image.blank? -%>
-			<%= cell.body.html_safe -%>
+			<%= cell.body.html_safe unless cell.body.nil? -%>
 		<%- else -%>
 			<%= image_tag cell.image_url.to_s, :class => "img-fluid img-#{cell.shape}" -%>
+			<%- if cell.show_headline? -%>
+				<small><%= cell.headline -%></small>
+			<%- end -%>
 		<%- end -%>		
 	</div>
 </div>

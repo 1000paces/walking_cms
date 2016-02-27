@@ -27,7 +27,7 @@
       <%- end -%>
       <div class="form-group">
         <label for="setting_show_headline" class="sr-only"><%= @cell.image.blank? ? 'Headline' : 'Caption' -%>?</label>
-        <label class="checkbox-inline">
+        <label class="small checkbox-inline">
           <%= f.check_box(:show_headline, {}, 1, 0) %> Show <%= @cell.image.blank? ? 'Headline' : 'Caption' -%>
         </label>
       </div>

@@ -7,10 +7,16 @@
       	<%= f.text_field :headline, :class => "form-control form-control-sm", :placeholder => "Headline" %>
       </div>
     	<div class="form-group">
-      	<label for="cell_embed_code" class="sr-only">Embed Code</label>
-      	<%= f.text_area :embed_code, :class => "form-control form-control-sm", :placeholder => "Paste embed code here" %>
-				<div class="col-sm-12 small text-muted">Paste embed code from third party sites here.</div>
+      	<label for="cell_embed_code" class="sr-only">Link or Embed Code</label>
+      	<%= f.text_area :embed_code, :class => "form-control form-control-sm", :placeholder => "Paste link or embed code here" %>
+				<div class="col-sm-12 small text-muted">Paste link or embed code from third party sites here.</div>
       </div>
+      <div class="form-group">
+        <label for="cell_new_window" class="sr-only">Open Links in New Window</label>
+        <label class="small checkbox-inline">
+          <%= f.check_box(:new_window, {}, 1, 0) %> Open Links in New Window
+        </label>
+      </div>      
       <div class="form-group">
     		<%= f.submit "Save", class: "btn btn-primary btn-sm" %>
     		<%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>

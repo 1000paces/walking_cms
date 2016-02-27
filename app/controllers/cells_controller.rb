@@ -26,6 +26,7 @@ class CellsController < ApplicationController
 
     if deed == 'add'  #!params[:add].blank?
       #add = params[:add]
+      Rails.logger.warn("In the 'add' section")
       pos = direction == "left" ? @adjacent_cell.position-1 : @adjacent_cell.position
       x,y = @adjacent_cell.division
       @adjacent_cell.width = y
@@ -33,6 +34,7 @@ class CellsController < ApplicationController
       cell_list.insert(pos, @cell.id)
       @adjacent_cell.save
     else
+      Rails.logger.warn("Not in the 'add' section")
       #merge = params[:merge]
       if direction == 'left'
         dcell_index = cell_list.index(@adjacent_cell.id)-1
@@ -49,6 +51,7 @@ class CellsController < ApplicationController
       row.cells.find(dcell.id).destroy
     end
 
+    Rails.logger.warn("Update the positions")
     cell_list.each_with_index do |cell_id, index|
       cell = Cell.find(cell_id)
       unless cell.nil?

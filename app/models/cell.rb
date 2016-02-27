@@ -98,6 +98,18 @@ class Cell < ActiveRecord::Base
 		end
 	end
 
+	def has_uri?
+		return false if self.embed_code.blank?
+		begin
+	  	uri = URI.parse(self.embed_code)
+	  	%w( http https ).include?(uri.scheme)
+		rescue URI::BadURIError
+		  false
+		rescue URI::InvalidURIError
+		  false
+		end
+	end
+
 	private
 
 	def fix_the_width
