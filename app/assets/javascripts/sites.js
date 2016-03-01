@@ -110,4 +110,32 @@ $(document).on("click", ".wcms-account", function() {
 	console.log("12. .wcms-account was clicked for panel " + panel);
 	$(".wcms-account-div").hide();
 	$("#" + panel + "-index-div").fadeIn();
-})
+});
+
+$(document).on('click', function (e) {
+    if ($(e.target).closest(".wcms-tool-container").length === 0) {
+    		console.log("13. hide wcms-tool-container and removed pressend and wcms-cell-active classes");
+        var dataCell = $(e.target).closest(".wcms-work-cell").attr('data-cell');
+        if(dataCell === undefined) {
+					$(".wcms-tool-container").hide();
+					$(".wcms-work-cell").removeClass("pressed wcms-cell-active");
+        }
+    }
+
+    if ($(e.target).closest(".wcms-master-toolbar-link").length === 0) {
+        if ($(e.target).closest("#wcms-sidebar-wrapper").length === 0) {
+        	console.log("14. remove drawer-visible");
+					$(".wcms-right-column").hide("slide", { direction: "right" }, 500);
+					$(".wcms-form-box").hide();
+					$(".wcms-master-toolbar-link").removeClass("active");
+					$("#wcms-wrapper").removeClass("drawer-visible");
+        }
+    }
+});
+
+
+
+
+
+
+

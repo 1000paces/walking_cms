@@ -4,10 +4,17 @@ if($("#wcms-work-cell-<%= @cell.id %> .wcms-back").is(":visible")) {
 $(".wcms-cell-toolbar-link").removeClass('active');
 $("#wcms-cell-form-<%= @cell.id %>-x").html('<%= j render(:partial => "cells/form_#{@body_type}") -%>');
 <%- if @body_type == 'text' -%>
-	CKEDITOR.inline( "wcms-editor-<%= @cell.id %>", {
+    CKEDITOR.disableAutoInline = true;
+		CKEDITOR.inline( "wcms-editor-<%= @cell.id %>", {
 			startupFocus: true,
 			skin: 'flat',
-			toolbar: 'main'
+			toolbar: 'main',			
+			extraPlugins: 'sharedspace',
+			removePlugins: 'floatingspace,resize',
+			sharedSpaces: {
+				top: 'wcms-editor-top-toolbar-<%= @cell.id %>',
+				bottom: 'wcms-editor-bottom-toolbar-<%= @cell.id %>'
+			}
 		});
 	$("#wcms-work-cell-<%= @cell.id %>").toggleClass('flipped');
 <%- else -%>

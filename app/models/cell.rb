@@ -1,4 +1,6 @@
 class Cell < ActiveRecord::Base
+	include ActionView::Helpers::SanitizeHelper
+
 	#attr_accessible :image, :remote_image_url
 	belongs_to :row
 	mount_uploader :image, ImageUploader
@@ -91,11 +93,61 @@ class Cell < ActiveRecord::Base
 	end
 
 	def empty?
-		if self.body.blank? && self.image.blank? && self.embed_code.blank? && self.headline.blank?
+		if strip_tags(self.body).blank? && self.image.blank? && self.embed_code.blank? && self.headline.blank?
 			return true
 		else
 			return false
 		end
+	end
+
+	def full?
+		if !strip_tags(self.body).blank? && !self.image.blank? && !self.embed_code.blank? && !self.headline.blank?
+			return true
+		else
+			return false
+		end
+	end
+
+	def gauge
+		if self.empty?
+			return 'empty'
+		elsif self.full?
+			return 'full'
+
+		elsif !strip_tags(self.body).blank? && self.image.blank? && self.embed_code.blank? && self.headline.blank?
+			return 'body'
+		elsif strip_tags(self.body).blank? && !self.image.blank? && self.embed_code.blank? && self.headline.blank?
+			return 'image'
+		elsif strip_tags(self.body).blank? && self.image.blank? && !self.embed_code.blank? && self.headline.blank?
+			return 'code'
+		elsif strip_tags(self.body).blank? && self.image.blank? && self.embed_code.blank? && !self.headline.blank?
+			return 'headline'
+
+		elsif !strip_tags(self.body).blank? && !self.image.blank? && self.embed_code.blank? && self.headline.blank?
+			return 'body_image'
+		elsif !strip_tags(self.body).blank? && self.image.blank? && !self.embed_code.blank? && self.headline.blank?
+			return 'body_code'
+		elsif !strip_tags(self.body).blank? && self.image.blank? && self.embed_code.blank? && !self.headline.blank?
+			return 'body_headline'
+		elsif strip_tags(self.body).blank? && !self.image.blank? && self.embed_code.blank? && !self.headline.blank?
+			return 'image_headline'
+		elsif strip_tags(self.body).blank? && !self.image.blank? && !self.embed_code.blank? && self.headline.blank?
+			return 'image_code'
+		elsif strip_tags(self.body).blank? && self.image.blank? && !self.embed_code.blank? && !self.headline.blank?
+			return 'code_headline'
+		
+		elsif !strip_tags(self.body).blank? && !self.image.blank? && self.embed_code.blank? && !self.headline.blank?
+			return 'body_image_headline'
+		elsif !strip_tags(self.body).blank? && !self.image.blank? && !self.embed_code.blank? && self.headline.blank?
+			return 'body_image_code'
+		elsif strip_tags(self.body).blank? && !self.image.blank? && !self.embed_code.blank? && !self.headline.blank?
+			return 'image_code_headline'
+		elsif !strip_tags(self.body).blank? && self.image.blank? && !self.embed_code.blank? && !self.headline.blank?
+			return 'body_code_headline'
+		else
+			return 'error'
+		end
+
 	end
 
 	def has_uri?

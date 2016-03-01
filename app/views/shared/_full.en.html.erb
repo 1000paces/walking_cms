@@ -1,0 +1,12 @@
+<div class="card">
+  <img class="card-img-top img-fluid" src="<%= cell.image_url.to_s -%>" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title"><%= cell.headline -%></h4>
+    <p class="card-text"><%= cell.body.html_safe -%></p>
+    <%- if cell.has_uri? -%>
+    	<%= link_to cell.headline, cell.embed_code, target: "_blank" -%>
+    <%- else -%>
+    	<div class="embed-responsive embed-responsive-16by9"><%= cell.embed_code.html_safe -%></div>
+    <%- end -%>
+  </div>
+</div>

@@ -2,43 +2,8 @@
 	data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>" data-toggle="popover" title="r<%= row.id -%>c<%= cell.id -%>w<%= cell.width %>o<%= cell.offset %>">
 	<div class="wcms-flip" id="wcms-flip-<%= cell.id %>">
 		<div class="wcms-card" id="wcms-flip-card-<%= cell.id %>">
-			<div class="wcms-face wcms-front">
-			<%- if cell.empty? -%>
-				<%= render :partial => "cells/starter", :locals => {row: row, cell: cell} -%>
-			<%- else -%>
-
-				<%- if !cell.image.blank? && !strip_tags(cell.body).blank? -%>
-					<%- if cell.shape == 'underlay' #### This isn't working in bootstrap alpha -%>
-						<div class="card card-inverse">
-						  <img class="card-img img-fluid" src="<%= cell.image_url.to_s -%>" alt="Card image">
-						  <div class="card-img-overlay">
-						    <h4 class="card-title"><%= cell.headline -%></h4>
-						    <p class="card-text"><%= cell.body.html_safe -%></p>
-						  </div>
-						</div>
-					<%- else -%>
-						<div class="card">
-						  <img class="card-img-top img-fluid" src="<%= cell.image_url.to_s -%>" alt="Card image cap">
-						  <div class="card-block">
-						    <h4 class="card-title"><%= cell.headline -%></h4>
-						    <p class="card-text"><%= cell.body.html_safe -%></p>
-						  </div>
-						</div>
-					<%- end -%>
-				<%- elsif cell.image.blank? -%>
-					<%= cell.body.html_safe -%>
-					<%- unless cell.embed_code.blank? -%>
-						<div class="embed-responsive embed-responsive-16by9">
-							<%= cell.embed_code.html_safe -%>
-						</div>
-					<%- end -%>
-				<%- else -%>
-					<%= image_tag cell.image_url.to_s, :class => "img-fluid img-#{cell.shape}" -%>
-					<%- if cell.show_headline? -%>
-						<small><%= cell.headline -%></small>
-					<%- end -%>
-				<%- end -%>
-			<%- end -%>
+			<div class="wcms-face wcms-front" data-gauge="<%= cell.gauge -%>">
+				<%= render :partial => "shared/#{cell.gauge}", :locals => {row: row, cell: cell} -%>			
 			</div>
 			<div class="wcms-face wcms-back">
 				<div class="wcms-form-cell" id="wcms-cell-form-<%= cell.id %>-x"></div>

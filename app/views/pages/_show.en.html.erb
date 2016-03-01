@@ -2,24 +2,4 @@
 	<div class="row wcms-page-display" id="wcms-page-display">
 		<%= render :partial => "pages/display" -%>
 	</div>
-	<script type="text/javascript">
-		$(document).on('click', function (e) {
-		    if ($(e.target).closest(".wcms-tool-container").length === 0) {
-		        var dataCell = $(e.target).closest(".wcms-work-cell").attr('data-cell');
-		        if(dataCell === undefined) {
-							$(".wcms-tool-container").hide();
-							$(".wcms-work-cell").removeClass("pressed wcms-cell-active");
-		        }
-		    }
-
-		    if ($(e.target).closest(".wcms-master-toolbar-link").length === 0) {
-		        if ($(e.target).closest("#wcms-sidebar-wrapper").length === 0) {
-							$(".wcms-right-column").hide("slide", { direction: "right" }, 500);
-							$(".wcms-form-box").hide();
-							$(".wcms-master-toolbar-link").removeClass("active");
-							$("#wcms-wrapper").removeClass("drawer-visible");
-		        }
-		    }
-		});
-	</script>
 </div>
