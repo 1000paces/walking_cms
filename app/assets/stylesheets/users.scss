@@ -121,14 +121,6 @@ div#wcms-content-wrapper {
 
 .wcms-editor {
 	padding: 4px 10px;
-	/*border: 1px solid #f2f2f2;*/
-
-	/*border: 1px solid #e5e5e5 !important;
-	
-	border-radius: 0.25rem;
-	box-shadow: 0 0 3px rgba(0,0,0,0.15);	
-	*/
-
 }
 
 .wcms-drawer {
@@ -721,8 +713,14 @@ div.tool-items a.tool-item i {
 }
 
 .cke_chrome {
-	border: 1px solid #eee !important;
-	border-radius: 6px !important
+	/*border: 1px solid red !important;
+	border-top: none !important;
+	border-bottom: none !important;
+	border-radius: .25rem !important*/
+}
+
+.cke_toolgroup, .cke_combo_button {
+	border-bottom-color: #e5e5e5 !important;
 }
 
 .wcms-invisible {
@@ -805,9 +803,20 @@ div.tool-items a.tool-item i {
 	margin: 0px !important;
 }
 
+.wcms-form-cell {
+	border: 1px solid #e5e5e5 !important;
+	border-radius: 0.25rem !important;
+}
+
 .wcms-form-cell .card {
 	height: 100%;
 	margin: 0;
+	border: none;
+	box-shadow: inset 0 0 0 0 rgba(0,0,0,0) !important;
+}
+
+.wcms-form-cell .card .card-header, .wcms-form-cell .card .card-block {
+	box-shadow: inset 0 0 0 0 rgba(0,0,0,0) !important;
 }
 
 .wcms-card-form .form-group {
