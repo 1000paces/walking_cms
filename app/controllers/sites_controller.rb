@@ -22,8 +22,4 @@ class SitesController < ApplicationController
     def set_user
       @user = User.find(session[:user_credentials_id])
     end
-
-    def alpha?
-
-    end
 end

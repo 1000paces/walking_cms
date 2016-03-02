@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :domains
   resources :users
   
-  resources :sites, only: [:show]
+  resources :admin, only: [:show]
   #resource :site, only: [:show]
   resources :pages 
   resources :rows, only: [:create, :sort]
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get "login" => "user_sessions#new", :as => :login
-  get "home" => "sites#show", :as => :home
+  get "home" => "admin#show", :as => :home
 
 
   # The priority is based upon order of creation: first created -> highest priority.
