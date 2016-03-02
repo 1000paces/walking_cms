@@ -1,23 +1,23 @@
 Rails.application.routes.draw do
   resource :user_session, only: [:create, :new, :destroy]  
-  resources :domains
-  resources :users
+  
   
   resources :admin, only: [:show]
-  #resource :site, only: [:show]
-  resources :pages 
-  resources :rows, only: [:create, :sort]
-  resources :cells, :except => [:edit]
-  resources :settings
-  resources :assets
-  resources :help, :only => [:index, :show]
-  resources :images, only: [:index, :new, :create, :destroy]
-
-  match "cells/:id/edit(/:type)" => "cells#edit", :as => "edit_cell", :via => [:get]
-
-  match "pages/:user_id/sort" => "pages#sort", :as => "file_list_sort", :via => [:get, :post]
-  match "rows/:page_id/sort" => "rows#sort", :as => "rows_sort", :via => [:get, :post]
-  match "cells/:row_id/sort" => "cells#sort", :as => "cells_sort", :via => [:get, :post]
+  namespace :admin do
+    resources :domains
+    resources :users    
+    resources :pages 
+    match "pages/:user_id/sort" => "pages#sort", :as => "file_list_sort", :via => [:get, :post]    
+    resources :rows, only: [:create, :sort]
+    match "rows/:page_id/sort" => "rows#sort", :as => "rows_sort", :via => [:get, :post]
+    resources :cells, :except => [:edit]
+    match "cells/:id/edit(/:type)" => "cells#edit", :as => "edit_cell", :via => [:get]
+    match "cells/:row_id/sort" => "cells#sort", :as => "cells_sort", :via => [:get, :post]
+    resources :settings
+    resources :assets
+    resources :help, :only => [:index, :show]
+    resources :images, only: [:index, :new, :create, :destroy]
+ end
 
   get 'welcome/index'
 

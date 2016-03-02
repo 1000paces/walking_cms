@@ -1,4 +1,4 @@
-class CellsController < ApplicationController
+class Admin::CellsController < ApplicationController
   before_action :set_user
   before_filter :require_user
 

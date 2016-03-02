@@ -1,4 +1,4 @@
-class RowsController < ApplicationController
+class Admin::RowsController < ApplicationController
   before_action :set_user
   before_filter :require_user
 

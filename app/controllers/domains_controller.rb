@@ -1,4 +1,4 @@
-class DomainsController < ApplicationController
+class Admin::DomainsController < ApplicationController
 #  before_action :set_domain, only: [:show, :edit, :update, :destroy]
   before_action :set_user#, except: [:show]
   before_filter :require_user#, only: [:show]

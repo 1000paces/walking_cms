@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class SitesController < ApplicationController
 	before_action :set_user, only: [:show]
   before_filter :require_user, only: [:show]
 
