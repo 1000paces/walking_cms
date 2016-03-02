@@ -10,6 +10,9 @@ class Page < ActiveRecord::Base
 
 	validates_presence_of :label, :title, :permalink
 	validates_uniqueness_of :permalink, scope: :user_id
+	validates_format_of :permalink, :with => /[a-zA-Z_-]/, :if => Proc.new{|item| !item.permalink.blank?}, :message => "must include at least one letter"
+	excluded_words = ['index','admin','catalog','resource','test','user','observation','entity','directory','search']
+	validates_exclusion_of :permalink, :in => excluded_words, :message =>"Can't use reserved words: #{excluded_words.to_sentence}."	
 
 	ICON_SHORT = "fa-file-text-o"
 	HOME_SHORT = "fa-home"
