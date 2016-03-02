@@ -46,14 +46,10 @@ class DomainsController < ApplicationController
   # PATCH/PUT /domains/1
   # PATCH/PUT /domains/1.json
   def update
-    respond_to do |format|
-      if @domain.update(domain_params)
-        format.html { redirect_to @domain, notice: 'Domain was successfully updated.' }
-        format.json { render :show, status: :ok, location: @domain }
-      else
-        format.html { render :edit }
-        format.json { render json: @domain.errors, status: :unprocessable_entity }
-      end
+    @domain = @user.domain
+    @domain.update(domain_params)
+    if @domain.errors.any?
+      render(:template => "/shared/errors", :layout => false)
     end
   end
 
@@ -75,6 +71,6 @@ class DomainsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def domain_params
-      params[:domain]
+      params.require(:domain).permit(:name, :label).merge(user_id: current_user.id)
     end
 end

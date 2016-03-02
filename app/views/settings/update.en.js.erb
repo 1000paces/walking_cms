@@ -1,0 +1,10 @@
+$("#wcms-form-box").hide("slide", { direction: "right" }, 500);
+$("#wcms-drawer-settings").show("slide", { direction: "left"}, 500);
+<%- if !@sync.blank? -%>
+	$("#wcms-page-display").fadeOut(function(){
+		$("#wcms-page-display").html("<%= j render(:partial => 'pages/display') -%>").fadeIn();
+		$("#wcms-custom-font").html("<%= j render(:partial => 'pages/font') -%>");
+	});
+	$("body").removeClass("wcms-white-background wcms-grey-background wcms-navbar-full wcms-navbar-fixed-bottom wcms-navbar-fixed-top").addClass("<%= @setting.nav_class(true) -%> <%= @setting.background_class -%>");
+	$(".wcms-full-height-container").removeClass("container container-fluid").addClass("<%= @setting.container_type -%>");
+<%- end -%>

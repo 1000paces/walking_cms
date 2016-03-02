@@ -31,10 +31,10 @@
           <%= f.check_box(:show_headline, {}, 1, 0) %> Show <%= @cell.image.blank? ? 'Headline' : 'Caption' -%>
         </label>
       </div>
-      <div class="form-group">      	
+      <div class="form-group wcms-card-action-group">      	
     		<%= f.submit "Save", class: "btn btn-primary btn-sm wcms-form-btn" %>
     		<%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn wcms-form-btn", data: {row: @row.id, cell: @cell.id} -%>
-        <%= link_to "<i class='fa fa-fw fa-trash-o'></i>".html_safe, cell_path(@cell.id), class: "danger text-danger small wcms-cell-delete", method: :delete, data: {row: @row.id, cell: @cell.id, confirm: "Please confirm that you which to delete this card."}, :remote => true -%>
+        <%= link_to "<i class='fa fa-fw fa-trash'></i>".html_safe, cell_path(@cell.id), class: "danger text-danger small wcms-cell-delete", method: :delete, data: {row: @row.id, cell: @cell.id, confirm: "Please confirm that you which to delete this card."}, :remote => true -%>
       </div>
     <% end %>
   </div>

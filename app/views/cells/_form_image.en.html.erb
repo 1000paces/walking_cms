@@ -21,7 +21,7 @@
           <label class="small radio"><%= f.radio_button(:shape, "circle") %> Circle</label>
         </div>
       </div>
-      <div class="form-group">        
+      <div class="form-group wcms-card-action-group">
         <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
         <%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
       </div>

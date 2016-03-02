@@ -1,17 +1,17 @@
 if($("#wcms-form-box").is(':visible')) {
 	$("#wcms-form-box").hide("slide", { direction: "right" }, 500);
-	$("#wcms-drawer-account").show("slide", { direction: "left"}, 500);
+	$("#wcms-drawer-settings").show("slide", { direction: "left"}, 500);
 } else {
 	$(".wcms-master-toolbar-link").removeClass("active");
-	if($("#wcms-drawer-account").is(':visible')){
-		$("#wcms-drawer-account").hide("slide", { direction: "right" }, 500);
+	if($("#wcms-drawer-settings").is(':visible')){
+		$("#wcms-drawer-settings").hide("slide", { direction: "right" }, 500);
 		$("#drawer-forms").empty();
 		$("#wcms-wrapper").removeClass("drawer-visible");
 	} else {
 		$(".wcms-right-column").hide(); 
-		$("#account-index-div").html("<%= j render(:partial => 'index') -%>");
-		$("#wcms-toggle-account").addClass("active");
-		$("#wcms-drawer-account").fadeIn();
+		$("#settings-index-div").html("<%= j render(:partial => 'index') -%>");
+		$("#wcms-toggle-settings").addClass("active");
+		$("#wcms-drawer-settings").fadeIn();
 		$("#wcms-wrapper").addClass("drawer-visible");
 	}
 } 

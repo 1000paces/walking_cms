@@ -80,21 +80,23 @@ class Setting < ActiveRecord::Base
 		end
 	end
 
-	def nav_class
+	def nav_class(with_namespace=false)
+		retval = with_namespace ? "wcms-" : ""
 		case self.nav_location
 		when 1 ##### below header image rounded
 			return ""
 		when 2 #### below header image square
-			return "navbar-full"
+			retval << "navbar-full"
 		when 3 #### fixed to bottom
-			return "navbar-fixed-bottom"
+			retval << "navbar-fixed-bottom"
 		when 4
 			return ""
 		when 5 #### left or right nav
 			return ""
 		else #### fixed to top
-			return "navbar-fixed-top"
+			retval << "navbar-fixed-top"
 		end
+		return retval
 	end
 
 	def contrast

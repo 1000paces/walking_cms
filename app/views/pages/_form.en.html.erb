@@ -80,7 +80,7 @@
     <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "DRAFT") %> Draft</label>
     <small class="wcms-form-help" id="status_help">Select "Published" when your page is ready to view.</small>
   </div>
-  <fieldset class="form-group">  
+  <fieldset class="form-group wcms-action-group">  
     <%= f.submit 'Save', class: 'btn btn-primary btn-sm' %>
     <%= link_to "Cancel", pages_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning btn-sm pull-xs-right", :remote => true -%>
   </fieldset>

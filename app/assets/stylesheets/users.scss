@@ -230,7 +230,7 @@ div#wcms-wrapper:not(.toolbar-visible) div#wcms-drawer-left {
 }
 
 div#wcms-sidebar-wrapper {
-	z-index: 103;
+	z-index: 1003;
 	position: absolute;
 	right: 0; /* 250px; */
 	width: 0;
@@ -820,7 +820,7 @@ div.tool-items a.tool-item i {
 }
 
 .wcms-card-form .form-group {
-	margin-bottom: 0.5rem !important;
+	/*margin-bottom: 0.5rem !important;*/
 }
 
 .minicolors-theme-navbar {
@@ -842,3 +842,10 @@ div.tool-items a.tool-item i {
 
 }
 
+.wcms-action-group {
+	padding: 8px 12px;
+}
+
+.wcms-card-action-group {
+	margin-bottom: 0px !important;
+}

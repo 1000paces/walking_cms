@@ -1,6 +1,6 @@
 <%= link_to "<i class='fa fa-fw fa-arrow-left'></i>".html_safe, settings_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link left", :remote => true -%>
 <h4 class="lead text-xs-center wcms-white-text">
-  <i class="<%= Setting::DEFAULTS_ICON -%>"></i> Site Defaults
+  <i class="<%= Setting::DEFAULTS_ICON -%>"></i> Design
 </h4>
 <div class="">
 	<%= form_for @setting, :html => {:class => "wcms-sidebar-form", role: 'form'}, :remote => true do |f| -%>
@@ -49,8 +49,8 @@
 					<small><%= check_box_tag :sync, 1 -%> Synchronize all pages to these settings</small>
 				</label>
 			</div>
-		<div class="form-group">
-			<%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
+		<div class="form-group wcms-action-group">
+			<%= f.submit 'Save', class: 'btn btn-primary btn-sm' %>
 	    <%= link_to "Cancel", settings_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning btn-sm pull-xs-right", :remote => true -%>
 		</div>
 	<%- end -%>
