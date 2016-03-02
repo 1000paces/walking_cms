@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	require 'active_support/inflector'
+
 	has_one :domain
 	has_one :setting
 	has_many :pages
@@ -44,6 +46,14 @@ class User < ActiveRecord::Base
 			return self.pages.create(label: "My New Page", position: 0)
 		else
 			return self.top_nav_pages.first
+		end
+	end
+
+	def parameter_domain
+		if self.domain.nil? || self.domain.name.blank?
+			return ""
+		else
+			return self.domain.name.parameterize
 		end
 	end
 

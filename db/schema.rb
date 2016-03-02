@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20160227185012) do
   end
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
+  add_index "pages", ["permalink", "user_id"], name: "index_pages_on_permalink_and_user_id", unique: true, using: :btree
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
 
   create_table "rows", force: :cascade do |t|

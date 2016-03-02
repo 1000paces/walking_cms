@@ -96,12 +96,12 @@
     };
   });
 
-  $("#page_title").focusout(function(){
+  $("#page_label, #page_title, #page_permalink").focusout(function(){
     if($("#page_permalink").val().length == 0 ){
       var slug = $("#page_title").val().toLowerCase();
       slug = slug.replace(/[^a-zA-Z0-9]+/g,'-');
       slug = encodeURI(slug)
-      $("#page_permalink").val("/" + slug);
+      $("#page_permalink").val(slug);
     };
   });   
 </script>

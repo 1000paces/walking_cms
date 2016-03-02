@@ -17,5 +17,6 @@ class Pages < ActiveRecord::Migration
 		end
 
 		add_index :pages, :permalink
+    add_index :pages, [:permalink, :user_id], unique: true
 	end
 end

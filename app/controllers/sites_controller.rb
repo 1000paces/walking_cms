@@ -2,13 +2,13 @@ class SitesController < ApplicationController
   before_action :set_user, only: [:show]
   before_filter :require_user, only: [:show]
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     if params[:id].nil?
       @page = @user.home_page
-    else
+    elsif params[:id].to_i.to_s == params[:id] #### find via Page#id
       @page = Page.find params[:id]
+    else
+      @page = Page.find_by_permalink params[:id]
     end
     if @page.rows.empty?
       @row = @page.rows.create 
@@ -21,5 +21,9 @@ class SitesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(session[:user_credentials_id])
+    end
+
+    def alpha?
+
     end
 end

@@ -8,7 +8,8 @@ class Page < ActiveRecord::Base
 	acts_as_tree :order => "position"
 	after_initialize :init
 
-	validates_presence_of :label, :title
+	validates_presence_of :label, :title, :permalink
+	validates_uniqueness_of :permalink, scope: :user_id
 
 	ICON_SHORT = "fa-file-text-o"
 	HOME_SHORT = "fa-home"
@@ -29,6 +30,14 @@ class Page < ActiveRecord::Base
 			return Page::HOME
 		else
 			return Page::ICON
+		end
+	end
+
+	def permalink_or_id
+		if self.permalink.blank?
+			return self.id
+		else
+			return self.permalink
 		end
 	end
 
