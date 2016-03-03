@@ -18,6 +18,7 @@ class Page < ActiveRecord::Base
 	HOME_SHORT = "fa-home"
 	ICON_EMPTY_SHORT = "fa-file-o"
 	CLONE_SHORT = 'fa-files-o'
+	UNDO_SHORT = "fa-undo"
 
 	ICON = "fa fa-fw #{ICON_SHORT}"
 	ICON_EMPTY = "fa fa-fw #{ICON_EMPTY_SHORT}"
@@ -27,6 +28,7 @@ class Page < ActiveRecord::Base
 	MENU = "fa fa-fw fa-bars"
 	SORT = "fa fa-fw fa-arrows"
 	CLONE = "fa fa-fw #{CLONE_SHORT}"
+	UNDO = "fa fa-fw #{UNDO_SHORT}"
 
 	def icon
 		if self.parent_id.nil? && self.position == 0

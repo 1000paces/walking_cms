@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 //= require jquery-ui
+
 //= require turbolinks
 //= require jquery.minicolors
 //= require jquery.minicolors.simple_form

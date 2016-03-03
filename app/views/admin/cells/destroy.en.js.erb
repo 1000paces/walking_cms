@@ -3,9 +3,16 @@ $("#wcms-wrapper").removeClass('toolbar-visible').delay(500).queue(function(next
 	$("#wcms-master-toolbar").show();
 	$(".wcms-cell-toolbar-vertical").hide();
 	$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").remove();
+
+	$("#wcms-undo").parent().removeClass("hidden").addClass("active");
+	$("#wcms-restore-page-id").val("<%= @page.id -%>");
+	$("#wcms-restore-row-id").val("<%= @row.id -%>");
+	$("#wcms-restore-cell-id").val("<%= @cell.id -%>");
+
 	<%- @dead_rows.each do |dr| -%>
 		$("#wcms-row-<%= dr %>").remove();
 	<%- end -%>
 	$(this).addClass("toolbar-visible");
+	$("#wcms-page-undo").effect("highlight");
 	next();
 })

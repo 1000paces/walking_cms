@@ -82,7 +82,9 @@ class Admin::CellsController < ApplicationController
     @cell = Cell.find params[:id]
     @row = @cell.row
     @page = @row.page
-    @cell.destroy
+    @cell.row_id = 0
+    @cell.save
+    #@cell.destroy
     @dead_rows = []
     @page.rows.each do |row|
       if row.cells.empty?
@@ -90,6 +92,18 @@ class Admin::CellsController < ApplicationController
         @dead_rows << row.id
       end
     end
+  end
+
+  def restore
+    @page = Page.find(params[:page_id])
+    @row = Row.find(params[:row_id])
+    @cell = Cell.find(params[:cell_id])
+
+    if @row.nil?
+
+    end
+    @row.cells << @cell
+    #render "admin/pages/show"
   end
 
   def sort

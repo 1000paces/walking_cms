@@ -26,6 +26,12 @@ $(document).on('click', '.wcms-cell', function(e){
 	}
 });
 
+$(document).on('click', '#wcms-undo', function(e){
+	e.stopPropagation();
+	console.log("3.5. .wcms-undo undo cell delete");
+	$("#wcms-restore-cell").submit();	
+});
+
 $("#wcms-work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
 	console.log("4. .wcms-tools was clicked inside wcms-cell, so don't do anything, allow user to edit form");
 	e.stopPropagation();

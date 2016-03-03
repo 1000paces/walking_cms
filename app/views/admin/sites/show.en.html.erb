@@ -16,5 +16,7 @@
 		<%= hidden_field_tag("deed", "add", {:id => "wcms-deed"}) %>
 		<%= hidden_field_tag("direction", "right", {:id => "wcms-direction"}) %>
 	<%- end -%>
+
+	<%= render :partial => "admin/cells/restore_cell_form", :locals => { page: @page, row: Row.new, cell: Cell.new } -%>
 </div>
 

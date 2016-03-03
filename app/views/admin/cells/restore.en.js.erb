@@ -1,0 +1,34 @@
+$(".wcms-tool-container").remove();
+$("#wcms-page-display").html("<%= j render(:partial => 'admin/pages/display') -%>");
+$(".wcms-menu-link").removeClass("active");
+$("#wcms-page-<%= @page.id %>").addClass("active");
+$("#wcms-drawer-forms").hide("slide", { direction: "right" }, 750);
+$("#wcms-page-display").show();
+$("#wcms-organize").parent().removeClass("hidden");
+$("#wcms-organize-finished").parent().addClass("hidden");
+$("#row_page_id").val(<%= @page.id -%>);
+$(".wcms-page-sort").replaceWith("<%= j render(:partial => 'admin/pages/toolbar_vertical_sort', :locals => {:p => @page}) %>");
+$(".wcms-page-finish").replaceWith("<%= j render(:partial => 'admin/pages/toolbar_vertical_finished', :locals => {:p => @page}) %>");
+$(".wcms-page-duplicate").replaceWith("<%= j render(:partial => 'admin/pages/toolbar_vertical_duplicate', :locals => {:p => @page}) %>");
+
+
+$("#wcms-cell-toolbar").html("<%= j render(:partial => 'admin/pages/cell_toolbars', :locals => {:p => @page}) %>");
+$(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
+$("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);
+$(".wcms-cell").removeClass("wcms-cell-active");
+
+/* HIDE THE RIGHT DRAWER */
+$("#wcms-drawer-pages").hide("slide", { direction: "right" }, 500);
+$("#drawer-forms").empty();
+$("#wcms-wrapper").removeClass("drawer-visible");
+$(".wcms-master-toolbar-link").removeClass("active");
+
+
+$("body").removeClass("wcms-white-background wcms-grey-background wcms-navbar-full wcms-navbar-fixed-bottom wcms-navbar-fixed-top").addClass("<%= @page.setting.nav_class(true) -%> <%= @page.setting.background_class -%>");
+$(".wcms-full-height-container").removeClass("container container-fluid").addClass("<%= @page.setting.container_type -%>");
+
+$('html, body').animate({
+    scrollTop: $("#wcms-work-cell-<%= @cell.id %>").offset().top
+}, 1000);
+
+ $("#wcms-work-cell-<%= @cell.id %>").delay(2000).effect("highlight", {}, 3000);
