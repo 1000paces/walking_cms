@@ -17,13 +17,25 @@
       	<%= f.select :breakpoint, options_for_select(Cell::BREAKPOINTS, selected: @cell.breakpoint), {}, {:class => "form-control form-control-sm"} %>
       	<small class="text-muted">Forces cards to stack vertically on small devices</small>
       </div>
-      <%- if @cell.image.blank? -%>
-  			<div class="form-group">
-  				<label for="setting_border" class="sr-only">Border</label>
-					<label class="small checkbox-inline">
-            <%= f.check_box(:border, {}, 1, 0) %> Include Border
-					</label>
-  			</div>
+      <div class="form-group">
+        <label for="cell_breakpoint" class="sr-only">Variants</label>
+        <%= f.select :variant, options_for_select(Cell::VARIANTS, selected: @cell.variant), {}, {:class => "form-control form-control-sm"} %>
+        <small class="text-muted">Alternate Card Versions</small>
+      </div>
+      <div class="form-group">
+        <label for="cell_background_color" class="sr-only" for="cell_background_color">Background Color</label>
+        <%= f.text_field :background_color, :class => "form-control form-control-xs", :readonly => true -%>
+        <script>
+          $("#cell_background_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
+        </script>
+      </div>
+      <%- unless @cell.image.blank? -%>
+        <div class="form-group">
+          <label for="setting_border" class="sr-only">Overlay Text</label>
+          <label class="small checkbox-inline">
+            <%= f.check_box(:overlay, {}, 1, 0) %> Overlay Text on Image
+          </label>
+        </div>      
       <%- end -%>
       <div class="form-group">
         <label for="setting_show_headline" class="sr-only"><%= @cell.image.blank? ? 'Headline' : 'Caption' -%>?</label>

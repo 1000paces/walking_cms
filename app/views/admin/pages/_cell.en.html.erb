@@ -1,4 +1,4 @@
-<div class="col-<%= cell.breakpoint %>-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-#{cell.breakpoint}-offset-#{cell.offset}" : '' -%> wcms-work-cell wcms-cell zone <%= 'card' if cell.border? -%>" id="wcms-work-cell-<%= cell.id %>" 
+<div class="col-<%= cell.breakpoint %>-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-#{cell.breakpoint}-offset-#{cell.offset}" : '' -%> wcms-work-cell wcms-cell zone" id="wcms-work-cell-<%= cell.id %>" 
 	data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>" data-toggle="popover" title="r<%= row.id -%>c<%= cell.id -%>w<%= cell.width %>o<%= cell.offset %>">
 	<div class="wcms-flip" id="wcms-flip-<%= cell.id %>">
 		<div class="wcms-card" id="wcms-flip-card-<%= cell.id %>">

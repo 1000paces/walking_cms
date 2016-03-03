@@ -1,8 +1,8 @@
-<div class="card">
+<div class="<%= cell.variant_class -%> <%= cell.background_contrast_class -%>" style="<%= cell.background_color_style -%>">
 	<div class="embed-responsive embed-responsive-16by9">
 		<%= cell.embed_code.html_safe -%>
 	</div>
-	<div class="card-block">
+	<div class='card-block'>
 		<%= cell.body.html_safe -%>
 	</div>
 </div>

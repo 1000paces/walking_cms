@@ -2,7 +2,7 @@
 <ol class="list-unstyled help-list">
 	<%- HelpTopic.roots.each do |ht| -%>
 		<li>
-		<%= render :partial => "admin/child", :locals => {:ht => ht} -%>
+		<%= render :partial => "child", :locals => {:ht => ht} -%>
 		</li>
 	<%- end -%>
 </ol>

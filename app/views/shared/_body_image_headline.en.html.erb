@@ -1,7 +1,17 @@
-<div class="card">
-  <img class="card-img-top img-fluid" src="<%= cell.image_url.to_s -%>" alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title"><%= cell.headline -%></h4>
-    <p class="card-text"><%= cell.body.html_safe -%></p>
-  </div>
-</div>
+<%- if cell.overlay? -%>
+	<div class="card card-inverse">
+		<img class="card-img" src="<%= cell.image_url.to_s -%>" alt="Card image">
+	  <div class="card-img-overlay">
+	    <h4 class="card-title"><%= cell.headline -%></h4>
+	    <p class="card-text"><%= cell.body.html_safe -%></p>
+	  </div>
+	</div>
+<%- else -%>
+	<div class="<%= cell.variant_class -%> <%= cell.background_contrast_class -%>" style="<%= cell.background_color_style -%>">
+	  <img class="card-img-top img-fluid" src="<%= cell.image_url.to_s -%>" alt="Card image cap">
+	  <div class="card-block">
+	    <h4 class="card-title"><%= cell.headline -%></h4>
+	    <p class="card-text"><%= cell.body.html_safe -%></p>
+	  </div>
+	</div>
+<%- end -%>

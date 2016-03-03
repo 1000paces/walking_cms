@@ -21,7 +21,7 @@ $(document).on('click', '.wcms-cell', function(e){
 		$.ajax({
 			type: 'get',
 			dataType: 'script',
-			url: '/cells/' + cellId 
+			url: '/admin/cells/' + cellId 
 		})
 	}
 });

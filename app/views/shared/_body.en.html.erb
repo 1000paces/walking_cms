@@ -1,1 +1,9 @@
-<%= cell.body.html_safe -%>
+<%- if cell.variant > 0 -%>
+	<div class="<%= cell.variant_class -%> <%= cell.background_contrast_class -%>" style="<%= cell.background_color_style -%>">
+		<div class='card-block'>
+			<%= cell.body.html_safe -%>
+		</div>
+	</div>
+<%- else -%>
+	<%= cell.body.html_safe -%>
+<%- end -%>

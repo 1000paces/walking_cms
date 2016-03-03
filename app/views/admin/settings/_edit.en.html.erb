@@ -43,12 +43,12 @@
       <script>
         $("#setting_nav_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
       </script>
-    </fieldset>		
-			<div class="checkbox">
-				<label class="wcms-white-text checkbox-inline">
-					<small><%= check_box_tag :sync, 1 -%> Synchronize all pages to these settings</small>
-				</label>
-			</div>
+    </fieldset>	
+		<div class="checkbox">
+			<label class="wcms-white-text checkbox-inline">
+				<small><%= check_box_tag :sync, 1 -%> Synchronize all pages to these settings</small>
+			</label>
+		</div>
 		<div class="form-group wcms-action-group">
 			<%= f.submit 'Save', class: 'btn btn-primary btn-sm' %>
 	    <%= link_to "Cancel", admin_settings_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning btn-sm pull-xs-right", :remote => true -%>

@@ -11,24 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227185012) do
+ActiveRecord::Schema.define(version: 20160303021136) do
 
   create_table "cells", force: :cascade do |t|
-    t.integer  "width",         limit: 4,     default: 12,        null: false
-    t.integer  "offset",        limit: 4,     default: 0,         null: false
-    t.integer  "row_id",        limit: 4,                         null: false
-    t.integer  "position",      limit: 4,     default: 0,         null: false
-    t.text     "body",          limit: 65535
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "image",         limit: 255
-    t.string   "shape",         limit: 255,   default: "rounded"
-    t.string   "breakpoint",    limit: 255,   default: "md"
-    t.boolean  "border",                      default: false
-    t.string   "headline",      limit: 255,   default: ""
-    t.boolean  "show_headline",               default: false
-    t.text     "embed_code",    limit: 65535
-    t.boolean  "new_window",                  default: true
+    t.integer  "width",            limit: 4,     default: 12,                    null: false
+    t.integer  "offset",           limit: 4,     default: 0,                     null: false
+    t.integer  "row_id",           limit: 4,                                     null: false
+    t.integer  "position",         limit: 4,     default: 0,                     null: false
+    t.text     "body",             limit: 65535
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
+    t.string   "image",            limit: 255
+    t.string   "shape",            limit: 255,   default: "rounded"
+    t.string   "breakpoint",       limit: 255,   default: "md"
+    t.string   "headline",         limit: 255,   default: ""
+    t.boolean  "show_headline",                  default: false
+    t.text     "embed_code",       limit: 65535
+    t.boolean  "new_window",                     default: true
+    t.boolean  "overlay",                        default: false
+    t.integer  "variant",          limit: 4,     default: 0
+    t.string   "background_color", limit: 255,   default: "rgba(255,255,255,1)"
   end
 
   add_index "cells", ["position"], name: "index_cells_on_position", using: :btree

@@ -34,7 +34,7 @@
 				dataType: 'script',
 				complete: function(request){
 				},
-				url: '/rows/<%= @page.id -%>/sort'
+				url: '/admin/rows/<%= @page.id -%>/sort'
 			})
 		}
 	}).disableSelection();
@@ -51,7 +51,7 @@
 				dataType: 'script',
 				complete: function(request){
 				},
-				url: '/cells/' + rowId + '/sort'
+				url: '/admin/cells/' + rowId + '/sort'
 			})
 		}
 	}).disableSelection();	

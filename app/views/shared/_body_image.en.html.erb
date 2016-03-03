@@ -1,4 +1,4 @@
-<div class="card">
+<div class="<%= cell.variant_class -%> <%= cell.background_contrast_class -%>" style="<%= cell.background_color_style -%>">
   <img class="card-img-top img-fluid" src="<%= cell.image_url.to_s -%>" alt="Card image cap">
   <div class="card-block">
     <%= cell.body.html_safe -%>
