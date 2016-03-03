@@ -8,4 +8,11 @@
 		<%= link_to "Save", "#", class: "btn btn-primary btn-sm wcms-save", id: "wcms-save-#{@cell.id}", data: {row: @row.id, cell: @cell.id} %>
     <%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
 	</div>
+
+	<%= form_for [:admin, @cell], {:class => "form-inline", :remote => true} do |f| -%>
+		<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{@cell.id}" -%>
+	<%- end -%>
+	<script>
+		CKEDITOR.disableAutoInline = true;
+	</script>	
 </div>
