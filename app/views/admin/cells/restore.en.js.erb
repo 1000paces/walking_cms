@@ -31,4 +31,5 @@ $('html, body').animate({
     scrollTop: $("#wcms-work-cell-<%= @cell.id %>").offset().top
 }, 1000);
 
- $("#wcms-work-cell-<%= @cell.id %>").delay(2000).effect("highlight", {}, 3000);
+ $("#wcms-work-cell-<%= @cell.id %>").effect("highlight", {}, 3000);
+ 	$("#wcms-undo").parent().removeClass("active").addClass('hidden');

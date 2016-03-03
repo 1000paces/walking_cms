@@ -13,6 +13,6 @@ $("#wcms-wrapper").removeClass('toolbar-visible').delay(500).queue(function(next
 		$("#wcms-row-<%= dr %>").remove();
 	<%- end -%>
 	$(this).addClass("toolbar-visible");
-	$("#wcms-page-undo").effect("highlight");
+	$("#wcms-page-undo").delay(2000).effect("highlight", {}, 3000);
 	next();
 })
