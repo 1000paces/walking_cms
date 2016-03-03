@@ -1,7 +1,0 @@
-$("#wcms-form-box").html("<%= j render(:partial => 'form') -%>");
-$(".wcms-right-column").hide("slide", { direction: "left" }, 750, function() {
-	$("#wcms-form-box").show("slide", { direction: "right" }, 750);
-});
-$("#wcms-page-display").fadeOut(function(){
-	$("#wcms-page-display").html("<%= j render(:partial => 'pages/display') -%>").fadeIn();
-});

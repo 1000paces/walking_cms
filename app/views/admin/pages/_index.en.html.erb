@@ -1,0 +1,82 @@
+<div class="wcms-page-list">
+	<div class="text-xs-center">
+		<%= link_to "<i class='fa fa-fw fa-plus'></i> New Page".html_safe, new_admin_page_path, :class => 'btn btn-secondary', :remote => true -%>
+	</div>
+	<div class="wcms-white-text-label text-xs-center">Site Navigation</div>
+	<ol class="list-unstyled page-list linked-pages" id="page-list">
+		<%- @user.top_nav_pages.each do |page| -%>
+			<%= render :partial => "admin/pages/page_list_li", :locals => {:page => page} -%>
+		<%- end -%>
+	</ol>
+
+	<div class="wcms-white-text-label text-xs-center">Other Pages</div>
+	<ol class="list-unstyled page-list unlinked-pages" id="unlinked-page-list">
+		<%- @user.non_nav_pages.each do |page| -%>
+			<%= render :partial => "admin/pages/page_list_li", :locals => {:page => page} -%>
+		<%- end -%>
+	</ol>
+
+	<%- if 1==2 -%>
+	<div class="text-xs-center">
+		<%= link_to "<i class='fa fa-fw fa-question'></i> Help".html_safe, help_path("pages"), :class => 'btn btn-secondary btn-sm', :remote => true -%>
+	</div>
+	<%- end -%>
+</div>
+<div class="wcms-form-box" id="wcms-drawer-forms" style="display: none;"></div>
+<div id="dragholder" style="display: block;"></div>
+
+<script type="text/javascript">
+
+	$('ol.unlinked-pages').nestedSortable({
+		handle: 'div',
+		disableNesting: 'no-nest',
+		forcePlaceholderSize: true,
+		helper:	'clone',
+		items: 'li',
+		maxLevels: 1,
+		opacity: .6,
+		placeholder: 'placeholder',
+		revert: 250,
+		tabSize: 25,
+		tolerance: 'pointer',
+		toleranceElement: '> div',
+		connectWith: ".linked-pages",
+		update: function(event,ui){
+			$.ajax({
+				type: 'post',
+				data: $('ol#unlinked-page-list').nestedSortable('serialize') + "&socket=unlinked",
+				dataType: 'script',
+				complete: function(request){
+				},
+				url: '/admin/pages/sort'
+			})
+		}
+	}).disableSelection();
+
+	$('ol.linked-pages').nestedSortable({
+		handle: 'div',
+		disableNesting: 'no-nest',
+		forcePlaceholderSize: true,
+		helper:	'clone',
+		items: 'li',
+		maxLevels: 2,
+		opacity: .6,
+		placeholder: 'placeholder',
+		revert: 250,
+		tabSize: 25,
+		tolerance: 'pointer',
+		toleranceElement: '> div',
+		connectWith: ".unlinked-pages",
+		update: function(event,ui){
+			$.ajax({
+				type: 'post',
+				data: $('ol#page-list').nestedSortable('serialize') + "&socket=linked",
+				dataType: 'script',
+				complete: function(request){
+				},
+				url: '/admin/pages/sort'
+			})
+		}
+	}).disableSelection();
+
+</script>

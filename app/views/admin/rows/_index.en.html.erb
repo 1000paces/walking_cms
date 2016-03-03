@@ -1,0 +1,58 @@
+<%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 4 -%>
+<div class="row">
+	<div class="col-md-12 header-zone zone" id="header-row"></div>
+</div>
+<div class="row" id="wcms-navigation-row">
+	<div class="col-md-12 navigation-zone" id="wcms-navigation-row-inner">
+		<%#= render :partial => "pages/nav" -%>
+		<%= render :partial => "admin/pages/nav_horizontal" if @page.setting.nav_location < 4 -%>
+	</div>
+</div>
+
+<div id="wcms-row-sort-container">
+	<%- @page.rows.each_with_index do |row, index| -%>
+		<%- unless row.new_record? -%>
+			<%= render :partial => "admin/rows/row", :locals => {:index => index, :row => row} -%>
+		<%- end -%>
+	<%- end -%>
+</div>
+
+<div class="row">
+	<div class="col-md-12 footer-zone zone" id="footer-row"></div>
+</div>
+<%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 5 -%>
+
+<script type="text/javascript">
+
+	$("#wcms-row-sort-container").sortable({
+		placeholder: "ui-state-highlight",
+		helper: 'clone',
+		update: function(event,ui){
+			$.ajax({
+				type: 'post',
+				data: $('div#wcms-row-sort-container').sortable('serialize'),
+				dataType: 'script',
+				complete: function(request){
+				},
+				url: '/rows/<%= @page.id -%>/sort'
+			})
+		}
+	}).disableSelection();
+
+	$(".wcms-cell-sort-container").sortable({
+		placeholder: "ui-state-highlight",
+		helper: 'clone',
+		connectWith: ".wcms-cell-sort-container",
+		update: function(event,ui){
+			var rowId = $(this).attr("data-row");
+			$.ajax({
+				type: 'post',
+				data: $(this).sortable('serialize'),
+				dataType: 'script',
+				complete: function(request){
+				},
+				url: '/cells/' + rowId + '/sort'
+			})
+		}
+	}).disableSelection();	
+</script>

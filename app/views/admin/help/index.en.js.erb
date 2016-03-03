@@ -1,0 +1,17 @@
+if($("#wcms-form-box").is(':visible')) {
+	$("#wcms-form-box").hide("slide", { direction: "right" }, 500);
+	$("#wcms-drawer-help").show("slide", { direction: "left"}, 500);
+} else {
+	$(".wcms-master-toolbar-link").removeClass("active");
+	if($("#wcms-drawer-help").is(':visible')){
+		$("#wcms-drawer-help").hide("slide", { direction: "right" }, 500);
+		$("#drawer-forms").empty();
+		$("#wcms-wrapper").removeClass("drawer-visible");
+	} else {
+		$("#help-index-div").html("<%= j render(:partial => 'admin/help/index') -%>");
+		$(".wcms-right-column").hide(); 
+		$("#wcms-wrapper").addClass("drawer-visible");
+		$("#wcms-toggle-help").addClass("active");
+		$("#wcms-drawer-help").fadeIn();
+	}
+}

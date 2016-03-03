@@ -1,0 +1,8 @@
+<div class="wcms-white-text-label text-xs-center">Topic Index</div>
+<ol class="list-unstyled help-list">
+	<%- HelpTopic.roots.each do |ht| -%>
+		<li>
+		<%= render :partial => "admin/child", :locals => {:ht => ht} -%>
+		</li>
+	<%- end -%>
+</ol>

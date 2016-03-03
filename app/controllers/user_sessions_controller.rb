@@ -16,7 +16,7 @@ class UserSessionsController < ApplicationController
 			Rails.logger.warn("SHOULD BE A SESSION")
 			flash[:notice] = "Login successful!"
 			#redirect_to user_path(session[:user_credentials_id])
-			redirect_to home_path#(session[:user_credentials_id])
+			redirect_to admin_home_path#(session[:user_credentials_id])
 		else
 			Rails.logger.warn("NO SESSION")
 			redirect_to new_user_session_path

@@ -1,0 +1,13 @@
+$(".wcms-master-toolbar-link").removeClass("active");
+$("#wcms-form-box").hide();
+if($("#wcms-drawer-assets").is(':visible')){
+	$("#wcms-drawer-assets").hide("slide", { direction: "right" }, 500);
+	$("#drawer-forms").empty();
+	$("#wcms-wrapper").removeClass("drawer-visible");
+} else {
+	$("#assets-index-div").html("<%= j render(:partial => 'admin/assets/index') -%>");
+	$(".wcms-right-column").hide(); 
+	$("#wcms-wrapper").addClass("drawer-visible");
+	$("#wcms-toggle-assets").addClass("active");
+	$("#wcms-drawer-assets").fadeIn(); /*show("slide", { direction: "right" }, 150);*/
+}

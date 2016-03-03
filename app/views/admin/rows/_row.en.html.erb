@@ -1,0 +1,7 @@
+<div id="wcms-toolbox-<%= row.id %>" class="sort" data-row="<%= row.id -%>">
+	<div class="row wcms-cell-sort-container wcms-row-sort-border" id="wcms-row-<%= row.id -%>" data-row="<%= row.id -%>">
+		<%- row.cells.each_with_index do |cell, cell_index| -%>
+			<%= render :partial => "admin/rows/cell", :locals => {:row => row, :cell => cell, :index => cell_index} -%>
+		<%- end -%>
+	</div>
+</div>

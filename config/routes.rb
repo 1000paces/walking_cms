@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   resource :user_session, only: [:create, :new, :destroy]  
   
-  
-  resources :admin, only: [:show]
   namespace :admin do
+    resources :sites, only: [:show]
+    get "home" => "sites#show", :as => :home
+
     resources :domains
     resources :users    
     resources :pages 
-    match "pages/:user_id/sort" => "pages#sort", :as => "file_list_sort", :via => [:get, :post]    
+    match "pages/sort" => "pages#sort", :as => "page_list_sort", :via => [:get, :post]    
     resources :rows, only: [:create, :sort]
     match "rows/:page_id/sort" => "rows#sort", :as => "rows_sort", :via => [:get, :post]
     resources :cells, :except => [:edit]
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get "login" => "user_sessions#new", :as => :login
-  get "home" => "admin#show", :as => :home
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.

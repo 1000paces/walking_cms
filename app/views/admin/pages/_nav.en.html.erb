@@ -1,0 +1,5 @@
+<%- if [4,5].include?(@page.setting.nav_location) -%>
+	<%= render :partial => "admin/pages/nav_vertical" -%>
+<%- else -%>
+	<%= render :partial => "admin/pages/nav_horizontal" -%>
+<%- end -%>
