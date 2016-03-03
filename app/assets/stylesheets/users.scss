@@ -527,23 +527,6 @@ ol.help-list, ol.wcms-user-settings-list {
 	border-radius: 0 4px 4px 0;
 }
 
-.wcms-row {
-/*	position: relative !important;
-	min-height: 44px;
-	height: 100% !important;
-	padding: 0 !important;
-*/
-}
-
-.wcms-row .wcms-cell {
-	/*margin: 0 !important;*/
-	/*display: flex;*/
-}
-
-.wcms-sort {
-
-}
-
 .wcms-row:first-child {
   /*opacity: .99;
   z-index: 51;*/
@@ -736,13 +719,15 @@ div.tool-items a.tool-item i {
 
 /****** FLIP Styles  *********/
 .wcms-row {
+	/*display: flex;*/
 }
 .wcms-cell {
+	/*background-color: teal;
+	border-radius: 0.25rem;*/
 }
 
 .wcms-flip {
 	-webkit-perspective: 800;
-	/*perspective: 800;*/
 }
 
 .wcms-work-cell.flipped .wcms-flip .wcms-card {
