@@ -24,7 +24,8 @@ class Page < ActiveRecord::Base
 	ICON_EMPTY = "fa fa-fw #{ICON_EMPTY_SHORT}"
 	HOME = "fa fa-fw #{HOME_SHORT}"
 	
-	DRAFT = "fa fa-fw fa-exclamation-triangle"
+	DRAFT = "fa fa-fw fa-exclamation-triangle wcms-warning"
+	DELETE = "fa fa-fw fa-trash wcms-danger"
 	MENU = "fa fa-fw fa-bars"
 	SORT = "fa fa-fw fa-arrows"
 	CLONE = "fa fa-fw #{CLONE_SHORT}"
@@ -47,8 +48,11 @@ class Page < ActiveRecord::Base
 	end
 
 	def status_icon
-		if self.status != 'PUBLIC'
+		case self.status			
+		when 'DRAFT'
 			return Page::DRAFT
+		when 'DELETE'
+			return Page::DELETE
 		end
 	end
 
@@ -73,9 +77,56 @@ class Page < ActiveRecord::Base
 		else
 			return ''
 		end
-	end	
+	end
+
+	def duplicate
+		new_page = self.dup
+		new_page.permalink = self.generate_permalink
+		new_page.status = 'DRAFT'
+		new_page.label = "#{self.label} *duplicate*"
+		new_page.position = nil
+		new_page.save
+
+		self.setting.duplicate(new_page.id)
+
+		self.rows.each do |r|
+			r.duplicate(new_page.id)
+		end
+	#	new_page.
+	end
+
+	def generate_permalink(old_p_link="")
+		p_link = ""
+		if !label.blank?
+			p_link = label.parameterize
+		end
+		p_link.gsub!(/\W\./, "")
+		p_link.gsub!(/\s/,"")
+		p_link.gsub!(/["']/,"")
+		p_link.gsub!(/\./,"-")
+		p_link.downcase!
+		
+		p_link = Page.find_unique_permalink(self.user_id, p_link) unless p_link == old_p_link
+
+		return p_link
+	end
 
 	private
+
+	def self.find_unique_permalink(user_id, p_link)
+		i = 1
+		
+		new_permalink = nil
+		new_permalink = String.new(p_link).downcase
+		
+		until Page.where("user_id = ? AND permalink = ?", user_id, new_permalink).first.nil?
+			new_permalink = nil
+			new_permalink = String.new(p_link) << "-#{i.to_s}"
+			i += 1
+		end
+		
+		return new_permalink
+	end	
 
 	def init
 		if self.new_record?

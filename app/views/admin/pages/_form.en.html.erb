@@ -76,8 +76,9 @@
     </fieldset>  
   <%- end -%>
   <div class="radio">
-    <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "PUBLIC") %> Published</label> 
+    <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "PUBLIC") %> Publish</label> 
     <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "DRAFT") %> Draft</label>
+    <label class="small radio-inline"><%= f.radio_button(:status, "DELETE") %> <span class="wcms-danger-text">Delete</span></label>
     <small class="wcms-form-help" id="status_help">Select "Published" when your page is ready to view.</small>
   </div>
   <fieldset class="form-group wcms-action-group">  

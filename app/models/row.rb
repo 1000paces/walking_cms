@@ -13,4 +13,14 @@ class Row < ActiveRecord::Base
 		return width
 	end
 
+	def duplicate(pageId)
+		new_row = self.dup
+		new_row.page_id = pageId
+		new_row.save
+
+		self.cells.each do |c|
+			c.duplicate(new_row.id)
+		end
+	end
+
 end

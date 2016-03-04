@@ -6,9 +6,9 @@ class Admin::SitesController < ApplicationController
     if params[:id].nil?
       @page = @user.home_page
     elsif params[:id].to_i.to_s == params[:id] #### find via Page#id
-      @page = Page.find params[:id]
+      @page = @user.pages.find params[:id]
     else
-      @page = Page.find_by_permalink params[:id]
+      @page = @user.pages.find_by_permalink(params[:id])
     end
     if @page.rows.empty?
       @row = @page.rows.create 

@@ -237,6 +237,20 @@ class Cell < ActiveRecord::Base
 		return rgb_to_hex(self.background_color)
 	end	
 
+	def duplicate(rowId)
+		Rails.logger.warn("\n\nCOPYING CELL #{self.id}")
+		new_cell = self.dup
+		new_cell.row_id = rowId
+		if new_cell.save && !self.image.url.nil?
+			img_path = Rails.root.join('public' + self.image.url)
+			File.open(img_path) do |f|
+				new_cell.image = f
+			end
+			new_cell.save!
+		end
+		return new_cell
+	end
+
 	private
 
 	def fix_the_width
@@ -246,7 +260,6 @@ class Cell < ActiveRecord::Base
 			self.width = 1
 		end
 	end
-
 
 	def rgb_to_hex(value, drop_opacity=true)
 	  c = %Q{

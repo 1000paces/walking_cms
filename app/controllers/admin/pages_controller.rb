@@ -20,6 +20,11 @@ class Admin::PagesController < ApplicationController
   	@page = Page.create(page_parameters)
   end
 
+  def duplicate
+    old_page = Page.find(params[:id])
+    @page = old_page.duplicate
+  end
+
   def edit
   	@page = Page.find(params[:id])
     @row = @page.rows.first

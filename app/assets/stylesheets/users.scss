@@ -644,6 +644,14 @@ h4.wcms-white-text {
 	margin-bottom: 2rem;
 }
 
+.wcms-warning-text, .wcms-warning {
+	color: #f0ad4e;	
+}
+
+.wcms-danger-text, .wcms-danger {
+	color: #a94442;
+	background: rgba(255,255,255,0.2);
+}
 .wcms-row-sort-border {
 	/*border: 1px dashed blue !important;*/
 	margin-bottom: 2px !important;

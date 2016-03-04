@@ -27,23 +27,7 @@ class Setting < ActiveRecord::Base
 	}
 
 	def nav_color_converted
-		return nav_color
-=begin		
-		if self.nav_color.nil?
-			return ""
-		end
-
-		hex_color = self.nav_color.to_s(16)
-		if hex_color.length == 6
-			return "##{hex_color}"
-		elsif hex_color.length == 8
-			op = (hex_color[0,2].hex/255.0).round(2)
-			rd = hex_color[2,2].hex
-			gr = hex_color[4,2].hex
-			bl = hex_color[6,2].hex
-			return "rgba(#{rd},#{gr},#{bl},#{op})"
-		end
-=end		
+		return nav_color	
 	end
 
 	def nav_color_style
@@ -115,6 +99,12 @@ class Setting < ActiveRecord::Base
 
 	def hex_version
 		return rgb_to_hex(self.nav_color)
+	end
+
+	def duplicate(pageId)
+		new_setting = self.dup
+		new_setting.page_id = pageId
+		new_setting.save
 	end
 
 	private
