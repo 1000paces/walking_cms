@@ -48,12 +48,16 @@ class Page < ActiveRecord::Base
 	end
 
 	def status_icon
-		case self.status			
+		case self.status
 		when 'DRAFT'
 			return Page::DRAFT
 		when 'DELETE'
 			return Page::DELETE
 		end
+	end
+
+	def label_with_status
+		return "#{self.label} <i class='#{self.status_icon}' title='#{self.status}'></i>"
 	end
 
 	def font
