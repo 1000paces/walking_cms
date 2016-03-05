@@ -22,7 +22,10 @@ Rails.application.routes.draw do
     resources :images, only: [:index, :new, :create, :destroy]
  end
 
-  get 'welcome/index'
+  #get 'welcome/index'
+  get '/' => "welcome#index"
+  #resources :index, only: [:show]
+  get 'index/(:id)' => "index#show", :as => :public
 
   get "login" => "user_sessions#new", :as => :login
   

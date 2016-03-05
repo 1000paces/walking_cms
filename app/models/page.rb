@@ -25,7 +25,7 @@ class Page < ActiveRecord::Base
 	HOME = "fa fa-fw #{HOME_SHORT}"
 	
 	DRAFT = "fa fa-fw fa-exclamation-triangle wcms-warning"
-	DELETE = "fa fa-fw fa-trash wcms-danger"
+	DELETE = "fa fa-fw fa-trash-o wcms-danger"
 	MENU = "fa fa-fw fa-bars"
 	SORT = "fa fa-fw fa-arrows"
 	CLONE = "fa fa-fw #{CLONE_SHORT}"
