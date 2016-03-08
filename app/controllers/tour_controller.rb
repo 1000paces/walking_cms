@@ -1,4 +1,4 @@
-class WelcomeController < ApplicationController
+class ToController < ApplicationController
   def index
   	@user = User.new
   	if request.domain != "stonewall.dev"

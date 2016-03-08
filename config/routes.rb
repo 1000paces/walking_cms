@@ -23,7 +23,7 @@ Rails.application.routes.draw do
  end
 
   #get 'welcome/index'
-  get '/' => "welcome#index"
+  get '/' => "tour#index"
   #resources :index, only: [:show]
   get 'index/(:id)' => "index#show", :as => :public
 
@@ -86,5 +86,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root :to => 'welcome#index'
+  root :to => 'tour#index'
 end
