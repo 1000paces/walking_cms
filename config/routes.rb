@@ -23,9 +23,9 @@ Rails.application.routes.draw do
  end
 
   #get 'welcome/index'
-  get '/' => "tour#index"
-  #resources :index, only: [:show]
-  get 'index/(:id)' => "index#show", :as => :public
+  #get '/' => "tour#index"
+  resources :tour, only: [:index]
+  get '/(:id)' => "index#show", :as => :public
 
   get "login" => "user_sessions#new", :as => :login
   
@@ -86,5 +86,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root :to => 'tour#index'
+  #root :to => 'tour#index'
+  root :to => 'index#show'
 end

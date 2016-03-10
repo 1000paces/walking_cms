@@ -47,6 +47,18 @@ class Page < ActiveRecord::Base
 		end
 	end
 
+	def published_children
+		self.children.where("status = ?", 'PUBLIC')
+	end
+
+	def self.retrieve(page_id, user_id)
+		if page_id.to_i.to_s == page_id #### integer, find by id
+			self.where("id = ? AND user_id = ?", page_id, user_id).first
+		else #### not numeric, find by permalink
+			self.where("permalink = ? AND user_id = ?", page_id, user_id).first
+		end
+	end
+
 	def status_icon
 		case self.status
 		when 'DRAFT'

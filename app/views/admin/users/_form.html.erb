@@ -55,7 +55,7 @@
             <div class="col-sm-8 col-sm-offset-3">
               <%- if @user.new_record? -%>
                 <%= f.submit 'Create Account', class: 'btn btn-primary' %>
-                <%= link_to 'Cancel', tour_index_path, :class => "btn btn-warning pull-xs-right" %>
+                <%= link_to 'Cancel', root_path, :class => "btn btn-warning pull-xs-right" %>
               <%- else -%>
                 <%= f.submit 'Update Account', class: 'btn btn-primary' %>
                 <%= link_to 'Cancel', "#", :class => "btn btn-warning pull-xs-right", :id => "cancel-button" %>

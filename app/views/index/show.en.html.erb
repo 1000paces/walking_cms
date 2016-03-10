@@ -1,9 +1,27 @@
-<div class="jumbotron">
-  <h1 class="display-3">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="m-y-2">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
+<div id="wcms-content-wrapper">
+	<div class="<%= @page.setting.container_type -%> wcms-full-height-container">
+		<div class="col-md-12 wcms-cell">
+			<h1 class="text-xs-center" id="wcms-page-label"><%= @page.label -%></h1>
+		</div>
+		<%= render :partial => "nav_vertical" if @page.setting.nav_location == 4 -%>
+		<div class="col-md-<%= @page.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
+			<div class="row">
+				<div class="col-md-12 header-zone zone" id="header-row"></div>
+			</div>
+			<div class="row" id="wcms-navigation-row">
+				<div class="col-md-12 navigation-zone" id="wcms-navigation-row-inner">
+					<%= render :partial => "nav_horizontal" if @page.setting.nav_location < 4 -%>
+				</div>
+			</div>
+			<%- @page.rows.each_with_index do |row, index| -%>
+				<%- unless row.new_record? -%>
+					<%= render :partial => "row", :locals => {:index => index, :row => row} -%>
+				<%- end -%>
+			<%- end -%>
+			<div class="row">
+				<div class="col-md-12 footer-zone zone" id="footer-row"></div>
+			</div>
+		</div>
+		<%= render :partial => "nav_vertical" if @page.setting.nav_location == 5 -%>
+	</div>
 </div>

@@ -4,7 +4,7 @@
 	</div>
 	<div class="wcms-white-text-label text-xs-center">Site Navigation</div>
 	<ol class="list-unstyled page-list linked-pages" id="page-list">
-		<%- @user.top_nav_pages.each do |page| -%>
+		<%- @user.all_nav_pages.each do |page| -%>
 			<%= render :partial => "admin/pages/page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>

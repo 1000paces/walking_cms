@@ -1,6 +1,14 @@
 class IndexController < ApplicationController
   def show
-  	@user = User.new
-  	Rails.logger.warn("\n\nID IS #{params[:id]}\n\n")
+  	Rails.logger.warn("\n\nIndexController::show")
+  	Rails.logger.warn(":id IS #{params[:id]}\n\n")
+  	if request.domain == "stonewall.dev"
+  		@user = User.new
+  		redirect_to tour_index_path(params[:id])
+  	else
+  		@domain = Domain.find_by_name(request.domain)
+  		@user = @domain.user
+  		@page = Page.retrieve(params[:id], @user.id)
+  	end  	
   end
 end

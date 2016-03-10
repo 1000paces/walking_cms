@@ -32,8 +32,12 @@ class User < ActiveRecord::Base
 		self.linked_page_array ||= self.pages.order("position ASC").select{|x| x.position!=nil}
 	end
 
-	def top_nav_pages
+	def all_nav_pages
 		self.linked_page_array ||= self.pages.where("parent_id IS NULL").order("position ASC").select{|x| x.position!=nil}
+	end
+
+	def published_nav_pages
+		self.linked_page_array ||= self.pages.where("parent_id IS NULL AND status='PUBLIC'").order("position ASC").select{|x| x.position!=nil}
 	end
 
 	def non_nav_pages
@@ -41,11 +45,11 @@ class User < ActiveRecord::Base
 	end
 
 	def home_page
-		if self.top_nav_pages.blank?
+		if self.all_nav_pages.blank?
 			self.linked_page_array = nil
 			return self.pages.create(label: "My New Page", position: 0)
 		else
-			return self.top_nav_pages.first
+			return self.all_nav_pages.first
 		end
 	end
 

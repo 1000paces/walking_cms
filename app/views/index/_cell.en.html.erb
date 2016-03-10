@@ -1,1 +1,7 @@
-Index#cell
+<div class="col-<%= cell.breakpoint %>-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-#{cell.breakpoint}-offset-#{cell.offset}" : '' -%>">
+	
+	
+	
+				<%= render :partial => "shared/#{cell.gauge}", :locals => {row: row, cell: cell} -%>			
+	
+</div>
