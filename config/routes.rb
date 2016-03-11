@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get "home" => "sites#show", :as => :home
 
     resources :domains
+    resources :headers
     resources :users    
     resources :pages 
     match "pages/sort" => "pages#sort", :as => "page_list_sort", :via => [:get, :post]

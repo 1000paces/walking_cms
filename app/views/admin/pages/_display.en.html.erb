@@ -1,4 +1,4 @@
-<div class="col-md-12 wcms-cell">
+<div class="col-md-12 wcms-header" data-page="<%= @page.id -%>">
 	<%- if @user.pages.blank? -%>
 		<h3 class="text-xs-center">Hey, your site is empty! Click <%= link_to "Pages", admin_pages_path, :remote => true  -%> in the toolbar to your left to get started.</h3>
 	<%- else -%>

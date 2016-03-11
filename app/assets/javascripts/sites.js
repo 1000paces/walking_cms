@@ -16,6 +16,7 @@ $(document).on('click', ".wcms-master-toolbar-link", function(e) {
 $(document).on('click', '.wcms-cell', function(e){
 	var rowId = $(this).attr('data-row');
 	var cellId = $(this).attr('data-cell');
+
 	console.log("3. .wcms-cell was clicked so get update the appropriate toolbars for row " + rowId + " and cell " + cellId);
 	if ($(e.target).closest(".wcms-back").length === 0) {
 		$.ajax({
@@ -24,6 +25,19 @@ $(document).on('click', '.wcms-cell', function(e){
 			url: '/admin/cells/' + cellId 
 		})
 	}
+});
+
+$(document).on('click', '.wcms-header', function(e){
+	var pageId = $(this).attr('data-page');
+	
+	console.log("3.25 .wcms-header was clicked");
+	
+		$.ajax({
+			type: 'get',
+			dataType: 'script',
+			url: '/admin/headers/' + pageId 
+		})
+	
 });
 
 $(document).on('click', '#wcms-undo', function(e){
