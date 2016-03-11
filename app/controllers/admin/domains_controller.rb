@@ -23,24 +23,26 @@ class Admin::DomainsController < ApplicationController
   def edit
     @domain = @user.domain
     if @domain.nil?
-      redirect_to new_domain_path
+      redirect_to new_admin_domain_path
     end
   end
 
   # POST /domains
   # POST /domains.json
   def create
-    @domain = Domain.new(domain_params)
-
-    respond_to do |format|
-      if @domain.save
-        format.html { redirect_to @domain, notice: 'Domain was successfully created.' }
-        format.json { render :show, status: :created, location: @domain }
-      else
-        format.html { render :new }
-        format.json { render json: @domain.errors, status: :unprocessable_entity }
-      end
+    @domain = Domain.create(domain_params)
+    if @domain.errors.any?
+      render(:template => "/shared/errors", :layout => false)
     end
+    #respond_to do |format|
+    #  if @domain.save
+    #    format.html { redirect_to @domain, notice: 'Domain was successfully created.' }
+    #    format.json { render :show, status: :created, location: @domain }
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @domain.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PATCH/PUT /domains/1

@@ -8,7 +8,11 @@ class IndexController < ApplicationController
   	else
   		@domain = Domain.find_by_name(request.domain)
   		@user = @domain.user
-  		@page = Page.retrieve(params[:id], @user.id)
+      if params[:id].blank?
+        @page = @user.home_page
+      else
+  		  @page = Page.retrieve(params[:id], @user.id)
+      end
   	end  	
   end
 end
