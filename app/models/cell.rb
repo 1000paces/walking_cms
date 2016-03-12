@@ -205,7 +205,7 @@ class Cell < ActiveRecord::Base
 		if self.background_color.nil? || self.variant < 8
 			return ""
 		else
-			return "background-color: #{self.background_color_converted};".html_safe
+			return "background-color: #{self.background_color_converted}; border-color: #{self.background_color_converted};".html_safe
 		end
 	end
 

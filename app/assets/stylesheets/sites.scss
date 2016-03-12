@@ -115,7 +115,7 @@ div#wcms-content-wrapper {
 	background-color: #fff;
 	flex: 1;
 	align-items: stretch;
-	padding: 4px 10px;
+	/*padding: 4px 10px;*/
 }
 
 
@@ -322,6 +322,35 @@ small.wcms-form-help {
 	padding: 1px;
 }
 
+nav.wcms-cell-controls {
+	margin-top: -28px;
+	border-radius: 0 0 0.25rem 0.25rem;
+	background-color: rgba(51, 51, 51, 0.85);
+	z-index: 2000;
+	position: relative;
+}
+
+nav.wcms-cell-controls a.wcms-cell-link {
+	color: #fff !important;
+	text-decoration: none !important;
+	font-weight: 200;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin: 2px;
+}
+
+nav.wcms-cell-controls a.wcms-cell-link:hover {
+	color: #ccc !important;
+	text-decoration: none !important;
+	font-weight: 200;
+}
+
+nav.wcms-cell-controls a.wcms-cell-link:visited {
+	color: #fff !important;
+	text-decoration: none !important;
+	font-weight: 200;
+}
+
 a.wcms-sidebar-link {
 	color: #d6d6d6 !important;
 	text-decoration: none !important;
@@ -397,7 +426,7 @@ ol.help-list, ol.wcms-user-settings-list {
 }
 
 .header-zone, .navigation-zone, .footer-zone {
-	min-height: 10px !important;
+	/*min-height: 10px !important;*/
 }
 
 #wcms-navigation-row {
@@ -417,17 +446,10 @@ ol.help-list, ol.wcms-user-settings-list {
 }
 
 .wcms-cell-active {
-	/*padding: 0 !important;*/
-	border: 1px solid #fff !important;
-	border-radius: 0.25rem;
-	background-color: #fff !important;	
+
 }
 
 .wcms-cell-active.flipped .wcms-flip {
-	/*padding: 0 !important;*/
-/*	border: 1px solid #fff !important;
-	border-radius: 0.25rem;
-	background-color: #fff !important;	*/
 }
 
 
@@ -734,6 +756,13 @@ div.tool-items a.tool-item i {
 	/*background-color: teal;
 	border-radius: 0.25rem;*/
 }
+.wcms-header {
+	background-color: teal;
+	margin-left: -0.9375rem;
+	margin-right: -0.9375rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}
 
 .wcms-flip {
 	-webkit-perspective: 800;
@@ -793,11 +822,11 @@ div.tool-items a.tool-item i {
 }
 
 .wcms-cell-active .wcms-front {
-	margin: -5px -10px;
+	/*margin: -5px -10px;
 	padding: 4px 10px;
 	border: 1px solid #e5e5e5 !important;
 	background-color: #f5f5f5 !important;
-	border-radius: 0.25rem;
+	border-radius: 0.25rem;*/
 }
 
 

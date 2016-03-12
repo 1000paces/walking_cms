@@ -14,7 +14,7 @@ class Page < ActiveRecord::Base
 	excluded_words = ['index','admin','catalog','resource','test','user','observation','entity','directory','search']
 	validates_exclusion_of :permalink, :in => excluded_words, :message =>"Can't use reserved words: #{excluded_words.to_sentence}."	
 
-	ICON_SHORT = "fa-file-text-o"
+	ICON_SHORT = "fa-file-text-o fa-flip-horizontal"
 	HOME_SHORT = "fa-home"
 	ICON_EMPTY_SHORT = "fa-file-o"
 	CLONE_SHORT = 'fa-files-o'

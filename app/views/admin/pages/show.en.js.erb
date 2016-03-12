@@ -12,7 +12,7 @@ $(".wcms-page-finish").replaceWith("<%= j render(:partial => 'admin/pages/toolba
 $(".wcms-page-duplicate").replaceWith("<%= j render(:partial => 'admin/pages/toolbar_vertical_duplicate', :locals => {:p => @page}) %>");
 
 
-$("#wcms-cell-toolbar").html("<%= j render(:partial => 'admin/pages/cell_toolbars', :locals => {:p => @page}) %>");
+$("#wcms-cell-toolbar").html("<%#= j render(:partial => 'admin/pages/cell_toolbars', :locals => {:p => @page}) %>");
 $(".wcms-cell-toolbar-vertical").hide("slide", { direction: "right" }, 500);
 $("#wcms-master-toolbar").show("slide", { direction: "left" }, 500);
 $(".wcms-cell").removeClass("wcms-cell-active");

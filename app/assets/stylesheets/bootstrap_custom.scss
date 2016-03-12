@@ -55,9 +55,13 @@
 	color: #fff;
 }
 
-
 .card {
   overflow: hidden;
+  
+}
+
+.wcms-front .card {
+  margin-bottom: 0 !important;
 }
 
 .card-secondary {
@@ -67,5 +71,9 @@
 
 .card-inverse {
   color: rgba(255,255,255,0.65);
+}
+
+nav.navbar:not(.navbar-fixed-top) {
+  margin-top: 15px;
 }
 
