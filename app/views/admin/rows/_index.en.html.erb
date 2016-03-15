@@ -4,11 +4,9 @@
 </div>
 <div class="row" id="wcms-navigation-row">
 	<div class="col-md-12 navigation-zone" id="wcms-navigation-row-inner">
-		<%#= render :partial => "pages/nav" -%>
 		<%= render :partial => "admin/pages/nav_horizontal" if @page.setting.nav_location < 4 -%>
 	</div>
 </div>
-
 <div id="wcms-row-sort-container">
 	<%- @page.rows.each_with_index do |row, index| -%>
 		<%- unless row.new_record? -%>
@@ -16,7 +14,6 @@
 		<%- end -%>
 	<%- end -%>
 </div>
-
 <div class="row">
 	<div class="col-md-12 footer-zone zone" id="footer-row"></div>
 </div>

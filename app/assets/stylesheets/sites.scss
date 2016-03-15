@@ -901,5 +901,20 @@ div.tool-items a.tool-item i {
 	margin-bottom: 0px !important;
 }
 
+.wcms-sort-row {
+	position: relative;
+}
+
+.wcms-sort-handle {
+	position: absolute;
+	top: 2px;
+	left: -10px;
+	z-index: 2000;
+	
+	-webkit-text-stroke: 1px black;
+	color: #ffffff;
+
+}
+
 
 
