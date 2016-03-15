@@ -41,11 +41,13 @@
 	<%- end -%>
 		<%- unless @page.nil? -%><%- end -%>
 		<%= yield %>
-		<div id="wcms-full-screen">
-			<%= link_to("#", {:class => "wcms-full-screen wcms-sidebar-link"}) do -%>
-				<i class="fa fa-exchange fa-fw"></i>
-			<%- end -%>
-		</div>
+		<%- if 1==2 ### don't need this anymore -%>
+			<div id="wcms-full-screen">
+				<%= link_to("#", {:class => "wcms-full-screen wcms-sidebar-link"}) do -%>
+					<i class="fa fa-exchange fa-fw"></i>
+				<%- end -%>
+			</div>
+		<%- end -%>
 		<div id="wcms-custom-font" style="display: none;">
 			<%= render(:partial => "admin/pages/font") -%>
 		</div>

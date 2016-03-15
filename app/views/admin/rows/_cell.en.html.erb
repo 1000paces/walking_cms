@@ -1,4 +1,4 @@
-<div class="col-<%= cell.breakpoint %>-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-#{cell.breakpoint}#-offset-#{cell.offset}" : '' -%> sort wcms-sort" id="wcms-work-cell-<%= cell.id %>" data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>">
+<div class="col-<%= cell.breakpoint %>-<%= cell.width>12 ? 12 : cell.width %> <%= cell.offset>0 ? "col-#{cell.breakpoint}#-offset-#{cell.offset}" : '' -%> sort wcms-sort" id="wcms-cell-<%= cell.id %>" data-width="<%= cell.width %>" data-offset="<%= cell.offset %>" data-row="<%= row.id -%>" data-cell="<%= cell.id -%>">
 	<div class="wcms-cell-sort-border" title="row <%= row.id -%> | cell <%= cell.id -%>">
 		<%= render :partial => "shared/#{cell.gauge}", :locals => {row: row, cell: cell} -%>	
 	</div>

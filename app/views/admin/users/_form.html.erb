@@ -58,16 +58,7 @@
                 <%= link_to 'Cancel', root_path, :class => "btn btn-warning pull-xs-right" %>
               <%- else -%>
                 <%= f.submit 'Update Account', class: 'btn btn-primary' %>
-                <%= link_to 'Cancel', "#", :class => "btn btn-warning pull-xs-right", :id => "cancel-button" %>
-                <script type="text/javascript">
-                  $('#cancel-button').on('click', function(e){
-                    e.preventDefault();
-                    $("#wcms-drawer-forms").hide("slide", { direction: "left" }, 750, function(){
-                      $(this).empty();
-                    });
-                    $("#wcms-page-display").show("slide", { direction: "right" }, 750);
-                  });
-                  </script>
+                <%= link_to 'Cancel', admin_settings_path, :title => "Cancel", :class => "btn btn-warning btn-sm pull-xs-right", :id => "cancel-button", :remote => true %>
               <%- end -%>
             </div>
           </div>

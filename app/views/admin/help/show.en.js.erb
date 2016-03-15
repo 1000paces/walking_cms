@@ -3,9 +3,3 @@ $("#wcms-form-box").html("<%= j render(:partial => 'show') -%>");
 $(".wcms-right-column").hide("slide", { direction: "left" }, 750, function() {
 	$("#wcms-form-box").show("slide", { direction: "right" }, 750);
 });
-
-<%- if 1==2 -%>
-$("#wcms-drawer-forms").html("<%= j render(:partial => 'show') -%>");
-$("#wcms-page-display").hide("slide", { direction: "left" }, 750);
-$("#wcms-drawer-forms").show("slide", { direction: "right" }, 750);
-<%- end -%>

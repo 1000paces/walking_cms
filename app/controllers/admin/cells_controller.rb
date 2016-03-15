@@ -17,7 +17,12 @@ class Admin::CellsController < ApplicationController
   end
 
   def create
-    @adjacent_cell = Cell.find params[:adjacent_cell]
+    if params[:adjacent_cell] == "0"
+      @page = Page.find(params[:page_id])
+      @adjacent_cell = @page.rows.first.cells.first
+    else  
+      @adjacent_cell = Cell.find params[:adjacent_cell]
+    end
     deed = params[:deed]
     direction = params[:direction]
 
@@ -96,21 +101,22 @@ class Admin::CellsController < ApplicationController
 
   def restore
     @page = Page.find(params[:page_id])
-    @row = Row.find(params[:row_id])
-    @cell = Cell.find(params[:cell_id])
-
-    if @row.nil?
-
+    begin
+      @row = Row.find(params[:row_id])
+    rescue
+      p = @page.rows.size
+      @row = Row.create(:page_id => @page.id, :position => p)
     end
+
+    @cell = Cell.find(params[:cell_id])
     @row.cells << @cell
-    #render "admin/pages/show"
   end
 
   def sort
     @row = Row.find params[:row_id]
     @page = @row.page
     #Rails.logger.warn("\n\nPARAMS: #{params}\n\n")
-    cells = params["wcms-work-cell"]
+    cells = params["wcms-cell"]
 
     case request.method
     when 'GET'

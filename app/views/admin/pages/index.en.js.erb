@@ -1,3 +1,6 @@
+$("#wcms-master-menu .dropdown-item").removeClass("active");
+$("#wcms-master-menu").removeClass("open");
+
 if($("#wcms-form-box").is(':visible')) {
 	$("#wcms-form-box").hide("slide", { direction: "right" }, 500);
 	$("#wcms-drawer-pages").show("slide", { direction: "left"}, 500);
@@ -14,4 +17,4 @@ if($("#wcms-form-box").is(':visible')) {
 		$("#wcms-drawer-pages").fadeIn();
 		$("#wcms-wrapper").addClass("drawer-visible");
 	}
-} 
+}

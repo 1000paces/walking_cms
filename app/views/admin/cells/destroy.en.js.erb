@@ -1,10 +1,9 @@
-$("#wcms-work-cell-<%= @cell.id %>").fadeOut();
+$("#wcms-cell-<%= @cell.id %>").fadeOut();
 $("#wcms-wrapper").removeClass('toolbar-visible').delay(500).queue(function(next) {
-	$("#wcms-master-toolbar").show();
 	$(".wcms-cell-toolbar-vertical").hide();
 	$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").remove();
 
-	$("#wcms-undo").parent().removeClass("hidden").addClass("active");
+	$("#wcms-undo").removeClass("hidden").addClass("active");
 	$("#wcms-restore-page-id").val("<%= @page.id -%>");
 	$("#wcms-restore-row-id").val("<%= @row.id -%>");
 	$("#wcms-restore-cell-id").val("<%= @cell.id -%>");

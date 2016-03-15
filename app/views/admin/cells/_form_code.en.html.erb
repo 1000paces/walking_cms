@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header"><i class="fa fa-fw fa-code"></i> Embedded Code</div>
+  <div class="card-header" title="#wcms-cell-<%= @cell.id %>"><i class="fa fa-fw fa-code"></i> Embedded Code</div>
   <div class="card-block">
     <%= form_for [:admin, @cell], html: { class: "wcms-card-form" }, :remote => true do |f| %>
     	<div class="form-group">

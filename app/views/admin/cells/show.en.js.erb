@@ -1,8 +1,7 @@
 $(".wcms-cell").removeClass("wcms-cell-active");
-$("#wcms-work-cell-<%= @cell.id %>").addClass("wcms-cell-active");
+$("#wcms-cell-<%= @cell.id %>").addClass("wcms-cell-active").effect("highlight", {}, 3000);
 $("#wcms-adjacent-cell").val(<%= @cell.id -%>);
-$(".wcms-work-cell:not(#wcms-work-cell-<%= @cell.id %>)").removeClass("flipped");
-
+$(".wcms-work-cell:not(#wcms-cell-<%= @cell.id %>)").removeClass("flipped");
 
 <%- if 1==2 -%>
 $(".wcms-cell-toolbar-link").removeClass('active');

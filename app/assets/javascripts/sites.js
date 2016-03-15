@@ -55,12 +55,9 @@ $(document).on("click", ".wcms-cell-toolbar-cells", function(e){
 	e.stopPropagation();
 	var dataSide = $(this).attr('data-side');
 	var dataAction = $(this).attr('data-action');
-	var dataRow = $(this).attr('data-row');
-	var dataCell = $(this).attr('data-cell');
-	console.log("5. .wcms-cell-toolbar-cells was clicked to create a new cell:" + dataSide + " | " + dataAction + " | " + dataRow + " | " + dataCell);
+	console.log("5. .wcms-cell-toolbar-cells was clicked to create a new cell:" + dataSide + " | " + dataAction);
 	$("#wcms-direction").val(dataSide);
 	$("#wcms-deed").val(dataAction);
-	$("#wcms-adjacent-cell").val(dataCell);
 	$("#wcms-new-cell").submit();
 });
 
@@ -68,7 +65,7 @@ $(document).on("click", ".wcms-cell-text", function(e){
 	var dataRow = $(this).attr('data-row');
 	var dataCell = $(this).attr('data-cell');
 	console.log("6. .wcms-cell-text was clicked for row " + dataRow + " and cell " + dataCell);
-	cell = $('#wcms-work-cell-' + dataCell);
+	cell = $('#wcms-cell-' + dataCell);
 });
 
 $(document).on('click', ".wcms-cell-cancel-btn", function(e) {
@@ -76,7 +73,7 @@ $(document).on('click', ".wcms-cell-cancel-btn", function(e) {
 	e.preventDefault();
 	var dataRow = $(this).attr('data-row');
 	var dataCell = $(this).attr('data-cell');
-	$("#wcms-work-cell-" + dataCell).toggleClass('flipped');
+	$("#wcms-cell-" + dataCell).toggleClass('flipped');
 	$(".wcms-cell-toolbar-link").removeClass('active');
 });	
 
@@ -108,7 +105,7 @@ $(document).on('click', ".wcms-cancel", function(e) {
 	var dataRow = $(this).attr('data-row');
 	var dataCell = $(this).attr('data-cell');
 	$("#wcms-toolbar-div-" + dataRow).fadeOut();
-	$("#wcms-work-cell-" + dataCell).removeClass("wcms-cell-active");
+	$("#wcms-cell-" + dataCell).removeClass("wcms-cell-active");
 
 });
 
@@ -147,8 +144,8 @@ $(document).on('click', function (e) {
         	console.log("14. remove drawer-visible");
 					$(".wcms-right-column").hide("slide", { direction: "right" }, 500);
 					$(".wcms-form-box").hide();
-					$(".wcms-master-toolbar-link").removeClass("active");
 					$("#wcms-wrapper").removeClass("drawer-visible");
+					$("#wcms-master-menu .dropdown-item").removeClass("active");
         }
     }
 });

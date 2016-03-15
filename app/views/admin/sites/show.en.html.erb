@@ -1,5 +1,5 @@
 <div id="wcms-wrapper" class="toolbar-visible">
-	<%= render :partial => "admin/pages/drawer_left" -%>
+	<%#= render :partial => "admin/pages/drawer_left" -%>
 	<div id="wcms-content-wrapper">
 		<%= render :partial => 'admin/pages/show' -%>
 	</div>
@@ -15,6 +15,7 @@
 		<%= hidden_field_tag("adjacent_cell", 0, {:id => "wcms-adjacent-cell"}) %>
 		<%= hidden_field_tag("deed", "add", {:id => "wcms-deed"}) %>
 		<%= hidden_field_tag("direction", "right", {:id => "wcms-direction"}) %>
+		<%= hidden_field_tag("page_id", @page.id) -%>
 	<%- end -%>
 
 	<%= render :partial => "admin/cells/restore_cell_form", :locals => { page: @page, row: Row.new, cell: Cell.new } -%>

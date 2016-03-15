@@ -85,6 +85,9 @@
     <%= f.submit 'Save', class: 'btn btn-primary btn-sm' %>
     <%= link_to "Cancel", admin_pages_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning btn-sm pull-xs-right", :remote => true -%>
   </fieldset>
+  <fieldset class="form-group wcms-action-group text-xs-center">
+    <%= link_to "<i class='#{Page::CLONE}'></i> Copy Page".html_safe, admin_duplicate_page_path(@page), :class => "btn btn-sm btn-secondary-outline wcms-duplicate", :title => "Duplicate", :id => "wcms-duplicate", :remote => true -%>
+  </fieldset>
 <%- end -%>
 
 <script type="text/javascript">

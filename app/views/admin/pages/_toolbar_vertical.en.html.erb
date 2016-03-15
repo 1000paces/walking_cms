@@ -1,15 +1,16 @@
 <div id="wcms-master-toolbar" class="wcms-toolbar wcms-master-toolbar wcms-toolbar-vertical p-t-4">
 	<ul class="nav" id="wcms-master-toolbar-vertical">
 		<li class="nav-item"><%= link_to "<i class='#{Page::ICON}'></i>".html_safe, admin_pages_path, :title => "Pages", :id => "wcms-toggle-pages", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link", :remote => true -%></li>
-		<%= render :partial => 'admin/pages/toolbar_vertical_duplicate', :locals => {:p => @page} -%>		
+		<%- if 1==2 -%><%= render :partial => 'admin/pages/toolbar_vertical_duplicate', :locals => {:p => @page} -%><%- end -%>	
 		<%- if 1==2 -%><li class="nav-item"><%= link_to "<i class='fa fa-fw fa-archive'></i>".html_safe, admin_assets_path, :title => "Assets", :id => "wcms-toggle-assets", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link", :remote => true -%></li><%- end -%>
 		<li class="nav-item">&nbsp;</li>
 		<li class="nav-item"><%= link_to "<i class='#{Row::ICON}'></i>".html_safe, "#", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link wcms-secondary-link", :title => "Add Row", :id => "wcms-add-row" -%></li>
+		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-caret-square-o-left'></i>".html_safe, "#", :class => "nav-link wcms-sidebar-link wcms-cell-toolbar-link wcms-cell-toolbar-cells", :id => "wcms-add-cell-left", :title => "Add new card to the left", :data => {:side => "left", :action => "add", :row => 0, :cell => 0} -%></li>
+		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-caret-square-o-right'></i>".html_safe, "#", :class => "nav-link wcms-sidebar-link wcms-cell-toolbar-link wcms-cell-toolbar-cells", :id => "wcms-add-cell-right", :title => "Add new card to the right", :data => {:side => "right", :action => "add", :row => 0, :cell => 0}  -%></li>
+
 		<%= render :partial => 'admin/pages/toolbar_vertical_sort', :locals => {:p => @page} -%>
 		<%= render :partial => 'admin/pages/toolbar_vertical_finished', :locals => {:p => @page} -%>
 		<%= render :partial => 'admin/pages/toolbar_vertical_undo', :locals => {:p => @page} -%>
-		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-caret-square-o-left'></i>".html_safe, "#", :class => "nav-link wcms-sidebar-link wcms-cell-toolbar-link wcms-cell-toolbar-cells", :id => "wcms-add-cell-left", :title => "Add new card to the left", :data => {:side => "left", :action => "add", :row => 0, :cell => 0} -%></li>
-		<li class="nav-item"><%= link_to "<i class='fa fa-fw fa-caret-square-o-right'></i>".html_safe, "#", :class => "nav-link wcms-sidebar-link wcms-cell-toolbar-link wcms-cell-toolbar-cells", :id => "wcms-add-cell-right", :title => "Add new card to the right", :data => {:side => "right", :action => "add", :row => 0, :cell => 0}  -%></li>
 
 		<li class="nav-item">&nbsp;</li>
 		<%- if 1==2 -%><li class="nav-item"><%= link_to("<i class='#{User::ICON}'></i>".html_safe, edit_admin_user_path(@user), :remote => true, :id => "wcms-toggle-account", :class => "nav-link wcms-sidebar-link wcms-master-toolbar-link") -%></li><%- end -%>
