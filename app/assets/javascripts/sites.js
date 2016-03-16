@@ -92,7 +92,7 @@ $(document).on('click', ".wcms-cancel", function(e) {
 	console.log("9. Cancel the cell editor mode (.wcms-cancel)");
 	e.preventDefault();
 	$(".wcms-cell-toolbar-link").removeClass('active');
-	$(".wcms-work-cell").removeClass('flipped');
+	$(".wcms-work-cell, .wcms-header").removeClass('flipped');
 	$(".wcms-toolbar").hide();
 	$("#wcms-wrapper").removeClass('toolbar-visible').delay(500).queue(function(next) {
 		$("#wcms-master-toolbar").show();

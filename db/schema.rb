@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20160316124008) do
     t.string   "headline",       limit: 255
     t.string   "shape",          limit: 255
     t.string   "text_color",     limit: 255, default: "rgba(0,0,0,1)"
+    t.boolean  "overlap",                    default: false
   end
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree

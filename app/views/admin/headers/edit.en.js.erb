@@ -1,4 +1,4 @@
-$(".wcms-work-cell").removeClass('flipped');
+$(".wcms-work-cell, .wcms-header").removeClass('flipped');
 if($("#wcms-header .wcms-back").is(":visible")) {
 	$("#wcms-header").toggleClass('flipped');
 }
@@ -6,3 +6,6 @@ if($("#wcms-header .wcms-back").is(":visible")) {
 $(".wcms-form-cell").empty();
 $("#wcms-header-form-<%= @page.id %>").html('<%= j render(:partial => "admin/headers/form") -%>');
 $("#wcms-header").toggleClass('flipped');
+
+$(".wcms-right-column").hide("slide", { direction: "right" }, 500);
+$("#wcms-wrapper").removeClass("drawer-visible");

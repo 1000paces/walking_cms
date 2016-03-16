@@ -1,7 +1,10 @@
-$(".wcms-work-cell").removeClass('flipped');
+$(".wcms-work-cell, .wcms-header").removeClass('flipped');
 if($("#wcms-cell-<%= @cell.id %> .wcms-back").is(":visible")) {
 	$("#wcms-cell-<%= @cell.id %>").toggleClass('flipped');
 }
+
+$(".wcms-right-column").hide("slide", { direction: "right" }, 500);
+$("#wcms-wrapper").removeClass("drawer-visible");
 
 $(".wcms-cell-toolbar-link").removeClass('active');
 $(".wcms-form-cell").empty();

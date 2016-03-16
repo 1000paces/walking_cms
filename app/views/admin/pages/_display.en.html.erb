@@ -3,7 +3,7 @@
 <div class="col-md-<%= @page.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
 	<div class="row" id="wcms-navigation-row">
 		<div class="col-md-12 navigation-zone" id="wcms-navigation-row-inner">
-			<%= render :partial => "admin/pages/nav_horizontal" if @page.setting.nav_location < 4 -%>
+			<%= render :partial => "admin/pages/nav_horizontal" if @page.setting.nav_location < 4 && !@page.overlap -%>
 		</div>
 	</div>
 	<%- @page.rows.each_with_index do |row, index| -%>

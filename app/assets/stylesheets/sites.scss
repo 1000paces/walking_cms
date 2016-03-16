@@ -24,10 +24,17 @@ body.wcms-navbar-full {
 	padding-bottom: 0;
 }
 
-body.wcms-navbar-fixed-top {
+body.wcms-navbar-fixed-top:not(.wcms-overlap) {
 	padding-top: 53px !important;	
 	padding-bottom: 0;
-	/*position: static !important;*/
+}
+
+.wcms-overlap #wcms-sidebar-wrapper {
+	margin-top: 0;
+}
+
+body.wcms-navbar-fixed-top.wcms-overlap #wcms-sidebar-wrapper {
+	margin-top: 53px;
 }
 
 body.wcms-navbar-fixed-bottom {
@@ -466,6 +473,25 @@ ol.help-list, ol.wcms-user-settings-list {
 	border: none;
 }
 
+.wcms-header .card, .wcms-header .card-img {
+	border-radius: 0;
+}
+
+.wcms-header .card-img-overlay {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;	
+}
+
+.wcms-header .card-img-overlay h1, .wcms-header .card-img-overlay p {
+	/*flex: 1;*/
+}
+
+.wcms-header .wcms-back {
+	margin: 4px 10px;
+}
+
 .wcms-no-card {
 	background-color: #fff;
 	border: none;
@@ -783,10 +809,10 @@ div.tool-items a.tool-item i {
 	background-color: transparent;
 	margin-left: -0.9375rem;
 	margin-right: -0.9375rem;
-	padding-top: 0.25rem;
+	/*padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
 	padding-left: 1.5rem;
-	padding-right: 1.5rem;
+	padding-right: 1.5rem;*/
 	position: relative;
 }
 
@@ -929,9 +955,12 @@ div.tool-items a.tool-item i {
 
 .wcms-header-btn {
 	color: #ccc;
-	position: absolute;
+	/*position: absolute;
 	bottom: 0px;
-	left: 5px;
+	left: 5px;*/
+}
+.wcms-header-btn:visited, .wcms-header-btn:hover {
+	color: #fff;
 }
 
 

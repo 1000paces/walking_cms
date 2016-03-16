@@ -9,18 +9,15 @@
         </label>
       </div>
       <div class="form-group">
+        <label for="setting_border" class="sr-only">Overlap Header & Navigation</label>
+        <label class="small checkbox-inline">
+          <%= f.check_box(:overlap, {}, 1, 0) %> Overlap Header & Navigation
+        </label>
+      </div>              
+      <div class="form-group">
         <label for="page_headline" class="sr-only">Caption</label>
         <%= f.text_field :headline, :class => "form-control form-control-sm", :placeholder => "Caption" %>
       </div> 
-    	<div class="form-group">
-        <label for="cell_headline" class="sr-only">Shape</label>
-        <div class="radio">
-          <label class="small radio"><%= f.radio_button(:shape, "rounded") %> Rounded Corners (Default)</label> 
-          <label class="small radio"><%= f.radio_button(:shape, "squared") %> Squared Corners</label> 
-          <label class="small radio"><%= f.radio_button(:shape, "thumbnail") %> White Border</label> 
-          <label class="small radio"><%= f.radio_button(:shape, "circle") %> Circle</label>
-        </div>
-      </div>
 	    <div class="form-group">
 	      <label for="page_text_color" class="sr-only">Text Color</label>
 	      <%= f.text_field :text_color, :class => "form-control form-control-xs", :readonly => true -%>

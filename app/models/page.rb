@@ -133,6 +133,16 @@ class Page < ActiveRecord::Base
 		return "color: #{self.text_color};"
 	end
 
+	def overlap_style
+		if self.overlap?
+			if self.setting.nav_location == 0
+				return "wcms-overlap"
+			else
+				return "wcms-overlap"
+			end
+		end
+	end
+
 	private
 
 	def self.find_unique_permalink(user_id, p_link)

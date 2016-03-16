@@ -37,7 +37,7 @@
 	<%- elsif @user && @page.nil? -%>
 		<body class="wcms-flex <%= @user.setting.background_color -%> <%= @user.setting.nav_class(true) -%>">
 	<%- else -%>
-		<body class="wcms-flex <%= @page.setting.background_class -%> <%= @page.setting.nav_class(true) -%>">
+		<body class="wcms-flex <%= @page.setting.background_class -%> <%= @page.setting.nav_class(true) -%> <%= @page.overlap_style -%>">
 	<%- end -%>
 		<%- unless @page.nil? -%><%- end -%>
 		<%= yield %>
