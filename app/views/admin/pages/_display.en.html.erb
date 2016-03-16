@@ -1,10 +1,4 @@
-<div id="wcms-header" class="wcms-header wcms-cell" data-page="<%= @page.id -%>">
-	<%- if @user.pages.blank? -%>
-		<h3 class="text-xs-center">Hey, your site is empty! Click <%= link_to "Pages", admin_pages_path, :remote => true  -%> in the toolbar to your left to get started.</h3>
-	<%- else -%>
-		<h1 class="text-xs-center" id="wcms-page-label"><%= @page.label -%></h1>
-	<%- end -%>
-</div>
+<%= render :partial => "admin/pages/header", :locals => {:page => @page} -%>
 <%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 4 -%>
 <div class="col-md-<%= @page.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
 	<div class="row" id="wcms-navigation-row">

@@ -6,12 +6,16 @@ class IndexController < ApplicationController
   		@user = User.new
   		redirect_to tour_index_path(params[:id])
   	else
-  		@domain = Domain.find_by_name(request.domain)
-  		@user = @domain.user
-      if params[:id].blank?
-        @page = @user.home_page
-      else
-  		  @page = Page.retrieve(params[:id], @user.id)
+      begin
+    		@domain = Domain.find_by_name(request.domain)
+    		@user = @domain.user
+        if params[:id].blank?
+          @page = @user.home_page
+        else
+    		  @page = Page.retrieve(params[:id], @user.id)
+        end
+      rescue
+        render :file => 'public/404.html', :status => :not_found, :layout => false
       end
   	end  	
   end

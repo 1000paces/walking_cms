@@ -3,7 +3,9 @@ class Page < ActiveRecord::Base
 	has_one :setting
 	accepts_nested_attributes_for :setting#, :reject_if => lambda{|r| r[:value].blank?}
 
-	has_many :rows, -> { order("position ASC")}
+	mount_uploader :header, ImageUploader
+
+	has_many :rows, -> { order("position ASC") }
 
 	acts_as_tree :order => "position"
 	after_initialize :init

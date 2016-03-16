@@ -1,0 +1,8 @@
+$(".wcms-work-cell").removeClass('flipped');
+if($("#wcms-header .wcms-back").is(":visible")) {
+	$("#wcms-header").toggleClass('flipped');
+}
+
+$(".wcms-form-cell").empty();
+$("#wcms-header-form-<%= @page.id %>").html('<%= j render(:partial => "admin/headers/form") -%>');
+$("#wcms-header").toggleClass('flipped');

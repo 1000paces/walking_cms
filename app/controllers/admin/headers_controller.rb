@@ -5,4 +5,24 @@ class Admin::HeadersController < ApplicationController
   def show
   	@page = Page.find params[:id]
   end
+
+  def new
+
+  end
+
+  def create
+
+  end
+
+  def edit
+  	@page = Page.find params[:id]
+  end
+
+  def update
+
+  end
+
+  def destroy
+
+  end
 end

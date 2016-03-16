@@ -1,0 +1,15 @@
+<div class="wcms-header" id="wcms-header">
+	<div class="wcms-flip" id="wcms-flip-header">
+		<div class="wcms-card" id="wcms-flip-card-header">
+			<div class="wcms-face wcms-front">
+				<h1 class="text-xs-center" id="wcms-page-label"><%= page.label -%></h1>
+				<%= render :partial => "admin/headers/tools", :locals => {page: page} -%>
+			</div>
+			<div class="wcms-face wcms-back">
+				<div class="wcms-form-cell" id="wcms-header-form-<%= page.id %>"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
