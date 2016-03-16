@@ -3,7 +3,7 @@ class Page < ActiveRecord::Base
 	has_one :setting
 	accepts_nested_attributes_for :setting#, :reject_if => lambda{|r| r[:value].blank?}
 
-	mount_uploader :header, ImageUploader
+	mount_uploader :image, ImageUploader
 
 	has_many :rows, -> { order("position ASC") }
 
@@ -127,6 +127,10 @@ class Page < ActiveRecord::Base
 		p_link = Page.find_unique_permalink(self.user_id, p_link) unless p_link == old_p_link
 
 		return p_link
+	end
+
+	def text_color_style
+		return "color: #{self.text_color};"
 	end
 
 	private

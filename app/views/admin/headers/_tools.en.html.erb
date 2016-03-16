@@ -1,1 +1,1 @@
-<%= link_to "<i class='#{Cell::IMAGE_ICON}'></i>".html_safe, edit_admin_header_path(page), :class => "wcms-header-btn", :title => "Add Header Image", :remote => true -%>
+<%= link_to "<i class='#{Cell::IMAGE_ICON}'></i>".html_safe, edit_admin_header_path(page), :class => "wcms-header-btn", :title => "Add Header Image", :data => {:page => page.id}, :remote => true -%>

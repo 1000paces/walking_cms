@@ -1,9 +1,21 @@
-<div class="wcms-header" id="wcms-header">
+<div class="wcms-header" id="wcms-header" data-page="<%= page.id -%>">
 	<div class="wcms-flip" id="wcms-flip-header">
 		<div class="wcms-card" id="wcms-flip-card-header">
 			<div class="wcms-face wcms-front">
-				<h1 class="text-xs-center" id="wcms-page-label"><%= page.label -%></h1>
-				<%= render :partial => "admin/headers/tools", :locals => {page: page} -%>
+				<div class="card">
+					<%- unless page.image.blank? -%>
+						<%= image_tag page.image_url.to_s, :class => "card-img img-fluid" -%>
+						<div class="card-img-overlay" style="<%= page.text_color_style -%>">
+					<%- else -%>
+						<div class="card-block">
+					<%- end -%>
+						<h1 class="text-xs-center display-4" id="wcms-page-label"><%= page.label -%></h1>
+							<%- unless page.headline.blank? -%>
+								<p class="lead text-xs-center"><%= page.headline -%></p>
+							<%- end -%>
+						<%= render :partial => "admin/headers/tools", :locals => {page: page} -%>
+					</div>
+				</div>
 			</div>
 			<div class="wcms-face wcms-back">
 				<div class="wcms-form-cell" id="wcms-header-form-<%= page.id %>"></div>

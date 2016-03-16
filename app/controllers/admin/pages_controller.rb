@@ -46,7 +46,6 @@ class Admin::PagesController < ApplicationController
 		sorted_list = params[:item]
 
     @page = session[:current_page].blank? ? @user.home_page : Page.find(session[:current_page])
-    Rails.logger.warn("\n\nPAGE IS #{@page.id}")
     
 		if params[:socket] == 'linked'
 			sorted_list.each_with_index do |member, index|
@@ -75,6 +74,6 @@ class Admin::PagesController < ApplicationController
   private
 
   def page_parameters
-  	params.require(:page).permit(:label, :title, :permalink, :status, setting_attributes: [:id, :font_id, :font_weight, :fluid, :nav_location, :nav_color, :nav_weight]).merge(user_id: current_user.id)#, position: current_user.pages.count)
+  	params.require(:page).permit(:label, :title, :permalink, :headline, :image, :shape, :text_color, :status, setting_attributes: [:id, :font_id, :font_weight, :fluid, :nav_location, :nav_color, :nav_weight]).merge(user_id: current_user.id)#, position: current_user.pages.count)
   end
 end

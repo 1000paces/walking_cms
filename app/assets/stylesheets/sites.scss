@@ -780,18 +780,25 @@ div.tool-items a.tool-item i {
 	border-radius: 0.25rem;*/
 }
 .wcms-header {
-	background-color: teal;
+	background-color: transparent;
 	margin-left: -0.9375rem;
 	margin-right: -0.9375rem;
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
 	position: relative;
+}
+
+.wcms-header .card {
+	border: none;
 }
 
 .wcms-flip {
 	-webkit-perspective: 800;
 }
 
+.wcms-header.flipped .wcms-flip .wcms-card,
 .wcms-work-cell.flipped .wcms-flip .wcms-card {
 	-webkit-transform: rotatey(-180deg);
 	transform: rotatey(-180deg);
@@ -840,6 +847,7 @@ div.tool-items a.tool-item i {
 .wcms-back, .flipped .wcms-front {
 	display: none;
 }
+
 .wcms-front, .flipped .wcms-back {
 	display: block;
 	/*margin: -4px -10px;*/
@@ -919,11 +927,10 @@ div.tool-items a.tool-item i {
 	color: #ffffff;
 }
 
-
 .wcms-header-btn {
 	color: #ccc;
 	position: absolute;
-	bottom: -10px;
+	bottom: 0px;
 	left: 5px;
 }
 

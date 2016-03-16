@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313221139) do
+ActiveRecord::Schema.define(version: 20160316124008) do
 
   create_table "cells", force: :cascade do |t|
     t.integer  "width",            limit: 4,     default: 12,                    null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160313221139) do
     t.datetime "created_at",                                                     null: false
     t.datetime "updated_at",                                                     null: false
     t.string   "image",            limit: 255
-    t.string   "shape",            limit: 255,   default: "default"
+    t.string   "shape",            limit: 255,   default: "rounded"
     t.string   "breakpoint",       limit: 255,   default: "md"
     t.string   "headline",         limit: 255,   default: ""
     t.boolean  "show_headline",                  default: false
@@ -74,22 +74,27 @@ ActiveRecord::Schema.define(version: 20160313221139) do
   add_index "help_topics", ["permalink"], name: "index_help_topics_on_permalink", using: :btree
 
   create_table "pages", force: :cascade do |t|
-    t.integer  "user_id",        limit: 4,   default: 1,       null: false
-    t.string   "label",          limit: 255, default: "",      null: false
-    t.string   "title",          limit: 255, default: "",      null: false
-    t.string   "permalink",      limit: 255, default: "",      null: false
-    t.string   "status",         limit: 255, default: "DRAFT", null: false
+    t.integer  "user_id",        limit: 4,   default: 1,               null: false
+    t.string   "label",          limit: 255, default: "",              null: false
+    t.string   "title",          limit: 255, default: "",              null: false
+    t.string   "permalink",      limit: 255, default: "",              null: false
+    t.string   "status",         limit: 255, default: "DRAFT",         null: false
     t.boolean  "secure",                     default: false
-    t.string   "snippet",        limit: 255, default: "",      null: false
+    t.string   "snippet",        limit: 255, default: "",              null: false
     t.string   "password",       limit: 255
     t.integer  "position",       limit: 4
     t.integer  "parent_id",      limit: 4
-    t.integer  "children_count", limit: 4,   default: 0,       null: false
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.integer  "children_count", limit: 4,   default: 0,               null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.string   "image",          limit: 255
+    t.string   "headline",       limit: 255
+    t.string   "shape",          limit: 255
+    t.string   "text_color",     limit: 255, default: "rgba(0,0,0,1)"
   end
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
+  add_index "pages", ["permalink", "user_id"], name: "index_pages_on_permalink_and_user_id", unique: true, using: :btree
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
 
   create_table "rows", force: :cascade do |t|
