@@ -86,3 +86,7 @@ nav.navbar:not(.navbar-fixed-top) {
   bottom: 0;
   width: 100%;
 }
+
+.nav-item.hidden {
+  display: none !important;
+}

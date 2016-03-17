@@ -35,16 +35,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     resize_to_fit(width, height)
   end
 
-  def crop(params)
-    if crop_x.present?
-      mini_magick = MiniMagick::Image.open(self.image.large.path)
-      crop_params = "#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}"
-      mini_magick.crop(crop_params)
-      mini_magick.write(self.image.path)
-      image.recreate_versions!
-    end
-  end
-
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process :resize_to_fit => [50, 50]
