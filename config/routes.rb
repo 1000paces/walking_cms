@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :pages 
     match "pages/sort" => "pages#sort", :as => "page_list_sort", :via => [:get, :post]
     match "pages/:id/duplicate" => "pages#duplicate", :as => "duplicate_page", :via => [:get]
+    #match "pages/:id/crop" => "pages#crop", :as => "crop_page", :via => [:post, :patch]
     resources :rows, only: [:create, :sort]
     match "rows/:page_id/sort" => "rows#sort", :as => "rows_sort", :via => [:get, :post]
     resources :cells, :except => [:edit]

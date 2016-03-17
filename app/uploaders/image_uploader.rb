@@ -4,7 +4,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+
+
+  GRAVITY_TYPES = [ :north_west, :north, :north_east, :east, :south_east, :south, :south_west, :west, :center ]
+
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -27,9 +31,19 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process :scale => [200, 300]
   #
-  # def scale(width, height)
-  #   # do something
-  # end
+  def scale(width, height)
+    resize_to_fit(width, height)
+  end
+
+  def crop(params)
+    if crop_x.present?
+      mini_magick = MiniMagick::Image.open(self.image.large.path)
+      crop_params = "#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}"
+      mini_magick.crop(crop_params)
+      mini_magick.write(self.image.path)
+      image.recreate_versions!
+    end
+  end
 
   # Create different versions of your uploaded files:
   # version :thumb do
@@ -47,5 +61,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
 
 end

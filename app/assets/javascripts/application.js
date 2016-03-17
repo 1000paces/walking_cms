@@ -20,6 +20,7 @@
 //= require jquery.minicolors.simple_form
 
 //= require jquery.remotipart
+//= require jquery.Jcrop
 //= require ckeditor-jquery
 //= require jquery.mjs.nestedSortable
 //= require tether/tether

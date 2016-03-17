@@ -4,7 +4,7 @@
 			<div class="wcms-face wcms-front">
 				<div class="card">
 					<%- unless page.image.blank? -%>
-						<%= image_tag page.image_url.to_s, :class => "card-img img-fluid img-#{page.shape}" -%>
+						<%= image_tag page.image_url.to_s, :class => "card-img img-fluid img-#{page.shape}", :id => "wcms-header-img" -%>
 						<div class="card-img-overlay" style="<%= page.text_color_style -%>">
 					<%- else -%>
 						<div class="card-block">
@@ -24,5 +24,3 @@
 	</div>
 	<%= render :partial => "admin/pages/nav_horizontal" if page.setting.nav_location < 4 && page.overlap? -%>
 </div>
-
-

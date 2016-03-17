@@ -29,13 +29,15 @@ $(document).on('click', '.wcms-cell', function(e){
 
 $(document).on('click', '.wcms-header', function(e){
 	var pageId = $(this).attr('data-page');	
-	if ($(e.target).closest(".wcms-back").length === 0) {
+	if ($(e.target).closest(".wcms-back").length === 0 && $(e.target).closest(".navbar").length === 0) {
 		console.log("3.25 .wcms-header was clicked");
-		$.ajax({
+		$(".wcms-cell").removeClass("wcms-cell-active");
+		$("#wcms-header").addClass("wcms-cell-active");
+		/*$.ajax({
 			type: 'get',
 			dataType: 'script',
 			url: '/admin/headers/' + pageId 
-		})
+		})*/
 	}
 });
 
@@ -134,7 +136,6 @@ $(document).on('click', function (e) {
 		console.log("13. hide wcms-tool-container and removed pressed and wcms-cell-active classes");
     var dataCell = $(e.target).closest(".wcms-work-cell").attr('data-cell');
     var dataPage = $(e.target).closest("#wcms-header").attr('data-page');
-    console.log("PAGE IS " + dataPage);
     if(dataCell === undefined && dataPage === undefined) {
     	console.log("Woot!");
 			$(".wcms-tool-container").hide();
@@ -153,7 +154,32 @@ $(document).on('click', function (e) {
   }
 });
 
+$(document).on('click', "#wcms-header-crop", function(e) {
+	console.log("15. Use Jcrop to edit the header image");
+	e.preventDefault();
 
+	$('#wcms-header-img').Jcrop({
+		onSelect: update_crop,
+		onChange: update_crop
+	});
+	$("#wcms-crop-save-item").removeClass("hidden");
+});
 
+$(document).on('click', "#wcms-crop-save", function(e) {
+	console.log("16. Submit the cropping form");
+	e.preventDefault();
+	$("#wcms-crop-form").submit();
+});
+
+function update_crop(coords) {
+  var rx = 100/coords.w;
+  var ry = 100/coords.h;
+  $("#crop_x").val(Math.round(coords.x));
+  $("#crop_y").val(Math.round(coords.y));
+  $("#crop_w").val(Math.round(coords.w));
+  $("#crop_h").val(Math.round(coords.h));
+  $("#placed_w").val(Math.round($("#wcms-header-img").width()));
+  $("#placed_h").val(Math.round($("#wcms-header-img").height()));
+}
 
 

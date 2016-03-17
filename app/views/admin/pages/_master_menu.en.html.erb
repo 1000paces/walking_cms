@@ -17,3 +17,4 @@
 		<%= link_to("<i class='fa fa-fw fa-sign-out'></i> Sign Out".html_safe, user_session_path, :method => :delete, :class => "dropdown-item") -%>
 	</div>
 </li>
+<li class="nav-item <%= 'pull-xs-right' if side=='right' -%> hidden" id="wcms-crop-save-item"><%= link_to "<i class='fa fa-crop'></i>".html_safe, "#", id: "wcms-crop-save", class: "nav-link" -%></li>

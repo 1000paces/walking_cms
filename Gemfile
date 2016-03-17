@@ -40,7 +40,7 @@ gem 'ey_config'
 gem 'acts_as_tree'
 gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'carrierwave'
-
+gem 'jcrop-rails-v2'
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'

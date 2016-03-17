@@ -953,13 +953,13 @@ div.tool-items a.tool-item i {
 	color: #ffffff;
 }
 
-.wcms-header-btn {
+.wcms-header-btn, .wcms-header-btn:visited {
 	color: #ccc;
 	/*position: absolute;
 	bottom: 0px;
 	left: 5px;*/
 }
-.wcms-header-btn:visited, .wcms-header-btn:hover {
+.wcms-header-btn:hover {
 	color: #fff;
 }
 
