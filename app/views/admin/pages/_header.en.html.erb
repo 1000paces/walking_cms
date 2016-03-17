@@ -3,9 +3,9 @@
 		<div class="wcms-card" id="wcms-flip-card-header">
 			<div class="wcms-face wcms-front">
 				<div class="card">
-					<%- unless page.image.blank? -%>
-						<%= image_tag page.image_url.to_s, :class => "card-img img-fluid img-#{page.shape}", :id => "wcms-header-img" -%>
-						<div class="card-img-overlay" style="<%= page.text_color_style -%>">
+					<%- unless page.setting.image.blank? -%>
+						<%= image_tag page.setting.image_url.to_s, :class => "card-img img-fluid img-#{page.setting.shape}", :id => "wcms-header-img" -%>
+						<div class="card-img-overlay" style="<%= page.setting.text_color_style -%>">
 					<%- else -%>
 						<div class="card-block">
 					<%- end -%>
@@ -22,5 +22,5 @@
 			</div>
 		</div>
 	</div>
-	<%= render :partial => "admin/pages/nav_horizontal" if page.setting.nav_location < 4 && page.overlap? -%>
+	<%= render :partial => "admin/pages/nav_horizontal" if page.setting.nav_location < 4 && page.setting.overlap? -%>
 </div>

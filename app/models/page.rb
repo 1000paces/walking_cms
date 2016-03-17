@@ -3,8 +3,6 @@ class Page < ActiveRecord::Base
 	has_one :setting
 	accepts_nested_attributes_for :setting#, :reject_if => lambda{|r| r[:value].blank?}
 
-	mount_uploader :image, ImageUploader
-
 	has_many :rows, -> { order("position ASC") }
 
 	acts_as_tree :order => "position"
@@ -16,7 +14,6 @@ class Page < ActiveRecord::Base
 	excluded_words = ['index','admin','catalog','resource','test','user','observation','entity','directory','search']
 	validates_exclusion_of :permalink, :in => excluded_words, :message =>"Can't use reserved words: #{excluded_words.to_sentence}."	
 
-	attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :placed_w, :placed_h
 
 	ICON_SHORT = "fa-file-text-o fa-flip-horizontal"
 	HOME_SHORT = "fa-home"
@@ -129,20 +126,6 @@ class Page < ActiveRecord::Base
 		p_link = Page.find_unique_permalink(self.user_id, p_link) unless p_link == old_p_link
 
 		return p_link
-	end
-
-	def text_color_style
-		return "color: #{self.text_color};"
-	end
-
-	def overlap_style
-		if self.overlap?
-			if self.setting.nav_location == 0
-				return "wcms-overlap"
-			else
-				return "wcms-overlap"
-			end
-		end
 	end
 
 	private

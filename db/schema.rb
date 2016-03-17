@@ -74,26 +74,20 @@ ActiveRecord::Schema.define(version: 20160317175105) do
   add_index "help_topics", ["permalink"], name: "index_help_topics_on_permalink", using: :btree
 
   create_table "pages", force: :cascade do |t|
-    t.integer  "user_id",                limit: 4,   default: 1,                       null: false
-    t.string   "label",                  limit: 255, default: "",                      null: false
-    t.string   "title",                  limit: 255, default: "",                      null: false
-    t.string   "permalink",              limit: 255, default: "",                      null: false
-    t.string   "status",                 limit: 255, default: "DRAFT",                 null: false
-    t.boolean  "secure",                             default: false
-    t.string   "snippet",                limit: 255, default: "",                      null: false
-    t.string   "password",               limit: 255
-    t.integer  "position",               limit: 4
-    t.integer  "parent_id",              limit: 4
-    t.integer  "children_count",         limit: 4,   default: 0,                       null: false
-    t.datetime "created_at",                                                           null: false
-    t.datetime "updated_at",                                                           null: false
-    t.string   "image",                  limit: 255
-    t.string   "headline",               limit: 255
-    t.string   "shape",                  limit: 255
-    t.string   "text_color",             limit: 255, default: "rgba(0,0,0,1)"
-    t.boolean  "overlap",                            default: false
-    t.integer  "title_background",       limit: 4,   default: 1
-    t.string   "title_background_color", limit: 255, default: "rgba(255,255,255,0.5)"
+    t.integer  "user_id",        limit: 4,   default: 1,       null: false
+    t.string   "label",          limit: 255, default: "",      null: false
+    t.string   "title",          limit: 255, default: "",      null: false
+    t.string   "permalink",      limit: 255, default: "",      null: false
+    t.string   "status",         limit: 255, default: "DRAFT", null: false
+    t.boolean  "secure",                     default: false
+    t.string   "snippet",        limit: 255, default: "",      null: false
+    t.string   "password",       limit: 255
+    t.integer  "position",       limit: 4
+    t.integer  "parent_id",      limit: 4
+    t.integer  "children_count", limit: 4,   default: 0,       null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.string   "headline",       limit: 255
   end
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
@@ -111,16 +105,22 @@ ActiveRecord::Schema.define(version: 20160317175105) do
   add_index "rows", ["page_id"], name: "index_rows_on_page_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.integer  "font_id",      limit: 4,   default: 0,                  null: false
-    t.integer  "font_weight",  limit: 4,   default: 400,                null: false
-    t.boolean  "fluid",                    default: true,               null: false
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
-    t.integer  "nav_location", limit: 4,   default: 0
-    t.string   "nav_color",    limit: 255, default: "rgba(55,58,60,1)"
-    t.integer  "page_id",      limit: 4
-    t.string   "framework",    limit: 255, default: "b4"
+    t.integer  "user_id",                limit: 4
+    t.integer  "font_id",                limit: 4,   default: 0,                       null: false
+    t.integer  "font_weight",            limit: 4,   default: 400,                     null: false
+    t.boolean  "fluid",                              default: true,                    null: false
+    t.datetime "created_at",                                                           null: false
+    t.datetime "updated_at",                                                           null: false
+    t.integer  "nav_location",           limit: 4,   default: 0
+    t.string   "nav_color",              limit: 255, default: "rgba(55,58,60,1)"
+    t.integer  "page_id",                limit: 4
+    t.string   "framework",              limit: 255, default: "b4"
+    t.string   "image",                  limit: 255
+    t.string   "shape",                  limit: 255
+    t.string   "text_color",             limit: 255, default: "rgba(0,0,0,1)"
+    t.boolean  "overlap",                            default: false
+    t.integer  "title_background",       limit: 4,   default: 1
+    t.string   "title_background_color", limit: 255, default: "rgba(255,255,255,0.5)"
   end
 
   add_index "settings", ["page_id"], name: "index_settings_on_page_id", unique: true, using: :btree

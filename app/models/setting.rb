@@ -3,8 +3,11 @@ class Setting < ActiveRecord::Base
 	belongs_to :page
 	belongs_to :font
 
+	mount_uploader :image, ImageUploader
+
 	attr_accessor :sync
 	attr_accessor :color_str
+	attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :placed_w, :placed_h
 
 	ICON_SHORT = "fa-gears"
 	ICON = "fa fa-fw #{ICON_SHORT}"
@@ -106,6 +109,20 @@ class Setting < ActiveRecord::Base
 		new_setting.page_id = pageId
 		new_setting.save
 	end
+
+	def text_color_style
+		return "color: #{self.text_color};"
+	end
+
+	def overlap_style
+		if self.overlap?
+			if self.nav_location == 0
+				return "wcms-overlap"
+			else
+				return "wcms-overlap"
+			end
+		end
+	end	
 
 	private
 
