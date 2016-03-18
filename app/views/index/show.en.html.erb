@@ -1,7 +1,21 @@
 <div id="wcms-content-wrapper">
 	<div class="<%= @page.setting.container_type -%> wcms-full-height-container">
 		<div class="col-md-12 wcms-cell">
-			<h1 class="text-xs-center" id="wcms-page-label"><%= @page.label -%></h1>
+			<div class="card">
+				<%- unless @page.setting.image.blank? -%>
+					<%= image_tag @page.setting.image_url.to_s, :class => "card-img img-fluid center-block img-#{@page.setting.shape}", :id => "wcms-header-img" -%>
+					<div class="card-img-overlay" style="<%= @page.setting.text_color_style -%>">
+				<%- else -%>
+					<div class="card-block">
+				<%- end -%>
+					<div style="<%= @page.setting.title_background_style -%>">
+						<h1 class="text-xs-center display-4" id="wcms-page-label"><%= @page.label -%></h1>
+						<%- unless @page.headline.blank? -%>
+							<p class="lead text-xs-center"><%= @page.headline -%></p>
+						<%- end -%>
+					</div>
+				</div>
+			</div>
 		</div>
 		<%= render :partial => "nav_vertical" if @page.setting.nav_location == 4 -%>
 		<div class="col-md-<%= @page.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
