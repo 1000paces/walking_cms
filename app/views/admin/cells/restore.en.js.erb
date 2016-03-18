@@ -2,7 +2,6 @@ $(".wcms-tool-container").remove();
 $("#wcms-page-display").html("<%= j render(:partial => 'admin/pages/display') -%>");
 $(".wcms-menu-link").removeClass("active");
 $("#wcms-page-<%= @page.id %>").addClass("active");
-/*$("#wcms-drawer-forms").hide("slide", { direction: "right" }, 750);*/
 $("#wcms-page-display").show();
 $("#wcms-organize").parent().removeClass("hidden");
 $("#wcms-organize-finished").parent().addClass("hidden");
@@ -32,4 +31,4 @@ $('html, body').animate({
 }, 1000);
 
  $("#wcms-cell-<%= @cell.id %>").effect("highlight", {}, 3000);
- 	$("#wcms-undo").parent().removeClass("active").addClass('hidden');
+ $("#wcms-undo").parent().addClass('hidden');

@@ -157,19 +157,30 @@ $(document).on('click', function (e) {
 $(document).on('click', "#wcms-header-crop", function(e) {
 	console.log("15. Use Jcrop to edit the header image");
 	e.preventDefault();
-
 	$('#wcms-header-img').Jcrop({
 		onSelect: update_crop,
 		onChange: update_crop
 	});
 	$("#wcms-header-crop").addClass("hidden");
 	$("#wcms-crop-save").removeClass("hidden");
+	$("#wcms-crop-cancel").removeClass("hidden");
 });
 
 $(document).on('click', "#wcms-crop-save", function(e) {
 	console.log("16. Submit the cropping form");
 	e.preventDefault();
 	$("#wcms-crop-form").submit();
+});
+
+$(document).on('click', "#wcms-crop-cancel", function(e) {
+	console.log("16.5 Cancel the Jcrop");
+	e.preventDefault();
+	$("#wcms-header-crop").removeClass("hidden");
+	$("#wcms-crop-save").addClass("hidden");
+	$("#wcms-crop-cancel").addClass("hidden");	
+	$('#wcms-header-img').data('Jcrop').destroy();
+  $('#wcms-header-img').removeAttr('style');
+
 });
 
 function update_crop(coords) {

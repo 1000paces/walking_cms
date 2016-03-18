@@ -3,7 +3,7 @@ $("#wcms-wrapper").removeClass('toolbar-visible').delay(500).queue(function(next
 	$(".wcms-cell-toolbar-vertical").hide();
 	$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").remove();
 
-	$("#wcms-undo").removeClass("hidden").addClass("active");
+	$("#wcms-undo").parent().removeClass("hidden");
 	$("#wcms-restore-page-id").val("<%= @page.id -%>");
 	$("#wcms-restore-row-id").val("<%= @row.id -%>");
 	$("#wcms-restore-cell-id").val("<%= @cell.id -%>");
