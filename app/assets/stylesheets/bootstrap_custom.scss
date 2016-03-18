@@ -81,9 +81,14 @@ nav.navbar:not(.navbar-fixed-top) {
   bottom: 0;
   width: 100%;
 }
+
+.wcms-overlap .wcms-header nav.navbar:not(.navbar-fixed-top) {
+  bottom: 28px;
+}
+
 .wcms-header.flipped nav.navbar {
-  position: relative;
-  bottom: 0;
+  position: relative !important;
+  bottom: 0 !important;
   width: 100%;
 }
 
