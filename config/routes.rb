@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
     resources :domains
     resources :headers
+    match "headers/:id/edit(/:type)" => "headers#edit", :as => "edit_headers", :via => [:get]
+
     resources :users    
     resources :pages 
     match "pages/sort" => "pages#sort", :as => "page_list_sort", :via => [:get, :post]

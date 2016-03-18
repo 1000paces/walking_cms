@@ -362,6 +362,11 @@ nav.wcms-cell-controls {
 	position: relative;
 }
 
+.wcms-header nav.wcms-cell-controls {
+	border-radius: 0 0 0 0;
+	padding-left: 24px;
+}
+
 nav.wcms-cell-controls a.wcms-cell-link {
 	color: #fff !important;
 	text-decoration: none !important;

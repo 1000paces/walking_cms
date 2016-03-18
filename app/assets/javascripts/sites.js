@@ -162,7 +162,8 @@ $(document).on('click', "#wcms-header-crop", function(e) {
 		onSelect: update_crop,
 		onChange: update_crop
 	});
-	$("#wcms-crop-save-item").removeClass("hidden");
+	$("#wcms-header-crop").addClass("hidden");
+	$("#wcms-crop-save").removeClass("hidden");
 });
 
 $(document).on('click', "#wcms-crop-save", function(e) {

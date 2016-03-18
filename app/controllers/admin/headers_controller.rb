@@ -16,6 +16,7 @@ class Admin::HeadersController < ApplicationController
 
   def edit
   	@page = Page.find params[:id]
+    @form_type = params[:type]
   end
 
   def update

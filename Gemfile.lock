@@ -69,7 +69,7 @@ GEM
     concurrent-ruby (1.0.1)
     dalli (2.7.6)
     debug_inspector (0.0.2)
-    domain_name (0.5.20160309)
+    domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
     engineyard (3.2.1)
       engineyard-cloud-client (~> 2.1)

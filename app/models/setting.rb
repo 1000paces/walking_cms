@@ -114,6 +114,12 @@ class Setting < ActiveRecord::Base
 		return "color: #{self.text_color};"
 	end
 
+	def title_background_style
+		if self.title_background?
+			return "background-color: #{self.title_background_color}; padding: 20px; border-radius: .25rem;"
+		end
+	end
+
 	def overlap_style
 		if self.overlap?
 			if self.nav_location == 0

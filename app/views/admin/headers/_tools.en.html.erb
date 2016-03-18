@@ -1,9 +1,10 @@
+<%- if 1==2 -%>
 <div class="text-xs-center">
 <%= link_to "<i class='#{Cell::IMAGE_ICON}'></i>".html_safe, edit_admin_header_path(page), :class => "wcms-header-btn", :title => "Add Header Image", :data => {:page => page.id}, :remote => true -%>
 <%- unless page.setting.image.blank? -%>
 	<%= link_to "<i class='fa fa-fw fa-crop'></i>".html_safe, "#", id: "wcms-header-crop", class: "wcms-header-btn", title: "Crop Header Image", data: {:page => page.id} -%>
-	<%= form_for [:admin, @page], url: admin_header_path(@page), html: { class: "wcms-crop-form", id: "wcms-crop-form" } do |f| -%>
-		<%= f.fields_for :setting, @page.setting do |b| -%>
+	<%= form_for [:admin, page], url: admin_header_path(page), html: { class: "wcms-crop-form", id: "wcms-crop-form" } do |f| -%>
+		<%= f.fields_for :setting, page.setting do |b| -%>
 			<%- for attribute in [:crop_x, :crop_y, :crop_w, :crop_h, :placed_w, :placed_h] -%>	
 				<%= b.hidden_field attribute, :id => attribute -%>
 			<%- end -%>
@@ -11,3 +12,21 @@
 	<%- end -%>
 <%- end -%>
 </div>
+<%- end -%>
+
+<nav class="wcms-cell-controls nav nav-line" id="wcms-cell-controls-header">
+	<%= link_to "<i class='#{Cell::IMAGE_ICON}'></i>".html_safe, admin_edit_headers_path(page, "image"), :class => "nav-link wcms-cell-link", :title => "Add Header Image", :data => {:page => page.id}, :remote => true -%>
+	<%= link_to "<i class='fa fa-fw fa-adjust'></i>".html_safe, admin_edit_headers_path(page, "style"), :class => "nav-link wcms-cell-link", :title => "Edit Header Style", :data => {:page => page.id}, :remote => true -%>
+	<%- unless page.setting.image.blank? -%>
+		<%= link_to "<i class='fa fa-fw fa-crop'></i>".html_safe, "#", id: "wcms-header-crop", class: "nav-link wcms-cell-link", title: "Crop Header Image", data: {:page => page.id} -%>
+		<%= link_to "<i class='fa fa-floppy-o'></i>".html_safe, "#", id: "wcms-crop-save", class: "nav-link wcms-cell-link hidden" -%></li>
+
+		<%= form_for [:admin, page], url: admin_header_path(page), html: { class: "wcms-crop-form", id: "wcms-crop-form" } do |f| -%>
+			<%= f.fields_for :setting, page.setting do |b| -%>
+				<%- for attribute in [:crop_x, :crop_y, :crop_w, :crop_h, :placed_w, :placed_h] -%>	
+					<%= b.hidden_field attribute, :id => attribute -%>
+				<%- end -%>
+			<%- end -%>
+		<%- end -%>
+	<%- end -%>	
+</nav>

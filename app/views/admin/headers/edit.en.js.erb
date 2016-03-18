@@ -4,7 +4,7 @@ if($("#wcms-header .wcms-back").is(":visible")) {
 }
 
 $(".wcms-form-cell").empty();
-$("#wcms-header-form-<%= @page.id %>").html('<%= j render(:partial => "admin/headers/form") -%>');
+$("#wcms-header-form-<%= @page.id %>").html('<%= j render(:partial => "admin/headers/form_#{@form_type}") -%>');
 $("#wcms-header").toggleClass('flipped');
 
 $(".wcms-right-column").hide("slide", { direction: "right" }, 500);

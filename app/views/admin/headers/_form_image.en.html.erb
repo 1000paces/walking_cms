@@ -19,13 +19,6 @@
             <%= b.check_box(:overlap, {}, 1, 0) %> Overlap Header & Navigation
           </label>
         </div>
-  	    <div class="form-group">
-  	      <label for="page_text_color" class="sr-only">Text Color</label>
-  	      <%= b.text_field :text_color, :class => "form-control form-control-xs", :readonly => true -%>
-  	      <script>
-  	        $("#page_text_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
-  	      </script>
-  	    </div>
       <%- end -%>  
       <div class="form-group wcms-card-action-group">
         <%= f.submit "Save", class: "btn btn-primary btn-sm" %>

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160317175105) do
     t.datetime "created_at",                                                     null: false
     t.datetime "updated_at",                                                     null: false
     t.string   "image",            limit: 255
-    t.string   "shape",            limit: 255,   default: "rounded"
+    t.string   "shape",            limit: 255,   default: "default"
     t.string   "breakpoint",       limit: 255,   default: "md"
     t.string   "headline",         limit: 255,   default: ""
     t.boolean  "show_headline",                  default: false
@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 20160317175105) do
   end
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id", using: :btree
-  add_index "pages", ["permalink", "user_id"], name: "index_pages_on_permalink_and_user_id", unique: true, using: :btree
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
 
   create_table "rows", force: :cascade do |t|

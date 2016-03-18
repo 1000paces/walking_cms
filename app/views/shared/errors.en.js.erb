@@ -2,6 +2,7 @@ $(".form-group").removeClass("has-danger has-warning");
 $(".err-msg").remove();
 $(".wcms-form-help").show();
 <%- @page.errors.each do |err| -%>
+	<%- Rails.logger.warn("\n\n#{@page.errors.full_messages_for(err).to_sentence}\n\n") -%>
 	$("#page_<%= err %>").parent().addClass("has-warning");
 	$("#page_<%= err %>").parent().append("<small class='text-help err-msg'><%= @page.errors.full_messages_for(err).to_sentence %></small>");
 	$("#<%= err -%>_help").hide();

@@ -32,6 +32,7 @@ class Admin::PagesController < ApplicationController
 
   def update
   	@page = Page.find(params[:id])
+    @page.permalink = @page.generate_permalink if @page.permalink.blank?
     @row = @page.rows.first
     @page.update_attributes(page_parameters)
     if @page.errors.any?
@@ -74,6 +75,6 @@ class Admin::PagesController < ApplicationController
   private
 
   def page_parameters
-  	params.require(:page).permit(:label, :title, :permalink, :headline, :status, setting_attributes: [:id, :font_id, :font_weight, :fluid, :nav_location, :nav_color, :nav_weight, :image, :shape, :text_color, :overlap]).merge(user_id: current_user.id)#, position: current_user.pages.count)
+  	params.require(:page).permit(:label, :title, :permalink, :headline, :status, setting_attributes: [:id, :font_id, :font_weight, :fluid, :nav_location, :nav_color, :nav_weight, :image, :shape, :text_color, :overlap, :title_background, :title_background_color]).merge(user_id: current_user.id)#, position: current_user.pages.count)
   end
 end
