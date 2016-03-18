@@ -60,7 +60,7 @@
 }
 
 .wcms-front .card {
-  margin-bottom: 0 !important;
+  /*margin-bottom: 0 !important;*/
 }
 
 .card-secondary {
@@ -73,7 +73,7 @@
 }
 
 nav.navbar:not(.navbar-fixed-top) {
-  margin-top: 15px;
+  /*margin-top: 15px;*/
 }
 
 .wcms-header nav.navbar:not(.navbar-fixed-top) {
@@ -84,6 +84,7 @@ nav.navbar:not(.navbar-fixed-top) {
 
 .wcms-overlap .wcms-header nav.navbar:not(.navbar-fixed-top) {
   bottom: 28px;
+  border-radius: 0;
 }
 
 .wcms-header.flipped nav.navbar {
@@ -96,6 +97,9 @@ nav.navbar:not(.navbar-fixed-top) {
   display: none !important;
 }
 
+.card.wcms-cardless {
+  border: none;
+}
 
 
 

@@ -16,8 +16,9 @@
 							<%- end -%>
 						</div>
 					</div>
+					<%= render :partial => "admin/headers/tools", :locals => {page: page} -%>
 				</div>
-				<%= render :partial => "admin/headers/tools", :locals => {page: page} -%>
+				
 			</div>
 			<div class="wcms-face wcms-back">
 				<div class="wcms-form-cell" id="wcms-header-form-<%= page.id %>"></div>

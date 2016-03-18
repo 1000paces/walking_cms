@@ -38,6 +38,12 @@
 			<%= f.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
 		</fieldset>
     <fieldset class="form-group">
+      <label for="setting_border" class="sr-only">Overlap Header & Navigation</label>
+      <label class="wcms-white-text small checkbox-inline">
+        <%= f.check_box(:overlap, {}, 1, 0) %> Overlap Header & Navigation
+      </label>
+    </fieldset>		
+    <fieldset class="form-group">
       <label for="page_label" class="small wcms-white-text" for="setting_nav_color">Navigation Color</label>
       <%= f.text_field :nav_color, :class => "form-control form-control-xs", :readonly => true -%>
       <script>
@@ -50,8 +56,8 @@
 			</label>
 		</div>
 		<div class="form-group wcms-action-group">
-			<%= f.submit 'Save', class: 'btn btn-primary btn-sm' %>
-	    <%= link_to "Cancel", admin_settings_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning btn-sm pull-xs-right", :remote => true -%>
+			<%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
+	    <%= link_to "Cancel", admin_settings_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-secondary-outline btn-sm pull-xs-right", :remote => true -%>
 		</div>
 	<%- end -%>
 </div>

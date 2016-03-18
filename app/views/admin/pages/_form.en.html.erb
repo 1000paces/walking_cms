@@ -36,13 +36,13 @@
   </fieldset>
   <%= f.fields_for :setting, @page.setting do |b| -%>
     <fieldset class="form-group">
-      <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_fluid">Layout</label>
+      <label class="sr-only" for="setting_fluid">Layout</label>
       <div class="radio">
         <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :fluid, true -%> Fluid</small>
+          <small><%= b.radio_button :fluid, true -%> Fluid Layout</small>
         </label>
         <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :fluid, false -%> Static</small>
+          <small><%= b.radio_button :fluid, false -%> Static Layout</small>
         </label>
       </div>
     </fieldset>  
@@ -51,10 +51,10 @@
       <%= b.select(:font_id, Font.alpha_collection, {}, {:class => "form-control form-control-sm"}) %>
     </fieldset>
     <fieldset class="form-group">
-      <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_font_weight">Font Weight</label>
+      <label class="sr-only" for="setting_font_weight">Font Weight</label>
       <div class="radio">
         <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :font_weight, 100 -%> Thin</small>
+          <small><%= b.radio_button :font_weight, 100 -%> Thin Fonts</small>
         </label>
         <label class="wcms-white-text radio-inline">
           <small><%= b.radio_button :font_weight, 400 -%> Normal</small>
@@ -66,6 +66,12 @@
     <fieldset class="form-group">
       <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_nav_location">Navigation Location</label>
       <%= b.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="setting_border" class="sr-only">Overlap Header & Navigation</label>
+      <label class="wcms-white-text small checkbox-inline">
+        <%= b.check_box(:overlap, {}, 1, 0) %> Overlap Header & Navigation
+      </label>
     </fieldset>
     <fieldset class="form-group">
       <label for="page_label" class="small form-control-label wcms-form-label wcms-white-text" for="setting_nav_color">Navigation Color</label>
@@ -82,8 +88,8 @@
     <small class="wcms-form-help" id="status_help">Select "Published" when your page is ready to view.</small>
   </div>
   <fieldset class="form-group wcms-action-group">  
-    <%= f.submit 'Save', class: 'btn btn-primary btn-sm' %>
-    <%= link_to "Cancel", admin_pages_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-warning btn-sm pull-xs-right", :remote => true -%>
+    <%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
+    <%= link_to "Cancel", admin_pages_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-secondary-outline btn-sm pull-xs-right", :remote => true -%>
   </fieldset>
   <fieldset class="form-group wcms-action-group text-xs-center">
     <%= link_to "<i class='#{Page::CLONE}'></i> Copy Page".html_safe, admin_duplicate_page_path(@page), :class => "btn btn-sm btn-secondary-outline wcms-duplicate", :title => "Duplicate", :id => "wcms-duplicate", :remote => true -%>
