@@ -23,6 +23,5 @@ $("#drawer-forms").empty();
 $("#wcms-wrapper").removeClass("drawer-visible");
 $(".wcms-master-toolbar-link").removeClass("active");
 
-
-$("body").removeClass("wcms-white-background wcms-grey-background wcms-navbar-full wcms-navbar-fixed-bottom wcms-navbar-fixed-top").addClass("<%= @page.setting.nav_class(true) -%> <%= @page.setting.background_class -%>");
+$("body").removeClass("wcms-white-background wcms-grey-background wcms-navbar-full wcms-navbar-fixed-bottom wcms-navbar-fixed-top wcms-overlap").addClass("<%= @page.setting.nav_class(true) -%> <%= @page.setting.background_class -%> <%= @page.setting.overlap_style -%>");
 $(".wcms-full-height-container").removeClass("container container-fluid").addClass("<%= @page.setting.container_type -%>");

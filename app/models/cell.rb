@@ -238,7 +238,6 @@ class Cell < ActiveRecord::Base
 	end	
 
 	def duplicate(rowId)
-		Rails.logger.warn("\n\nCOPYING CELL #{self.id}")
 		new_cell = self.dup
 		new_cell.row_id = rowId
 		if new_cell.save && !self.image.url.nil?

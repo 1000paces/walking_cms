@@ -1,5 +1,6 @@
 if($("#wcms-form-box").is(':visible')) {
 	$("#wcms-form-box").hide("slide", { direction: "right" }, 500);
+	$("#pages-index-div").html("<%= j render(:partial => 'admin/pages/index') -%>");
 	$("#wcms-drawer-pages").show("slide", { direction: "left"}, 500);
 } else {
 	$(".wcms-master-toolbar-link").removeClass("active");

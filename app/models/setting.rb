@@ -107,7 +107,13 @@ class Setting < ActiveRecord::Base
 	def duplicate(pageId)
 		new_setting = self.dup
 		new_setting.page_id = pageId
-		new_setting.save
+		if new_setting.save && !self.image.url.nil?
+			img_path = Rails.root.join('public' + self.image.url)
+			File.open(img_path) do |f|
+				new_setting.image = f
+			end
+			new_setting.save!
+		end
 	end
 
 	def text_color_style
