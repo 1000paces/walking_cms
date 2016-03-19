@@ -1,0 +1,8 @@
+<%= link_to "<i class='#{ht.icon.constantize}'></i> #{ht.title}".html_safe, admin_help_path(ht.permalink), :remote => true, :class => 'wcms-sidebar-link' -%>
+<%- unless ht.children.blank? -%>
+	<ol class="list-unstyled help-list">
+		<%- ht.children.each do |child| -%>
+			<li><%= render :partial => "child", :locals => {:ht => child} -%></li>
+		<%- end -%>
+	</ol>	
+<%- end -%>

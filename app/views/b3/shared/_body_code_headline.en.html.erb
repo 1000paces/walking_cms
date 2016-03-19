@@ -1,0 +1,14 @@
+<div class="<%= cell.variant_class -%> <%= cell.background_contrast_class -%>" style="<%= cell.background_color_style -%>">
+  <div class="card-block">
+    <h4 class="card-title"><%= cell.headline -%></h4>
+    <%- if cell.has_uri? -%>
+    	<%= link_to cell.headline, cell.embed_code, target: "_blank" -%>
+    <%- end -%>
+  </div>    
+  <%- unless cell.has_uri? -%>
+  	<div class="embed-responsive embed-responsive-16by9"><%= cell.embed_code.html_safe -%></div>
+  <%- end -%>
+	<div class="card-block">	  
+    <p class="card-text"><%= cell.body.html_safe -%></p>    
+  </div>
+</div>

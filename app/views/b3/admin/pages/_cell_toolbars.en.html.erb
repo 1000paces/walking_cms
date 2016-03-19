@@ -1,0 +1,11 @@
+<%- if 1==2 -%>
+
+
+<%- p.rows.each do |row| -%>
+	<%- row.cells.each do |cell| -%>
+		<%= render(:partial => 'admin/cells/toolbar_vertical', :locals => {:row => row, :cell => cell}) -%>
+	<%- end -%>
+<%- end -%>
+
+
+<%- end -%>

@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header"><i class="fa fa-fw fa-adjust"></i> Header Style</div>
+  <div class="card-block">
+    <%= form_for([:admin, @page], html: { multipart: true, class: "wcms-card-form", role: 'form' }, :remote => true) do |f| %>
+      <div class="form-group">
+        <label for="page_headline" class="sr-only">Subheading Text</label>
+        <%= f.text_field :headline, :class => "form-control form-control-sm", :placeholder => "Subheading Text" %>
+      </div> 
+      <%= f.fields_for :setting, @page.setting do |b| -%>    
+  	    <div class="form-group">
+  	      <label for="page_text_color" class="sr-only">Text Color</label>
+  	      <%= b.text_field :text_color, :class => "form-control form-control-xs", :readonly => true -%>
+  	      <script>
+  	        $("#page_setting_attributes_text_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
+  	      </script>
+  	    </div>
+        <div class="form-group">
+          <label for="setting_border" class="sr-only">Header Background?</label>
+          <label class="small checkbox-inline">
+            <%= b.check_box(:title_background, {}, 1, 0) %> Header Text Backgound
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="page_text_color" class="sr-only">Text Background Color</label>
+          <%= b.text_field :title_background_color, :class => "form-control form-control-xs", :readonly => true -%>
+          <script>
+            $("#page_setting_attributes_title_background_color").minicolors({opacity: true, format: 'rgb', position: 'top right'});
+          </script>
+        </div>
+      <%- end -%>  
+      <div class="form-group wcms-card-action-group">
+        <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
+        <%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {page: @page.id} -%>
+      </div>
+    <% end %>
+  </div>
+</div>

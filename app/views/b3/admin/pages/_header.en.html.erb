@@ -1,0 +1,29 @@
+<div class="wcms-header" id="wcms-header" data-page="<%= page.id -%>">
+	<div class="wcms-flip" id="wcms-flip-header">
+		<div class="wcms-card" id="wcms-flip-card-header">
+			<div class="wcms-face wcms-front">
+				<div class="card">
+					<%- unless page.setting.image.blank? -%>
+						<%= image_tag page.setting.image_url.to_s, :class => "card-img img-fluid center-block img-#{page.setting.shape}", :id => "wcms-header-img" -%>
+						<div class="card-img-overlay" style="<%= page.setting.text_color_style -%>">
+					<%- else -%>
+						<div class="card-block">
+					<%- end -%>
+						<div style="<%= page.setting.title_background_style -%>">
+							<h1 class="text-xs-center display-4" id="wcms-page-label"><%= page.label -%></h1>
+							<%- unless page.headline.blank? -%>
+								<p class="lead text-xs-center"><%= page.headline -%></p>
+							<%- end -%>
+						</div>
+					</div>
+					<%= render :partial => "admin/headers/tools", :locals => {page: page} -%>
+				</div>
+				
+			</div>
+			<div class="wcms-face wcms-back">
+				<div class="wcms-form-cell" id="wcms-header-form-<%= page.id %>"></div>
+			</div>
+		</div>
+	</div>
+	<%= render :partial => "admin/pages/nav_horizontal" if page.setting.nav_location < 4 && page.setting.overlap? -%>
+</div>

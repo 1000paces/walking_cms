@@ -1,0 +1,25 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+	<%= link_to user_path(@user), :class => "navbar-brand" do -%>
+		<%= cms_brand -%> <%= @user.friendly_name -%> <%= "| #{@user.domain.name}" unless @user.domain.nil? -%>
+	<%- end -%>
+
+	<%- if 1==2 -%>
+	<ul class="nav navbar-nav pull-xs-right">
+		<li id="wcms-toggle-pages-li" class="nav-item wcms-master-toolbar-link">
+			<%= link_to "Pages", admin_pages_path, :id => "wcms-toggle-pages", :class => "nav-link", :remote => true -%>
+		</li>
+		<li id="wcms-toggle-settings-li" class="nav-item wcms-master-toolbar-link">
+			<%= link_to "Settings", admin_settings_path, :id => "wcms-toggle-settings", :class => "nav-link", :remote => true -%>
+		</li>
+		<li id="wcms-toggle-assets-li" class="nav-item wcms-master-toolbar-link">
+			<%= link_to "Assets", admin_assets_path, :id => "wcms-toggle-assets", :class => "nav-link", :remote => true -%>
+		</li>
+		<li id="wcms-toggle-help-li" class="nav-item wcms-master-toolbar-link">
+			<%= link_to "Help", admin_help_index_path, :class => "nav-link", :remote => true -%>
+		</li>
+	</ul>
+	<%- end -%>
+
+  <%= link_to "&#9776;".html_safe, admin_pages_path, :id => "wcms-toggle-pages", :class => "nav-item nav-link navbar-toggler pull-xs-right", :data => {:toggle => "collapse"}, :remote => true -%>
+
+</nav>

@@ -1,0 +1,10 @@
+$(".wcms-tool-container").remove();
+$("#wcms-form-box").html("<%= j render(:partial => 'form') -%>");
+$(".wcms-right-column").hide("slide", { direction: "left" }, 500, function() {
+	$("#wcms-form-box").show("slide", { direction: "right" }, 500);
+});
+$("#wcms-page-display").fadeOut(function(){
+	$("#wcms-page-display").html("<%= j render(:partial => 'admin/pages/display') -%>").fadeIn();
+});
+
+$("body").removeClass("wcms-white-background wcms-grey-background wcms-navbar-full wcms-navbar-fixed-bottom wcms-navbar-fixed-top wcms-overlap").addClass("<%= @page.setting.nav_class(true) -%> <%= @page.setting.background_class -%> <%= @page.setting.overlap_style -%>");

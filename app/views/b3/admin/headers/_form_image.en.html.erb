@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header"><i class="fa fa-fw fa-image"></i> Header Image</div>
+  <div class="card-block">
+    <%= form_for([:admin, @page], html: { multipart: true, class: "wcms-card-form", role: 'form' }, :remote => true) do |f| %>
+      <div class="form-group">
+        <label for="page_headline" class="sr-only">Subheading Text</label>
+        <%= f.text_field :headline, :class => "form-control form-control-sm", :placeholder => "Subheading Text" %>
+      </div> 
+      <%= f.fields_for :setting, @page.setting do |b| -%>    
+        <div class="form-group">
+          <label class="file">
+            <%= b.file_field :image, :class => "form-control" %>
+            <span class="file-custom"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="setting_border" class="sr-only">Overlap Header & Navigation</label>
+          <label class="small checkbox-inline">
+            <%= b.check_box(:overlap, {}, 1, 0) %> Overlap Header & Navigation
+          </label>
+        </div>
+      <%- end -%>  
+      <div class="form-group wcms-card-action-group">
+        <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
+        <%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {page: @page.id} -%>
+      </div>
+    <% end %>
+  </div>
+</div>

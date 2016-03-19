@@ -1,0 +1,15 @@
+<%- if @page && @page.font -%>
+	<%= @page.font.link(@page.font_weight).html_safe -%>
+	<style id="wcms-font-style">
+		.wcms-full-height-container .wcms-cell, .wcms-editor, .wcms-header {
+			font-family: '<%= @page.font.family -%>', <%= @page.font.serif? ? 'serif' : 'sans serif' -%>  !important;
+		}
+	</style>
+<%- elsif @user && @user.font -%>
+	<%= @user.font.link(@user.font_weight).html_safe -%>
+	<style id="wcms-font-style">
+		.wcms-full-height-container .wcms-cell, .wcms-editor, .wcms-header {
+			font-family: '<%= @user.font.family -%>', <%= @user.font.serif? ? 'serif' : 'sans serif' -%>  !important;
+		}
+	</style>
+<%- end -%>

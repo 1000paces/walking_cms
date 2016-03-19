@@ -1,0 +1,20 @@
+<%= render :partial => "admin/pages/header", :locals => {:page => @page} -%>
+<div class="row">
+	<%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 4 -%>
+	<div class="col-md-<%= @page.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
+		<div class="row" id="wcms-navigation-row">
+			<div class="col-md-12 navigation-zone" id="wcms-navigation-row-inner">
+				<%= render :partial => "admin/pages/nav_horizontal" if @page.setting.nav_location < 4 && !@page.setting.overlap -%>
+			</div>
+		</div>
+		<%- @page.rows.each_with_index do |row, index| -%>
+			<%- unless row.new_record? -%>
+				<%= render :partial => "admin/pages/row", :locals => {:index => index, :row => row} -%>
+			<%- end -%>
+		<%- end -%>
+		<div class="row">
+			<div class="col-md-12 footer-zone zone" id="footer-row"></div>
+		</div>
+	</div>
+	<%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 5 -%>
+</div>

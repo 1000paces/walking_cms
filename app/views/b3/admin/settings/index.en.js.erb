@@ -1,0 +1,20 @@
+$("#wcms-master-menu .dropdown-item").removeClass("active");
+$("#wcms-master-menu").removeClass("open");
+
+if($("#wcms-form-box").is(':visible')) {
+	$("#wcms-form-box").hide("slide", { direction: "right" }, 500);
+	$("#wcms-drawer-settings").show("slide", { direction: "left"}, 500);
+} else {
+	$(".wcms-master-toolbar-link").removeClass("active");
+	if($("#wcms-drawer-settings").is(':visible')){
+		$("#wcms-drawer-settings").hide("slide", { direction: "right" }, 500);
+		$("#drawer-forms").empty();
+		$("#wcms-wrapper").removeClass("drawer-visible");
+	} else {
+		$(".wcms-right-column").hide(); 
+		$("#settings-index-div").html("<%= j render(:partial => 'index') -%>");
+		$("#wcms-toggle-settings").addClass("active");
+		$("#wcms-drawer-settings").fadeIn();
+		$("#wcms-wrapper").addClass("drawer-visible");
+	}
+}
