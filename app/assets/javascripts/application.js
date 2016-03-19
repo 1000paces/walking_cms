@@ -25,5 +25,5 @@
 //= require jquery.mjs.nestedSortable
 //= require tether/tether
 //= require_tree .
-
+//* stub bootstrap.min.js
 

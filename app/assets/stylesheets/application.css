@@ -15,6 +15,7 @@
  *= require jquery.Jcrop
  *= require_tree .
  *= require_self
+ *= stub bootstrap.min.css
  */
 
 @font-face {
