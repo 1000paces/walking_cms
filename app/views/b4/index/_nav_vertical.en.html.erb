@@ -1,6 +1,6 @@
 <div id="wcms-nav-<%= @page.id %>" class="col-md-2">
 	<ul class="nav nav-pills nav-stacked <%= @page.setting.nav_weight_class -%>">
-		<%- @user.published_nav_pages.each do |p| -%>
+		<%- @owner.published_nav_pages.each do |p| -%>
 			<%- if p.published_children.count > 0 -%>
 				<li id="wcms-page-<%= p.id %>" class="nav-item dropdown wcms-menu-link">
 					<%= link_to p.label_with_status.html_safe, public_path(p.permalink_or_id), :class => "nav-link dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false", :style => "#{@page.setting.nav_color_style}" -%>

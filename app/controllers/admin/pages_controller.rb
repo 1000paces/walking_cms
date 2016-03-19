@@ -1,6 +1,6 @@
-class Admin::PagesController < ApplicationController
-  before_action :set_user#, except: [:show]
-  before_filter :require_user#, only: [:show]
+class Admin::PagesController < Admin::AdminController
+
+
 
   def index
     @page = @user.home_page

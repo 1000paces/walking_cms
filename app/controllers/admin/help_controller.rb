@@ -1,4 +1,5 @@
-class Admin::HelpController < ApplicationController
+class Admin::HelpController < Admin::AdminController
+
 
 	def index
 	end

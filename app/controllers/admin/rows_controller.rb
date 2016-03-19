@@ -1,6 +1,4 @@
-class Admin::RowsController < ApplicationController
-  before_action :set_user
-  before_filter :require_user
+class Admin::RowsController < Admin::AdminController
 
   def create
   	@page = Page.find(params[:row][:page_id])

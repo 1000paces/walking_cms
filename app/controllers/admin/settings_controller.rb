@@ -1,6 +1,4 @@
-class Admin::SettingsController < ApplicationController
-  before_action :set_user#, except: [:show]
-  before_filter :require_user#, only: [:show]
+class Admin::SettingsController < Admin::AdminController
 
 	def index
 		#@setting = @user.setting

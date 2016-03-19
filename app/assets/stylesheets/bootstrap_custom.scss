@@ -87,6 +87,11 @@ nav.navbar:not(.navbar-fixed-top) {
   border-radius: 0;
 }
 
+.wcms-overlap .wcms-header.wcms-live nav.navbar:not(.navbar-fixed-top) {
+  bottom: 0;
+  border-radius: 0;
+}
+
 .wcms-header.flipped nav.navbar {
   position: relative !important;
   bottom: 0 !important;

@@ -63,4 +63,12 @@ class ApplicationController < ActionController::Base
 	def set_user
 		@user = current_user
 	end
+
+  def set_view_path
+  	if !@user.nil?
+    	prepend_view_path "#{Rails.root}/app/views/#{@user.setting.framework}"
+    elsif !@owner.nil?
+			prepend_view_path "#{Rails.root}/app/views/#{@owner.setting.framework}"
+    end
+  end
 end

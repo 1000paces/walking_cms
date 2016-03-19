@@ -1,4 +1,4 @@
-<div class="wcms-header" id="wcms-header" data-page="<%= page.id -%>">
+<div class="wcms-header wcms-live" id="wcms-header" data-page="<%= page.id -%>">
 	<div class="card">
 		<%- unless page.setting.image.blank? -%>
 			<%= image_tag page.setting.image_url.to_s, :class => "card-img img-fluid center-block img-#{page.setting.shape}", :id => "wcms-header-img" -%>

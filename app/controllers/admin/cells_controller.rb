@@ -1,6 +1,4 @@
-class Admin::CellsController < ApplicationController
-  before_action :set_user
-  before_filter :require_user
+class Admin::CellsController < Admin::AdminController
 
   def index
 

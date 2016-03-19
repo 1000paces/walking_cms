@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<title id="wcms-tab-title">
-			<%- if @user.nil? || @user.domain.nil? || @user.domain.label.blank? -%>
+			<%- if @owner.nil? || @owner.domain.nil? || @owner.domain.label.blank? -%>
 				<%= cms_name -%>
 			<%- else -%>
-				<%= @user.domain.label -%>
+				<%= @owner.domain.label -%>
 			<%- end -%>
 			<%- unless @page.nil? -%>
 				: <%= @page.title -%>
@@ -32,12 +32,12 @@
 
 	  <%= csrf_meta_tags -%>
 	</head>
-	<%- if @user.new_record? -%>
+	<%- if @owner.new_record? -%>
 		<body class="wcms-navbar-fixed-top">
-	<%- elsif @user && @page.nil? -%>
-		<body class="wcms-flex <%= @user.setting.background_color -%> <%= @user.setting.nav_class(true) -%>">
+	<%- elsif @owner && @page.nil? -%>
+		<body class="wcms-flex <%= @owner.setting.background_color -%> <%= @owner.setting.nav_class(true) -%>">
 	<%- else -%>
-		<body class="wcms-flex <%= @page.setting.background_class -%> <%= @page.setting.nav_class(true) -%>">
+		<body class="wcms-flex <%= @page.setting.background_class -%> <%= @page.setting.nav_class(true) -%> <%= @page.setting.overlap_style -%>">
 	<%- end -%>
 		<%- unless @page.nil? -%><%- end -%>
 		<%= yield %>

@@ -1,6 +1,4 @@
-class Admin::SitesController < ApplicationController
-	before_action :set_user, only: [:show]
-  before_filter :require_user, only: [:show]
+class Admin::SitesController < Admin::AdminController
 
   def show
     if params[:id].nil?
@@ -22,4 +20,5 @@ class Admin::SitesController < ApplicationController
     def set_user
       @user = User.find(session[:user_credentials_id])
     end
+
 end
