@@ -5,6 +5,7 @@
 html, body {
 	margin: 0 !important;
 	padding: 0 !important;
+	background-color: pink;
 }
 
 body {
@@ -28,6 +29,18 @@ body.wcms-navbar-fixed-top:not(.wcms-overlap) {
 	padding-top: 53px !important;	
 	padding-bottom: 0;
 }
+
+.wcms-white-text {
+	color: #d6d6d6;
+}
+
+.wcms-navbar-brand-icon {
+	float: left;
+	padding-top: .5rem;
+	padding-bottom: .25rem;
+	margin-right: 1rem;
+}
+
 
 .wcms-overlap #wcms-sidebar-wrapper {
 	margin-top: 0;

@@ -21,6 +21,7 @@
 		<%#= cdn_jquery_flip -%>
 
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true -%>
+		<%= wcms_css(@user.setting.framework) -%>
 		<%= cdn_css_bootstrap(@user.setting.framework) -%>
 		<%= cdn_css_font_awesome -%>
 

@@ -1,3 +1,40 @@
+@font-face {
+  font-family: -apple-system, "Helvetica Neue", "Lucida Grande" !important;
+}
+
+body {
+  /*padding-top: 5rem;
+  padding-bottom: 5rem;*/
+}
+
+.form-control-label-right {
+  text-align: right;
+}
+
+.form-control-xs {
+  padding: .175rem .5rem;
+  font-size: .750rem;
+  border-radius: .2rem;
+}
+
+.file-custom-sm {
+  padding: .275rem .75rem !important;
+  border-radius: .2rem;
+  font-size: .875rem;
+  line-height: 1.5;
+}
+
+#footer li a {
+  /*font-variant: small-caps;*/
+}
+
+#footer img {
+  padding-top: 7px;
+}
+
+
+
+
 .nav-pills.bg-inverse.nav-dark, .nav-pills.bg-faded.nav-light {
 	background-color: #fff; /* needed to counter the normal bg-inverse dark color */
 }

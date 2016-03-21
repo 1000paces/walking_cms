@@ -16,6 +16,19 @@ module ApplicationHelper
 		end
 	end
 
+	def wcms_css(v='b3')
+		Rails.logger.warn("\n\nWOOT!")
+		stylesheet_link_tag("/#{v}")
+	end
+
+	def wsmc_js(v=nil)
+		case v
+		when 'b3'
+		else
+
+		end
+	end
+
 	def cdn_css_font_awesome
 		"<link href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'>".html_safe
 	end
