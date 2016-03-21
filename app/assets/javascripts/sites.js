@@ -9,7 +9,6 @@ $(document).on('click', ".fofull-screen", function(e) {
 $(document).on('click', ".wcms-master-toolbar-link", function(e) {
 	console.log("2. .wcms-master-toolbar-link was clicked")
 	$(".wcms-cell-toolbar-link").removeClass('active');
-	$(".wcms-tool-container").hide();
 	$(".wcms-work-cell").removeClass("pressed");
 });
 

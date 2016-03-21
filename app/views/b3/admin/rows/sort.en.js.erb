@@ -1,7 +1,6 @@
 $("#wcms-work-area").html("<%= j render(:partial => 'admin/rows/index') -%>");
 $("#wcms-organize").addClass("hidden");
 $("#wcms-organize-finished").removeClass("hidden").addClass("active");
-$(".wcms-tool-container").fadeOut();
 $(".wcms-work-cell").removeClass("pressed");
 $(".wcms-right-column").hide("slide", { direction: "right" }, 500);
 $("#wcms-wrapper").removeClass("drawer-visible");

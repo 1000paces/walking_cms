@@ -969,4 +969,34 @@ div.tool-items a.tool-item i {
 }
 
 
+a.wcms-starter-link, a.wcms-starter-link:visited {
+	color: #a9a9a9;
+}
+
+a.wcms-starter-link:hover {
+	color: #808080;
+}
+
+div.wcms-starter-box {
+	background-color: #d3d3d3;
+	border-radius: .25rem;
+	border: 1px solid #c0c0c0;
+	padding: 10px;
+	min-height: 200px;
+	/*margin-bottom: 10px;*/
+}
+
+.wcms-live .wcms-starter-box {
+	border: none;
+	background-color: transparent;
+	display: none;
+}
+
+#wcms-row-sort-container .sort {
+	min-height: 38px !important;
+}
+
+#wcms-row-sort-container .sort .row {
+	min-height: 38px !important;
+}
 
