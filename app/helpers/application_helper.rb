@@ -16,9 +16,8 @@ module ApplicationHelper
 		end
 	end
 
-	def wcms_css(v='b3')
-		Rails.logger.warn("\n\nWOOT!")
-		stylesheet_link_tag("/#{v}")
+	def wcms_css(v='b3')		
+		stylesheet_link_tag("#{v}/sites", "#{v}/bootstrap_custom")
 	end
 
 	def wsmc_js(v=nil)

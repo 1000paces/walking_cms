@@ -4,7 +4,7 @@
 			<div class="wcms-face wcms-front">
 				<div class="card">
 					<%- unless page.setting.image.blank? -%>
-						<%= image_tag page.setting.image_url.to_s, :class => "card-img img-fluid center-block img-#{page.setting.shape}", :id => "wcms-header-img" -%>
+						<%= image_tag page.setting.image_url.to_s, :class => "img-responsive center-block img-#{page.setting.shape}", :id => "wcms-header-img" -%>
 						<div class="card-img-overlay" style="<%= page.setting.text_color_style -%>">
 					<%- else -%>
 						<div class="card-block">

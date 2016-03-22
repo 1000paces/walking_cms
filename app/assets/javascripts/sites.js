@@ -1,10 +1,4 @@
 /* Hide/Show the left toolbar and right drawer so the site is fullscreen */
-$(document).on('click', ".fofull-screen", function(e) {
-	console.log("1. .wcms-full-screen was clicked, so toggle the left drawer");
-	$("#wcms-wrapper").toggleClass("toolbar-visible");
-	$(".wcms-drawer-left").toggle();
-	$(".wcms-master-toolbar-link").removeClass("active");
-});
 
 $(document).on('click', ".wcms-master-toolbar-link", function(e) {
 	console.log("2. .wcms-master-toolbar-link was clicked")
@@ -95,12 +89,6 @@ $(document).on('click', ".wcms-cancel", function(e) {
 	$(".wcms-cell-toolbar-link").removeClass('active');
 	$(".wcms-work-cell, .wcms-header").removeClass('flipped');
 	$(".wcms-toolbar").hide();
-	$("#wcms-wrapper").removeClass('toolbar-visible').delay(500).queue(function(next) {
-		$("#wcms-master-toolbar").show();
-		$(".wcms-cell-toolbar-vertical").hide();
-		$(this).addClass("toolbar-visible");
-		next();
-	})
 
 	$(".wcms-cell").removeClass("wcms-cell-active");
 	var dataRow = $(this).attr('data-row');

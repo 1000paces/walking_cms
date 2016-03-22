@@ -1,9 +1,13 @@
 html, body {
 	margin: 0 !important;
 	padding: 0 !important;
-	background-color: teal;
 }
 
 body {
 	position: relative;
+}
+
+.wcms-header {
+	margin-left: -15px;
+	margin-right: -15px;
 }

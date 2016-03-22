@@ -9,4 +9,15 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile += %w( stonewall_press.png stonewall_press_brand.png s_logo.png feet_walking_black.png feet_walking_white.png )
+Rails.application.config.assets.precompile += %w( 
+	stonewall_press.png 
+	stonewall_press_brand.png 
+	s_logo.png 
+	feet_walking_black.png 
+	feet_walking_white.png 
+	b3/sites.css
+	b4/sites.css
+	b3/bootstrap_custom.css
+	b4/bootstrap_custom.css	
+)
+

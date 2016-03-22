@@ -12,12 +12,5 @@ $(".wcms-master-toolbar-link").removeClass("active");
 if(!$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").is(':visible')) {
 	$("#wcms-cell-toolbar").hide();
 	$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").hide();
-	$("#wcms-wrapper").toggleClass('toolbar-visible').delay(500).queue(function(next) {
-		$(".wcms-cell-toolbar-vertical").hide();
-		$("#wcms-cell-toolbar").show();
-		$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").show();
-		$(this).addClass("toolbar-visible");
-		next();
-	})
 }
 <%- end -%>
