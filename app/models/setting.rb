@@ -50,11 +50,12 @@ class Setting < ActiveRecord::Base
 	end
 
 	def container_type
-		if self.fluid?
-			return "container-fluid"
+		v = self.page.user.setting.framework
+		if v == 'f6'
+			return self.fluid? ? "row-fluid" : "row"
 		else
-			return "container"
-		end			
+			return self.fluid? ? "container-fluid" : "container"
+		end
 	end
 
 	def nav_weight_class

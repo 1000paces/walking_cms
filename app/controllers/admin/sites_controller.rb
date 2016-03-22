@@ -8,6 +8,8 @@ class Admin::SitesController < Admin::AdminController
     else
       @page = @user.pages.find_by_permalink(params[:id])
     end
+    Rails.logger.warn("\n\nPAGE: #{@page}")
+    @page.save if @page.new_record?
     if @page.rows.empty?
       @row = @page.rows.create 
       @cell = @row.cells.create(:body => "")

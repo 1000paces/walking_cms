@@ -14,6 +14,7 @@ class Page < ActiveRecord::Base
 	excluded_words = ['index','admin','catalog','resource','test','user','observation','entity','directory','search']
 	validates_exclusion_of :permalink, :in => excluded_words, :message =>"Can't use reserved words: #{excluded_words.to_sentence}."	
 
+	before_validation :fix_permalink
 
 	ICON_SHORT = "fa-file-text-o fa-flip-horizontal"
 	HOME_SHORT = "fa-home"
@@ -130,11 +131,17 @@ class Page < ActiveRecord::Base
 
 	private
 
+	def fix_permalink
+		if self.permalink.blank?
+			self.permalink = self.generate_permalink
+		end
+	end
+
 	def self.find_unique_permalink(user_id, p_link)
 		i = 1
 		
 		new_permalink = nil
-		new_permalink = String.new(p_link).downcase
+		new_permalink = String.new(p_link).downcase.dasherize
 		
 		until Page.where("user_id = ? AND permalink = ?", user_id, new_permalink).first.nil?
 			new_permalink = nil

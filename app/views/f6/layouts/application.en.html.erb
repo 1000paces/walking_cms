@@ -17,12 +17,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true -%>
-		<%= cdn_js_bootstrap(@user.setting.framework) -%>
+		<%= cdn_js_framework(@user.setting.framework) -%>
 		<%= cdn_jquery_flip -%>
 
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true -%>
 		<%= wcms_css(@user.setting.framework) -%>
-		<%= cdn_css_bootstrap(@user.setting.framework) -%>
+		<%= cdn_css_framework(@user.setting.framework) -%>
 		<%= cdn_css_font_awesome -%>
 
 		<style>
@@ -45,5 +45,9 @@
 		<div id="wcms-custom-font" style="display: none;">
 			<%= render(:partial => "admin/pages/font") -%>
 		</div>
+
+    <script>
+      $(document).foundation();
+    </script>		
 	</body>
 </html>

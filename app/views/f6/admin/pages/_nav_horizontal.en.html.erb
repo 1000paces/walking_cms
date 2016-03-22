@@ -1,0 +1,27 @@
+<div id="wcms-nav-<%= @page.id %>" class="top-bar <%= @page.setting.nav_weight_class -%> <%= @page.setting.nav_class -%>" style="<%= @page.setting.nav_color_style -%>">
+	<div class="top-bar-left">
+		<ul class="dropdown menu" style="background-color: transparent;" data-dropdown-menu>
+			<%- @user.all_nav_pages.each do |p| -%>
+				<%- if p.children.count > 0 -%>
+					<li id="wcms-page-<%= p.id %>" class="">
+						<%= link_to p.label_with_status.html_safe, "#", :class => "", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
+						<ul class="menu vertical" role="menu">
+							<%- p.children.each do |c| -%>
+								<li><%= link_to c.label_with_status.html_safe, admin_site_path(c.permalink_or_id), :class => "dropdown-item #{'active' if c.id == @page.id}", :id => "wcms-page-#{c.id}", :style => "#{@page.setting.nav_color_style if c.id == @page.id}" -%></li>
+							<%- end -%>
+						</ul>
+					</li>
+				<%- else -%>
+					<li class="wcms-menu-link <%= 'active' if p.id == @page.id -%>" id="wcms-page-<%= p.id %>">
+						<%= link_to p.label_with_status.html_safe, admin_site_path(p.permalink_or_id), :class => "nav-link" -%>
+					</li>
+				<%- end -%>
+			<%- end -%>
+		</ul>			
+	</div>
+	<div class="top-bar-right" data-dropdown-menu>
+		<ul class="menu" style="background-color: transparent;">
+			<%= render :partial => 'admin/pages/master_menu', :locals => {:p => @page, :side => 'right'} -%>
+		</ul>
+	</div>
+</div>

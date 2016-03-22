@@ -1,0 +1,3 @@
+<%= form_for [:admin, Row.new], :html => {:id => "wcms-new-row"}, :remote => true do |f| -%>
+	<%= f.hidden_field :page_id, :value => page.id -%>
+<%- end -%>

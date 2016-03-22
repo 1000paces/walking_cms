@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
 	def home_page
 		if self.all_nav_pages.blank?
 			self.linked_page_array = nil
-			return self.pages.create(label: "My New Page", position: 0)
+			return self.pages.create!(label: "My New Page", title: "My New Page", position: 0)
 		else
 			return self.all_nav_pages.first
 		end

@@ -17,11 +17,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true -%>
-		<%= cdn_js_bootstrap(@user.setting.framework) -%>
-		<%#= cdn_jquery_flip -%>
-
+		<%= cdn_js_framework(@user.setting.framework) -%>
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true -%>
-		<%= cdn_css_bootstrap(@user.setting.framework) -%>
+		<%= cdn_css_framework(@user.setting.framework) -%>
 		<%= wcms_css(@user.setting.framework) -%>
 		<%= cdn_css_font_awesome -%>
 

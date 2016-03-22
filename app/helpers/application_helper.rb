@@ -1,23 +1,23 @@
 module ApplicationHelper
 
-	def cdn_js_bootstrap(v=nil)
-		if v == 'b3'
-			"<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>".html_safe
+	def cdn_js_framework(v=nil)
+		if v == 'f6'
+			"<script src='//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.js'></script>".html_safe
 		else
 			"<script src='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js'></script>".html_safe
 		end
 	end
 
-	def cdn_css_bootstrap(v=nil)
-		if v == 'b3'
-			"<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>".html_safe
+	def cdn_css_framework(v=nil)
+		if v == 'f6'
+			"<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.css'>".html_safe
 		else
 			"<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css'>".html_safe
 		end
 	end
 
 	def wcms_css(v='b3')		
-		stylesheet_link_tag("#{v}/sites", "#{v}/bootstrap_custom")
+		stylesheet_link_tag("#{v}/sites", "#{v}/custom")
 	end
 
 	def wsmc_js(v=nil)
