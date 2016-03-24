@@ -52,7 +52,7 @@ class Setting < ActiveRecord::Base
 	def container_type
 		v = self.page.user.setting.framework
 		if v == 'f6'
-			return self.fluid? ? "row-fluid" : "row"
+			return self.fluid? ? "row expanded" : "row"
 		else
 			return self.fluid? ? "container-fluid" : "container"
 		end
@@ -72,7 +72,7 @@ class Setting < ActiveRecord::Base
 		retval = with_namespace ? "wcms-" : ""
 		case self.nav_location
 		when 1 ##### below header image rounded
-			return ""
+			return "navbar-rounded"
 		when 2 #### below header image square
 			retval << "navbar-full"
 		when 3 #### fixed to bottom

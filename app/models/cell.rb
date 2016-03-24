@@ -185,6 +185,39 @@ class Cell < ActiveRecord::Base
 		end
 	end
 
+	def grid_style
+		retval = ""
+		case self.owner.setting.framework
+		when 'f6'
+			retval = "#{self.f6_breakpoint}-#{self.width>12 ? 12 : self.width} columns"
+			if self.offset > 0
+				retval << " #{self.f6_breakpoint}-offset-#{self.offset}"
+			end
+		else
+			retval = "col-#{self.breakpoint}-#{self.width>12 ? 12 : self.width}"
+			if self.offset > 0
+				retval << " col-#{self.breakpoint}-offset-#{self.offset}"
+			end
+		end
+
+		return retval
+	end
+
+	def f6_breakpoint
+		case self.breakpoint
+		when 'xs','sm'
+			return 'small'
+		when 'md'
+			return 'medium'
+		else
+			return 'large'
+		end
+	end
+
+	def owner
+		self.row.page.user
+	end
+
 	def has_uri?
 		return false if self.embed_code.blank?
 		begin

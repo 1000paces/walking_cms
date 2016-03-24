@@ -10,9 +10,9 @@
 						<div class="card-block">
 					<%- end -%>
 						<div style="<%= page.setting.title_background_style -%>">
-							<h1 class="text-xs-center display-4" id="wcms-page-label"><%= page.label -%></h1>
+							<h1 class="text-center display-4" id="wcms-page-label"><%= page.label -%></h1>
 							<%- unless page.headline.blank? -%>
-								<p class="lead text-xs-center"><%= page.headline -%></p>
+								<p class="lead text-center"><%= page.headline -%></p>
 							<%- end -%>
 						</div>
 					</div>
@@ -25,5 +25,5 @@
 			</div>
 		</div>
 	</div>
-	<%= render :partial => "admin/pages/nav_horizontal" if page.setting.nav_location < 4 && page.setting.overlap? -%>
+	<%= render :partial => "admin/pages/nav_horizontal" if page.setting.nav_location < 3 && page.setting.overlap? -%>
 </div>

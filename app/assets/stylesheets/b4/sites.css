@@ -42,7 +42,9 @@ body.wcms-navbar-fixed-top:not(.wcms-overlap) {
 }
 
 body.wcms-navbar-fixed-top.wcms-overlap #wcms-sidebar-wrapper {
-	margin-top: 53px;
+	/*margin-top: 53px;*/
+	margin-top: 0;
+	z-index: 1031;
 }
 
 body.wcms-navbar-fixed-bottom {
@@ -416,7 +418,7 @@ ol.list-unstyled ol li {
 }
 
 .page-list li {
-	padding: 8px 4px 8px 30px;
+	padding: 8px 4px 8px 20px;
 	margin: 2px 0;
 }
 
@@ -497,13 +499,6 @@ ol.help-list, ol.wcms-user-settings-list {
 	border-color: rgb(229, 229, 229);
 	min-height: 140px;
 	/*box-shadow: 0 0 3px rgba(0,0,0,.15);*/
-}
-
-.zone {
-
-}
-.zone:hover {
-
 }
 
 .wcms-work-area {

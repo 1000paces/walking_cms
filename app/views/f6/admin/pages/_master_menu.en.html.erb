@@ -1,18 +1,18 @@
 <li class="" id="wcms-master-menu">
 	<%= link_to "<i class='fa fa-fw fa-cogs'></i>".html_safe, "#", :class => "", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
-	<ul class="menu vertical" role="menu">
+	<ul class="menu" role="menu" id="wcms-master-submenu">
 		<li><%= link_to "<i class='#{Page::ICON}'></i> Pages".html_safe, admin_pages_path, :title => "Pages", :id => "wcms-toggle-pages", :class => "dropdown-item", :remote => true -%></li>
-		
+		<li class="divider"></li>
 		<li><%= link_to "<i class='#{Row::ICON}'></i> Add Row".html_safe, "#", :class => "dropdown-item", :title => "Add Row", :id => "wcms-add-row" -%></li>
 		<li><%= link_to "<i class='fa fa-fw fa-caret-square-o-left'></i> Add Cell Left".html_safe, "#", :class => "dropdown-item wcms-cell-toolbar-cells", :id => "wcms-add-cell-left", :title => "Add new card to the left", :data => {:side => "left", :action => "add", :row => 0, :cell => 0} -%></li>
 		<li><%= link_to "<i class='fa fa-fw fa-caret-square-o-right'></i> Add Cell Right".html_safe, "#", :class => "dropdown-item wcms-cell-toolbar-cells", :id => "wcms-add-cell-right", :title => "Add new card to the right", :data => {:side => "right", :action => "add", :row => 0, :cell => 0}  -%></li>
-		
+		<li class="divider"></li>
 		<li><%= link_to "<i class='#{Page::SORT}'></i> Organize".html_safe, admin_rows_sort_path(p), :class => "dropdown-item", :title => "Organize", :id => "wcms-organize", :remote => true -%></li>
 		<li><%= link_to "<i class='fa fa-fw fa-thumbs-o-up'></i> Finished".html_safe, admin_site_path(p), :class => "dropdown-item hidden", :title => "Finished", :id => "wcms-organize-finished" -%>	</li>	
-		
+		<li class="divider"></li>
 		<li><%= link_to "<i class='#{User::SETTINGS}'></i> Settings".html_safe, admin_settings_path, :title => "Settings", :id => "wcms-toggle-settings", :class => "dropdown-item", :remote => true -%></li>
 		<li><%= link_to "<i class='#{HelpTopic::ICON}'></i> Help".html_safe, admin_help_index_path, :title => "Help", :id => "wcms-toggle-help", :class => "dropdown-item", :remote => true -%>	</li>
-		
+		<li class="divider"></li>
 		<li><%= link_to("<i class='fa fa-fw fa-sign-out'></i> Sign Out".html_safe, user_session_path, :method => :delete, :class => "dropdown-item") -%></li>
 	</ul>
 </li>

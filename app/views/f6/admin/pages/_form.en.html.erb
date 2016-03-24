@@ -1,5 +1,5 @@
 <%= link_to "<i class='fa fa-fw fa-arrow-left'></i>".html_safe, admin_pages_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link left", :remote => true -%>
-<h4 class="lead text-xs-center wcms-white-text">
+<h4 class="lead text-center wcms-white-text">
   <%- if @page.new_record? -%>
     <i class="<%= Page::ICON_EMPTY -%>"></i> New Page
   <%- else -%>
@@ -8,67 +8,41 @@
 </h4>
       
 <%= form_for([:admin,  @page], html: {class: "wcms-sidebar-form", role: 'form' }, :remote => true) do |f| %>
-  <%- if @page.errors.any? -%>
-    <div id="error_explanation" class="alert alert-danger">
-      <strong><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</strong>
-      <ul>
-      <%- @page.errors.full_messages.each do |message| -%>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <%- end -%>
   <fieldset class="form-group">
     <label for="page_label" class="form-control-label wcms-form-label wcms-white-text">Label</label>
     <%= f.text_field :label, :class => "form-control form-control-xs" -%>
-    <small class="wcms-form-help text-help" id="label_help">The text that will appear in your website's navigation.</small>
+    <p class="wcms-form-help help-text" id="label_help">The text that will appear in your website's navigation.</p>
   </fieldset>
   <fieldset class="form-group">
     <label for="page_label" class="form-control-label wcms-form-label wcms-white-text">Title</label>
     <%= f.text_field :title, :class => "form-control form-control-xs" -%>
-    <span aria-hidden="true" id="page_title_spinner" class="form-control-feedback hidden"><i class="fa fa-cog fa-spin text-muted"></i></span>
-    <small class="wcms-form-help" id="title_help">The text that will appear in the browser tab or the top of the browser window.</small>
+    <p class="wcms-form-help help-text" id="title_help">The text that will appear in the browser tab or the top of the browser window.</p>
   </fieldset>
   <fieldset class="form-group">
     <label for="page_permalink" class="form-control-label wcms-form-label wcms-white-text">Link</label>
     <%= f.text_field :permalink, :class => "form-control form-control-xs" -%>
-    <small class="wcms-form-help" id="permalink_help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</small>
+    <p class="wcms-form-help help-text" id="permalink_help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</p>
   </fieldset>
   <%= f.fields_for :setting, @page.setting do |b| -%>
-    <fieldset class="form-group">
-      <label class="sr-only" for="setting_fluid">Layout</label>
-      <div class="radio">
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :fluid, true -%> Fluid Layout</small>
-        </label>
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :fluid, false -%> Static Layout</small>
-        </label>
-      </div>
-    </fieldset>  
+    <div class="button-group">
+        <%= b.radio_button :fluid, true -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_true">Fluid Layout</label>
+        <%= b.radio_button :fluid, false -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_false">Static Layout</label>
+    </div>    
     <fieldset class="form-group">
       <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_font_id">Font</label>
       <%= b.select(:font_id, Font.alpha_collection, {}, {:class => "form-control form-control-sm"}) %>
     </fieldset>
-    <fieldset class="form-group">
-      <label class="sr-only" for="setting_font_weight">Font Weight</label>
-      <div class="radio">
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :font_weight, 100 -%> Thin Fonts</small>
-        </label>
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :font_weight, 400 -%> Normal</small>
-        </label>
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :font_weight, 700 -%> Heavy</small>
-        </label>
-      </div>  
+    <div class="button-group">
+        <%= b.radio_button :font_weight, 100 -%><label class="wcms-font wcms-thin button secondary" for="page_setting_attributes_font_weight_100">Thin</label>
+        <%= b.radio_button :font_weight, 400 -%><label class="wcms-font wcms-normal button secondary" for="page_setting_attributes_font_weight_400">Normal</label>
+        <%= b.radio_button :font_weight, 700 -%><label class="wcms-font wcms-heavy button secondary" for="page_setting_attributes_font_weight_700">Heavy</label>
+    </div>    
     <fieldset class="form-group">
       <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_nav_location">Navigation Location</label>
       <%= b.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
     </fieldset>
     <fieldset class="form-group">
-      <label for="setting_border" class="sr-only">Overlap Header & Navigation</label>
+      <label for="setting_border" class="show-for-sr">Overlap Header & Navigation</label>
       <label class="wcms-white-text small checkbox-inline">
         <%= b.check_box(:overlap, {}, 1, 0) %> Overlap Header & Navigation
       </label>
@@ -81,19 +55,22 @@
       </script>
     </fieldset>
   <%- end -%>
-  <div class="radio">
-    <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "PUBLIC") %> <span class="label label-pill label-success">Publish</span></label> 
-    <label class="small radio-inline wcms-white-text"><%= f.radio_button(:status, "DRAFT") %> <span class="label label-pill label-default">Draft</span></label>
-    <label class="small radio-inline"><%= f.radio_button(:status, "DELETE") %> <span class="label label-pill label-danger">Delete</span></label>
-    <small class="wcms-form-help" id="status_help">Select "Published" when your page is ready to view.</small>
+  <div class="small button-group">
+    <%= f.radio_button(:status, "PUBLIC") %><label class="wcms-publish button secondary" for="page_status_public"><i class='fa fa-flag'></i> Publish</label>
+    <%= f.radio_button(:status, "DRAFT") %><label class="wcms-draft button secondary" for="page_status_draft"><i class='fa fa-exclamation-triangle'></i> Draft</label>
+    <%= f.radio_button(:status, "DELETE") %><label class="wcms-delete button secondary" for="page_status_delete"><i class='fa fa-trash'></i> Delete</label>
   </div>
-  <fieldset class="form-group wcms-action-group">  
-    <%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
-    <%= link_to "Cancel", admin_pages_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-secondary-outline btn-sm pull-xs-right", :remote => true -%>
+  <p class="wcms-form-help help-text" id="status_help">Select "Publish" when your page is ready to view.</p>
+  
+  <fieldset class="form-group wcms-action-group">
+    <%= f.submit 'Save', class: 'button secondary small' %>
+    <%= link_to "Cancel", admin_pages_path, :title => "Cancel", :id => "cancel-button", :class => "button secondary small pull-right", :remote => true -%>
   </fieldset>
-  <fieldset class="form-group wcms-action-group text-xs-center">
-    <%= link_to "<i class='#{Page::CLONE}'></i> Copy Page".html_safe, admin_duplicate_page_path(@page), :class => "btn btn-sm btn-secondary-outline wcms-duplicate", :title => "Duplicate", :id => "wcms-duplicate", :remote => true -%>
-  </fieldset>
+  <%- unless @page.new_record? -%>
+    <fieldset class="form-group wcms-action-group text-center">
+      <%= link_to "<i class='#{Page::CLONE}'></i> Copy Page".html_safe, admin_duplicate_page_path(@page), :class => "button secondary small wcms-duplicate", :title => "Duplicate", :id => "wcms-duplicate", :remote => true -%>
+    </fieldset>
+  <%- end -%>
 <%- end -%>
 
 <script type="text/javascript">

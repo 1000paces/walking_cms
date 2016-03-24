@@ -1,6 +1,6 @@
 <!--- THIS IS WHERE THE ROW <%= row.id -%> PARTIAL BEGINS -->
 <%- unless row.cells.blank? -%>
-		<div class="row wcms-row" id="wcms-row-<%= row.id -%>" data-row="<%= row.id -%>">
+		<div class="<%= @page.setting.container_type -%> wcms-row" id="wcms-row-<%= row.id -%>" data-row="<%= row.id -%>">
 			<%- row.cells.each_with_index do |cell, cell_index| -%>
 				<%= render :partial => "admin/pages/cell", :locals => {:row => row, :cell => cell, :index => cell_index} -%>
 			<%- end -%>

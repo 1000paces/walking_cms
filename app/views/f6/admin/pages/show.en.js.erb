@@ -1,7 +1,6 @@
 $("#wcms-page-display").html("<%= j render(:partial => 'admin/pages/display') -%>");
 $(".wcms-menu-link").removeClass("active");
 $("#wcms-page-<%= @page.id %>").addClass("active");
-/*$("#wcms-drawer-forms").hide("slide", { direction: "right" }, 750);*/
 $("#wcms-page-display").show();
 $("#wcms-organize").parent().removeClass("hidden");
 $("#wcms-organize-finished").parent().addClass("hidden");
@@ -24,3 +23,5 @@ $(".wcms-master-toolbar-link").removeClass("active");
 
 $("body").removeClass("wcms-white-background wcms-grey-background wcms-navbar-full wcms-navbar-fixed-bottom wcms-navbar-fixed-top wcms-overlap").addClass("<%= @page.setting.nav_class(true) -%> <%= @page.setting.background_class -%> <%= @page.setting.overlap_style -%>");
 $(".wcms-full-height-container").removeClass("container container-fluid").addClass("<%= @page.setting.container_type -%>");
+
+$(document).foundation();
