@@ -12,6 +12,8 @@ $(document).on('click', '.wcms-cell', function(e){
 
 	console.log("3. .wcms-cell was clicked so get update the appropriate toolbars for row " + rowId + " and cell " + cellId);
 	if ($(e.target).closest(".wcms-back").length === 0) {
+		$(".wcms-cell-controls").fadeOut();
+		$(".wcms-cell").removeClass("wcms-cell-active");
 		$.ajax({
 			type: 'get',
 			dataType: 'script',
@@ -24,8 +26,10 @@ $(document).on('click', '.wcms-header', function(e){
 	var pageId = $(this).attr('data-page');	
 	if ($(e.target).closest(".wcms-back").length === 0 && $(e.target).closest(".navbar").length === 0) {
 		console.log("3.25 .wcms-header was clicked");
+		$(".wcms-cell-controls").fadeOut();
 		$(".wcms-cell").removeClass("wcms-cell-active");
 		$("#wcms-header").addClass("wcms-cell-active");
+		$("#wcms-cell-controls-header").fadeIn();
 		/*$.ajax({
 			type: 'get',
 			dataType: 'script',

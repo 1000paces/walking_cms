@@ -120,7 +120,10 @@
 	position: absolute;
 	left: 0;
 	right: 0;
-  bottom: 24px;
+  bottom: 0;
+}
+.wcms-overlap #wcms-cell-controls-header {
+  bottom: 56px;
 }
 
 .wcms-overlap .wcms-header.wcms-live div.top-bar:not(.navbar-fixed-top) {

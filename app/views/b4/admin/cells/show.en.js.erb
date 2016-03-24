@@ -1,16 +1,4 @@
-$(".wcms-cell").removeClass("wcms-cell-active");
 $("#wcms-cell-<%= @cell.id %>").addClass("wcms-cell-active").effect("highlight", {}, 3000);
 $("#wcms-adjacent-cell").val(<%= @cell.id -%>);
 $(".wcms-work-cell:not(#wcms-cell-<%= @cell.id %>)").removeClass("flipped");
-
-<%- if 1==2 -%>
-$(".wcms-cell-toolbar-link").removeClass('active');
-$(".wcms-toolbar").hide();
-$("#wcms-wrapper").removeClass("drawer-visible");
-$(".wcms-master-toolbar-link").removeClass("active");
-
-if(!$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").is(':visible')) {
-	$("#wcms-cell-toolbar").hide();
-	$("#wcms-cell-toolbar-vertical-<%= @cell.id %>").hide();
-}
-<%- end -%>
+$("#wcms-cell-controls-<%= @cell.id %>").fadeIn();

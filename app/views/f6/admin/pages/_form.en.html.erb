@@ -24,18 +24,18 @@
     <p class="wcms-form-help help-text" id="permalink_help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</p>
   </fieldset>
   <%= f.fields_for :setting, @page.setting do |b| -%>
-    <div class="button-group">
-        <%= b.radio_button :fluid, true -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_true">Fluid Layout</label>
-        <%= b.radio_button :fluid, false -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_false">Static Layout</label>
-    </div>    
+    <div class="small button-group">
+      <%= b.radio_button :fluid, true -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_true">Fluid Layout</label>
+      <%= b.radio_button :fluid, false -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_false">Static Layout</label>
+    </div>
     <fieldset class="form-group">
       <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_font_id">Font</label>
       <%= b.select(:font_id, Font.alpha_collection, {}, {:class => "form-control form-control-sm"}) %>
     </fieldset>
-    <div class="button-group">
-        <%= b.radio_button :font_weight, 100 -%><label class="wcms-font wcms-thin button secondary" for="page_setting_attributes_font_weight_100">Thin</label>
-        <%= b.radio_button :font_weight, 400 -%><label class="wcms-font wcms-normal button secondary" for="page_setting_attributes_font_weight_400">Normal</label>
-        <%= b.radio_button :font_weight, 700 -%><label class="wcms-font wcms-heavy button secondary" for="page_setting_attributes_font_weight_700">Heavy</label>
+    <div class="small button-group">
+        <%= b.radio_button :font_weight, 100 -%><label class="wcms-font wcms-thin button secondary" for="page_setting_attributes_font_weight_100">Thin Font</label>
+        <%= b.radio_button :font_weight, 400 -%><label class="wcms-font wcms-normal button secondary" for="page_setting_attributes_font_weight_400">Normal Font</label>
+        <%= b.radio_button :font_weight, 700 -%><label class="wcms-font wcms-heavy button secondary" for="page_setting_attributes_font_weight_700">Heavy Font</label>
     </div>    
     <fieldset class="form-group">
       <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_nav_location">Navigation Location</label>
@@ -56,14 +56,14 @@
     </fieldset>
   <%- end -%>
   <div class="small button-group">
-    <%= f.radio_button(:status, "PUBLIC") %><label class="wcms-publish button secondary" for="page_status_public"><i class='fa fa-flag'></i> Publish</label>
+    <%= f.radio_button(:status, "PUBLIC") %><label class="wcms-publish button secondary" for="page_status_public"><i class='fa fa-flag-checkered'></i> Publish Page</label>
     <%= f.radio_button(:status, "DRAFT") %><label class="wcms-draft button secondary" for="page_status_draft"><i class='fa fa-exclamation-triangle'></i> Draft</label>
     <%= f.radio_button(:status, "DELETE") %><label class="wcms-delete button secondary" for="page_status_delete"><i class='fa fa-trash'></i> Delete</label>
   </div>
   <p class="wcms-form-help help-text" id="status_help">Select "Publish" when your page is ready to view.</p>
   
   <fieldset class="form-group wcms-action-group">
-    <%= f.submit 'Save', class: 'button secondary small' %>
+    <%= f.submit 'Save Changes', class: 'button secondary' %>
     <%= link_to "Cancel", admin_pages_path, :title => "Cancel", :id => "cancel-button", :class => "button secondary small pull-right", :remote => true -%>
   </fieldset>
   <%- unless @page.new_record? -%>

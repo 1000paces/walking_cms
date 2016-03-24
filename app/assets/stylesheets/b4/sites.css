@@ -250,7 +250,7 @@ div#wcms-content-wrapper {
 div#wcms-sidebar-wrapper {
 	z-index: 1003;
 	position: absolute;
-	right: 0; /* 250px; */
+	right: 0;
 	width: 0;
 	height: 100%;
 	overflow-y: scroll;
@@ -264,12 +264,12 @@ div#wcms-sidebar-wrapper {
 }
 
 #wcms-wrapper.drawer-visible #wcms-sidebar-wrapper {
-  width: 250px;
+  width: 500px;
 }
 
 .wcms-right-column {
 	padding-top: 36px;
-	min-width: 250px;
+	min-width: 500px;
 	display: none;
 }
 
@@ -278,7 +278,7 @@ div#wcms-sidebar-wrapper {
 	top: 0px;
 	padding-top: 36px;
 	left: 0;
-	width: 250px;
+	width: 500px;
 }
 
 #wcms-wrapper.drawer-visible #wcms-content-wrapper {
