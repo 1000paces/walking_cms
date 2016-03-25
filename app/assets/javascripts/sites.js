@@ -28,7 +28,7 @@ $(document).on('click', '.wcms-header', function(e){
 		console.log("3.25 .wcms-header was clicked");
 		$(".wcms-cell-controls").fadeOut();
 		$(".wcms-cell").removeClass("wcms-cell-active");
-		$("#wcms-header").addClass("wcms-cell-active");
+		$("#wcms-header").addClass("wcms-cell-active").effect("highlight", {}, 500);
 		$("#wcms-cell-controls-header").fadeIn();
 		/*$.ajax({
 			type: 'get',
@@ -129,6 +129,8 @@ $(document).on('click', function (e) {
     var dataPage = $(e.target).closest("#wcms-header").attr('data-page');
     if(dataCell === undefined && dataPage === undefined) {
     	console.log("Woot!");
+			$(".wcms-cell-controls").fadeOut();
+			$(".wcms-cell").removeClass("wcms-cell-active");
 			$(".wcms-tool-container").hide();
 			$(".wcms-work-cell").removeClass("pressed wcms-cell-active");
     }

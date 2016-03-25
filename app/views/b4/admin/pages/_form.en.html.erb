@@ -34,14 +34,17 @@
     <small class="wcms-form-help" id="permalink_help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</small>
   </fieldset>
   <%= f.fields_for :setting, @page.setting do |b| -%>
-    <div class="btn-group" data-toggle="buttons">
-      <label class="btn btn-secondary-outline btn-sm">
-        <%= b.radio_button :fluid, true -%> Fluid Layout
-      </label>
-      <label class="btn btn-secondary-outline btn-sm">
-        <%= b.radio_button :fluid, false -%> Static Layout
-      </label>
-    </div>
+    <fieldset class="form-group">
+      <label class="sr-only" for="setting_font_weight">Layout</label>
+      <div class="radio">
+        <label class="wcms-white-text radio-inline">
+          <small><%= b.radio_button :fluid, true -%> Fluid Layout</small>
+        </label>
+        <label class="wcms-white-text radio-inline">
+          <small><%= b.radio_button :fluid, false -%> Static Layout</small>
+        </label>
+      </div>
+    </fieldset>      
 
     <fieldset class="form-group">
       <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_font_id">Font</label>
@@ -86,7 +89,7 @@
     <small class="wcms-form-help" id="status_help">Select "Publish" when your page is ready to view.</small>
   </div>
   <fieldset class="form-group wcms-action-group">  
-    <%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
+    <%= f.submit 'Save Changes', class: 'btn btn-secondary-outline' %>
     <%= link_to "Cancel", admin_pages_path, :title => "Cancel", :id => "cancel-button", :class => "btn btn-secondary-outline btn-sm pull-xs-right", :remote => true -%>
   </fieldset>
   <%- unless @page.new_record? -%>

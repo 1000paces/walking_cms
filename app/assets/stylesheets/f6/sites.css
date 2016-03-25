@@ -39,7 +39,6 @@ body.wcms-navbar-fixed-top:not(.wcms-overlap) {
 	margin-right: 1rem;
 }
 
-
 .wcms-overlap #wcms-sidebar-wrapper {
 	margin-top: 0;
 }
@@ -1013,4 +1012,9 @@ small.text-help.err-msg {
 }
 .wcms-heavy {
 	font-weight: 900 !important;
+}
+
+
+.wcms-nav-spacer {
+	padding: .9375rem;
 }

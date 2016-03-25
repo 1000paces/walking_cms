@@ -51,7 +51,6 @@ body {
 .nav-pills.bg-inverse.nav-dark .nav-link:not(.active):hover {
   color: rgba(0, 0, 0, .9);
 }
-
 .nav-pills.bg-faded.nav-light .nav-link:not(.active) {
   color: rgba(0, 0, 0, .5);
   background-color: #fff !important;
@@ -116,12 +115,13 @@ nav.navbar:not(.navbar-fixed-top) {
 .wcms-header nav.navbar:not(.navbar-fixed-top) {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
 }
 
 .wcms-overlap .wcms-header nav.navbar:not(.navbar-fixed-top) {
   bottom: 0;
-  border-radius: 0;
+  /*border-radius: 0;*/
 }
 
 .wcms-overlap .wcms-header.wcms-live nav.navbar:not(.navbar-fixed-top) {
@@ -130,6 +130,10 @@ nav.navbar:not(.navbar-fixed-top) {
 }
 .wcms-overlap #wcms-cell-controls-header {
   bottom: 54px;
+}
+
+.wcms-overlap nav.navbar.navbar-rounded {
+  margin: 8px;
 }
 
 .wcms-header.flipped nav.navbar {
