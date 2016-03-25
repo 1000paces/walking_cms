@@ -34,13 +34,13 @@
 	margin-left: 0;
 }
 
-.form-control-xs, .form-control-sm {
+.wcms-form-box .form-control-xs, .wcms-form-box .form-control-sm {
 	padding: .175rem .5rem !important;
+	/*margin-bottom: .25rem !important;*/
 	/*font-size: .750rem !important;*/
 	/*border-radius: .2rem !important;*/
 	line-height: 1.5 !important;
 }
-
 
 .navbar-dark.bg-inverse li a {
 }

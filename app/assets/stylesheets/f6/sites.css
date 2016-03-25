@@ -337,9 +337,7 @@ div#wcms-sidebar-wrapper {
 .wcms-form-help {
 	/*background: rgba(255,255,255,0.2) !important;*/
 	color: #d6d6d6 !important;
-	display: inline-block;
-	font-size: 0.65rem !important;
-	padding: 1px;
+	font-size: 0.75rem !important;
 }
 p.wcms-form-help {
 	margin-bottom: 0 !important;
