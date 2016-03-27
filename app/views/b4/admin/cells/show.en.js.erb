@@ -1,4 +1,4 @@
 $("#wcms-cell-<%= @cell.id %>").addClass("wcms-cell-active").effect("highlight", {}, 500);
 $("#wcms-adjacent-cell").val(<%= @cell.id -%>);
 $(".wcms-work-cell:not(#wcms-cell-<%= @cell.id %>)").removeClass("flipped");
-$("#wcms-cell-controls-<%= @cell.id %>").fadeIn();
+$("#wcms-cell-controls-<%= @cell.id %>").show('blind', {}, 500);

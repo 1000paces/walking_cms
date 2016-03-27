@@ -1,5 +1,5 @@
 <%= render :partial => "admin/pages/header", :locals => {:page => @page} -%>
-<div class="row">
+<div class="row wcms-master-row">
 	<%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 4 -%>
 	<div class="col-md-<%= @page.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
 		<div class="row" id="wcms-navigation-row">

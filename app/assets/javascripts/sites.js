@@ -12,7 +12,7 @@ $(document).on('click', '.wcms-cell', function(e){
 
 	console.log("3. .wcms-cell was clicked so get update the appropriate toolbars for row " + rowId + " and cell " + cellId);
 	if ($(e.target).closest(".wcms-back").length === 0) {
-		$(".wcms-cell-controls").fadeOut();
+		$(".wcms-cell-controls").hide('blind', {}, 500);
 		$(".wcms-cell").removeClass("wcms-cell-active");
 		$.ajax({
 			type: 'get',
@@ -24,17 +24,12 @@ $(document).on('click', '.wcms-cell', function(e){
 
 $(document).on('click', '.wcms-header', function(e){
 	var pageId = $(this).attr('data-page');	
-	if ($(e.target).closest(".wcms-back").length === 0 && $(e.target).closest(".navbar").length === 0) {
+	if ($(e.target).closest(".wcms-back").length === 0 && $(e.target).closest(".nav-line").length === 0 && $(e.target).closest(".jcrop-holder").length === 0) {
 		console.log("3.25 .wcms-header was clicked");
-		$(".wcms-cell-controls").fadeOut();
+		$(".wcms-cell-controls").hide('blind', {}, 500);
 		$(".wcms-cell").removeClass("wcms-cell-active");
 		$("#wcms-header").addClass("wcms-cell-active").effect("highlight", {}, 500);
-		$("#wcms-cell-controls-header").fadeIn();
-		/*$.ajax({
-			type: 'get',
-			dataType: 'script',
-			url: '/admin/headers/' + pageId 
-		})*/
+		$("#wcms-cell-controls-header").show('blind', {}, 500);
 	}
 });
 
@@ -157,6 +152,7 @@ $(document).on('click', "#wcms-header-crop", function(e) {
 	$("#wcms-header-crop").addClass("hidden");
 	$("#wcms-crop-save").removeClass("hidden");
 	$("#wcms-crop-cancel").removeClass("hidden");
+	$("#wcms-img-overlay").fadeOut();
 });
 
 $(document).on('click', "#wcms-crop-save", function(e) {
@@ -170,9 +166,10 @@ $(document).on('click', "#wcms-crop-cancel", function(e) {
 	e.preventDefault();
 	$("#wcms-header-crop").removeClass("hidden");
 	$("#wcms-crop-save").addClass("hidden");
-	$("#wcms-crop-cancel").addClass("hidden");	
+	$("#wcms-crop-cancel").addClass("hidden");
 	$('#wcms-header-img').data('Jcrop').destroy();
   $('#wcms-header-img').removeAttr('style');
+  $("#wcms-img-overlay").fadeIn();
 
 });
 
