@@ -16,14 +16,13 @@
 							<%- end -%>
 						</div>
 					</div>
-					<%= render :partial => "admin/headers/tools", :locals => {page: page} -%>
 				</div>
-				
+				<%= render :partial => "admin/headers/tools", :locals => {page: page} -%>
 			</div>
 			<div class="wcms-face wcms-back">
 				<div class="wcms-form-cell" id="wcms-header-form-<%= page.id %>"></div>
 			</div>
 		</div>
 	</div>
-	<%= render :partial => "admin/pages/nav_horizontal" if page.setting.nav_location < 3 && page.setting.overlap? -%>
+	<%= render :partial => "admin/pages/nav_horizontal" if page.setting.nav_location < 3 && page.setting.overlap? -%>	
 </div>

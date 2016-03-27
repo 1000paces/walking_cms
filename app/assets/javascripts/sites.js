@@ -14,6 +14,17 @@ $(document).on('click', '.wcms-cell', function(e){
 	if ($(e.target).closest(".wcms-back").length === 0) {
 		$(".wcms-cell-controls").hide('blind', {}, 500);
 		$(".wcms-cell").removeClass("wcms-cell-active");
+		
+		$("#wcms-header-crop").removeClass("hidden");
+		$("#wcms-crop-save").addClass("hidden");
+		$("#wcms-crop-cancel").addClass("hidden");
+		try { $('#wcms-header-img').data('Jcrop').destroy(); }
+		catch(err) { console.log("No Jcrop") }
+	  $('#wcms-header-img').removeAttr('style');
+		
+		$("#wcms-img-overlay").fadeIn();
+		$(".wcms-overlapped-header").fadeIn();
+
 		$.ajax({
 			type: 'get',
 			dataType: 'script',
@@ -28,11 +39,21 @@ $(document).on('click', '.wcms-header', function(e){
 		console.log("3.25 .wcms-header was clicked");
 		if($("#wcms-cell-controls-header").is(':visible')){
 			$(".wcms-cell-controls").hide('blind', {}, 500);
+			$(".wcms-overlapped-header").animate({
+				bottom: "-=28"
+			}, 500, function() {
+				
+			});
 		} else {
 			$(".wcms-cell-controls").fadeOut();
 			$(".wcms-cell").removeClass("wcms-cell-active");
-			$("#wcms-header").addClass("wcms-cell-active").effect("highlight", {}, 500);
+			$("#wcms-header").addClass("wcms-cell-active"); /*.effect("highlight", {}, 500);*/
 			$("#wcms-cell-controls-header").show('blind', {}, 500);
+			$(".wcms-overlapped-header").animate({
+				bottom: "+=28"
+			}, 500, function() {
+				
+			});
 		}
 	}
 });
@@ -126,8 +147,15 @@ $(document).on('click', function (e) {
 		console.log("13. hide wcms-tool-container and removed pressed and wcms-cell-active classes");
     var dataCell = $(e.target).closest(".wcms-work-cell").attr('data-cell');
     var dataPage = $(e.target).closest("#wcms-header").attr('data-page');
+    console.log("OVERLAPPED HEADER BOTTOM IS " + $(".wcms-overlapped-header").css('bottom'));
+    if($(".wcms-overlapped-header").css('bottom') != "0px") {
+				$(".wcms-overlapped-header").animate({
+					bottom: "0px"
+				}, 500, function() {
+					
+				});
+			}
     if(dataCell === undefined && dataPage === undefined) {
-    	
 			$("#wcms-cell-controls-header").hide('blind', {}, 500);
 			$(".wcms-cell-controls").fadeOut();
 			$(".wcms-cell").removeClass("wcms-cell-active");
@@ -158,6 +186,8 @@ $(document).on('click', "#wcms-header-crop", function(e) {
 	$("#wcms-crop-save").removeClass("hidden");
 	$("#wcms-crop-cancel").removeClass("hidden");
 	$("#wcms-img-overlay").fadeOut();
+	$(".wcms-overlapped-header").fadeOut();
+
 });
 
 $(document).on('click', "#wcms-crop-save", function(e) {
@@ -172,10 +202,11 @@ $(document).on('click', "#wcms-crop-cancel", function(e) {
 	$("#wcms-header-crop").removeClass("hidden");
 	$("#wcms-crop-save").addClass("hidden");
 	$("#wcms-crop-cancel").addClass("hidden");
-	$('#wcms-header-img').data('Jcrop').destroy();
+	try { $('#wcms-header-img').data('Jcrop').destroy(); }
+	catch(err) { console.log("No Jcrop") }
   $('#wcms-header-img').removeAttr('style');
   $("#wcms-img-overlay").fadeIn();
-
+	$(".wcms-overlapped-header").fadeIn();
 });
 
 function update_crop(coords) {

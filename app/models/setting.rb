@@ -135,7 +135,15 @@ class Setting < ActiveRecord::Base
 				return "wcms-overlap"
 			end
 		end
-	end	
+	end
+
+	def overlapped
+		if self.overlap?
+			return "wcms-overlapped-header"
+		else
+			return ""
+		end
+	end
 
 	private
 
