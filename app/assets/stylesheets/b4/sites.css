@@ -154,3 +154,15 @@ nav.navbar:not(.navbar-fixed-top) {
 .card.wcms-cardless {
   border: none;
 }
+
+.wcms-dropdown-left {
+	top: 0;
+	left: 100%;
+	right: auto;
+}
+
+.wcms-dropdown-right {
+	top: 0;
+	left: auto;
+	right: 100%;
+}

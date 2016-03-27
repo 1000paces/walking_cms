@@ -26,10 +26,14 @@ $(document).on('click', '.wcms-header', function(e){
 	var pageId = $(this).attr('data-page');	
 	if ($(e.target).closest(".wcms-back").length === 0 && $(e.target).closest(".nav-line").length === 0 && $(e.target).closest(".jcrop-holder").length === 0) {
 		console.log("3.25 .wcms-header was clicked");
-		$(".wcms-cell-controls").hide('blind', {}, 500);
-		$(".wcms-cell").removeClass("wcms-cell-active");
-		$("#wcms-header").addClass("wcms-cell-active").effect("highlight", {}, 500);
-		$("#wcms-cell-controls-header").show('blind', {}, 500);
+		if($("#wcms-cell-controls-header").is(':visible')){
+			$(".wcms-cell-controls").hide('blind', {}, 500);
+		} else {
+			$(".wcms-cell-controls").fadeOut();
+			$(".wcms-cell").removeClass("wcms-cell-active");
+			$("#wcms-header").addClass("wcms-cell-active").effect("highlight", {}, 500);
+			$("#wcms-cell-controls-header").show('blind', {}, 500);
+		}
 	}
 });
 
@@ -123,7 +127,8 @@ $(document).on('click', function (e) {
     var dataCell = $(e.target).closest(".wcms-work-cell").attr('data-cell');
     var dataPage = $(e.target).closest("#wcms-header").attr('data-page');
     if(dataCell === undefined && dataPage === undefined) {
-    	console.log("Woot!");
+    	
+			$("#wcms-cell-controls-header").hide('blind', {}, 500);
 			$(".wcms-cell-controls").fadeOut();
 			$(".wcms-cell").removeClass("wcms-cell-active");
 			$(".wcms-tool-container").hide();

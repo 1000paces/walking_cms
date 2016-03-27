@@ -1,6 +1,6 @@
 <%= render :partial => "admin/pages/header", :locals => {:page => @page} -%>
 <div class="row wcms-master-row">
-	<%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 4 -%>
+	<%= render :partial => "admin/pages/nav_vertical", :locals => {:side => 'left'} if @page.setting.nav_location == 4 -%>
 	<div class="col-md-<%= @page.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
 		<div class="row" id="wcms-navigation-row">
 			<div class="col-md-12 navigation-zone" id="wcms-navigation-row-inner">
@@ -18,5 +18,5 @@
 			</div>
 		</div>
 	</div>
-	<%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 5 -%>
+	<%= render :partial => "admin/pages/nav_vertical", :locals => {:side => 'right'} if @page.setting.nav_location == 5 -%>
 </div>
