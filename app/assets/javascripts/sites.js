@@ -25,6 +25,14 @@ $(document).on('click', '.wcms-cell', function(e){
 		$("#wcms-img-overlay").fadeIn();
 		$(".wcms-overlapped-header").fadeIn();
 
+
+		console.log("3.00.1 remove bottom margin")
+		$(".wcms-overlapped-header").animate({
+			bottom: "0"
+		}, 500, function() {
+			
+		});		
+
 		$.ajax({
 			type: 'get',
 			dataType: 'script',
@@ -39,6 +47,7 @@ $(document).on('click', '.wcms-header', function(e){
 		console.log("3.25 .wcms-header was clicked");
 		if($("#wcms-cell-controls-header").is(':visible')){
 			$(".wcms-cell-controls").hide('blind', {}, 500);
+			console.log("3.25.1 remove bottom margin")
 			$(".wcms-overlapped-header").animate({
 				bottom: "-=28"
 			}, 500, function() {
@@ -49,6 +58,7 @@ $(document).on('click', '.wcms-header', function(e){
 			$(".wcms-cell").removeClass("wcms-cell-active");
 			$("#wcms-header").addClass("wcms-cell-active"); /*.effect("highlight", {}, 500);*/
 			$("#wcms-cell-controls-header").show('blind', {}, 500);
+			console.log("3.25.2 add bottom margin")
 			$(".wcms-overlapped-header").animate({
 				bottom: "+=28"
 			}, 500, function() {
@@ -147,17 +157,17 @@ $(document).on('click', function (e) {
 		console.log("13. hide wcms-tool-container and removed pressed and wcms-cell-active classes");
     var dataCell = $(e.target).closest(".wcms-work-cell").attr('data-cell');
     var dataPage = $(e.target).closest("#wcms-header").attr('data-page');
-    console.log("OVERLAPPED HEADER BOTTOM IS " + $(".wcms-overlapped-header").css('bottom'));
-    if($(".wcms-overlapped-header").css('bottom') != "0px") {
-				$(".wcms-overlapped-header").animate({
-					bottom: "0px"
-				}, 500, function() {
-					
-				});
-			}
+    console.log("13.1 OVERLAPPED HEADER BOTTOM IS " + $(".wcms-overlapped-header").css('bottom'));
+    jcrop_object = $('#wcms-header-img').data('Jcrop')
+
     if(dataCell === undefined && dataPage === undefined) {
-			$("#wcms-cell-controls-header").hide('blind', {}, 500);
-			$(".wcms-cell-controls").fadeOut();
+    	console.log("13.2")
+    	if(jcrop_object == null) {
+    		console.log("13.3")
+				$("#wcms-cell-controls-header").hide('blind', {}, 500);
+				$(".wcms-cell-controls").fadeOut();
+			}
+
 			$(".wcms-cell").removeClass("wcms-cell-active");
 			$(".wcms-tool-container").hide();
 			$(".wcms-work-cell").removeClass("pressed wcms-cell-active");

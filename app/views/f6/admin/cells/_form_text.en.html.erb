@@ -4,12 +4,14 @@
 		<%= @cell.body.html_safe -%>
 	</div>
 	<div id="wcms-editor-bottom-toolbar-<%= @cell.id %>"></div>
-	<div class="card-block">
-		<%= link_to "Save", "#", class: "btn btn-primary btn-sm wcms-save", id: "wcms-save-#{@cell.id}", data: {row: @row.id, cell: @cell.id} %>
-    <%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
+	<div class="row callout-block callout-action">
+		<div class="medium-12 columns">
+			<%= link_to "Save", "#", class: "button small wcms-save", id: "wcms-save-#{@cell.id}", data: {row: @row.id, cell: @cell.id} %>
+    	<%= link_to "Cancel", "#", class: "button warning small wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
+    </div>
 	</div>
 
-	<%= form_for [:admin, @cell], {:class => "form-inline", :remote => true} do |f| -%>
+	<%= form_for [:admin, @cell], :html => {:class => "form-inline hidden"}, :remote => true do |f| -%>
 		<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{@cell.id}" -%>
 	<%- end -%>
 	<script>
