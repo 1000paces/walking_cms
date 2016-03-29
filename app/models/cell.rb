@@ -165,23 +165,11 @@ class Cell < ActiveRecord::Base
 	end
 
 	def variant_class
-		case self.variant
-		when 1,8
-			'card'
-		when 2
-			'card card-primary card-inverse'
-		when 3
-			'card card-success card-inverse'
-		when 4
-			'card card-info card-inverse'
-		when 5
-			'card card-warning card-inverse'
-		when 6
-			'card card-danger card-inverse'
-		when 7
-			'card card-secondary card-inverse'
+		case self.owner.setting.framework
+		when 'f6'
+			return fountation_callout(self.variant)
 		else
-			'wcms-no-card'
+			return bootstrap_card(self.variant)
 		end
 	end
 
@@ -306,5 +294,49 @@ class Cell < ActiveRecord::Base
 	  else
 	  	return c
 	  end
-	end	
+	end
+
+	def bootstrap_card(v)
+		case v
+		when 1,8
+			'card'
+		when 2
+			'card card-primary card-inverse'
+		when 3
+			'card card-success card-inverse'
+		when 4
+			'card card-info card-inverse'
+		when 5
+			'card card-warning card-inverse'
+		when 6
+			'card card-danger card-inverse'
+		when 7
+			'card card-secondary card-inverse'
+		else
+			'wcms-no-card'
+		end
+	end
+
+	def fountation_callout(v)
+		case self.variant
+		when 1,8
+			'callout'
+		when 2
+			'callout primary card-inverse'
+		when 3
+			'callout success card-inverse'
+		when 4
+			'callout card-inverse'
+		when 5
+			'callout warning card-inverse'
+		when 6
+			'callout alert card-inverse'
+		when 7
+			'callout secondary card-inverse'
+		else
+			'wcms-no-card'
+		end		
+
+	end
+
 end
