@@ -1,5 +1,5 @@
 <%= link_to "<i class='fa fa-fw fa-arrow-left'></i>".html_safe, admin_settings_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link left", :remote => true -%>
-<h4 class="lead text-xs-center wcms-white-text">
+<h4 class="lead text-center wcms-white-text">
   <i class="<%= User::ICON -%>"></i> User Info
 </h4>
 <%= form_for [:admin, @user], :html => {class: 'wcms-sidebar-form', role: 'form'}, :remote => true do |f| %>
@@ -24,8 +24,8 @@
     <%= f.password_field :password_confirmation, :class => "form-control form-control-xs" -%>
   </fieldset>
   <fieldset class="form-group wcms-action-group">
-		<%= f.submit 'Save', class: 'btn btn-secondary-outline btn-sm' %>
-		<%= link_to 'Cancel', admin_settings_path, :title => "Cancel", :class => "btn btn-secondary-outline btn-sm pull-xs-right", :id => "cancel-button", :remote => true %>
+		<%= f.submit 'Save Changes', class: 'button secondary' %>
+		<%= link_to 'Cancel', admin_settings_path, :title => "Cancel", :class => "button secondary small pull-right", :id => "cancel-button", :remote => true %>
   </fieldset>
 <% end %>
 

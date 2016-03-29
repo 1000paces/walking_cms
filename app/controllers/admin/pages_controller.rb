@@ -18,6 +18,8 @@ class Admin::PagesController < Admin::AdminController
 
   def create
   	@page = Page.create(page_parameters)
+    @row, @cell = @page.bootstrap
+
   end
 
   def duplicate

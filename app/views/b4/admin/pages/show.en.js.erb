@@ -3,8 +3,8 @@ $(".wcms-menu-link").removeClass("active");
 $("#wcms-page-<%= @page.id %>").addClass("active");
 /*$("#wcms-drawer-forms").hide("slide", { direction: "right" }, 750);*/
 $("#wcms-page-display").show();
-$("#wcms-organize").parent().removeClass("hidden");
-$("#wcms-organize-finished").parent().addClass("hidden");
+$("#wcms-organize").removeClass("hidden");
+$("#wcms-organize-finished").addClass("hidden");
 $("#row_page_id").val(<%= @page.id -%>);
 $(".wcms-page-sort").replaceWith("<%= j render(:partial => 'admin/pages/toolbar_vertical_sort', :locals => {:p => @page}) %>");
 $(".wcms-page-finish").replaceWith("<%= j render(:partial => 'admin/pages/toolbar_vertical_finished', :locals => {:p => @page}) %>");

@@ -1,4 +1,4 @@
-<div id="wcms-nav-<%= @page.id %>" class="medium-2 columns wcms-nav-spacer">
+<div id="wcms-primary-navigation" class="medium-2 columns wcms-nav-spacer">
 	<ul class="menu vertical dropdown nav-pills <%= @page.setting.nav_weight_class -%>" style="background-color: transparent;" data-dropdown-menu data-click-open=true data-disable-hover=true data-alignment="<%= side -%>">
 		<%- @user.all_nav_pages.each do |p| -%>
 			<%- if p.children.count > 0 -%>

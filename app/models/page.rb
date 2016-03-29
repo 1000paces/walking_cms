@@ -129,6 +129,17 @@ class Page < ActiveRecord::Base
 		return p_link
 	end
 
+	def bootstrap
+ 		if self.rows.empty?
+      r = self.rows.create 
+      c = r.cells.create(:body => "")
+    else
+    	r = self.rows.first
+    	c = r.cells.first
+    end
+    return r,c
+	end
+
 	private
 
 	def fix_permalink

@@ -202,7 +202,7 @@ small.text-help.err-msg {
 	margin-left: 0 !important;
 }
 
-[type=text], select {
+[type=text], [type=passwprd], select {
 	height: auto !important;
 }
 

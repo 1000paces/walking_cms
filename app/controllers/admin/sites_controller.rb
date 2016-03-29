@@ -8,12 +8,9 @@ class Admin::SitesController < Admin::AdminController
     else
       @page = @user.pages.find_by_permalink(params[:id])
     end
-    Rails.logger.warn("\n\nPAGE: #{@page.id}")
+    @page = @user.home_page if @page.nil?
     @page.save if @page.new_record?
-    if @page.rows.empty?
-      @row = @page.rows.create 
-      @cell = @row.cells.create(:body => "")
-    end
+    @row, @cell = @page.bootstrap
     session[:current_page] = @page.id
   end
 

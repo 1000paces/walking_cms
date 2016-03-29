@@ -1,4 +1,4 @@
-<div id="wcms-nav-<%= @page.id %>" class="col-md-2 wcms-nav-spacer">
+<div id="wcms-primary-navigation" class="col-md-2 wcms-nav-spacer">
 	<ul class="nav nav-pills nav-stacked <%= @page.setting.nav_weight_class -%>">
 		<%- @user.all_nav_pages.each do |p| -%>
 			<%- if p.children.count > 0 -%>

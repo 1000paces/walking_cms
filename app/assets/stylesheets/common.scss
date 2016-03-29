@@ -58,7 +58,7 @@ body.wcms-navbar-fixed-top:not(.wcms-overlap) {
 
 body.wcms-navbar-fixed-top.wcms-overlap #wcms-sidebar-wrapper {
 	margin-top: 0px;
-	z-index: 1031;
+	/*z-index: 1031;*/
 }
 
 body.wcms-flex {
@@ -188,7 +188,7 @@ div#wcms-content-wrapper {
 }
 
 div#wcms-sidebar-wrapper {
-	z-index: 1033;
+	z-index: 2001;
 	position: absolute;
 	right: 0;
 	width: 0;
