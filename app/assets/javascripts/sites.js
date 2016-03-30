@@ -27,7 +27,7 @@ $(document).on('click', '.wcms-cell', function(e){
 
 
 		console.log("3.00.1 remove bottom margin")
-		$(".wcms-overlapped-header").animate({
+		$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
 			bottom: "0"
 		}, 500, function() {
 			
@@ -43,12 +43,12 @@ $(document).on('click', '.wcms-cell', function(e){
 
 $(document).on('click', '.wcms-header', function(e){
 	var pageId = $(this).attr('data-page');	
-	if ($(e.target).closest(".wcms-back").length === 0 && $(e.target).closest(".nav-line").length === 0 && $(e.target).closest(".jcrop-holder").length === 0) {
+	if ($(e.target).closest(".navbar-fixed-top").length === 0 && $(e.target).closest(".wcms-back").length === 0 && $(e.target).closest(".nav-line").length === 0 && $(e.target).closest(".jcrop-holder").length === 0) {
 		console.log("3.25 .wcms-header was clicked");
 		if($("#wcms-cell-controls-header").is(':visible')){
 			$(".wcms-cell-controls").hide('blind', {}, 500);
 			console.log("3.25.1 remove bottom margin")
-			$(".wcms-overlapped-header").animate({
+			$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
 				bottom: "-=28"
 			}, 500, function() {
 				
@@ -59,7 +59,7 @@ $(document).on('click', '.wcms-header', function(e){
 			$("#wcms-header").addClass("wcms-cell-active"); /*.effect("highlight", {}, 500);*/
 			$("#wcms-cell-controls-header").show('blind', {}, 500);
 			console.log("3.25.2 add bottom margin")
-			$(".wcms-overlapped-header").animate({
+			$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
 				bottom: "+=28"
 			}, 500, function() {
 				

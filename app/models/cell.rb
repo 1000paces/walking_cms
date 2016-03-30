@@ -16,6 +16,7 @@ class Cell < ActiveRecord::Base
 	SETTINGS_ICON_SHORT = "fa-cogs"
 	SAVE_ICON_SHORT = "fa-save"
 	CANCEL_ICON_SHORT = "fa-times"
+	CSS_ICON_SHORT = "fa-css3"
 
 	ICON = "fa fa-fw #{ICON_SHORT}"
 	TEXT_ICON = "fa fa-fw #{TEXT_ICON_SHORT}"
@@ -24,7 +25,8 @@ class Cell < ActiveRecord::Base
 	SETTINGS_ICON = "fa fa-fw #{SETTINGS_ICON_SHORT}"
 	SAVE_ICON = "fa fa-fw #{SAVE_ICON_SHORT}"
 	CANCEL_ICON = "fa fa-fw #{CANCEL_ICON_SHORT}"
-	
+	CSS_ICON = "fa fa-fw #{CSS_ICON_SHORT}"
+
 	BREAKPOINTS = {
 		"Extra Small Devices (<544px)" => "xs",
 		"Small Devices (≥544px)" => "sm",

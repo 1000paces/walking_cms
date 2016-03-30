@@ -1,0 +1,20 @@
+<div class="card callout">
+  <h6 class="callout-header" title="#wcms-cell-<%= @cell.id %>"><i class="<%= Cell::CSS_ICON -%>"></i> CSS Settings</h6>
+  <div class="callout-block">
+    <%= form_for [:admin, @cell], html: { class: "wcms-card-form" }, :remote => true do |f| %>
+    	<div class="row">
+        <div class="medium-12 columns">
+          <label for="cell_embed_code" class="show-for-sr">CSS for #wcms-cell-<%= @cell.id %></label>
+          <%= f.text_area :css, :class => "form-control form-control-sm", :placeholder => "CSS for #wcms-cell-#{@cell.id}" %>
+          <p class="help-text">CSS entered here will apply to HTML inside the cell identified by #wcms-cell-<%= @cell.id %></p>
+        </div>
+      </div>    
+      <div class="row wcms-card-action-group">
+        <div class="medium-12 columns">
+    		  <%= f.submit "Save", class: "button small" %>
+    		  <%= link_to "Cancel", "#", class: "button warning small wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

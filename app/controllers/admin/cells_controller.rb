@@ -132,7 +132,7 @@ class Admin::CellsController < Admin::AdminController
   private
 
   def cell_parameters
-    params.require(:cell).permit(:width, :offset, :position, :body, :image, :shape, :breakpoint, :headline, :embed_code, :show_headline, :overlay, :variant, :background_color)
+    params.require(:cell).permit(:width, :offset, :position, :body, :image, :shape, :breakpoint, :headline, :embed_code, :show_headline, :overlay, :variant, :background_color, :css)
   end
 
 end
