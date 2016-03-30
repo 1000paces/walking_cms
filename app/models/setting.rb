@@ -21,7 +21,8 @@ class Setting < ActiveRecord::Base
 		"Below Header Image - Square" => 2,
 		"Fixed to Bottom" => 3,
 		"Left Column" => 4,
-		"Right Column" => 5
+		"Right Column" => 5,
+		"Suppress Navigation" => 6
 	}
 
 	NAV_WEIGHT = {

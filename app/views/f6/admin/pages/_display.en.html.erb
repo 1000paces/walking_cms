@@ -1,7 +1,7 @@
 <%= render :partial => "admin/pages/header", :locals => {:page => @page} -%>
 <div class="<%= @page.setting.container_type -%> wcms-master-row">
 	<%= render :partial => "admin/pages/nav_vertical", :locals => {:side => 'left'} if @page.setting.nav_location == 4 -%>
-	<div class="medium-<%= @page.setting.nav_location >= 4 ? '10' : '12' %> columns" id="wcms-work-area">
+	<div class="medium-<%= [4,5].include?(@page.setting.nav_location) ? '10' : '12' %> columns" id="wcms-work-area">
 		<div class="<%= @page.setting.container_type -%>" id="wcms-navigation-row">
 			<div class="medium-12 navigation-zone" id="wcms-navigation-row-inner">
 				<%= render :partial => "admin/pages/nav_horizontal" if @page.setting.nav_location < 3 && !@page.setting.overlap -%>

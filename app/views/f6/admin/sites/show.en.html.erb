@@ -1,4 +1,5 @@
 <div id="wcms-wrapper">
+	<%= render :partial => "shared/no_nav" if @page.setting.nav_location == 6 -%>
 	<div id="wcms-content-wrapper">
 		<%= render :partial => 'admin/pages/show' -%>
 	</div>
