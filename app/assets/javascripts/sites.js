@@ -25,7 +25,7 @@ $(document).on('click', '.wcms-cell', function(e){
 		$("#wcms-img-overlay").fadeIn();
 		$(".wcms-overlapped-header").fadeIn();
 
-		if(!$(e.target).closest(".wcms-above").length === 0){
+		if(!$(e.target).closest(".wcms-above").length === 0) {
 			console.log("3.00.1 remove bottom margin")
 			$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
 				bottom: "0"
