@@ -254,10 +254,29 @@ small.text-help.err-msg {
 	position: absolute;
 	left: 0;
 	right: 0;
-  bottom: 0;
 }
+
+.wcms-overlap .wcms-header div.top-bar.wcms-above:not(.navbar-fixed-top) {
+	top: 0;
+}
+
+.wcms-overlap .wcms-header div.top-bar.wcms-below:not(.navbar-fixed-top) {
+	bottom: 0;
+}
+
 .wcms-overlap #wcms-cell-controls-header {
   bottom: 0px;
+}
+
+.wcms-header div.tap-bar.wcms-above:not(.navbar-fixed-top) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.wcms-overlap .wcms-header .wcms-above div.top-bar:not(.navbar-fixed-top) {
+  top: 0;
 }
 
 .wcms-overlap .wcms-header.wcms-live div.top-bar:not(.navbar-fixed-top) {
@@ -280,11 +299,12 @@ div.top-bar.navbar-rounded {
 }
 
 div.top-bar.navbar-fixed-top {
-	position: absolute;
+	/*position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 1000;
+	*/
 }
 
 div.top-bar.navbar-fixed-bottom {
