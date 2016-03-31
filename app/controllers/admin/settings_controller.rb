@@ -21,7 +21,7 @@ class Admin::SettingsController < Admin::AdminController
 		if !@sync.blank?
 			@user.pages.each do |p|
 				if p.setting.nil?
-    			p.create_setting(@setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color", "nav_weight"))
+    			p.create_setting(@setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color", "text_color", "framework", "overlap", "title_background", "title_background_color"))
     		else
     			p.setting.update_attributes(setting_parameters)
     		end
@@ -34,7 +34,7 @@ class Admin::SettingsController < Admin::AdminController
 	private
 
 	def setting_parameters
-		params.require(:setting).permit(:font_id, :font_weight, :fluid, :nav_location, :nav_color, :nav_weight)
+		params.require(:setting).permit(:font_id, :font_weight, :fluid, :nav_location, :nav_color, :image, :shape, :text_color, :overlap, :title_background, :title_background_color, :framework)
 	end
 
 end

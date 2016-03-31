@@ -108,7 +108,8 @@ class Setting < ActiveRecord::Base
 	end
 
 	def container_type
-		v = self.page.user.setting.framework
+		#v = self.page.user.setting.framework
+		v = self.framework
 		if v == 'f6'
 			return self.fluid? ? "row expanded" : "row"
 		else
@@ -118,7 +119,6 @@ class Setting < ActiveRecord::Base
 
 	def nav_weight_class
 		nav_style = [6,7].include?(self.nav_location) ? 'nav' : 'navbar'
-		#if self.nav_weight == 0 #### light
 		if self.contrast == "light"
 			return "#{nav_style}-light bg-faded"
 		else #### dark

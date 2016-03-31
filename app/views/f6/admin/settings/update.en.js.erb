@@ -4,6 +4,7 @@ $("#wcms-drawer-settings").show("slide", { direction: "left"}, 500);
 	$("#wcms-page-display").fadeOut(function(){
 		$("#wcms-page-display").html("<%= j render(:partial => 'admin/pages/display') -%>").fadeIn();
 		$("#wcms-custom-font").html("<%= j render(:partial => 'admin/pages/font') -%>");
+		$(document).foundation();
 	});
 	$("body").removeClass("<%= Setting::BODY_CLASSES -%>").addClass("<%= @page.setting.nav_class(true) -%> <%= @page.setting.background_class -%> <%= @page.setting.overlap_style -%>");
 	$(".wcms-full-height-container").removeClass("container container-fluid").addClass("<%= @setting.container_type -%>");

@@ -233,8 +233,6 @@ class Cell < ActiveRecord::Base
 	end
 
 	def background_contrast_class
-		#nav_style = [4,5].include?(self.nav_location) ? 'nav' : 'navbar'
-		#if self.nav_weight == 0 #### light
 		if self.contrast == "light"
 			return ""
 		else #### dark

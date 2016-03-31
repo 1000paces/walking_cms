@@ -165,9 +165,9 @@ class Page < ActiveRecord::Base
 
 	def init
 		if self.new_record?
-			self.build_setting(self.user.setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color", "nav_weight")) 
+			self.build_setting(self.user.setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color")) 
 		elsif self.setting.nil?
-			self.create_setting(self.user.setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color", "nav_weight")) 
+			self.create_setting(self.user.setting.attributes.slice("font_id", "font_weight", "fluid", "nav_location", "nav_color")) 
 		end
 	end
 	
