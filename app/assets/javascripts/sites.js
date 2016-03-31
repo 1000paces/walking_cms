@@ -25,14 +25,14 @@ $(document).on('click', '.wcms-cell', function(e){
 		$("#wcms-img-overlay").fadeIn();
 		$(".wcms-overlapped-header").fadeIn();
 
-
-		console.log("3.00.1 remove bottom margin")
-		$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
-			bottom: "0"
-		}, 500, function() {
-			
-		});		
-
+		if(!$(e.target).closest(".wcms-above").length === 0){
+			console.log("3.00.1 remove bottom margin")
+			$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
+				bottom: "0"
+			}, 500, function() {
+				
+			});
+		}
 		$.ajax({
 			type: 'get',
 			dataType: 'script',
@@ -46,24 +46,30 @@ $(document).on('click', '.wcms-header', function(e){
 	if ($(e.target).closest(".navbar-fixed-top").length === 0 && $(e.target).closest(".wcms-back").length === 0 && $(e.target).closest(".nav-line").length === 0 && $(e.target).closest(".jcrop-holder").length === 0) {
 		console.log("3.25 .wcms-header was clicked");
 		if($("#wcms-cell-controls-header").is(':visible')){
+			console.log("3.25.01 #wcms-cell-control-header is visible");
 			$(".wcms-cell-controls").hide('blind', {}, 500);
-			console.log("3.25.1 remove bottom margin")
-			$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
-				bottom: "-=28"
-			}, 500, function() {
-				
-			});
+			console.log("1. ABOVE: " + $(e.target).closest(".wcms-above").length)
+			console.log("1. BELOW: " + $(e.target).closest(".wcms-below").length)			
+			if($(e.target).closest(".wcms-below").length === 1){
+				console.log("3.25.1 remove bottom margin")
+				$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
+					bottom: "-=28"
+				}, 500, function() {});
+			}
 		} else {
 			$(".wcms-cell-controls").fadeOut();
 			$(".wcms-cell").removeClass("wcms-cell-active");
-			$("#wcms-header").addClass("wcms-cell-active"); /*.effect("highlight", {}, 500);*/
+			$("#wcms-header").addClass("wcms-cell-active");
 			$("#wcms-cell-controls-header").show('blind', {}, 500);
-			console.log("3.25.2 add bottom margin")
-			$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
-				bottom: "+=28"
-			}, 500, function() {
-				
-			});
+			console.log("3.25.02 #wcms-cell-control-header is visible");
+			console.log("2. ABOVE: " + $(e.target).closest(".wcms-above").length)
+			console.log("2. BELOW: " + $(e.target).closest(".wcms-below").length)
+			if($(e.target).closest(".wcms-below").length === 1){
+				console.log("3.25.2 add bottom margin")
+				$(".wcms-overlapped-header").not(".navbar-fixed-top").animate({
+					bottom: "+=28"
+				}, 500, function() {});
+			}
 		}
 	}
 });

@@ -1,5 +1,7 @@
 <div class="card callout">
-  <h6 class="callout-header" title="#wcms-cell-<%= @cell.id %>"><i class="<%= Cell::CSS_ICON -%>"></i> CSS Settings</h6>
+  <h6 class="callout-header" title="#wcms-cell-<%= @cell.id %>">
+    <i class="<%= Cell::CSS_ICON -%>"></i> CSS Settings <small class="text-muted">Advanced Users Only</small>
+  </h6>
   <div class="callout-block">
     <%= form_for [:admin, @cell], html: { class: "wcms-card-form" }, :remote => true do |f| %>
     	<div class="row">

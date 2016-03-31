@@ -12,7 +12,7 @@ body.wcms-navbar-fixed-top.wcms-overlap .top-bar {
 }
 
 body.wcms-navbar-fixed-bottom #wcms-content-wrapper {
-	padding-bottom: 56px !important;	
+	/*padding-bottom: 56px !important;	*/
 }
 
 .wcms-navbar-fixed-top #wcms-content-wrapper {
@@ -142,6 +142,10 @@ small.text-help.err-msg {
 .list-unstyled {
 	list-style: none;
 	margin-left: 0;
+}
+
+#wcms-no-nav {
+	padding: 0;
 }
 
 .nav-pills.bg-inverse.nav-dark li.opens-right>a:after {
@@ -284,7 +288,7 @@ div.top-bar.navbar-fixed-top {
 }
 
 div.top-bar.navbar-fixed-bottom {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;

@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header"><i class="fa fa-fw fa-image"></i> Image</div>
+  <h6 class="card-header"><i class="<%= Cell::IMAGE_ICON -%>"></i> Image</h6>
   <div class="card-block">
     <%= form_for [:admin, @cell], html: { multipart: true, class: "wcms-card-form" }, :remote => true do |f| %>
       <div class="form-group">

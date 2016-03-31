@@ -6,5 +6,5 @@ $("#wcms-page-display").fadeOut(function(){
 	$("#wcms-custom-font").html("<%= j render(:partial => 'admin/pages/font') -%>");
 });
 
-$("body").removeClass("wcms-white-background wcms-grey-background wcms-navbar-full wcms-navbar-fixed-bottom wcms-navbar-fixed-top wcms-overlap").addClass("<%= @page.setting.nav_class(true) -%> <%= @page.setting.background_class -%> <%= @page.setting.overlap_style -%>");
+$("body").removeClass("<%= Setting::BODY_CLASSES -%>").addClass("<%= @page.setting.nav_class(true) -%> <%= @page.setting.background_class -%> <%= @page.setting.overlap_style -%>");
 $(".wcms-full-height-container").removeClass("container container-fluid expanded row").addClass("<%= @page.setting.container_type -%>");

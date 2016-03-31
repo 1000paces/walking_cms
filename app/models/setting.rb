@@ -17,18 +17,75 @@ class Setting < ActiveRecord::Base
 
 	NAV_LOCATION = {
 		"Fixed to Top" => 0,
-		"Below Header Image - Rounded" => 1,
-		"Below Header Image - Square" => 2,
-		"Fixed to Bottom" => 3,
-		"Left Column" => 4,
-		"Right Column" => 5,
-		"Suppress Navigation" => 6
+		"Header Top - Rounded" => 1,
+		"Header Top - Square" => 2,		
+		"Header Bottom - Rounded" => 3,
+		"Header Bottom - Square" => 4,
+		"Fixed to Bottom" => 5,
+		"Left Column" => 6,
+		"Right Column" => 7,
+		"Suppress Navigation" => 8
 	}
 
 	NAV_WEIGHT = {
 		"Light" => 0,
 		"Dark" => 1
 	}
+
+	BODY_CLASSES = "wcms-above wcms-below wcms-navbar-suppressed wcms-white-background wcms-grey-background wcms-navbar-full wcms-navbar-rounded wcms-navbar-fixed-bottom wcms-navbar-fixed-top wcms-overlap"
+
+	def nav_class(with_namespace=false)
+		retval = with_namespace ? "wcms-" : ""
+		case self.nav_location
+		when 1 #### top of page, scrolls away, rounded
+			retval << "navbar-rounded"
+			retval << " wcms-above"# unless with_namespace
+		when 2 #### top of page, scrolls away, squared
+			retval << "navbar-full"
+			retval << " wcms-above"# unless with_namespace
+		when 3 ##### below header image rounded  (was 1)
+			retval << "navbar-rounded"
+			retval << " wcms-below"# unless with_namespace
+		when 4 #### below header image square (was 2)
+			retval << "navbar-full"
+			retval << " wcms-below"# unless with_namespace
+		when 5 #### fixed to bottom, doesn't scroll away (was 3)
+			retval << "navbar-fixed-bottom"
+		when 6, 7 #### left or right nav (was 4,5)
+			return ""
+		when 8 #### Suppressed nav (was 6)
+			retval << "navbar-suppressed"
+		else #### fixed to top, doesn't scroll away
+			retval << "navbar-fixed-top"
+		end
+		return retval
+	end
+
+	def nav_loc
+		retval = ""
+		case self.nav_location
+		when 1 #### top of page, scrolls away, rounded
+			retval << "above-header-rounded"
+		when 2 #### top of page, scrolls away, squared
+			retval << "above-header-squared"
+		when 3 ##### below header image rounded  (was 1)
+			retval << "below-header-rounded"
+		when 4 #### below header image square (was 2)
+			retval << "below-header-squared"
+		when 5 #### fixed to bottom, doesn't scroll away (was 3)
+			retval << "fixed-to-bottom"
+		when 6
+			retval << "left-side"
+		when 7 #### left or right nav (was 4,5)
+			retval << "right-side"
+		when 8 #### Suppressed nav (was 6)
+			retval << "suppressed"
+		else #### fixed to top, doesn't scroll away
+			retval << "fixed-to-top"
+		end
+		retval <<  "-overlap" if self.overlap?
+		return retval
+	end
 
 	def nav_color_converted
 		return nav_color	
@@ -60,32 +117,13 @@ class Setting < ActiveRecord::Base
 	end
 
 	def nav_weight_class
-		nav_style = [4,5].include?(self.nav_location) ? 'nav' : 'navbar'
+		nav_style = [6,7].include?(self.nav_location) ? 'nav' : 'navbar'
 		#if self.nav_weight == 0 #### light
 		if self.contrast == "light"
 			return "#{nav_style}-light bg-faded"
 		else #### dark
 			return "#{nav_style}-dark bg-inverse"
 		end
-	end
-
-	def nav_class(with_namespace=false)
-		retval = with_namespace ? "wcms-" : ""
-		case self.nav_location
-		when 1 ##### below header image rounded
-			return "navbar-rounded"
-		when 2 #### below header image square
-			retval << "navbar-full"
-		when 3 #### fixed to bottom
-			retval << "navbar-fixed-bottom"
-		when 4
-			return ""
-		when 5 #### left or right nav
-			return ""
-		else #### fixed to top
-			retval << "navbar-fixed-top"
-		end
-		return retval
 	end
 
 	def contrast

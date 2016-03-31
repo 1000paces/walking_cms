@@ -1,7 +1,0 @@
-<nav class="wcms-cell-controls nav nav-line" id="wcms-cell-controls-<%= cell.id %>">
-	<%= link_to "<i class='#{Cell::TEXT_ICON}'></i>".html_safe, admin_edit_cell_path(cell, "text"), :class => "nav-link wcms-cell-link wcms-cell-text", :title => "Add Text", :remote => true, :data => {:row => row.id, :cell => cell.id}  -%>
-	<%= link_to "<i class='#{Cell::IMAGE_ICON}'></i>".html_safe, admin_edit_cell_path(cell, "image"), :class => "nav-link wcms-cell-link wcms-cell-image", :title => "Add Image", :remote => true -%>
-	<%= link_to "<i class='#{Cell::CODE_ICON}'></i>".html_safe, admin_edit_cell_path(cell, "code"), :class => "nav-link wcms-cell-link wcms-cell-code", :title => "Add Code", :remote => true  -%>
-	<%= link_to "<i class='#{Cell::SETTINGS_ICON}'></i>".html_safe, admin_edit_cell_path(cell, "settings"), :class => "nav-link wcms-cell-link wcms-cell-settings", :title => "Card Settings", :remote => true  -%>
-	<%#= link_to "<i class='#{Cell::CSS_ICON}'></i>".html_safe, admin_edit_cell_path(cell, "css"), :class => "nav-link wcms-cell-link wcms-cell-settings", :title => "CSS Settings", :remote => true  -%>
-</nav>

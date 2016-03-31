@@ -1,0 +1,18 @@
+<div class="card">
+  <h6 class="card-header" title="#wcms-cell-<%= @cell.id %>">
+    <i class="<%= Cell::CSS_ICON -%>"></i> CSS Settings <small class="text-muted">Advanced Users Only</small>
+  </h6>
+  <div class="card-block">
+    <%= form_for [:admin, @cell], html: { class: "wcms-card-form" }, :remote => true do |f| %>
+    	<div class="form-group">
+        <label for="cell_embed_code" class="sr-only">CSS for #wcms-cell-<%= @cell.id %></label>
+        <%= f.text_area :css, :class => "form-control form-control-sm", :placeholder => "CSS for #wcms-cell-#{@cell.id}" %>
+        <small class="text-muted">CSS entered here will apply to HTML inside the cell identified by #wcms-cell-<%= @cell.id %></small>
+      </div>    
+      <div class="form-group wcms-card-action-group">
+  		  <%= f.submit "Save", class: "btn btn-primary btn-sm" %>
+        <%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
+      </div>
+    <% end %>
+  </div>
+</div>

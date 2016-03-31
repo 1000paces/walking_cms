@@ -6,6 +6,6 @@
   <%- if cell.has_uri? -%>
   	<%= link_to cell.headline, cell.embed_code, target: "_blank" -%>
   <%- else -%>
-  	<div class="embed-responsive embed-responsive-16by9"><%= cell.embed_code.html_safe -%></div>
+  	<div class="embed-responsive embed-responsive-16by9 flex-video"><%= cell.embed_code.html_safe -%></div>
   <%- end -%>
 </div>

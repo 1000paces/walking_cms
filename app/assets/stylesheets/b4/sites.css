@@ -117,14 +117,26 @@ nav.wcms-cell-controls:not(#wcms-cell-controls-header) {
 nav.navbar:not(.navbar-fixed-top) {
 }
 
-.wcms-header nav.navbar:not(.navbar-fixed-top) {
+.wcms-header nav.navbar.wcms-above:not(.navbar-fixed-top) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.wcms-header nav.navbar.wcms-below:not(.navbar-fixed-top) {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 }
 
-.wcms-overlap .wcms-header nav.navbar:not(.navbar-fixed-top) {
+
+.wcms-overlap .wcms-header .wcms-above nav.navbar:not(.navbar-fixed-top) {
+  top: 0;
+}
+
+.wcms-overlap .wcms-header .wcms-below nav.navbar:not(.navbar-fixed-top) {
   bottom: 0;
 }
 
