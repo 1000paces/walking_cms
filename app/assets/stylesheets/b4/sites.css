@@ -124,16 +124,15 @@ nav.navbar:not(.navbar-fixed-top) {
   right: 0;
 }
 
+.wcms-overlap .wcms-header .wcms-above nav.navbar:not(.navbar-fixed-top) {
+  top: 0;
+}
+
 .wcms-header nav.navbar.wcms-below:not(.navbar-fixed-top) {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-
-.wcms-overlap .wcms-header .wcms-above nav.navbar:not(.navbar-fixed-top) {
-  top: 0;
 }
 
 .wcms-overlap .wcms-header .wcms-below nav.navbar:not(.navbar-fixed-top) {

@@ -32,6 +32,8 @@ $(document).on('click', '.wcms-cell', function(e){
 			}, 500, function() {
 				
 			});
+		} else {
+			console.log("NO JOY");
 		}
 		$.ajax({
 			type: 'get',
