@@ -2,6 +2,9 @@ class Admin::UsersController < Admin::AdminController
 
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
   #before_filter :require_user, only: [:show]
+  skip_before_action :set_user, :only => :new
+  skip_before_filter :require_user, :only => :new
+
 
   # GET /users
   # GET /users.json
@@ -23,6 +26,7 @@ class Admin::UsersController < Admin::AdminController
   # GET /users/new
   def new
     @user = User.new
+    @setting = @user.create_setting
   end
 
   # GET /users/1/edit
