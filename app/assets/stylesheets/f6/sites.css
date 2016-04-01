@@ -299,12 +299,11 @@ div.top-bar.navbar-rounded {
 }
 
 div.top-bar.navbar-fixed-top {
-	/*position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 1000;
-	*/
 }
 
 div.top-bar.navbar-fixed-bottom {
