@@ -21,27 +21,34 @@
 	<fieldset class="form-group">
 		<label for="page_permalink" class="form-control-label wcms-form-label wcms-white-text">Link</label>
 		<%= f.text_field :permalink, :class => "form-control form-control-xs" -%>
-		<p class="wcms-form-help help-text" id="permalink_help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</p>
+		<p class="wcms-form-help help-text" id="permalink_help">The name of this page as it will appear in the URL.  Must be unique.</p>
 	</fieldset>
 	<%= f.fields_for :setting, @page.setting do |b| -%>
-		<div class="small button-group">
-			<%= b.radio_button :fluid, true -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_true">Fluid Layout</label>
-			<%= b.radio_button :fluid, false -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_false">Static Layout</label>
+		<div class="row">
+			<fieldset class="medium-12 columns">
+				<label class="show-for-sr" for="setting_font_weight">Layout</label>
+				<%= b.radio_button :fluid, true -%> <label class="wcms-white-text radio-inline" for="page_setting_attributes_fluid_true">Fluid Layout</label>
+				<%= b.radio_button :fluid, false -%> <label class="wcms-white-text radio-inline" for="page_setting_attributes_fluid_false">Static Layout</label>
+				<p class="wcms-form-help help-text" id="fluid_help">"Static" features a maximum width of about 1200 pixels.</p>
+			</fieldset>
 		</div>
 		<fieldset class="form-group">
 			<label class="small form-control-label wcms-form-label wcms-white-text" for="setting_font_id">Font</label>
 			<%= b.select(:font_id, Font.alpha_collection, {}, {:class => "form-control form-control-sm"}) %>
 		</fieldset>
-		<div class="small button-group">
-				<%= b.radio_button :font_weight, 100 -%><label class="wcms-font wcms-thin button secondary" for="page_setting_attributes_font_weight_100">Thin Font</label>
-				<%= b.radio_button :font_weight, 400 -%><label class="wcms-font wcms-normal button secondary" for="page_setting_attributes_font_weight_400">Normal Font</label>
-				<%= b.radio_button :font_weight, 700 -%><label class="wcms-font wcms-heavy button secondary" for="page_setting_attributes_font_weight_700">Heavy Font</label>
-		</div>    
+		<div class="row">
+			<fieldset class="medium-12 columns">
+				<label class="show-for-sr" for="setting_font_weight">Font Weight</label>
+				<%= b.radio_button :font_weight, 100 -%> <label class="wcms-white-text wcms-font wcms-thin" for="page_setting_attributes_font_weight_100">Thin Font</label>
+				<%= b.radio_button :font_weight, 400 -%> <label class="wcms-white-text wcms-font wcms-normal" for="page_setting_attributes_font_weight_400">Normal Font</label>
+				<%= b.radio_button :font_weight, 700 -%> <label class="wcms-white-text wcms-font wcms-heavy" for="page_setting_attributes_font_weight_700">Heavy Font</label>	      
+			</fieldset>
+		</div>		  
 		<fieldset class="form-group">
 			<label class="small form-control-label wcms-form-label wcms-white-text" for="setting_nav_location">Navigation Location</label>
 			<%= b.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
 		</fieldset>
-		<fieldset class="form-group">
+		<fieldset class="form-group" id="wcms-overlap-division" style="<%= 'display: none;' if @page.setting.nav_location > 4 -%>">
 			<label for="setting_border" class="show-for-sr">Overlap Header & Navigation</label>
 			<label class="wcms-white-text small checkbox-inline">
 				<%= b.check_box(:overlap, {}, 1, 0) %> Overlap Header & Navigation
@@ -55,13 +62,15 @@
 			</script>
 		</fieldset>
 	<%- end -%>
-	<div class="small button-group">
-		<%= f.radio_button(:status, "PUBLIC") %><label class="wcms-publish button secondary" for="page_status_public"><i class='fa fa-flag-checkered'></i> Publish Page</label>
-		<%= f.radio_button(:status, "DRAFT") %><label class="wcms-draft button secondary" for="page_status_draft"><i class='fa fa-exclamation-triangle'></i> Draft</label>
-		<%= f.radio_button(:status, "DELETE") %><label class="wcms-delete button secondary" for="page_status_delete"><i class='fa fa-trash'></i> Delete</label>
+	<div class="row">
+		<fieldset class="medium-12 columns">
+			<label class="show-for-sr" for="setting_font_weight">Font Weight</label>
+			<%= f.radio_button(:status, "PUBLIC") %> <label class="wcms-white-text wcms-publish success label" for="page_status_public"><i class='fa fa-flag-checkered'></i> Publish Page</label>
+			<%= f.radio_button(:status, "DRAFT") %> <label class="wcms-white-text wcms-draft secondary label" for="page_status_draft"><i class='fa fa-exclamation-triangle'></i> Draft</label>
+			<%= f.radio_button(:status, "DELETE") %> <label class="wcms-white-text wcms-delete alert label" for="page_status_delete"><i class='fa fa-trash'></i> Delete</label>
+			<p class="wcms-form-help help-text" id="status_help">Select "Publish" when your page is ready to view.</p>
+		</fieldset>
 	</div>
-	<p class="wcms-form-help help-text" id="status_help">Select "Publish" when your page is ready to view.</p>
-	
 	<fieldset class="form-group wcms-action-group">
 		<%= f.submit 'Save Changes', class: 'button secondary' %>
 		<%= link_to "Cancel", admin_pages_path, :title => "Cancel", :id => "cancel-button", :class => "button secondary small pull-right", :remote => true -%>
@@ -76,10 +85,8 @@
 <script type="text/javascript">
 	$("#page_label").focusout(function(){
 		if($("#page_title").val().length == 0 ){
-			$("#page_title_spinner").toggleClass("hidden show");
 			var txt = $("#page_label").val();
 			$("#page_title").val(txt);
-			$("#page_title_spinner").toggleClass("hidden show");
 		};
 	});
 
@@ -90,5 +97,13 @@
 			slug = encodeURI(slug)
 			$("#page_permalink").val(slug);
 		};
-	});   
+	});
+
+	$("#page_setting_attributes_nav_location").change(function(){
+		if($("#page_setting_attributes_nav_location").val() > 4 ){
+			$("#wcms-overlap-division").fadeOut();
+		} else {
+			$("#wcms-overlap-division").fadeIn();
+		};
+	});  
 </script>

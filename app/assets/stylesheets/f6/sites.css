@@ -4,7 +4,7 @@ html, body {
 }
 
 body.wcms-navbar-fixed-top.wcms-overlap .top-bar {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -292,6 +292,11 @@ small.text-help.err-msg {
 
 div.top-bar.navbar-rounded {
 	border-radius: .25rem;
+}
+
+body:not(.wcms-overlap) div.top-bar.navbar-rounded, body:not(.wcms-overlap) div.top-bar.navbar-full {
+	margin-left: 0.9375rem;
+	margin-right: 0.9375rem;
 }
 
 .wcms-overlap div.top-bar.navbar-rounded {

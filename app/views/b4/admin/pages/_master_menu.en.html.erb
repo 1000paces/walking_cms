@@ -1,5 +1,5 @@
 <li class="nav-item dropdown wcms-menu-link <%= 'pull-xs-right' if side=='right' && orientation=='horizontal' -%>" id="wcms-master-menu">
-	<%= link_to "<i class='fa fa-fw fa-cogs'></i>".html_safe, "#", :class => "nav-link", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
+	<%= link_to "<i class='fa fa-fw fa-cogs'></i>".html_safe, "#", :class => "nav-link wcms-master-menu-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
 	<div class="dropdown-menu <%= 'dropdown-menu-right' if side=='right' -%> <%= "wcms-dropdown-#{side}" if orientation=='vertical' -%>" role="menu">
 		<%= link_to "<i class='#{Page::ICON}'></i> Pages".html_safe, admin_pages_path, :title => "Pages", :id => "wcms-toggle-pages", :class => "dropdown-item", :remote => true -%>
 		<div class="dropdown-divider"></div>

@@ -1,5 +1,5 @@
 <li class="" id="wcms-master-menu">
-	<%= link_to "<i class='fa fa-fw fa-cogs'></i>".html_safe, "#", :class => "", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
+	<%= link_to "<i class='fa fa-fw fa-cogs'></i>".html_safe, "#", :class => "wcms-master-menu-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
 	<ul class="menu" role="menu" id="wcms-master-submenu">
 		<li><%= link_to "<i class='#{Page::ICON}'></i> Pages".html_safe, admin_pages_path, :title => "Pages", :id => "wcms-toggle-pages", :class => "dropdown-item", :remote => true -%></li>
 		<li class="divider"></li>

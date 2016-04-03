@@ -31,21 +31,21 @@
   <fieldset class="form-group">
     <label for="page_permalink" class="form-control-label wcms-form-label wcms-white-text">Link</label>
     <%= f.text_field :permalink, :class => "form-control form-control-xs" -%>
-    <small class="wcms-form-help" id="permalink_help">The friendly name of this page as it will appear in your page's web address.  Must be unique.</small>
+    <small class="wcms-form-help" id="permalink_help">The name of this page as it will appear in the URL.  Must be unique.</small>
   </fieldset>
   <%= f.fields_for :setting, @page.setting do |b| -%>
     <fieldset class="form-group">
       <label class="sr-only" for="setting_font_weight">Layout</label>
       <div class="radio">
         <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :fluid, true -%> Fluid Layout</small>
+          <%= b.radio_button :fluid, true -%> Fluid Layout
         </label>
         <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :fluid, false -%> Static Layout</small>
+          <%= b.radio_button :fluid, false -%> Static Layout
         </label>
       </div>
-    </fieldset>      
-
+      <small class="wcms-form-help" id="permalink_help">"Static" features a maximum width of about 1200 pixels.</small>
+    </fieldset>
     <fieldset class="form-group">
       <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_font_id">Font</label>
       <%= b.select(:font_id, Font.alpha_collection, {}, {:class => "form-control form-control-sm"}) %>
@@ -53,14 +53,14 @@
     <fieldset class="form-group">
       <label class="sr-only" for="setting_font_weight">Font Weight</label>
       <div class="radio">
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :font_weight, 100 -%> Thin Fonts</small>
+        <label class="wcms-white-text wcms-thin radio-inline">
+          <%= b.radio_button :font_weight, 100 -%> Thin Fonts
         </label>
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :font_weight, 400 -%> Normal</small>
+        <label class="wcms-white-text wcms-normal radio-inline">
+          <%= b.radio_button :font_weight, 400 -%> Normal
         </label>
-        <label class="wcms-white-text radio-inline">
-          <small><%= b.radio_button :font_weight, 700 -%> Heavy</small>
+        <label class="wcms-white-text wcms-heavy radio-inline">
+          <%= b.radio_button :font_weight, 700 -%> Heavy
         </label>
       </div>
     </fieldset>  
@@ -68,7 +68,7 @@
       <label class="small form-control-label wcms-form-label wcms-white-text" for="setting_nav_location">Navigation Location</label>
       <%= b.select(:nav_location, Setting::NAV_LOCATION, {}, {:class => "form-control form-control-sm"}) %>
     </fieldset>
-    <fieldset class="form-group">
+    <fieldset class="form-group" id="wcms-overlap-division" style="<%= 'display: none;' if @page.setting.nav_location > 4 -%>">
       <label for="setting_border" class="sr-only">Overlap Header & Navigation</label>
       <label class="wcms-white-text small checkbox-inline">
         <%= b.check_box(:overlap, {}, 1, 0) %> Overlap Header & Navigation
@@ -102,10 +102,8 @@
 <script type="text/javascript">
   $("#page_label").focusout(function(){
     if($("#page_title").val().length == 0 ){
-      $("#page_title_spinner").toggleClass("hidden show");
       var txt = $("#page_label").val();
       $("#page_title").val(txt);
-      $("#page_title_spinner").toggleClass("hidden show");
     };
   });
 
@@ -116,5 +114,14 @@
       slug = encodeURI(slug)
       $("#page_permalink").val(slug);
     };
-  });   
+  });
+
+  $("#page_setting_attributes_nav_location").change(function(){
+    if($("#page_setting_attributes_nav_location").val() > 4 ){
+      $("#wcms-overlap-division").fadeOut();
+    } else {
+      $("#wcms-overlap-division").fadeIn();
+    };
+  });  
+
 </script>
