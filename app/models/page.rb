@@ -1,4 +1,10 @@
 class Page < ActiveRecord::Base
+
+	#default_scope { where("status != 'DELETE'") }
+	scope :published, -> { where(status: 'PUBLIC') }	
+	scope :active, -> { where(status: ['PUBLIC','DRAFT']) }
+	
+
 	belongs_to :user
 	has_one :setting
 	accepts_nested_attributes_for :setting#, :reject_if => lambda{|r| r[:value].blank?}
@@ -27,7 +33,7 @@ class Page < ActiveRecord::Base
 	HOME = "fa fa-fw #{HOME_SHORT}"
 	
 	DRAFT = "fa fa-fw fa-exclamation-triangle wcms-warning"
-	DELETE = "fa fa-fw fa-trash-o wcms-danger"
+	DELETE = "fa fa-fw fa-trash wcms-danger"
 	MENU = "fa fa-fw fa-bars"
 	SORT = "fa fa-fw fa-arrows"
 	CLONE = "fa fa-fw #{CLONE_SHORT}"

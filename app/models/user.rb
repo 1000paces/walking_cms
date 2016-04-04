@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
 	has_one :domain
 	has_one :setting
-	has_many :pages
+	has_many :pages#, -> { where(status: ['ACTIVE','INACTIVE']) }
 
 	before_validation :copy_login_to_email
 	after_find :bootstrap

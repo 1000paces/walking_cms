@@ -205,7 +205,11 @@ class Cell < ActiveRecord::Base
 	end
 
 	def owner
-		self.row.page.user
+		if self.row.nil? || self.row.page.nil? || self.row.page.user.nil?
+			return nil
+		else
+			return self.row.page.user
+		end
 	end
 
 	def has_uri?
