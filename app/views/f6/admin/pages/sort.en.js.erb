@@ -1,3 +1,5 @@
-$(".page-icon").removeClass('fa-home').addClass('fa-file-text-o');
-$("#page-icon-<%= @user.home_page.id %>").removeClass('fa-file-text-o').addClass('fa-home');
+$(".page-icon").removeClass('<%= Page::HOME_SHORT -%> <%= Page::ICON_SHORT -%> <%= Page::MENU_SHORT -%>');
+<%- @user.pages.each do |p| -%>
+	$("#page-icon-<%= p.id %>").addClass("<%= p.icon -%>");
+<%- end -%>
 $("#wcms-primary-navigation").replaceWith("<%= j render(:partial => 'admin/pages/nav') -%>");

@@ -179,10 +179,10 @@ small.text-help.err-msg {
 .navbar-dark.bg-inverse li a {
 }
 .navbar-dark.bg-inverse li a {
-	color: rgba(255,255,255,.3);
+	color: rgba(255,255,255,.5);
 }
 .navbar-dark.bg-inverse li a:hover {
-	color: rgba(255,255,255,.6);
+	color: rgba(255,255,255,.75);
 }
 .navbar-dark.bg-inverse li.active a {
 	color: #fff;

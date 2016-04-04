@@ -3,9 +3,9 @@
 		<%= link_to "<i id='page-icon-#{page.id}' class='page-icon #{page.icon}'></i> #{page.label_with_status}".html_safe, admin_page_path(page), :class => "wcms-sidebar-link", :remote => true  -%>
 		<%= link_to "<i id='page-icon-#{page.id}' class='fa fa-fw fa-cog' title='Page Settings'></i>".html_safe, edit_admin_page_path(page), :class => "wcms-sidebar-link small", :remote => true  -%>
 	</div>
-	<%- if page.children.count > 0 -%>
+	<%- if page.is_menu?(false) -%>
 		<ol>
-			<%- page.children.each do |subpage| -%>
+			<%- page.children.menu.each do |subpage| -%>
 				<%= render :partial => "admin/pages/page_list_li", :locals => {:page => subpage} -%>
 			<%- end -%>
 		</ol>

@@ -1,12 +1,12 @@
 class Page < ActiveRecord::Base
 
-	scope :published, -> { where(status: 'PUBLIC') }	
-	scope :active, -> { where(status: ['PUBLIC','DRAFT']) }
+	scope :menu_published, -> { where(status: 'PUBLIC').where.not(position: nil) }	
+	scope :menu, -> { where(status: ['PUBLIC','DRAFT']).where.not(position: nil) }
 	
-	scope :nav, -> { where(parent_id: nil).order("position ASC") }
-	scope :nav_published, -> { where(parent_id: nil, status: 'PUBLIC').order("position ASC") }
+	scope :nav, -> { where(status: ['PUBLIC','DRAFT'], parent_id: nil).where.not(position: nil).order("position ASC") }
+	scope :nav_published, -> { where(parent_id: nil, status: 'PUBLIC').where.not(position: nil).order("position ASC") }
 
-	scope :orphaned, -> { where(position: nil) }
+	scope :orphaned, -> { where(status: ['PUBLIC','DRAFT'], position: nil) }
 	scope :orphaned_published, -> { where(position: nil, status: "PUBLIC") }
 	
 	belongs_to :user
@@ -31,6 +31,7 @@ class Page < ActiveRecord::Base
 	ICON_EMPTY_SHORT = "fa-file-o"
 	CLONE_SHORT = 'fa-files-o'
 	UNDO_SHORT = "fa-undo"
+	MENU_SHORT = "fa-chevron-circle-down"
 
 	ICON = "fa fa-fw #{ICON_SHORT}"
 	ICON_EMPTY = "fa fa-fw #{ICON_EMPTY_SHORT}"
@@ -42,9 +43,12 @@ class Page < ActiveRecord::Base
 	SORT = "fa fa-fw fa-arrows"
 	CLONE = "fa fa-fw #{CLONE_SHORT}"
 	UNDO = "fa fa-fw #{UNDO_SHORT}"
+	MENU = "fa fa-fw #{MENU_SHORT}"
 
 	def icon
-		if self.parent_id.nil? && self.position == 0
+		if self.is_menu?(false)
+			return Page::MENU
+		elsif self.parent_id.nil? && self.position == 0
 			return Page::HOME
 		else
 			return Page::ICON
@@ -59,15 +63,19 @@ class Page < ActiveRecord::Base
 		end
 	end
 
-	def published_children
-		self.children.where("status = ?", 'PUBLIC')
-	end
-
 	def self.retrieve(page_id, user_id)
 		if page_id.to_i.to_s == page_id #### integer, find by id
 			self.where("id = ? AND user_id = ?", page_id, user_id).first
 		else #### not numeric, find by permalink
 			self.where("permalink = ? AND user_id = ?", page_id, user_id).first
+		end
+	end
+
+	def is_menu?(published = false)
+		if published == true
+			self.children.menu_published.count > 0
+		else
+			self.children.menu.count > 0
 		end
 	end
 
