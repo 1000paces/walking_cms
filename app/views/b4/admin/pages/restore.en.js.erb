@@ -1,0 +1,4 @@
+$("#wcms-restore-page").fadeOut(function() {
+	$("#pages-index-div").html("<%= j render(:partial => 'admin/pages/index') -%>");
+	$("#item_<%= @page.id %>").effect("highlight", "slow");
+});
