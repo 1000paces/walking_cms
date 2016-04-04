@@ -14,6 +14,11 @@
 			<%= render :partial => "admin/pages/page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>
+	<%- unless @recently_departed.nil? -%>
+		<div class="text-center">
+			<%= link_to "<i class='#{Page::UNDO}'></i> Undo Delete".html_safe, "#", :id => "wcms-restore-page", :class => 'button alert', :data => { restore: @recently_departed } -%>
+		</div>
+	<%- end -%>	
 </div>
 <div class="wcms-form-box-x" id="wcms-drawer-forms-x" style="display: none;"></div>
 <div id="dragholder" style="display: block;"></div>

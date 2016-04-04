@@ -10,10 +10,15 @@
 	</ol>
 	<div class="wcms-white-text-label text-xs-center">Other Pages</div>
 	<ol class="list-unstyled page-list unlinked-pages" id="unlinked-page-list">
-		<%- @user.non_nav_pages.each do |page| -%>
+		<%- @user.pages.orphaned.each do |page| -%>
 			<%= render :partial => "admin/pages/page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>
+	<%- unless @recently_departed.nil? -%>
+		<div class="text-xs-center">
+			<%= link_to "<i class='#{Page::UNDO}'></i> Undo Delete".html_safe, "#", :id => "wcms-restore-page", :class => 'btn btn-danger', :data => { restore: @recently_departed } -%>
+		</div>
+	<%- end -%>
 </div>
 <div class="wcms-form-box-x" id="wcms-drawer-forms-x" style="display: none;"></div>
 <div id="dragholder" style="display: block;"></div>

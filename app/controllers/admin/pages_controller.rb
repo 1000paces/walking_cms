@@ -1,7 +1,5 @@
 class Admin::PagesController < Admin::AdminController
 
-
-
   def index
     @page = @user.home_page
   end
@@ -33,6 +31,7 @@ class Admin::PagesController < Admin::AdminController
   end
 
   def update
+    session[:recently_departed] = nil
   	@page = Page.find(params[:id])
     @page.permalink = @page.generate_permalink if @page.permalink.blank?
     @row = @page.rows.first
@@ -40,9 +39,21 @@ class Admin::PagesController < Admin::AdminController
     if @page.errors.any?
       render(:template => "/shared/errors", :layout => false)
     end
+    @recently_departed = session[:recently_departed] = @page.id if @page.status == 'DELETE'
   end
 
   def destroy
+  end
+
+  def restore
+    if session[:recently_departed].nil?
+      @page = @user.home_page
+    else
+      @page = Page.find(params[:page_id])
+      @page.status = 'DRAFT'
+      @page.save
+    end
+    #render(:action => :index, :layout => false)
   end
 
   def sort

@@ -80,6 +80,14 @@ $(document).on('click', '#wcms-undo', function(e){
 	$("#wcms-restore-cell").submit();	
 });
 
+$(document).on('click', '#wcms-restore-page', function(e){
+	e.stopPropagation();
+	console.log("3.6. .wcms-restore-page: restore page from status DELETE");
+	var dataPage = $(this).attr('data-restore');
+	$("#wcms-page-id-restore").val(dataPage);
+	$("#wcms-restore-page-form").submit();	
+});
+
 $("#wcms-work-area").on('click', 'div.wcms-cell div.wcms-tools', function(e){
 	console.log("4. .wcms-tools was clicked inside wcms-cell, so don't do anything, allow user to edit form");
 	e.stopPropagation();

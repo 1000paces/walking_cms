@@ -28,28 +28,28 @@ class User < ActiveRecord::Base
 		return "#{self.first_name} #{self.last_name}"
 	end
 	
-	def nav_pages
-		self.linked_page_array ||= self.pages.order("position ASC").select{|x| x.position!=nil}
-	end
+#	def nav_pages
+#		self.linked_page_array ||= self.pages.order("position ASC").select{|x| x.position!=nil}
+#	end
 
-	def all_nav_pages
-		self.linked_page_array ||= self.pages.where("parent_id IS NULL").order("position ASC").select{|x| x.position!=nil}
-	end
+#	def all_nav_pages
+#		self.linked_page_array ||= self.pages.where("parent_id IS NULL").order("position ASC").select{|x| x.position!=nil}
+#	end
 
-	def published_nav_pages
-		self.linked_page_array ||= self.pages.where("parent_id IS NULL AND status='PUBLIC'").order("position ASC").select{|x| x.position!=nil}
-	end
+#	def published_nav_pages
+#		self.linked_page_array ||= self.pages.where("parent_id IS NULL AND status='PUBLIC'").order("position ASC").select{|x| x.position!=nil}
+#	end
 
-	def non_nav_pages
-		self.unlinked_page_array ||= self.pages.select{|x| x.position==nil}
-	end
+#	def non_nav_pages
+#		self.unlinked_page_array ||= self.pages.select{|x| x.position==nil}
+#	end
 
 	def home_page
-		if self.all_nav_pages.blank?
+		if self.pages.nav.blank?
 			self.linked_page_array = nil
 			return self.pages.create!(label: "My New Page", title: "My New Page", position: 0)
 		else
-			return self.all_nav_pages.first
+			return self.pages.nav.first
 		end
 	end
 

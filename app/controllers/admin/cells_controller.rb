@@ -87,7 +87,6 @@ class Admin::CellsController < Admin::AdminController
     @page = @row.page
     @cell.row_id = 0
     @cell.save
-    #@cell.destroy
     @dead_rows = []
     @page.rows.each do |row|
       if row.cells.empty?
@@ -105,7 +104,6 @@ class Admin::CellsController < Admin::AdminController
       p = @page.rows.size
       @row = Row.create(:page_id => @page.id, :position => p)
     end
-
     @cell = Cell.find(params[:cell_id])
     @row.cells << @cell
   end
