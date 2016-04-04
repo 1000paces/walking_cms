@@ -1,10 +1,14 @@
 class Page < ActiveRecord::Base
 
-	#default_scope { where("status != 'DELETE'") }
 	scope :published, -> { where(status: 'PUBLIC') }	
 	scope :active, -> { where(status: ['PUBLIC','DRAFT']) }
 	
+	scope :nav, -> { where(parent_id: nil).order("position ASC") }
+	scope :nav_published, -> { where(parent_id: nil, status: 'PUBLIC').order("position ASC") }
 
+	scope :orphaned, -> { where(position: nil) }
+	scope :orphaned_published, -> { where(position: nil, status: "PUBLIC") }
+	
 	belongs_to :user
 	has_one :setting
 	accepts_nested_attributes_for :setting#, :reject_if => lambda{|r| r[:value].blank?}

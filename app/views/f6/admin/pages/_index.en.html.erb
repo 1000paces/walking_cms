@@ -4,13 +4,13 @@
 	</div>
 	<div class="wcms-white-text-label text-center">Site Navigation</div>
 	<ol class="list-unstyled page-list linked-pages" id="page-list">
-		<%- @user.all_nav_pages.each do |page| -%>
+		<%- @user.pages.nav.each do |page| -%>
 			<%= render :partial => "admin/pages/page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>
 	<div class="wcms-white-text-label text-center">Other Pages</div>
 	<ol class="list-unstyled page-list unlinked-pages" id="unlinked-page-list">
-		<%- @user.non_nav_pages.each do |page| -%>
+		<%- @user.pages.orphaned.each do |page| -%>
 			<%= render :partial => "admin/pages/page_list_li", :locals => {:page => page} -%>
 		<%- end -%>
 	</ol>
