@@ -185,3 +185,12 @@ nav.navbar:not(.navbar-fixed-top) {
 #wcms-cell-controls-header {
 	z-index: 2001;
 }
+
+img.img-squared {
+	border-radius: 0;
+	-webkit-appearance: none;
+}
+
+.wcms-card-action-group {
+	margin-bottom: 0px !important;
+}

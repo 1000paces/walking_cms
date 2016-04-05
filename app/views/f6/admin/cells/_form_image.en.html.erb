@@ -4,7 +4,7 @@
     <%= form_for [:admin, @cell], html: { multipart: true, class: "wcms-card-form" }, :remote => true do |f| %>
       <div class="row">
         <div class="medium-12 columns">
-          <label class="button" for="page_setting_attributes_image">Upload Image</label>
+          <label class="button" for="cell_image">Upload Image</label>
           <%= f.file_field :image, :class => "form-control show-for-sr" %>
         </div>
       </div>
@@ -14,13 +14,13 @@
           <%= f.text_field :headline, :class => "form-control form-control-sm", :placeholder => "Caption" %>
         </div>
       </div> 
-    	<div class="form-group">
+    	<div class="row">
         <fieldset class="medium-12 columns">
           <legend for="cell_headline" class="show-for-sr">Shape</legend>
-            <%= f.radio_button(:shape, "rounded") %><label class="small radio"> Rounded Corners (Default)</label> 
-            <%= f.radio_button(:shape, "squared") %><label class="small radio"> Squared Corners</label> 
-            <%= f.radio_button(:shape, "thumbnail") %><label class="small radio"> White Border</label> 
-            <%= f.radio_button(:shape, "circle") %><label class="small radio"> Circle</label>
+          <%= f.radio_button(:shape, "rounded") %><label class="small radio"> Rounded Corners (Default)</label><br>
+          <%= f.radio_button(:shape, "squared") %><label class="small radio"> Squared Corners</label><br> 
+          <%= f.radio_button(:shape, "thumbnail") %><label class="small radio"> White Border</label><br>
+          <%= f.radio_button(:shape, "circle") %><label class="small radio"> Circle</label>
         </fieldset>
       </div>
       <div class="row wcms-card-action-group">

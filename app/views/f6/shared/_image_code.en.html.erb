@@ -1,5 +1,5 @@
 <div class="<%= cell.variant_class -%> <%= cell.background_contrast_class -%>" style="<%= cell.background_color_style -%>">
-	<%= image_tag cell.image_url.to_s, :class => "img-fluid img-#{cell.shape}" -%>
+	<%= image_tag cell.image_url.to_s, :class => "img-fluid squared" -%>
 	<div class="embed-responsive embed-responsive-16by9 flex-video">
 		<%= cell.embed_code.html_safe -%>
 	</div>

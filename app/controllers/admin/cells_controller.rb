@@ -28,13 +28,21 @@ class Admin::CellsController < Admin::AdminController
     cell_list = row.cell_ids
 
     if deed == 'add'  #!params[:add].blank?
+     # Rails.logger.warn("\n\nCELL LIST WAS: #{cell_list}")
+
       #add = params[:add]
       #Rails.logger.warn("In the 'add' section")
-      pos = direction == "left" ? @adjacent_cell.position-1 : @adjacent_cell.position
+      #pos = direction == "left" ? @adjacent_cell.position : @adjacent_cell.position+1
+
+      pos = cell_list.rindex(@adjacent_cell.id)
+      pos+=1 if direction == 'right'
+
       x,y = @adjacent_cell.division
       @adjacent_cell.width = y
       @cell = Cell.create(:width => x, :position => pos, :row_id => @adjacent_cell.row_id)
+
       cell_list.insert(pos, @cell.id)
+      #Rails.logger.warn("CELL LIST IS NOW: #{cell_list}\n\n")
       @adjacent_cell.save
     else
      # Rails.logger.warn("Not in the 'add' section")

@@ -1,10 +1,6 @@
-<%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 6-%>
-<div class="row">
-	<div class="col-md-12 header-zone zone" id="header-row"></div>
-</div>
 <div class="row" id="wcms-navigation-row">
-	<div class="col-md-12 navigation-zone" id="wcms-navigation-row-inner">
-		<%= render :partial => "admin/pages/nav_horizontal" if @page.setting.nav_location < 5 -%>
+	<div class="medium-12 navigation-zone" id="wcms-navigation-row-inner">
+		<%= render :partial => "admin/pages/nav_horizontal" if [0,3,4].include?(@page.setting.nav_location) && !@page.setting.overlap -%>				
 	</div>
 </div>
 <div id="wcms-row-sort-container">
@@ -14,13 +10,8 @@
 		<%- end -%>
 	<%- end -%>
 </div>
-<div class="row">
-	<div class="col-md-12 footer-zone zone" id="footer-row"></div>
-</div>
-<%= render :partial => "admin/pages/nav_vertical" if @page.setting.nav_location == 7 -%>
 
 <script type="text/javascript">
-
 	$("#wcms-row-sort-container").sortable({
 		placeholder: "ui-state-highlight",
 		helper: 'clone',
