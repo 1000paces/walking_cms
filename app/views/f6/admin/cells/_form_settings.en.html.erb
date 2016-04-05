@@ -58,11 +58,16 @@
 				</div>
 			</div>
 			<div class="row wcms-card-action-group"> 
-				<div class="medium-12 columns">     	
-					<%= f.submit "Save", class: "button small wcms-form-btn" %>
-					<%= link_to "Cancel", "#", class: "button warning small wcms-cell-cancel-btn wcms-form-btn", data: {row: @row.id, cell: @cell.id} -%>
-					<%= link_to "<i class='fa fa-fw fa-trash'></i>".html_safe, admin_cell_path(@cell.id), class: "alert badge wcms-cell-delete", method: :delete, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>
-				</div>					
+				<div class="medium-12 columns">
+					<div class="float-left">
+						<%= f.submit "Save", class: "button small wcms-form-btn" %>
+						<%= link_to "Cancel", "#", class: "button warning small wcms-cell-cancel-btn wcms-form-btn", data: {row: @row.id, cell: @cell.id} -%>
+					</div>
+					<div class="float-right">
+						<%= link_to "<i class='fa fa-fw fa-clone'></i>".html_safe, admin_duplicate_cell_path(@cell.id), title: "Duplicate", class: "secondary badge wcms-cell-duplicate", method: :post, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>					
+						<%= link_to "<i class='fa fa-fw fa-trash'></i>".html_safe, admin_cell_path(@cell.id), title: "Delete", class: "alert badge wcms-cell-delete", method: :delete, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>
+					</div>
+				</div>
 			</div>
 		<% end %>
 	</div>

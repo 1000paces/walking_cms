@@ -21,7 +21,6 @@ $(document).on('click', '.wcms-cell', function(e){
 		try { $('#wcms-header-img').data('Jcrop').destroy(); }
 		catch(err) { console.log("No Jcrop") }
 	  $('#wcms-header-img').removeAttr('style');
-		
 		$("#wcms-img-overlay").fadeIn();
 		$(".wcms-overlapped-header").fadeIn();
 

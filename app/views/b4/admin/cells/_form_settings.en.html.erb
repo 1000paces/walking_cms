@@ -43,10 +43,15 @@
           <%= f.check_box(:show_headline, {}, 1, 0) %> Show <%= @cell.image.blank? ? 'Headline' : 'Caption' -%>
         </label>
       </div>
-      <div class="form-group wcms-card-action-group">      	
-    		<%= f.submit "Save", class: "btn btn-primary btn-sm wcms-form-btn" %>
-    		<%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn wcms-form-btn", data: {row: @row.id, cell: @cell.id} -%>
-        <%= link_to "<i class='fa fa-fw fa-trash'></i>".html_safe, admin_cell_path(@cell.id), class: "danger text-danger small wcms-cell-delete", method: :delete, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>
+      <div class="form-group wcms-card-action-group clearfix">  
+        <div class="pull-xs-left">    	
+    		  <%= f.submit "Save", class: "btn btn-primary btn-sm wcms-form-btn" %>
+    		  <%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn wcms-form-btn", data: {row: @row.id, cell: @cell.id} -%>
+        </div>
+        <div class="pull-xs-right">
+          <%= link_to "<i class='fa fa-fw fa-clone'></i>".html_safe, admin_duplicate_cell_path(@cell.id), title: "Duplicate", class: "label label-pill label-default wcms-cell-duplicate", method: :post, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>          
+          <%= link_to "<i class='fa fa-fw fa-trash'></i>".html_safe, admin_cell_path(@cell.id), class: "label label-pill label-danger wcms-cell-delete", method: :delete, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>
+        </div>        
       </div>
     <% end %>
   </div>

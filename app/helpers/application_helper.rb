@@ -29,7 +29,7 @@ module ApplicationHelper
 	end
 
 	def cdn_css_font_awesome
-		"<link href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'>".html_safe
+		"<link href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'>".html_safe
 	end
 
 	def cdn_jquery_flip

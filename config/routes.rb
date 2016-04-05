@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 		match "cells/:id/edit(/:type)" => "cells#edit", :as => "edit_cell", :via => [:get]
 		match "cells/:row_id/sort" => "cells#sort", :as => "cells_sort", :via => [:get, :post]
 		match "cell/restore" => "cells#restore", :as => "cell_restore", :via => [:post]
+		match "cell/:id/duplicate" => "cells#duplicate", :as => "duplicate_cell", :via => [:post]
+
 		resources :settings
 		resources :assets
 		resources :help, :only => [:index, :show]

@@ -28,11 +28,6 @@ class Admin::CellsController < Admin::AdminController
     cell_list = row.cell_ids
 
     if deed == 'add'  #!params[:add].blank?
-     # Rails.logger.warn("\n\nCELL LIST WAS: #{cell_list}")
-
-      #add = params[:add]
-      #Rails.logger.warn("In the 'add' section")
-      #pos = direction == "left" ? @adjacent_cell.position : @adjacent_cell.position+1
 
       pos = cell_list.rindex(@adjacent_cell.id)
       pos+=1 if direction == 'right'
@@ -42,7 +37,6 @@ class Admin::CellsController < Admin::AdminController
       @cell = Cell.create(:width => x, :position => pos, :row_id => @adjacent_cell.row_id)
 
       cell_list.insert(pos, @cell.id)
-      #Rails.logger.warn("CELL LIST IS NOW: #{cell_list}\n\n")
       @adjacent_cell.save
     else
      # Rails.logger.warn("Not in the 'add' section")
@@ -114,6 +108,23 @@ class Admin::CellsController < Admin::AdminController
     end
     @cell = Cell.find(params[:cell_id])
     @row.cells << @cell
+  end
+
+  def duplicate
+    @source_cell = Cell.find(params[:id])
+    @row = @source_cell.row
+    @page = @row.page
+    cell_list = @row.cells.ids
+    @cell = @source_cell.duplicate(@row.id)
+    @cell_index = cell_list.rindex(@source_cell.id)+1
+    cell_list.insert(@cell_index, @cell.id)
+    cell_list.each_with_index do |cell_id, index|
+      cell = Cell.find(cell_id)
+      unless cell.nil?
+        cell.position = index+1
+        cell.save
+      end
+    end
   end
 
   def sort

@@ -1,0 +1,11 @@
+$("#wcms-cell-<%= @source_cell.id %>").toggleClass('flipped');
+$(".wcms-header").removeClass("flipped");
+$(".wcms-cell-toolbar-link").removeClass('active');
+$(".wcms-cell-controls").hide('blind', {}, 500);
+$(".wcms-cell").removeClass("wcms-cell-active");
+
+$("#wcms-cell-<%= @source_cell.id %>").after("<%= j render(:partial => 'admin/pages/cell', :locals => {:row => @row, :cell => @cell, :index => @cell_index}) -%>");
+$("#wcms-cell-<%= @cell.id %>").addClass("wcms-cell-active").effect("highlight", {}, 500);
+$("#wcms-adjacent-cell").val(<%= @cell.id -%>);
+$(".wcms-work-cell:not(#wcms-cell-<%= @cell.id %>)").removeClass("flipped");
+$("#wcms-cell-controls-<%= @cell.id %>").fadeIn();
