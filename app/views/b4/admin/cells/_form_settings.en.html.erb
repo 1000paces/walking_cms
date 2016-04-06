@@ -49,8 +49,8 @@
     		  <%= link_to "Cancel", "#", class: "btn btn-warning btn-sm wcms-cell-cancel-btn wcms-form-btn", data: {row: @row.id, cell: @cell.id} -%>
         </div>
         <div class="pull-xs-right">
-          <%= link_to "<i class='fa fa-fw fa-clone'></i>".html_safe, admin_duplicate_cell_path(@cell.id), title: "Duplicate", class: "label label-pill label-default wcms-cell-duplicate", method: :post, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>          
-          <%= link_to "<i class='fa fa-fw fa-trash'></i>".html_safe, admin_cell_path(@cell.id), class: "label label-pill label-danger wcms-cell-delete", method: :delete, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>
+          <%= link_to "<i class='fa fa-fw fa-clone'></i>".html_safe, admin_duplicate_cell_path(@cell.id), title: "Duplicate Card", class: "label label-pill label-default wcms-cell-duplicate", method: :post, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>          
+          <%= link_to "<i class='fa fa-fw fa-trash'></i>".html_safe, admin_cell_path(@cell.id), title: "Delete Card", class: "label label-pill label-danger wcms-cell-delete", method: :delete, data: {page: @page.id, row: @row.id, cell: @cell.id}, :remote => true -%>
         </div>        
       </div>
     <% end %>

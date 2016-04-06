@@ -19,11 +19,16 @@ small.wcms-form-help {
 }
 
 nav.wcms-cell-controls:not(#wcms-cell-controls-header) {
-	margin-top: -40px;
+	
 	border-radius: 0 0 0.25rem 0.25rem;
 	background-color: rgba(51, 51, 51, 0.85);
 	z-index: 2000;
-	position: relative;
+	/*position: relative;
+	margin-top: -40px;*/
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
 #wcms-cell-controls-header {

@@ -326,17 +326,17 @@ class Cell < ActiveRecord::Base
 		when 1,8
 			'callout'
 		when 2
-			'callout primary card-inverse'
+			'callout primary'
 		when 3
-			'callout success card-inverse'
+			'callout success'
 		when 4
-			'callout card-inverse'
+			'callout'
 		when 5
-			'callout warning card-inverse'
+			'callout warning'
 		when 6
-			'callout alert card-inverse'
+			'callout alert'
 		when 7
-			'callout secondary card-inverse'
+			'callout secondary'
 		else
 			'wcms-no-card'
 		end		
