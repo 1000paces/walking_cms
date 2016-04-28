@@ -175,7 +175,7 @@ $(document).on('click', function (e) {
     	console.log("13.2 dataCell and dataPage are undefined")
     	if(jcrop_object == null) {
     		console.log("13.3 jcrop is null")
-				$("#wcms-cell-controls-header").hide('blind', {}, 500);
+				/*$("#wcms-cell-controls-header").hide('blind', {}, 500);*/
 				/*$(".wcms-cell-controls").fadeOut();*/
 			}
 
