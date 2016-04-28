@@ -1,2 +1,3 @@
+$('#wcms-cell-modal').foundation('close');
 $("#wcms-cell-<%= @cell.id %>").replaceWith("<%= j render(:partial => 'admin/pages/cell', :locals => {:row => @row, :cell => @cell, :index => @cell.position}) -%>");
 $("#wcms-cell-<%= @cell.id %>").delay(500).addClass('wcms-cell-active').effect("highlight");

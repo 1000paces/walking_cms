@@ -1,34 +1,31 @@
-<div class="card callout">
-  <h6 class="callout-header" title="#wcms-cell-<%= @cell.id %>"><i class="fa fa-fw fa-code"></i> Embedded Code</h6>
-  <div class="callout-block">
-    <%= form_for [:admin, @cell], html: { class: "wcms-card-form" }, :remote => true do |f| %>
-    	<div class="row">
-        <div class="medium-12 columns">
-      	 <label for="cell_headline" class="show-for-sr">Headline</label>
-      	 <%= f.text_field :headline, :class => "form-control form-control-sm", :placeholder => "Headline" %>
-        </div>
-      </div>
-    	<div class="row">
-        <div class="medium-12 columns">
-          <label for="cell_embed_code" class="show-for-sr">Link or Embed Code</label>
-          <%= f.text_area :embed_code, :class => "form-control form-control-sm", :placeholder => "Paste link or embed code here" %>
-          <p class="help-text">Paste link or embed code from third party sites here.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="medium-12 columns">
-          <label for="cell_new_window" class="show-for-sr">Open Links in New Window</label>
-          <label class="small checkbox-inline">
-            <%= f.check_box(:new_window, {}, 1, 0) %> Open Links in New Window
-          </label>
-        </div>
-      </div>      
-      <div class="row wcms-card-action-group">
-        <div class="medium-12 columns">
-    		  <%= f.submit "Save", class: "button small" %>
-    		  <%= link_to "Cancel", "#", class: "button warning small wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
-        </div>
-      </div>
-    <% end %>
+<h5 title="#wcms-cell-<%= @cell.id %>"><i class="fa fa-fw fa-code"></i> Embedded Code</h5>
+<hr>
+<%= form_for [:admin, @cell], html: { class: "wcms-card-form" }, :remote => true do |f| %>
+	<div class="row">
+    <div class="medium-12 columns">
+  	 <label for="cell_headline" class="show-for-sr">Headline</label>
+  	 <%= f.text_field :headline, :class => "form-control form-control-sm", :placeholder => "Headline" %>
+    </div>
   </div>
-</div>
+	<div class="row">
+    <div class="medium-12 columns">
+      <label for="cell_embed_code" class="show-for-sr">Link or Embed Code</label>
+      <%= f.text_area :embed_code, :class => "form-control form-control-sm", :placeholder => "Paste link or embed code here" %>
+      <p class="help-text">Paste link or embed code from third party sites here.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-12 columns">
+      <label for="cell_new_window" class="show-for-sr">Open Links in New Window</label>
+      <label class="small checkbox-inline">
+        <%= f.check_box(:new_window, {}, 1, 0) %> Open Links in New Window
+      </label>
+    </div>
+  </div>      
+  <div class="row wcms-card-action-group">
+    <div class="medium-12 columns">
+		  <%= f.submit "Save", class: "button small" %>
+		  <%= link_to "Cancel", "#", class: "button warning small wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
+    </div>
+  </div>
+<% end %>

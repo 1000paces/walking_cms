@@ -1,4 +1,4 @@
-<div class="card">
+
 	<div id="wcms-editor-top-toolbar-<%= @cell.id %>"></div>
 	<div class="wcms-editor" id="wcms-editor-<%= @cell.id %>" contenteditable="true">
 		<%= @cell.body.html_safe -%>
@@ -10,11 +10,10 @@
     	<%= link_to "Cancel", "#", class: "button warning small wcms-cell-cancel-btn", data: {row: @row.id, cell: @cell.id} -%>
     </div>
 	</div>
-
 	<%= form_for [:admin, @cell], :html => {:class => "form-inline hidden"}, :remote => true do |f| -%>
 		<%= f.text_field 'body', :class => 'wcms-hidden-input', :id => "cell_body_#{@cell.id}" -%>
 	<%- end -%>
 	<script>
 		CKEDITOR.disableAutoInline = true;
 	</script>	
-</div>
+

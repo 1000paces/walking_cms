@@ -1,11 +1,17 @@
+var $modal = $("#wcms-cell-modal");
+
 $(".wcms-work-cell, .wcms-header").removeClass('flipped');
 if($("#wcms-header .wcms-back").is(":visible")) {
 	$("#wcms-header").toggleClass('flipped');
 }
 
 $(".wcms-form-cell").empty();
-$("#wcms-header-form-<%= @page.id %>").html('<%= j render(:partial => "admin/headers/form_#{@form_type}") -%>');
-$("#wcms-header").toggleClass('flipped');
+$modal.html('<%= j render(:partial => "admin/headers/form_#{@form_type}") -%>');
+/*$("#wcms-header").toggleClass('flipped');*/
+
 
 $(".wcms-right-column").hide("slide", { direction: "right" }, 500);
 $("#wcms-wrapper").removeClass("drawer-visible");
+
+
+$modal.foundation('open');

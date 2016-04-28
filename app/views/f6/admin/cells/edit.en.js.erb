@@ -1,3 +1,7 @@
+
+<%- if 1==2 -%>
+$('#exampleModal1').foundation('open');
+
 $(".wcms-work-cell, .wcms-header").removeClass('flipped');
 if($("#wcms-cell-<%= @cell.id %> .wcms-back").is(":visible")) {
 	$("#wcms-cell-<%= @cell.id %>").toggleClass('flipped');
@@ -27,3 +31,24 @@ $("#wcms-cell-form-<%= @cell.id %>-x").html('<%= j render(:partial => "admin/cel
 	$("#wcms-cell-<%= @cell.id %>").toggleClass('flipped');
 <%- end -%>
 $(".wcms-cell-<%= @body_type %>").addClass('active');
+
+<%- end -%>
+
+var $modal = $("#wcms-cell-modal");
+$modal.html('<%= j render(:partial => "admin/cells/form_#{@body_type}") -%>')
+<%- if @body_type == 'text' -%>
+    CKEDITOR.disableAutoInline = true;
+		CKEDITOR.inline( "wcms-editor-<%= @cell.id %>", {
+			startupFocus: true,
+			skin: 'flat',
+			toolbar: 'main',			
+			extraPlugins: 'sharedspace',
+			removePlugins: 'floatingspace,resize',
+			sharedSpaces: {
+				top: 'wcms-editor-top-toolbar-<%= @cell.id %>',
+				bottom: 'wcms-editor-bottom-toolbar-<%= @cell.id %>'
+			}
+		});
+<%- end -%>
+
+$modal.foundation('open');

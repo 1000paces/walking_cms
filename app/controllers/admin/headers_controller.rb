@@ -26,7 +26,7 @@ class Admin::HeadersController < Admin::AdminController
 
     ###get scaled ratio
     scaled_by = placed_w.to_i / img[:width].to_f
-    Rails.logger.warn("\n\nScale is #{scaled_by}")
+   # Rails.logger.warn("\n\nScale is #{scaled_by}")
     if scaled_by > 0
       crop_x = (crop_x.to_i / scaled_by).to_i
       crop_y = (crop_y.to_i / scaled_by).to_i

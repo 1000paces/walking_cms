@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+	def cdn_css_motion_ui
+		"<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css' />".html_safe
+	end
+
 	def cdn_js_framework(v=nil)
 		if v == 'f6'
 			"<script src='//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.js'></script>".html_safe

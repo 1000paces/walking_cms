@@ -112,11 +112,9 @@ $(document).on("click", ".wcms-cell-text", function(e){
 $(document).on('click', ".wcms-cell-cancel-btn", function(e) {
 	console.log("7. Cancel the cell editor mode (.wcms-cell-cancel-btn)");
 	e.preventDefault();
-	var dataRow = $(this).attr('data-row');
-	var dataCell = $(this).attr('data-cell');
-	$("#wcms-cell-" + dataCell).toggleClass('flipped');
-	$(".wcms-header").removeClass("flipped");
-	$(".wcms-cell-toolbar-link").removeClass('active');
+	/*var dataRow = $(this).attr('data-row');
+	var dataCell = $(this).attr('data-cell');*/
+	$('#wcms-cell-modal').foundation('close');
 });	
 
 /*** Save the change from CKEDITOR for this cell ***/
@@ -174,11 +172,11 @@ $(document).on('click', function (e) {
     jcrop_object = $('#wcms-header-img').data('Jcrop')
 
     if(dataCell === undefined && dataPage === undefined) {
-    	console.log("13.2")
+    	console.log("13.2 dataCell and dataPage are undefined")
     	if(jcrop_object == null) {
-    		console.log("13.3")
+    		console.log("13.3 jcrop is null")
 				$("#wcms-cell-controls-header").hide('blind', {}, 500);
-				$(".wcms-cell-controls").fadeOut();
+				/*$(".wcms-cell-controls").fadeOut();*/
 			}
 
 			if($(e.target).closest(".wcms-above").length === 0) {
