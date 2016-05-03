@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-gem 'mysql2', '= 0.3.13'#, '~> 0.3.13'
+gem 'mysql2'#, '= 0.3.13'#, '~> 0.3.13'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -35,8 +35,8 @@ gem 'ckeditor_rails'
 gem 'nokogiri'#, '= 1.6.0' #### XML/HTML Parser
 gem 'remotipart', '~> 1.2' #~> 1.0.2' #### gem for multipart form uploads with jquery
 gem 'authlogic', '= 3.4.5' ####login manager
-gem 'engineyard'
-gem 'ey_config'
+#gem 'engineyard'
+#gem 'ey_config'
 gem 'acts_as_tree'
 gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'carrierwave'
