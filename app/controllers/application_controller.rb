@@ -69,6 +69,9 @@ class ApplicationController < ActionController::Base
     	prepend_view_path "#{Rails.root}/app/views/#{@user.setting.framework}"
     elsif !@owner.nil?
 			prepend_view_path "#{Rails.root}/app/views/#{@owner.setting.framework}"
+		else
+			prepend_view_path "#{Rails.root}/app/views/f6"
     end
+    
   end
 end

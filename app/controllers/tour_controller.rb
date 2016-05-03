@@ -1,4 +1,5 @@
 class TourController < ApplicationController
+
   def index
   	@user = User.new
   	Rails.logger.warn("\n\nTourController::show")
