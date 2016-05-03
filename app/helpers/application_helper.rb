@@ -46,15 +46,15 @@ module ApplicationHelper
 
 	def cms_icon(s=24)
 		#"<i class='fa fa-pencil fa-fw'></i>".html_safe
-		image_tag('stonewall_press.png', :size => "#{s}", :style => "display: inline-block;")
+		image_tag('1kp_studio_1000x113.png', :size => "#{s}", :style => "display: inline-block;")
 	end
 
 	def cms_logo
-		image_tag('stonewall_press.png', :class => "img-fluid", :style => "display: inline-block;")
+		image_tag('1kp_studio_1000x113.png', :class => "img-fluid", :style => "display: inline-block;")
 	end
 
 	def cms_brand
-		image_tag('stonewall_press_brand.png', :size => "145x30", :style => "display: inline-block;")
+		image_tag('1kp_studio_1000x113.png', :size => "145x30", :style => "display: inline-block;")
 	end
 end
 
