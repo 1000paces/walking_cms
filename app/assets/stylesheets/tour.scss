@@ -4,11 +4,17 @@
 
 body {
 	background-color: #e9eaed !important;
-  display: flex;
+  
 }
 
+.wcms-outer {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
 .wcms-container {
   background: #fff;
+  
   align-items: stretch;
   margin-left: auto;
   margin-right: auto;
