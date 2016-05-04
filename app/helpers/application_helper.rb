@@ -50,7 +50,7 @@ module ApplicationHelper
 	end
 
 	def cms_logo
-		image_tag('1kp_studio_1000x113.png', :class => "wcms-header-img")
+		image_tag('1kp_studio.png', :class => "wcms-header-img")
 	end
 
 	def cms_brand
