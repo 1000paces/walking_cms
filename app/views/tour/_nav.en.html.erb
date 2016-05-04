@@ -1,13 +1,17 @@
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-	<%= link_to "#", :class => "navbar-brand" do -%>
-		<%= cms_brand -%>
-	<%- end -%>	
-	<ul class="nav navbar-nav pull-xs-right">
-		<li class="nav-item"><%= link_to " Create Account ", new_admin_user_path, :class => "nav-link" -%></li>
-	</ul>
-	<%= form_for [:admin, @user], url: user_session_path, method: :post, html: { class: 'form-inline pull-xs-right', role: 'form' } do |f| %>
-		<div class="form-group"><%= f.text_field(:login, :class => "form-control", :placeholder => "Email") -%></div>
-		<div class="form-group"><%= f.password_field(:password, :class => "form-control", :placeholder => "Password") -%></div>
-		<div class="form-group"><%= f.submit ' Sign In ', class: 'btn btn-success' %></div>
-	<%- end -%>
-</nav>
+<div class="top-bar">
+
+	<div class="top-bar-right">
+		<ul class="menu">
+			<li><%= link_to " <i class='fa fa-sign-in'></i> Sign In ".html_safe, new_admin_user_path, :class => "button" -%></li>
+			<li><%= link_to " <i class='fa fa-plus'></i> Join ".html_safe, new_admin_user_path, :class => "button warning" -%></li>
+		</ul>
+	</div>
+	<div class="top-bar-left">
+		<ul class="menu">
+			<li><%= cms_name -%></li>
+			<li><%= link_to "About", "#" -%></li>
+			<li><%= link_to "Pricing", "#" -%></li>
+			<li><%= link_to "Portfolio", "#" -%></li>
+		</ul>
+	</div>
+</div>

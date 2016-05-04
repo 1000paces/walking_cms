@@ -41,7 +41,7 @@ module ApplicationHelper
 	end
 
 	def cms_name
-		"stonewall.press"
+		"1000paces.studio"
 	end
 
 	def cms_icon(s=24)
@@ -50,11 +50,11 @@ module ApplicationHelper
 	end
 
 	def cms_logo
-		image_tag('1kp_studio_1000x113.png', :class => "img-fluid", :style => "display: inline-block;")
+		image_tag('1kp_studio_1000x113.png', :class => "wcms-header-img")
 	end
 
 	def cms_brand
-		image_tag('1kp_studio_1000x113.png', :size => "145x30", :style => "display: inline-block;")
+		image_tag('1kp_studio_1000x113.png', :width => "145", :style => "display: inline-block;")
 	end
 end
 

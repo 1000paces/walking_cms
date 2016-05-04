@@ -1,10 +1,42 @@
-<%= render "nav" -%>
-<div id="container-fluid">
-	<div class="jumbotron jumbotron-fluid wcms-jumbotron-background">
-		<div class="container">
-			<h1 class="display-3 text-xs-center"><%= cms_logo -%></h1>
-			<p class="lead text-xs-center">A Rails & Foundation based Content Management System by 1000 Paces</p>
-			<p class="text-xs-center"><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+<div class="wcms-container">
+	<div class="row">
+		<div class="large-12 columns">
+			<h1 class="text-center"><%= cms_logo -%></h1>
+			<p class="lead text-center">A Rails & Foundation based Content Management System by 1000 Paces</p>
+			<p class="text-center">
+	
+				<%= link_to " <i class='fa fa-info-circle'></i> Learn More ".html_safe, tour_more_path, :class => "secondary button" -%>
+				<%= link_to " <i class='fa fa-sign-in'></i> Sign In ".html_safe, new_admin_user_path, :class => "button" -%>
+				<%= link_to " <i class='fa fa-plus'></i> Join ".html_safe, new_admin_user_path, :class => "button warning" -%>
+			</p>
+		</div>
+	</div>
+	<div class="row" data-equalizer data-equalize-on="medium">
+		<div class="medium-4 columns">
+			<div class="callout" data-equalizer-watch>
+				<h5>Flexible</h5>
+				<%= cms_name -%> uses a mobile-first front-end framework called Foundation for Sites create by the Zurb Foundation.  Build one website that works on phones, tablets, laptops and desktops.  No extra work.
+			</div>
+		</div>
+		<div class="medium-4 columns">
+			<div class="secondary callout" data-equalizer-watch>
+				<h5>Easy</h5>
+				Anyone who can use a word processor can build a website.  It's as simple as clicking a few buttons and typing out your thoughts.
+			</div>
+		</div>
+		<div class="medium-4 columns">
+			<div class="callout" data-equalizer-watch>
+				<h5>Attractive</h5>
+				Websites built with <%= cms_name -%> are clean, modern and fast, with a variety of templates to get you started.
+			</div>			
+		</div>
+	</div>
+	<div class="row">
+		<div class="medium-12 columns">
+			Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna.		
 		</div>
 	</div>
 </div>
+<script>
+  $(document).foundation();
+</script>

@@ -2,26 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.navbar .form-inline {
-	margin-left: 20px;
-	margin-right: 20px
-}
-
 body {
-	
+	background-color: #e9eaed !important;
+  display: flex;
 }
 
-.wcms-jumbotron-background {
-  margin-bottom: 0px;
-  background-image: url(path.png);
-  background-position: 0% 25%;
-  background-size: cover;
-  background-repeat: no-repeat;
+.wcms-container {
+  background: #fff;
+  margin: 10px;
+  align-items: stretch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.wcms-jumbotron-background h1, .wcms-jumbotron-background .lead {
-  color: white;
-  text-shadow: black 0.3em 0.3em 0.3em;
+.wcms-header-img {
+  padding: 10px;
 }
-
