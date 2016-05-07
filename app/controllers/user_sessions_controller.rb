@@ -9,17 +9,17 @@ class UserSessionsController < ApplicationController
 	end
 
 	def create
-		Rails.logger.warn("\n\nUserSessionsController::create\n\n")
+		#Rails.logger.warn("\n\nUserSessionsController::create\n\n")
 		@user_session = UserSession.new login_parameters#params.require(:user).permit(:login, :password)
 		if @user_session.save
-			Rails.logger.warn("#{@user_session.inspect}")
-			Rails.logger.warn("#{session[:user_credentials_id]}")
-			Rails.logger.warn("SHOULD BE A SESSION")
+		#	Rails.logger.warn("#{@user_session.inspect}")
+		#	Rails.logger.warn("#{session[:user_credentials_id]}")
+		#	Rails.logger.warn("SHOULD BE A SESSION")
 			flash[:notice] = "Login successful!"
 			#redirect_to user_path(session[:user_credentials_id])
 			redirect_to admin_home_path#(session[:user_credentials_id])
 		else
-			Rails.logger.warn("NO SESSION")
+		#	Rails.logger.warn("NO SESSION")
 			redirect_to new_user_session_path
 		end
 	end

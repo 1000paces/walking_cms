@@ -20,5 +20,6 @@ Rails.application.config.assets.precompile += %w(
 	f6/custom.css
 	b4/custom.css	
 	1kp_studio_1000x151.png
+	1kp_studio_1280x193.png
 )
 

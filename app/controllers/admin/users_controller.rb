@@ -2,8 +2,8 @@ class Admin::UsersController < Admin::AdminController
 
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
   #before_filter :require_user, only: [:show]
-  skip_before_action :set_user, :only => :new
-  skip_before_filter :require_user, :only => :new
+  skip_before_action :set_user, :except => :show
+  skip_before_filter :require_user, :only => [:new, :create]
 
 
   # GET /users
@@ -49,11 +49,11 @@ class Admin::UsersController < Admin::AdminController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to admin_home_path }
+        #format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        #format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -83,7 +83,7 @@ class Admin::UsersController < Admin::AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(params[:id]) unless params[:id].blank?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

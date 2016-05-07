@@ -1,0 +1,71 @@
+
+<div class="row wcms_push_down_20">
+  <div class="small-8 small-offset-2 columns">
+  <%= cms_logo -%>  
+    <div class="callout">
+      <h4>
+        <%- if @user.new_record? -%>
+          <i class="<%= User::NEW_ICON -%>"></i> Create Your Account
+        <%- else -%>
+          <i class="<%= User::ICON -%>"></i> Edit Your Account
+        <%- end -%>
+      </h4>
+
+      <%- if @user.new_record? -%>
+        Getting started with <%= cms_name -%> is completely free!  Create your account and start building your site right away.
+        <hr>
+      <%- end -%>
+      
+        <%= form_for [:admin, @user], html: { role: 'form' } do |f| %>
+          <% if 1==2 #if @user.errors.any? %>
+            <div id="error_explanation" class="alert alert-danger">
+              <strong><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</strong>
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="row">
+            <label for="user_first_name" class="small-6 columns">First Name
+              <%= f.text_field :first_name -%>
+            </label>
+          </div>
+          <div class="row">
+            <label for="user_last_name" class="small-7 columns">Last Name
+              <%= f.text_field :last_name-%>
+            </label>              
+          </div>
+          <div class="row">
+            <label for="user_login" class="small-10 columns">Email Address
+              <%= f.text_field :login -%>
+            </label>
+          </div>
+          <div class="row">
+            <label for="user_password" class="small-5 columns">Password
+              <%= f.password_field :password -%>
+            </label>
+          </div>
+          <div class="row">
+            <label for="user_password_confirmation" class="small-5 columns">Confirm
+              <%= f.password_field :password_confirmation -%>
+            </label>
+          </div>
+          <div class="row">
+            <div class="small-12 columns">
+              <%- if @user.new_record? -%>
+                <%= f.submit 'Create Account', class: 'button' %>
+                <%= link_to 'Cancel', root_path, :class => "warning button pull-right" %>
+              <%- else -%>
+                <%= f.submit 'Update Account', class: 'button' %>
+                <%= link_to 'Cancel', admin_settings_path, :title => "Cancel", :class => "warning button pull-right", :id => "cancel-button", :remote => true %>
+              <%- end -%>
+            </div>
+          </div>
+        <% end %>
+      
+    </div>
+  </div>
+</div>

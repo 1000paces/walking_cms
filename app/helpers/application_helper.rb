@@ -33,7 +33,7 @@ module ApplicationHelper
 	end
 
 	def cdn_css_font_awesome
-		"<link href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'>".html_safe
+		"<link href='//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css' rel='stylesheet'>".html_safe
 	end
 
 	def cdn_jquery_flip
@@ -46,15 +46,15 @@ module ApplicationHelper
 
 	def cms_icon(s=24)
 		#"<i class='fa fa-pencil fa-fw'></i>".html_safe
-		image_tag('1kp_studio_1000x113.png', :size => "#{s}", :style => "display: inline-block;")
+		image_tag('1kp_studio_1280x193.png', :size => "#{s}", :style => "display: inline-block;")
 	end
 
 	def cms_logo
-		image_tag('1kp_studio.png', :class => "wcms-header-img")
+		image_tag('1kp_studio_1280x193.png', :class => "wcms-header-img")
 	end
 
 	def cms_brand
-		image_tag('1kp_studio_1000x113.png', :width => "145", :style => "display: inline-block;")
+		image_tag('1kp_studio_1280x193.png', :width => "145", :style => "display: inline-block;")
 	end
 end
 
