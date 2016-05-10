@@ -266,13 +266,13 @@ div#wcms-sidebar-wrapper {
 
 /*$width-name: max-device-width*/
 @media screen and (max-width: 39.9375em) { #wcms-wrapper.drawer-visible #wcms-sidebar-wrapper {
-  	width: 320px;
+  	width: 310px;
 	}
 }
 
 .wcms-right-column {
 	padding-top: 36px;
-	min-width: 500px;
+	/*min-width: 500px;*/
 	display: none;
 }
 
@@ -281,7 +281,7 @@ div#wcms-sidebar-wrapper {
 	top: 0px;
 	padding-top: 36px;
 	left: 0;
-	width: 500px;
+	width: 100%;
 }
 
 #wcms-wrapper.drawer-visible #wcms-content-wrapper {
