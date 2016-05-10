@@ -12,7 +12,8 @@
 						<%= f.text_field :login, class: 'form-control', placeholder: 'Email Address' %>
 						<label class="show-for-sr" for="user_password">Password</label>
 						<%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
-						<%= f.submit 'Login', class: 'secondary button' %>
+						<%= f.submit 'Sign In'.html_safe, class: 'button' %>
+						<%= link_to 'Cancel', root_path, :class => "warning button pull-right" %>
 					<% end %>
 				</div>
 		</div>
