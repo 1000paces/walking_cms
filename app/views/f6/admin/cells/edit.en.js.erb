@@ -18,7 +18,7 @@ $("#wcms-cell-form-<%= @cell.id %>-x").html('<%= j render(:partial => "admin/cel
 		CKEDITOR.inline( "wcms-editor-<%= @cell.id %>", {
 			startupFocus: true,
 			skin: 'flat',
-			toolbar: 'main',			
+			toolbar: 'main',
 			extraPlugins: 'sharedspace',
 			removePlugins: 'floatingspace,resize',
 			sharedSpaces: {
@@ -41,7 +41,7 @@ $modal.html('<%= j render(:partial => "admin/cells/form_#{@body_type}") -%>')
 		CKEDITOR.inline( "wcms-editor-<%= @cell.id %>", {
 			startupFocus: true,
 			skin: 'flat',
-			toolbar: 'main',			
+			toolbar: 'main',
 			extraPlugins: 'sharedspace',
 			removePlugins: 'floatingspace,resize',
 			sharedSpaces: {

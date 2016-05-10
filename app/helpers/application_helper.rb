@@ -20,6 +20,10 @@ module ApplicationHelper
 		end
 	end
 
+	def cdn_ckeditor
+		"<script src='//cdn.ckeditor.com/4.5.8/standard/ckeditor.js'></script>".html_safe
+	end
+
 	def wcms_css(v='b3')		
 		stylesheet_link_tag("#{v}/sites", "#{v}/custom")
 	end
