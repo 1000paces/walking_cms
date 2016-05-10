@@ -239,6 +239,10 @@ div#wcms-content-wrapper {
 	background-color: #7f7f7f;
 }
 
+
+div.wcms-drawer-right {
+}
+
 div#wcms-sidebar-wrapper {
 	z-index: 2001;
 	position: absolute;
@@ -255,8 +259,15 @@ div#wcms-sidebar-wrapper {
 	transition: all 0.5s ease;
 }
 
-#wcms-wrapper.drawer-visible #wcms-sidebar-wrapper {
-  width: 500px;
+@media screen and (min-width: 40em) { #wcms-wrapper.drawer-visible #wcms-sidebar-wrapper {
+  	width: 500px;
+	}
+}
+
+/*$width-name: max-device-width*/
+@media screen and (max-width: 39.9375em) { #wcms-wrapper.drawer-visible #wcms-sidebar-wrapper {
+  	width: 30em;
+	}
 }
 
 .wcms-right-column {
