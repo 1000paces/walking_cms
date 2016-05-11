@@ -23,8 +23,8 @@ module WalkingCms
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.assets.precompile += ['jquery.min.js']
-    config.jquery_version = "1.11.3"
-    config.jquery_ui_version = "1.11.4"    
+    #config.assets.precompile += ['jquery.min.js']
+    #config.jquery_version = "1.11.3"
+    #config.jquery_ui_version = "1.11.4"    
   end
 end

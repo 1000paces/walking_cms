@@ -23,3 +23,4 @@ Rails.application.config.assets.precompile += %w(
 	1kp_studio_1280x193.png
 )
 
+Rails.application.config.assets.precompile += %w( ckeditor/* )
