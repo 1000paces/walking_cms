@@ -120,10 +120,15 @@ $(document).on('click', ".wcms-cell-cancel-btn", function(e) {
 /*** Save the change from CKEDITOR for this cell ***/
 $(document).on('click', ".wcms-save", function (e) {
 	console.log("8. Save the editor's content to the server");
+
 	var dataRow = $(this).attr('data-row');
 	var dataCell = $(this).attr('data-cell');
-	var bodyValue = $("#wcms-editor-" + dataCell).html();
-	$("#cell_body_" + dataCell).val(bodyValue);
+
+	var x = 'wcms-editor-' + dataCell;
+	var content = CKEDITOR.instances[x].getData();
+	
+	/*var bodyValue = $("#wcms-editor-" + dataCell).html();*/
+	$("#cell_body_" + dataCell).val(content);
 	$("#edit_cell_" + dataCell).submit();
 });
 

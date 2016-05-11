@@ -21,7 +21,6 @@
 
 //= require jquery.remotipart
 //= require jquery.Jcrop
-//= require ckeditor-jquery
 //= require jquery.mjs.nestedSortable
 //= require tether/tether
 //= require_tree .
