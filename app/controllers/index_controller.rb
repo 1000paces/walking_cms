@@ -6,7 +6,7 @@ class IndexController < ApplicationController
   def show
   	Rails.logger.warn("\n\nIndexController::show")
   	Rails.logger.warn(":id IS #{params[:id]}\n\n")
-  	if request.domain == "stonewall.dev"
+  	if ['1000paces.dev','1000paces.studio'].include?(request.domain)
   		@owner = User.new
   		redirect_to tour_index_path(params[:id])
   	else
@@ -28,7 +28,7 @@ class IndexController < ApplicationController
 
   def get_domain
     begin
-      @domain = Domain.find_by_name(request.domain) unless request.domain == "stonewall.dev"
+      @domain = Domain.find_by_name(request.domain) unless ['1000paces.dev','1000paces.studio'].include?(request.domain)
     rescue
       return nil
     end

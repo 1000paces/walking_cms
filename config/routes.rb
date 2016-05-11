@@ -31,7 +31,7 @@ Rails.application.routes.draw do
  end
 
 	#get 'welcome/index'
-	get '/' => "tour#index"
+	#get '/' => "tour#index"
 	resources :tour, only: [:index]
 	get "more" => "tour#more", :as => :tour_more
 	get '/(:id)' => "index#show", :as => :public
