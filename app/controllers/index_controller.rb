@@ -5,10 +5,11 @@ class IndexController < ApplicationController
 
   def show
   	Rails.logger.warn("\n\nIndexController::show")
-  	Rails.logger.warn(":id IS #{params[:id]}\n\n")
+  	Rails.logger.warn(":id IS #{params[:id]}")
+    Rails.logger.warn("DOMAIN IS #{request.domain}\n\n")
   	if ['1000paces.dev','1000paces.studio'].include?(request.domain)
   		@owner = User.new
-  		redirect_to tour_index_path(params[:id])
+  		redirect_to tour_index_path#(params[:id])
   	else
       begin
     		
