@@ -31,6 +31,7 @@ class Admin::UsersController < Admin::AdminController
 
   # GET /users/1/edit
   def edit
+    set_user
     case params[:pane]
 
     when 'domain'
@@ -61,6 +62,7 @@ class Admin::UsersController < Admin::AdminController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    set_user
     respond_to do |format|
       if @user.update(user_parameters)
         format.js { render :update }
