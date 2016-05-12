@@ -1,25 +1,28 @@
-<nav id="wcms-primary-navigation" class="navbar <%= @page.setting.nav_weight_class -%> <%= @page.setting.nav_class -%>" style="<%= @page.setting.nav_color_style -%>">
-  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
-    &#9776;
-  </button>
-	<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-		<ul class="nav navbar-nav">
-			<%- @owner.pages.nav_published.each do |p| -%>
-				<%- if p.is_menu?(true) -%>
-					<li id="wcms-page-<%= p.id %>" class="nav-item dropdown wcms-menu-link">
-						<%= link_to p.label.html_safe, public_path(p.permalink_or_id), :class => "nav-link dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
-						<div class="dropdown-menu" role="menu">
-							<%- p.children.menu_published.each do |c| -%>
-								<%= link_to c.label.html_safe, public_path(c.permalink_or_id), :class => "dropdown-item #{'active' if c.id == @page.id}", :id => "wcms-page-#{c.id}", :style => "#{@page.setting.nav_color_style if c.id == @page.id}" -%>
-							<%- end -%>
-						</div>
-					</li>
-				<%- else -%>
-					<li class="nav-item wcms-menu-link <%= 'active' if p.id == @page.id -%>" id="wcms-page-<%= p.id %>">
-						<%= link_to p.label.html_safe, public_path(p.permalink_or_id), :class => "nav-link" -%>
-					</li>
+
+<div id="wcms-nav-<%= @page.id %>" class="top-bar <%= @page.setting.nav_weight_class -%> <%= @page.setting.nav_class -%> <%= @page.setting.overlapped -%>" style="<%= @page.setting.nav_color_style -%>">
+  <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="<%= @page.setting.nav_weight_class=='navbar-dark' ? 'dark' : 'light' -%>" type="button" data-toggle>&#9776;</button>
+  </span>
+	<div id="responsive-menu">
+		<div class="">
+			<ul class="dropdown menu" style="background-color: transparent;" data-dropdown-menu data-click-open=true data-disable-hover=true>
+				<%- @owner.pages.nav_published.each do |p| -%>
+					<%- if p.is_menu?(false) -%>
+						<li id="wcms-page-<%= p.id %>">
+							<%= link_to p.label.html_safe, "#", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false" -%>
+							<ul class="menu vertical" role="menu" style="<%= @page.setting.nav_color_style -%>">
+								<%- p.children.menu_published.each do |c| -%>
+									<li><%= link_to c.label.html_safe, public_path(c.permalink_or_id), :class => "dropdown-item #{'active' if c.id == @page.id}", :id => "wcms-page-#{c.id}", :style => "#{@page.setting.nav_color_style if c.id == @page.id}" -%></li>
+								<%- end -%>
+							</ul>
+						</li>
+					<%- else -%>
+						<li class="wcms-menu-link <%= 'active' if p.id == @page.id -%>" id="wcms-page-<%= p.id %>">
+							<%= link_to p.label.html_safe, public_path(p.permalink_or_id), :class => "nav-link" -%>
+						</li>
+					<%- end -%>
 				<%- end -%>
-			<%- end -%>
-		</ul>
+			</ul>
+		</div>
 	</div>
-</nav>
+</div>

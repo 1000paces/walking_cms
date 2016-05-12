@@ -1,14 +1,14 @@
-<div id="wcms-primary-navigation" class="col-md-2">
-	<ul class="nav nav-pills nav-stacked <%= @page.setting.nav_weight_class -%>">
+<div id="wcms-primary-navigation" class="medium-2 columns wcms-nav-spacer">
+	<ul class="menu vertical dropdown nav-pills <%= @page.setting.nav_weight_class -%>" style="background-color: transparent;" data-dropdown-menu data-click-open=true data-disable-hover=true data-alignment="<%= side -%>">
 		<%- @owner.pages.nav_published.each do |p| -%>
 			<%- if p.is_menu?(true) -%>
-				<li id="wcms-page-<%= p.id %>" class="nav-item dropdown wcms-menu-link">
-					<%= link_to p.label_with_status.html_safe, public_path(p.permalink_or_id), :class => "nav-link dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false", :style => "#{@page.setting.nav_color_style}" -%>
-					<div class="dropdown-menu" role="menu">
+				<li id="wcms-page-<%= p.id %>" class="nav-item wcms-menu-link">
+					<%= link_to p.label_with_status.html_safe, "#", :class => "nav-link dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false", :style => "#{@page.setting.nav_color_style}" -%>
+					<ul class="menu vertical dropdown-menu" role="menu">
 						<%- p.children.menu_published.each do |c| -%>
-							<%= link_to c.label_with_status.html_safe, public_path(c.permalink_or_id), :class => "dropdown-item #{'active' if c.id == @page.id}", :id => "wcms-page-#{c.id}", :style => "#{@page.setting.nav_color_style if c.id == @page.id}" -%>
+							<li><%= link_to c.label_with_status.html_safe, public_path(c.permalink_or_id), :class => "dropdown-item #{'active' if c.id == @page.id}", :id => "wcms-page-#{c.id}", :style => "#{@page.setting.nav_color_style if c.id == @page.id}" -%></li>
 						<%- end -%>
-					</div>
+					</ul>
 				</li>
 			<%- else -%>
 				<li class="nav-item wcms-menu-link" id="wcms-page-<%= p.id %>" >

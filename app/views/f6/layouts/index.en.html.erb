@@ -18,6 +18,10 @@
 		
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true -%>
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true -%>
+		<%= wcms_css(@owner.setting.framework) -%>
+		<%= cdn_js_framework(@owner.setting.framework) -%>
+		<%= cdn_css_framework(@owner.setting.framework) -%>
+
 		<%= cdn_css_font_awesome -%>
 
 		<style>
@@ -40,5 +44,9 @@
 		<div id="wcms-custom-font" style="display: none;">
 			<%= render(:partial => "admin/pages/font") -%>
 		</div>
+
+    <script>
+      $(document).foundation();
+    </script>		
 	</body>
 </html>

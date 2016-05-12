@@ -1,7 +1,7 @@
 <div id="wcms-nav-<%= @page.id %>" class="top-bar <%= @page.setting.nav_weight_class -%> <%= @page.setting.nav_class -%> <%= @page.setting.overlapped -%>" style="<%= @page.setting.nav_color_style -%>">
 	<div class="top-bar-title">
     <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
-      <button class="menu-icon <%= @page.setting.nav_weight_class=='navbar-dark' ? 'dark' : 'light' -%>" type="button" data-toggle></button>
+      <button class="<%= @page.setting.nav_weight_class=='navbar-dark' ? 'dark' : 'light' -%>" type="button" data-toggle>&#9776;</button>
     </span>
   </div>
   <div id="responsive-menu">

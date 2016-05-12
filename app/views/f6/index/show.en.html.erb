@@ -2,7 +2,7 @@
 	<div class="<%= @page.setting.container_type -%> wcms-full-height-container">
 		<%= render :partial => "header", :locals => {:page => @page} -%>
 		<div class="row wcms-master-row">
-			<%= render :partial => "nav_vertical" if @page.setting.nav_location == 6 -%>
+			<%= render :partial => "nav_vertical", :locals => {:side => 'left'} if @page.setting.nav_location == 6 -%>
 			<div class="medium-<%= @page.setting.nav_location >= 4 ? '10' : '12' %>" id="wcms-work-area">
 				<div class="row" id="wcms-navigation-row">
 					<div class="medium-12 navigation-zone" id="wcms-navigation-row-inner">
@@ -18,7 +18,7 @@
 					<div class="medium-12 footer-zone zone" id="footer-row"></div>
 				</div>
 			</div>
-			<%= render :partial => "nav_vertical" if @page.setting.nav_location == 7 -%>
+			<%= render :partial => "nav_vertical", :locals => {:side => 'right'} if @page.setting.nav_location == 7 -%>
 		</div>
 	</div>
 </div>
