@@ -39,6 +39,8 @@ gem 'authlogic', '= 3.4.5' ####login manager
 #gem 'ey_config'
 gem 'acts_as_tree'
 gem 'acts-as-taggable-on', '~> 3.4.2'
+gem 'fog'
+gem 'fog-aws'
 gem 'carrierwave'
 gem 'jcrop-rails-v2'
 
