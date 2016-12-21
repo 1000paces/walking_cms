@@ -1,4 +1,6 @@
 $("#wcms-form-box").html("<%= j render(:partial => 'form') -%>");
-$(".wcms-right-column").hide("slide", { direction: "left" }, 750, function() {
-	$("#wcms-form-box").show("slide", { direction: "right" }, 750);
+$(".wcms-right-column").hide("slide", { direction: "left" }, 500, function() {
+	$("#wcms-form-box").show("slide", { direction: "right" }, 500, function() {
+		$("#wcms-drawer-pages").hide();
+	});
 });

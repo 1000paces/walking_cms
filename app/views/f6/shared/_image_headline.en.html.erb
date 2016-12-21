@@ -1,5 +1,5 @@
 <div class="card wcms-cardless">
-	<%= image_tag cell.image_url.to_s, :class => "img-fluid img-#{cell.shape}" -%>
+	<%= cl_image_tag cell.image_url.to_s, :class => "img-fluid img-#{cell.shape}" -%>
 	<%- if cell.show_headline? -%>
 		<small><%= cell.headline -%></small>
 	<%- end -%>

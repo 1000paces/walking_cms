@@ -1,5 +1,5 @@
 <div class="<%= cell.variant_class -%> <%= cell.background_contrast_class -%>" style="<%= cell.background_color_style -%>">
-  <img class="card-img-top img-fluid squared" src="<%= cell.image_url.to_s -%>" alt="Card image cap">
+  <%= cl_image_tag cell.image_url.to_s, class: "card-img-top img-fluid squared", alt: "card image cap" -%>
   <div class="callout-block">
     <h4 class="card-title"><%= cell.headline -%></h4>
     <p class="card-text"><%= cell.body.html_safe -%></p>

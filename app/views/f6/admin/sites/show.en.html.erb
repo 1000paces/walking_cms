@@ -1,8 +1,8 @@
-<div id="wcms-wrapper">
+<div id="wcms-wrapper" class="">
 	<div id="wcms-content-wrapper">
 		<%= render :partial => 'admin/pages/show' -%>
 	</div>
-	<%= render :partial => "admin/pages/drawer_right" -%>	
+	<%= render :partial => "admin/pages/drawer_right" -%>
 </div>
 <div id="wcms-hidden-forms" style="display: none;">
 	<%= render :partial => "shared/form_row_new", :locals => { page: @page } -%>
@@ -11,4 +11,6 @@
 	<%= render :partial => "shared/form_page_restore", :locals => { page: @page } -%>
 	<%= render :partial => "admin/cells/modal" -%>
 </div>
+
+
 

@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.2'
+#gem 'rails', '4.2.5.2'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 gem 'mysql2'#, '= 0.3.13'#, '~> 0.3.13'
@@ -30,18 +32,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'jquery-minicolors-rails'
 
 gem 'dalli'  #### Memcached 
-gem 'mini_magick' #### Image Magik
+#gem 'mini_magick' #### Image Magik
 gem 'ckeditor_rails'
 gem 'nokogiri'#, '= 1.6.0' #### XML/HTML Parser
 gem 'remotipart', '~> 1.2' #~> 1.0.2' #### gem for multipart form uploads with jquery
-gem 'authlogic', '= 3.4.5' ####login manager
+gem 'authlogic'#, '= 3.4.5' ####login manager
 #gem 'engineyard'
 #gem 'ey_config'
 gem 'acts_as_tree'
-gem 'acts-as-taggable-on', '~> 3.4.2'
-gem 'fog'
-gem 'fog-aws'
+gem 'acts-as-taggable-on'#, '~> 3.4.2'
+#gem 'fog'
+#gem 'fog-aws'
 gem 'carrierwave'
+gem 'cloudinary'
 gem 'jcrop-rails-v2'
 
 # Use ActiveModel has_secure_password

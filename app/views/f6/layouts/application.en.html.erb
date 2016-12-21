@@ -36,6 +36,8 @@
 
 	  <%= csrf_meta_tags -%>
 	</head>
+	
+
 	<%- if @user.new_record? -%>
 		<body class="wcms-navbar-fixed-top">
 	<%- elsif @user && @page.nil? -%>
@@ -43,7 +45,6 @@
 	<%- else -%>
 		<body class="wcms-flex <%= @page.setting.background_class -%> <%= @page.setting.nav_class(true) -%> <%= @page.setting.overlap_style -%>">
 	<%- end -%>
-		<%- unless @page.nil? -%><%- end -%>
 		<%= yield %>
 		<div id="wcms-custom-font" style="display: none;">
 			<%= render(:partial => "admin/pages/font") -%>

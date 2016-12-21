@@ -1,27 +1,25 @@
-<div class="wcms-drawer wcms-drawer-right">
-	<div id="wcms-sidebar-wrapper">
-		<div class="wcms-right-column" id="wcms-drawer-assets">
-			<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, admin_assets_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>		
-			<h4 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-archive"></i> Assets</h4>
-			<div id="assets-index-div"></div>
-		</div>
-		<div class="wcms-right-column" id="wcms-drawer-settings">
-			<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, admin_settings_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
-			<h4 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-cog"></i> Settings</h4>
-			<div id="settings-index-div"></div>
-		</div>
-		<div class="wcms-right-column" id="wcms-drawer-pages">
-			<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, admin_pages_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
-			<h4 class="lead text-center wcms-white-text"><i class="<%= Page::ICON -%>"></i> Pages</h4>
-			<div id="pages-index-div">
-				<%= render(:partial => 'admin/pages/index') -%>
-			</div>
-		</div>
-		<div class="wcms-right-column" id="wcms-drawer-help">
-			<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, admin_help_index_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
-			<h4 class="lead text-center wcms-white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h4>
-			<div id="help-index-div"></div>
-		</div>
-		<div class="wcms-form-box" id="wcms-form-box" style="display: none;"></div>		
+<div id="wcms-sidebar-wrapper">
+	<div class="wcms-right-column" id="wcms-drawer-assets">
+		<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, admin_assets_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>		
+		<h4 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-archive"></i> Assets</h4>
+		<div id="assets-index-div"></div>
 	</div>
+	<div class="wcms-right-column" id="wcms-drawer-settings">
+		<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, admin_settings_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
+		<h4 class="lead text-center wcms-white-text"><i class="fa fa-fw fa-cog"></i> Settings</h4>
+		<div id="settings-index-div"></div>
+	</div>
+	<div class="wcms-right-column" id="wcms-drawer-pages">
+		<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, admin_pages_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
+		<h4 class="lead text-center wcms-white-text"><i class="<%= Page::ICON -%>"></i> Pages</h4>
+		<div id="pages-index-div">
+			<%= render(:partial => 'admin/pages/index') -%>
+		</div>
+	</div>
+	<div class="wcms-right-column" id="wcms-drawer-help">
+		<%= link_to "<i class='fa fa-fw fa-times'></i>".html_safe, admin_help_index_path, :title => "Close", :class => "wcms-sidebar-link wcms-close-drawer-link", :remote => true -%>
+		<h4 class="lead text-center wcms-white-text"><i class="<%= HelpTopic::ICON -%>"></i> Help</h4>
+		<div id="help-index-div"></div>
+	</div>
+	<div class="wcms-form-box" id="wcms-form-box" style="display: none;"></div>		
 </div>

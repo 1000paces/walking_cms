@@ -1,7 +1,7 @@
 <div class="wcms-header wcms-live" id="wcms-header" data-page="<%= page.id -%>">
 	<div class="card">
 		<%- unless page.setting.image.blank? -%>
-			<%= image_tag page.setting.image_url.to_s, :class => "card-img img-fluid center-block img-#{page.setting.shape}", :id => "wcms-header-img" -%>
+			<%= cl_image_tag page.setting.image_url.to_s, :class => "card-img img-fluid center-block img-#{page.setting.shape}", :id => "wcms-header-img" -%>
 			<div class="card-img-overlay" style="<%= page.setting.text_color_style -%>">
 		<%- else -%>
 			<div class="card-block">

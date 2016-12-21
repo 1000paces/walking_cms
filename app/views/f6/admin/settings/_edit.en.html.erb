@@ -4,17 +4,17 @@
 </h4>
 <%= form_for [:admin, @setting], :html => {:class => "wcms-sidebar-form", role: 'form'}, :remote => true do |f| -%>
 	<div class="small button-group">
-		<%= f.radio_button :fluid, true -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_true">Fluid Layout</label>
-		<%= f.radio_button :fluid, false -%><label class="wcms-fluid button secondary" for="page_setting_attributes_fluid_false">Static Layout</label>
+		<%= f.radio_button :fluid, true -%><label class="wcms-fluid button secondary" for="setting_fluid_true">Fluid Layout</label>
+		<%= f.radio_button :fluid, false -%><label class="wcms-fluid button secondary" for="setting_fluid_false">Static Layout</label>
 	</div>
 	<fieldset class="form-group">
 		<label class="small form-control-label wcms-form-label wcms-white-text" for="setting_font_id">Font</label>
 		<%= f.select(:font_id, Font.alpha_collection, {}, {:class => "form-control form-control-sm"}) %>
 	</fieldset>	
 	<div class="small button-group">
-		<%= f.radio_button :font_weight, 100 -%><label class="wcms-font wcms-thin button secondary" for="page_setting_attributes_font_weight_100">Thin Font</label>
-		<%= f.radio_button :font_weight, 400 -%><label class="wcms-font wcms-normal button secondary" for="page_setting_attributes_font_weight_400">Normal Font</label>
-		<%= f.radio_button :font_weight, 700 -%><label class="wcms-font wcms-heavy button secondary" for="page_setting_attributes_font_weight_700">Heavy Font</label>
+		<%= f.radio_button :font_weight, 100 -%><label class="wcms-font wcms-thin button secondary" for="setting_font_weight_100">Thin Font</label>
+		<%= f.radio_button :font_weight, 400 -%><label class="wcms-font wcms-normal button secondary" for="setting_font_weight_400">Normal Font</label>
+		<%= f.radio_button :font_weight, 700 -%><label class="wcms-font wcms-heavy button secondary" for="setting_font_weight_700">Heavy Font</label>
 	</div> 
 	<fieldset class="form-group">
 		<label class="small wcms-white-text" for="setting_nav_location">Navigation Location</label>

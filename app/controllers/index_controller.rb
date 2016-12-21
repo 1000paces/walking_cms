@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
-  before_filter :get_domain
-  before_filter :get_owner
-  before_filter :set_view_path
+  before_action :get_domain
+  before_action :get_owner
+  before_action :set_view_path
 
   def show
   	Rails.logger.warn("\n\nIndexController::show")

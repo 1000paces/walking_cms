@@ -1,9 +1,9 @@
 class Admin::UsersController < Admin::AdminController
 
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
-  #before_filter :require_user, only: [:show]
+  #before_action :require_user, only: [:show]
   skip_before_action :set_user, :except => :show
-  skip_before_filter :require_user, :only => [:new, :create]
+  skip_before_action :require_user, :only => [:new, :create]
 
 
   # GET /users

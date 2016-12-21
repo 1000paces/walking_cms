@@ -6,7 +6,7 @@ module ApplicationHelper
 
 	def cdn_js_framework(v=nil)
 		if v == 'f6'
-			"<script src='//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.js'></script>".html_safe
+			"<script src='//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.js'></script>".html_safe
 		else
 			"<script src='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js'></script>".html_safe
 		end
@@ -14,7 +14,7 @@ module ApplicationHelper
 
 	def cdn_css_framework(v=nil)
 		if v == 'f6'
-			"<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.css'>".html_safe
+			"<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.css'>".html_safe
 		else
 			"<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css'>".html_safe
 		end

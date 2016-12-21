@@ -1,11 +1,11 @@
 <%- if cell.variant == 0 -%>
-	<%= image_tag cell.image_url.to_s, :class => "img-fluid img-#{cell.shape}" -%>
+	<%= cl_image_tag cell.image_url.to_s, :class => "img-fluid img-#{cell.shape}" -%>
   <div class="">
     <%= cell.body.html_safe -%>
   </div>
 <%- else -%>
 	<div class="<%= cell.variant_class -%> <%= cell.background_contrast_class -%>" style="<%= cell.background_color_style -%>">
-	  <img class="card-img-top img-fluid" src="<%= cell.image_url.to_s -%>" alt="Card image cap">
+    <%= cl_image_tag cell.image_url.to_s, class: "card-img-top img-fluid", alt: "card imag cap" -%>
 	  <div class="card-block">
 	    <%= cell.body.html_safe -%>
 	  </div>

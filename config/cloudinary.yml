@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: onekp
+  api_key: '677968919763737'
+  api_secret: kp8M0iALGWzcpJn0j0HNd4_WGCk
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: onekp
+  api_key: '677968919763737'
+  api_secret: kp8M0iALGWzcpJn0j0HNd4_WGCk
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: onekp
+  api_key: '677968919763737'
+  api_secret: kp8M0iALGWzcpJn0j0HNd4_WGCk
+  enhance_image_tag: true
+  static_image_support: false
