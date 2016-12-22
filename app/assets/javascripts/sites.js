@@ -17,6 +17,7 @@ $(document).on('click', '.wcms-cell', function(e){
 		
 		$("#wcms-header-crop").removeClass("hidden");
 		$("#wcms-crop-save").addClass("hidden");
+		$("#wcms-crop-reset").addClass("hidden");
 		$("#wcms-crop-cancel").addClass("hidden");
 		try { $('#wcms-header-img').data('Jcrop').destroy(); }
 		catch(err) { console.log("No Jcrop") }
@@ -220,6 +221,7 @@ $(document).on('click', "#wcms-header-crop", function(e) {
 	$("#wcms-header-crop").addClass("hidden");
 	$("#wcms-crop-save").removeClass("hidden");
 	$("#wcms-crop-cancel").removeClass("hidden");
+	$("#wcms-crop-reset").removeClass("hidden");
 	$("#wcms-img-overlay").fadeOut();
 	$(".wcms-overlapped-header").fadeOut();
 
@@ -237,12 +239,22 @@ $(document).on('click', "#wcms-crop-cancel", function(e) {
 	$("#wcms-header-crop").removeClass("hidden");
 	$("#wcms-crop-save").addClass("hidden");
 	$("#wcms-crop-cancel").addClass("hidden");
+	$("#wcms-crop-reset").addClass("hidden");
 	try { $('#wcms-header-img').data('Jcrop').destroy(); }
 	catch(err) { console.log("No Jcrop") }
   $('#wcms-header-img').removeAttr('style');
   $("#wcms-img-overlay").fadeIn();
 	$(".wcms-overlapped-header").fadeIn();
 });
+
+$(document).on('click', "#wcms-crop-reset", function(e) {
+	console.log("16.55 Reset to the original image");
+	e.preventDefault();
+	$("#scale").val("nil");
+	$("#wcms-crop-form").submit();
+});
+
+
 
 function update_crop(coords) {
   var rx = 100/coords.w;

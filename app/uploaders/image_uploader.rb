@@ -17,7 +17,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   #else
   #  storage :fog
   #end
- 
+  version :cropped do
+    process :crop_and_scale
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -60,6 +62,22 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def extension_white_list
     %w(jpg jpeg gif png)
+  end
+
+  private
+
+  def crop_and_scale
+    params = []
+
+    params << {
+      width: model.w1.to_i,
+      height: model.h1.to_i,
+      x: model.x1.to_i,
+      y: model.y1.to_i,
+      crop: "crop"
+    }
+
+    {:transformation => params}    
   end
 
 

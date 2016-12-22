@@ -3,12 +3,13 @@
 	<%= link_to "<i class='fa fa-fw fa-adjust'></i>".html_safe, admin_edit_headers_path(page, "style"), :class => "nav-link wcms-cell-link", :title => "Edit Header Style", :data => {:page => page.id}, :remote => true -%>
 	<%- unless page.setting.image.blank? -%>
 		<%= link_to "<i class='fa fa-fw fa-crop'></i>".html_safe, "#", id: "wcms-header-crop", class: "nav-link wcms-cell-link", title: "Crop Header Image", data: {:page => page.id} -%>
-		<%= link_to "<i class='fa fa-floppy-o'></i>".html_safe, "#", id: "wcms-crop-save", class: "nav-link wcms-cell-link hidden" -%>
-		<%= link_to "<i class='fa fa-undo'></i>".html_safe, "#", id: "wcms-crop-cancel", class: "nav-link wcms-cell-link hidden" -%>
+		<%= link_to "<i class='fa fa-floppy-o'></i>".html_safe, "#", id: "wcms-crop-save", class: "nav-link wcms-cell-link hidden", title: "Save" -%>
+		<%= link_to "<i class='fa fa-ban'></i>".html_safe, "#", id: "wcms-crop-cancel", class: "nav-link wcms-cell-link hidden", title: "Cancel" -%>
+		<%= link_to "<i class='fa fa-undo'></i>".html_safe, "#", id: "wcms-crop-reset", class: "nav-link wcms-cell-link hidden", title: "Reset to original image" -%>
 
 		<%= form_for [:admin, page], url: admin_header_path(page), html: { class: "wcms-crop-form", id: "wcms-crop-form" } do |f| -%>
 			<%= f.fields_for :setting, page.setting do |b| -%>
-				<%- for attribute in [:crop_x, :crop_y, :crop_w, :crop_h, :placed_w, :placed_h] -%>	
+				<%- for attribute in [:crop_x, :crop_y, :crop_w, :crop_h, :placed_w, :placed_h, :scale] -%>	
 					<%= b.hidden_field attribute, :id => attribute -%>
 				<%- end -%>
 			<%- end -%>

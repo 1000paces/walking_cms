@@ -340,7 +340,28 @@ class Cell < ActiveRecord::Base
 		else
 			'wcms-no-card'
 		end		
-
 	end
+
+	def update_dimensions 
+	  if self.image.present? && self.image.metadata.present? 
+	    w = self.image.metadata["width"]
+	    h = self.image.metadata["height"]
+	    self.update_column(:image_width, w)
+	    self.update_column(:image_height, h)
+	  end 
+	end
+
+	def update_public_id
+		if self.public_id.nil?
+			if self.image && self.image.file
+				p = self.image.file.public_id
+				self.update_column(:public_id, p)
+			end
+		end
+	end
+
+	def destroy_cloudinary_image
+		Cloudinary::Uploader.destroy(self.public_id)
+	end		
 
 end

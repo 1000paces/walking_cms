@@ -4,7 +4,11 @@
 			<div class="wcms-face wcms-front">
 				<div class="card">
 					<%- unless page.setting.image.blank? -%>
-						<%= cl_image_tag page.setting.image_url.to_s, :class => "img-responsive center-block img-#{page.setting.shape}", :id => "wcms-header-img" -%>
+						<%- if page.setting.is_cropped? -%>	
+							<%= cl_image_tag page.setting.image_url(:cropped), :class => "img-responsive center-block img-#{page.setting.shape}", :id => "wcms-header-img" -%>
+						<%- else -%>
+							<%= cl_image_tag page.setting.image_url, :class => "img-responsive center-block img-#{page.setting.shape}", :id => "wcms-header-img" -%>
+						<%- end -%>
 						<div class="card-img-overlay"id="wcms-img-overlay" style="<%= page.setting.text_color_style -%>">
 					<%- else -%>
 						<div class="card-block">
